@@ -1,0 +1,19 @@
+--- 
+title: "CH12002 Lecture Notes"
+author: "Benjamin J. Morgan"
+date: "`r Sys.Date()`"
+site: bookdown::bookdown_site
+documentclass: book
+bibliography: [book.bib, packages.bib]
+# url: your book url like https://bookdown.org/yihui/bookdown
+# cover-image: path to the social sharing image like images/cover.jpg
+description: |
+  These are notes to accompany the 2025 CH12002 lecture course on Chemical Kinetics.
+link-citations: yes
+github-repo: rstudio/bookdown-demo
+---
+
+# About {-}
+
+These notes accompany the 2025 CH12002 lecture course on Chemical Kinetics.
+
