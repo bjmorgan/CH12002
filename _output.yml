@@ -4,8 +4,8 @@ bookdown::gitbook:
     toc:
       collapse: section
       before: |
-        <li><a href="./">CH22008</a></li>
-    edit: https://github.com/bjmorgan/CH22008/main/%s
+        <li><a href="./">CH12002</a></li>
+    edit: https://github.com/bjmorgan/CH12002/main/%s
     mathjax:
       extensions: ["mhchem.js"]  # Add this line
     mathjax_config:

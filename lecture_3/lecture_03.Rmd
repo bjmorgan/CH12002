@@ -1,0 +1,182 @@
+# Simple Integrated Rate Laws
+
+## From Mechanism to Mathematical Model
+
+The relationship between reaction mechanisms and kinetic behavior requires systematic mathematical analysis. In our previous lecture, we examined unimolecular decomposition reactions, starting with experimental data that showed exponential decay in concentration. By proposing an exponential model and differentiating, we demonstrated consistency with first-order kinetics—a mathematical signature of unimolecular mechanisms.
+
+While illuminating, this approach relied heavily on choosing the correct model function. Different functions with similar shapes would have yielded different rate laws upon differentiation, potentially inconsistent with the known unimolecular mechanism. This highlights a key limitation of working from data to mechanism.
+
+```{r mechanism-approach, fig.cap="Comparison of approaches to kinetic analysis. (a) Data-first approach: fitting and differentiation. (b) Mechanism-first approach: integration and comparison with data."}
+# Insert comparison diagram from slides
+```
+
+## Systematic Kinetic Analysis
+
+In practice, kinetic analysis typically proceeds in the opposite direction:
+
+1. Propose a plausible reaction mechanism
+2. Write down the corresponding differential rate law
+3. Integrate this rate law to obtain an integrated rate law
+4. Compare this integrated rate law with experimental data
+
+This systematic approach provides a rigorous test of mechanistic hypotheses. When experimental data match our derived integrated rate law, we have evidence supporting our proposed mechanism. Equally importantly, when they don't match, we can conclusively reject that mechanism and must consider alternatives.
+
+## Simple Integrated Rate Laws
+
+We focus here on simple integrated rate laws—those corresponding to single-step reaction mechanisms. For any such mechanism, our analysis follows these steps:
+
+1. Propose a single-step mechanism
+2. Write the differential rate law
+3. Integrate to obtain the integrated rate law
+4. Rearrange into linear form
+5. Compare with experimental data
+
+```{r analysis-steps, fig.cap="Flowchart showing the progression from mechanism proposal through mathematical analysis to experimental validation."}
+# Insert flowchart from slides
+```
+
+The linear form proves particularly useful because it allows straightforward graphical analysis: if experimental data plotted in this form give a straight line, the data are consistent with our proposed mechanism.
+
+## Zeroth-Order Kinetics
+
+For a zeroth-order mechanism, where rate is independent of concentration:
+
+$$\frac{\mathrm{d}[\mathrm{A}]}{\mathrm{d}t} = -k$$
+
+To obtain the integrated rate law:
+
+1. Rearrange into integral form:
+
+$$\int_{[\mathrm{A}]_0}^{[\mathrm{A}]_t} \mathrm{d}[\mathrm{A}] = \int_0^t -k\,\mathrm{d}t$$
+
+2. Integrate both sides:
+
+$$[[\mathrm{A}]]_{[\mathrm{A}]_0}^{[\mathrm{A}]_t} = [-kt]_0^t$$
+
+3. Apply limits:
+
+$$[\mathrm{A}]_t - [\mathrm{A}]_0 = -kt$$
+
+4. Rearrange to obtain the integrated rate law:
+
+$$[\mathrm{A}]_t = [\mathrm{A}]_0 - kt$$
+
+This is already in linear form. 
+
+This equation tells us that if our reaction follows zeroth-order kinetics, then a plot $[\mathrm{A}]_t$ versus $t$ should give a straight line with slope = $-k$ and intercept = $[\mathrm{A}]_0$.
+
+```{r zeroth-order-plot, fig.cap="Zeroth-order kinetics showing linear decrease in concentration with time. Slope equals the negative rate constant -k."}
+# Insert plot from slides
+```
+
+## First-Order Kinetics
+
+For a unimolecular mechanism:
+
+$$\frac{\mathrm{d}[\mathrm{A}]}{\mathrm{d}t} = -k[\mathrm{A}]$$
+
+1. Separate variables:
+
+$$\frac{\mathrm{d}[\mathrm{A}]}{[\mathrm{A}]} = -k\,\mathrm{d}t$$
+
+2. Set up integral equation:
+
+$$\int_{[\mathrm{A}]_0}^{[\mathrm{A}]_t} \frac{\mathrm{d}[\mathrm{A}]}{[\mathrm{A}]} = \int_0^t -k\,\mathrm{d}t$$
+
+3. Integrate both sides:
+
+$$[\ln[\mathrm{A}]]_{[\mathrm{A}]_0}^{[\mathrm{A}]_t} = [-kt]_0^t$$
+
+4. Apply limits:
+
+$$\ln[\mathrm{A}]_t - \ln[\mathrm{A}]_0 = -kt$$
+
+5. Express as the integrated rate law:
+
+$$\ln[\mathrm{A}]_t = \ln[\mathrm{A}]_0 - kt$$
+
+This linear form shows that plotting $\ln[\mathrm{A}]_t$ versus $t$ gives slope = $-k$ and intercept = $\ln[\mathrm{A}]_0$.
+
+```{r first-order-plot, fig.cap="First-order kinetics showing (a) exponential decay in concentration and (b) linearized plot of ln[A] versus time."}
+# Insert plots from slides
+```
+
+## Second-Order Kinetics
+
+For a bimolecular mechanism with identical molecules:
+
+$$\frac{d[\mathrm{A}]}{dt} = -k[\mathrm{A}]^2$$
+
+1. Separate variables:
+
+$$\frac{\mathrm{d}[\mathrm{A}]}{[\mathrm{A}]^2} = -k\,\mathrm{d}t$$
+
+2. Set up integral equation:
+
+$$\int_{[\mathrm{A}]_0}^{[\mathrm{A}]_t} \frac{\mathrm{d}[\mathrm{A}]}{[\mathrm{A}]^2} = \int_0^t -k\,\mathrm{d}t$$
+
+3. Integrate both sides:
+
+$$[-\frac{1}{[\mathrm{A}]}]_{[\mathrm{A}]_0}^{[\mathrm{A}]_t} = [-kt]_0^t$$
+
+4. Apply limits:
+
+$$-\frac{1}{[\mathrm{A}]_t} + \frac{1}{[\mathrm{A}]_0} = -kt$$
+
+5. Rearrange to give integrated rate law:
+
+$$\frac{1}{[\mathrm{A}]_t} = \frac{1}{[\mathrm{A}]_0} + kt$$
+
+This linear form shows that plotting $1/[\mathrm{A}]_t$ versus $t$ gives slope = $k$ and intercept = $1/[A]_0$.
+
+```{r second-order-plot, fig.cap="Second-order kinetics showing (a) concentration decay and (b) linearized plot of 1/[A] versus time."}
+# Insert plots from slides
+```
+
+## More Complex Second-Order Processes
+
+For reactions between different species (A + B → P):
+
+$$\frac{d[\mathrm{A}]}{dt} = -k[\mathrm{A}][\mathrm{B}]$$
+
+Integration is more complex due to the two-variable dependence:
+
+1. Use stoichiometric relationships:
+
+- If $[\mathrm{A}]_0 \neq [\mathrm{B}]_0$, then $[\mathrm{B}] - [\mathrm{A}] = [\mathrm{B}]_0 - [\mathrm{A}]_0$ = constant
+- Let $[\mathrm{B}] = [\mathrm{B}]_0 - ([\mathrm{A}]_0 - [\mathrm{A}])$
+
+2. Substitute and integrate to obtain:
+
+$$kt = \frac{1}{[\mathrm{B}]_0 - [\mathrm{A}]_0}\ln\left(\frac{[\mathrm{B}]/[\mathrm{B}]_0}{[\mathrm{A}]/[\mathrm{A}]_0}\right)$$
+
+```{r bimolecular-reaction, fig.cap="Schematic representation of a bimolecular reaction A + B → P showing the relationship between molecular collisions and rate law."}
+# Insert diagram from slides
+```
+
+### Pseudo-First-Order Conditions
+
+When one reactant is in large excess (e.g., $[\mathrm{A}] \gg [\mathrm{B}]$):
+
+1. $[\mathrm{A}]$ remains effectively constant
+2 . Define $k^\prime = k[\mathrm{A}]$
+3. Rate law simplifies to:
+
+$$\frac{\mathrm{d}[\mathrm{B}]}{\mathrm{d}t} = -k'[\mathrm{B}]$$
+
+This transforms a complex second-order process into a simpler pseudo-first-order one with $k^\prime = k[A]$.
+
+## Graphical Analysis Applications
+
+When analyzing experimental data, we can determine reaction order by plotting the data in different ways:
+
+1. Plot $[A]$ vs $t$ to test for zeroth-order (straight line)
+2. Plot $ln[A]$ vs $t$ to test for first-order (straight line)
+3. Plot $1/[A]$ vs $t$ to test for second-order (straight line)
+
+(note somewhere that the same process can be applied to *any* simple rate law / also note that we can have a simple rate law even if we do not have a single-step reaction mechanism / so we can have, e.g., non-integer or even negative order reactions)
+```{r order-determination, fig.cap="Comparison of concentration data plotted in different linear forms for determining reaction order."}
+# Insert comparative plots from slides
+```
+
+The plot that gives a straight line indicates the reaction order, with the slope providing the rate constant (with appropriate sign) and the intercept confirming the initial concentration $[\mathrm{A}]_0$.

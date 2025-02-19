@@ -5,7 +5,10 @@ language:
 
 rmd_files: [
   "index.Rmd",
-  "lecture_1/lecture_01.Rmd"
+  "lecture_1/lecture_01.Rmd",
+  "lecture_2/lecture_02.Rmd",
+  "lecture_3/lecture_03.Rmd",
+  "lecture_4/lecture_04.Rmd"
 ]
 
 output:

@@ -1,1 +1,122 @@
-# Foo
+# Introduction
+
+## Introduction to Chemical Kinetics
+
+Chemical reactions evolve in time, transforming reactants into products. While thermodynamics tells us about the energetic feasibility and equilibrium state of a reaction, it provides no information about the temporal evolution of the chemical system. Chemical kinetics fills this gap by describing reaction rates and mechanisms.
+
+Consider these complementary perspectives:
+
+Thermodynamics tells us:
+
+- Whether a reaction is spontaneous
+- The equilibrium composition
+- Nothing about reaction mechanisms
+
+Kinetics reveals:
+
+- How fast reactions proceed
+- Time required to reach equilibrium
+- Molecular-level reaction pathways
+
+## Concentration Changes in Time
+
+Consider a simple reaction where reactant A transforms into product B:
+
+$$\mathrm{A} \rightarrow \mathrm{B}$$
+
+```{r reaction-progress, fig.cap="Time evolution of concentrations for A → B. The green curve shows depletion of reactant [$\\mathrm{A}$], while the orange curve shows formation of product [$\\mathrm{B}$]."}
+# Figure showing concentration profiles
+```
+
+The reaction progress appears as continuous changes in reactant and product concentrations, written as [$\mathrm{A}$] and [$\mathrm{B}$]. Starting from initial concentrations [$\mathrm{A}$]$_{t=0}$ and [$\mathrm{B}$]$_{t=0}$, the system evolves toward equilibrium. At any time $t$, the total concentration remains constant:
+
+$$[\mathrm{A}]_t + [\mathrm{B}]_t = [\mathrm{A}]_{t=0} + [\mathrm{B}]_{t=0}$$
+
+This conservation reflects the stoichiometric conversion of reactant to product.
+
+## The Reaction Rate
+
+The reaction rate quantifies how quickly concentrations change with time. For our A → B reaction, the rate appears as either reactant consumption or product formation:
+
+```{r rate-definition, fig.cap="Reaction rate shown as the slope of concentration versus time curves. The negative slope of [$\\mathrm{A}$] matches the positive slope of [$\\mathrm{B}$]."}
+# Figure showing tangent lines
+```
+
+These rates are related by:
+
+$$\text{rate} = -\frac{\mathrm{d}[\mathrm{A}]}{\mathrm{d}t} = +\frac{\mathrm{d}[\mathrm{B}]}{\mathrm{d}t}$$
+
+The negative sign for $d[\mathrm{A}]/dt$ ensures a positive rate as reactant is consumed. For reactions with more complex stoichiometry, the rates of different species are proportionally related. For example, in the reaction:
+
+$$\mathrm{A} + 2\mathrm{B} \rightarrow \mathrm{C}$$
+
+The rates are related by:
+
+$$\text{rate} = -\frac{\mathrm{d}[\mathrm{A}]}{\mathrm{d}t} = -\frac{1}{2}\frac{\mathrm{d}[\mathrm{B}]}{\mathrm{d}t} = +\frac{\mathrm{d}[\mathrm{C}]}{\mathrm{d}t}$$
+
+## Rate Laws
+
+Most reactions follow rate laws that express how reaction speed depends on concentration:
+
+```{r rate-law-visualization, fig.cap="Molecular perspective on reaction rates. Higher concentrations typically increase reaction rates by promoting molecular collisions."}
+# Figure showing molecular collisions
+```
+
+A general rate law takes the form:
+
+$$\text{rate} = k[\mathrm{A}]^a[\mathrm{B}]^b[\mathrm{C}]^c\cdots$$
+
+where:
+- $k$ is the rate constant
+- The exponents $a$, $b$, $c$ are reaction orders
+- The sum $(a + b + c + \cdots)$ gives the overall order
+
+Rate laws emerge from experimental measurement and provide insight into reaction mechanisms.
+
+## Elementary Processes
+
+Any chemical reaction can be broken down into a sequence of simple molecular-level steps called elementary processes. The molecularity of an elementary process refers to the number of reactant molecules that must come together for the reaction to occur. Understanding molecularity helps us classify elementary processes into three types:
+
+```{r elementary-processes, fig.cap="Three types of elementary processes classified by molecularity: unimolecular (left), bimolecular (center), and termolecular (right)."}
+# Figure showing elementary steps
+```
+
+1. Unimolecular processes involve a single reactant molecule transforming into products:
+   $$\mathrm{A} \rightarrow \text{products} \qquad \text{rate} = k[\mathrm{A}]$$
+   Examples include isomerization or decomposition reactions.
+
+2. Bimolecular processes require collision between two reactant molecules:
+   $$\mathrm{A} + \mathrm{B} \rightarrow \text{products} \qquad \text{rate} = k[\mathrm{A}][\mathrm{B}]$$
+   Most elementary reactions are bimolecular.
+
+3. Termolecular processes involve simultaneous collision of three molecules:
+   $$\mathrm{A} + \mathrm{B} + \mathrm{C} \rightarrow \text{products} \qquad \text{rate} = k[\mathrm{A}][\mathrm{B}][\mathrm{C}]$$
+   These are rare because simultaneous three-body collisions are statistically unlikely.
+
+For elementary processes, the reaction order always equals the molecularity - a direct reflection of the number of molecules that must collide for reaction to occur.
+
+## The Mathematics of Kinetics
+
+Concentration profiles and reaction rates connect through calculus:
+
+```{r calculus-connection, fig.cap="Relationship between concentration-time profiles and reaction rates through differentiation and integration."}
+# Figure showing calculus relationship
+```
+
+The fundamental relationship is:
+
+$$[\mathrm{A}]_t = [\mathrm{A}]_0 - \int_0^t \nu\,dt$$
+
+where $\nu$ represents the reaction rate. This relationship allows us to predict concentration changes from known rate laws or determine rate laws from experimental concentration data.
+
+## Units of Rate Constants
+
+Rate constant units maintain dimensional consistency in rate laws:
+
+For first-order reactions (rate = $k[\mathrm{A}]$):
+$$\text{mol}\,\text{dm}^{-3}\text{s}^{-1} = k \times \text{mol}\,\text{dm}^{-3}$$
+$$k \text{ has units } \text{s}^{-1}$$
+
+For second-order reactions (rate = $k[\mathrm{A}]^2$):
+$$\text{mol}\,\text{dm}^{-3}\text{s}^{-1} = k \times (\text{mol}\,\text{dm}^{-3})^2$$
+$$k \text{ has units } \text{mol}^{-1}\text{dm}^3\text{s}^{-1}$$
