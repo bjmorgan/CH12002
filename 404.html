@@ -23,7 +23,7 @@
 <meta name="author" content="Benjamin J. Morgan" />
 
 
-<meta name="date" content="2025-02-17" />
+<meta name="date" content="2025-02-19" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -54,6 +54,70 @@
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
 
 <style type="text/css">
   
@@ -73,11 +137,66 @@
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="./">CH22008</a></li>
+<li><a href="./">CH12002</a></li>
 
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>About</a></li>
-<li class="chapter" data-level="1" data-path="foo.html"><a href="foo.html"><i class="fa fa-check"></i><b>1</b> Foo</a></li>
+<li class="chapter" data-level="1" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>1</b> Introduction</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="introduction.html"><a href="introduction.html#introduction-to-chemical-kinetics"><i class="fa fa-check"></i><b>1.1</b> Introduction to Chemical Kinetics</a></li>
+<li class="chapter" data-level="1.2" data-path="introduction.html"><a href="introduction.html#concentration-changes-in-time"><i class="fa fa-check"></i><b>1.2</b> Concentration Changes in Time</a></li>
+<li class="chapter" data-level="1.3" data-path="introduction.html"><a href="introduction.html#the-reaction-rate"><i class="fa fa-check"></i><b>1.3</b> The Reaction Rate</a></li>
+<li class="chapter" data-level="1.4" data-path="introduction.html"><a href="introduction.html#rate-laws"><i class="fa fa-check"></i><b>1.4</b> Rate Laws</a></li>
+<li class="chapter" data-level="1.5" data-path="introduction.html"><a href="introduction.html#elementary-processes"><i class="fa fa-check"></i><b>1.5</b> Elementary Processes</a></li>
+<li class="chapter" data-level="1.6" data-path="introduction.html"><a href="introduction.html#the-mathematics-of-kinetics"><i class="fa fa-check"></i><b>1.6</b> The Mathematics of Kinetics</a></li>
+<li class="chapter" data-level="1.7" data-path="introduction.html"><a href="introduction.html#units-of-rate-constants"><i class="fa fa-check"></i><b>1.7</b> Units of Rate Constants</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="chemical-kinetics-and-reaction-mechanisms.html"><a href="chemical-kinetics-and-reaction-mechanisms.html"><i class="fa fa-check"></i><b>2</b> Chemical Kinetics and Reaction Mechanisms</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="chemical-kinetics-and-reaction-mechanisms.html"><a href="chemical-kinetics-and-reaction-mechanisms.html#kinetic-data-as-a-window-into-reaction-mechanisms"><i class="fa fa-check"></i><b>2.1</b> Kinetic Data as a Window into Reaction Mechanisms</a></li>
+<li class="chapter" data-level="2.2" data-path="chemical-kinetics-and-reaction-mechanisms.html"><a href="chemical-kinetics-and-reaction-mechanisms.html#elementary-processes-and-rate-laws"><i class="fa fa-check"></i><b>2.2</b> Elementary Processes and Rate Laws</a></li>
+<li class="chapter" data-level="2.3" data-path="chemical-kinetics-and-reaction-mechanisms.html"><a href="chemical-kinetics-and-reaction-mechanisms.html#building-and-testing-kinetic-models"><i class="fa fa-check"></i><b>2.3</b> Building and Testing Kinetic Models</a></li>
+<li class="chapter" data-level="2.4" data-path="chemical-kinetics-and-reaction-mechanisms.html"><a href="chemical-kinetics-and-reaction-mechanisms.html#connecting-mechanisms-to-observable-kinetics"><i class="fa fa-check"></i><b>2.4</b> Connecting Mechanisms to Observable Kinetics</a></li>
+<li class="chapter" data-level="2.5" data-path="chemical-kinetics-and-reaction-mechanisms.html"><a href="chemical-kinetics-and-reaction-mechanisms.html#kinetic-data-as-a-window-into-reaction-mechanisms-1"><i class="fa fa-check"></i><b>2.5</b> Kinetic Data as a Window into Reaction Mechanisms</a></li>
+<li class="chapter" data-level="2.6" data-path="chemical-kinetics-and-reaction-mechanisms.html"><a href="chemical-kinetics-and-reaction-mechanisms.html#principles-of-rate-law-analysis"><i class="fa fa-check"></i><b>2.6</b> Principles of Rate Law Analysis</a></li>
+<li class="chapter" data-level="2.7" data-path="chemical-kinetics-and-reaction-mechanisms.html"><a href="chemical-kinetics-and-reaction-mechanisms.html#building-a-kinetic-model"><i class="fa fa-check"></i><b>2.7</b> Building a Kinetic Model</a></li>
+<li class="chapter" data-level="2.8" data-path="chemical-kinetics-and-reaction-mechanisms.html"><a href="chemical-kinetics-and-reaction-mechanisms.html#from-model-to-mechanism"><i class="fa fa-check"></i><b>2.8</b> From Model to Mechanism</a></li>
+<li class="chapter" data-level="2.9" data-path="chemical-kinetics-and-reaction-mechanisms.html"><a href="chemical-kinetics-and-reaction-mechanisms.html#the-role-of-integrated-rate-laws"><i class="fa fa-check"></i><b>2.9</b> The Role of Integrated Rate Laws</a></li>
+<li class="chapter" data-level="2.10" data-path="chemical-kinetics-and-reaction-mechanisms.html"><a href="chemical-kinetics-and-reaction-mechanisms.html#beyond-first-order-kinetics"><i class="fa fa-check"></i><b>2.10</b> Beyond First-Order Kinetics</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="simple-integrated-rate-laws.html"><a href="simple-integrated-rate-laws.html"><i class="fa fa-check"></i><b>3</b> Simple Integrated Rate Laws</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="simple-integrated-rate-laws.html"><a href="simple-integrated-rate-laws.html#from-mechanism-to-mathematical-model"><i class="fa fa-check"></i><b>3.1</b> From Mechanism to Mathematical Model</a></li>
+<li class="chapter" data-level="3.2" data-path="simple-integrated-rate-laws.html"><a href="simple-integrated-rate-laws.html#systematic-kinetic-analysis"><i class="fa fa-check"></i><b>3.2</b> Systematic Kinetic Analysis</a></li>
+<li class="chapter" data-level="3.3" data-path="simple-integrated-rate-laws.html"><a href="simple-integrated-rate-laws.html#simple-integrated-rate-laws-1"><i class="fa fa-check"></i><b>3.3</b> Simple Integrated Rate Laws</a></li>
+<li class="chapter" data-level="3.4" data-path="simple-integrated-rate-laws.html"><a href="simple-integrated-rate-laws.html#zeroth-order-kinetics"><i class="fa fa-check"></i><b>3.4</b> Zeroth-Order Kinetics</a></li>
+<li class="chapter" data-level="3.5" data-path="simple-integrated-rate-laws.html"><a href="simple-integrated-rate-laws.html#first-order-kinetics"><i class="fa fa-check"></i><b>3.5</b> First-Order Kinetics</a></li>
+<li class="chapter" data-level="3.6" data-path="simple-integrated-rate-laws.html"><a href="simple-integrated-rate-laws.html#second-order-kinetics"><i class="fa fa-check"></i><b>3.6</b> Second-Order Kinetics</a></li>
+<li class="chapter" data-level="3.7" data-path="simple-integrated-rate-laws.html"><a href="simple-integrated-rate-laws.html#more-complex-second-order-processes"><i class="fa fa-check"></i><b>3.7</b> More Complex Second-Order Processes</a>
+<ul>
+<li class="chapter" data-level="3.7.1" data-path="simple-integrated-rate-laws.html"><a href="simple-integrated-rate-laws.html#pseudo-first-order-conditions"><i class="fa fa-check"></i><b>3.7.1</b> Pseudo-First-Order Conditions</a></li>
+</ul></li>
+<li class="chapter" data-level="3.8" data-path="simple-integrated-rate-laws.html"><a href="simple-integrated-rate-laws.html#graphical-analysis-applications"><i class="fa fa-check"></i><b>3.8</b> Graphical Analysis Applications</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="methods-for-determining-rate-laws-from-experimental-data.html"><a href="methods-for-determining-rate-laws-from-experimental-data.html"><i class="fa fa-check"></i><b>4</b> Methods for Determining Rate Laws from Experimental Data</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="methods-for-determining-rate-laws-from-experimental-data.html"><a href="methods-for-determining-rate-laws-from-experimental-data.html#introduction-1"><i class="fa fa-check"></i><b>4.1</b> Introduction</a></li>
+<li class="chapter" data-level="4.2" data-path="methods-for-determining-rate-laws-from-experimental-data.html"><a href="methods-for-determining-rate-laws-from-experimental-data.html#the-integral-method"><i class="fa fa-check"></i><b>4.2</b> The Integral Method</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="methods-for-determining-rate-laws-from-experimental-data.html"><a href="methods-for-determining-rate-laws-from-experimental-data.html#theoretical-background"><i class="fa fa-check"></i><b>4.2.1</b> Theoretical Background</a></li>
+<li class="chapter" data-level="4.2.2" data-path="methods-for-determining-rate-laws-from-experimental-data.html"><a href="methods-for-determining-rate-laws-from-experimental-data.html#example-testing-for-second-order-kinetics"><i class="fa fa-check"></i><b>4.2.2</b> Example: Testing for Second-Order Kinetics</a></li>
+<li class="chapter" data-level="4.2.3" data-path="methods-for-determining-rate-laws-from-experimental-data.html"><a href="methods-for-determining-rate-laws-from-experimental-data.html#example-decomposition-of-azomethane"><i class="fa fa-check"></i><b>4.2.3</b> Example: Decomposition of Azomethane</a></li>
+<li class="chapter" data-level="4.2.4" data-path="methods-for-determining-rate-laws-from-experimental-data.html"><a href="methods-for-determining-rate-laws-from-experimental-data.html#a-note-on-modern-analysis-methods"><i class="fa fa-check"></i><b>4.2.4</b> A Note on Modern Analysis Methods</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="methods-for-determining-rate-laws-from-experimental-data.html"><a href="methods-for-determining-rate-laws-from-experimental-data.html#the-half-life-method"><i class="fa fa-check"></i><b>4.3</b> The Half-Life Method</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="methods-for-determining-rate-laws-from-experimental-data.html"><a href="methods-for-determining-rate-laws-from-experimental-data.html#characteristic-exponential-decay"><i class="fa fa-check"></i><b>4.3.1</b> Characteristic Exponential Decay</a></li>
+<li class="chapter" data-level="4.3.2" data-path="methods-for-determining-rate-laws-from-experimental-data.html"><a href="methods-for-determining-rate-laws-from-experimental-data.html#example-azomethane-decomposition-revisited"><i class="fa fa-check"></i><b>4.3.2</b> Example: Azomethane Decomposition Revisited</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="methods-for-determining-rate-laws-from-experimental-data.html"><a href="methods-for-determining-rate-laws-from-experimental-data.html#the-isolation-method"><i class="fa fa-check"></i><b>4.4</b> The Isolation Method</a></li>
+<li class="chapter" data-level="4.5" data-path="methods-for-determining-rate-laws-from-experimental-data.html"><a href="methods-for-determining-rate-laws-from-experimental-data.html#the-differential-method"><i class="fa fa-check"></i><b>4.5</b> The Differential Method</a></li>
+<li class="chapter" data-level="4.6" data-path="methods-for-determining-rate-laws-from-experimental-data.html"><a href="methods-for-determining-rate-laws-from-experimental-data.html#summary"><i class="fa fa-check"></i><b>4.6</b> Summary</a></li>
+</ul></li>
 </ul>
 
       </nav>
@@ -138,7 +257,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/bjmorgan/CH22008/main/%s",
+"link": "https://github.com/bjmorgan/CH12002/main/%s",
 "text": "Edit"
 },
 "history": {
@@ -172,6 +291,20 @@ gitbook.start({
 });
 </script>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 </body>
 
 </html>

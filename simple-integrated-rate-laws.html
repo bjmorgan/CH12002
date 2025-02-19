@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>CH12002 Lecture Notes</title>
+  <title>Lecture 3 Simple Integrated Rate Laws | CH12002 Lecture Notes</title>
   <meta name="description" content="These are notes to accompany the 2025 CH12002 lecture course on Chemical Kinetics." />
   <meta name="generator" content="bookdown 0.42 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="CH12002 Lecture Notes" />
+  <meta property="og:title" content="Lecture 3 Simple Integrated Rate Laws | CH12002 Lecture Notes" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="These are notes to accompany the 2025 CH12002 lecture course on Chemical Kinetics." />
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="CH12002 Lecture Notes" />
+  <meta name="twitter:title" content="Lecture 3 Simple Integrated Rate Laws | CH12002 Lecture Notes" />
   
   <meta name="twitter:description" content="These are notes to accompany the 2025 CH12002 lecture course on Chemical Kinetics." />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-<link rel="next" href="introduction.html"/>
+<link rel="prev" href="chemical-kinetics-and-reaction-mechanisms.html"/>
+<link rel="next" href="methods-for-determining-rate-laws-from-experimental-data.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -214,23 +214,167 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">CH12002 Lecture Notes</h1>
-<p class="author"><em>Benjamin J. Morgan</em></p>
-<p class="date"><em>2025-02-19</em></p>
+<div id="simple-integrated-rate-laws" class="section level1 hasAnchor" number="3">
+<h1><span class="header-section-number">Lecture 3</span> Simple Integrated Rate Laws<a href="simple-integrated-rate-laws.html#simple-integrated-rate-laws" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="from-mechanism-to-mathematical-model" class="section level2 hasAnchor" number="3.1">
+<h2><span class="header-section-number">3.1</span> From Mechanism to Mathematical Model<a href="simple-integrated-rate-laws.html#from-mechanism-to-mathematical-model" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The relationship between reaction mechanisms and kinetic behavior requires systematic mathematical analysis. In our previous lecture, we examined unimolecular decomposition reactions, starting with experimental data that showed exponential decay in concentration. By proposing an exponential model and differentiating, we demonstrated consistency with first-order kinetics—a mathematical signature of unimolecular mechanisms.</p>
+<p>While illuminating, this approach relied heavily on choosing the correct model function. Different functions with similar shapes would have yielded different rate laws upon differentiation, potentially inconsistent with the known unimolecular mechanism. This highlights a key limitation of working from data to mechanism.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="simple-integrated-rate-laws.html#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Insert comparison diagram from slides</span></span></code></pre></div>
 </div>
-<div id="about" class="section level1 unnumbered hasAnchor">
-<h1>About<a href="index.html#about" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>These notes accompany the 2025 CH12002 lecture course on Chemical Kinetics.</p>
+<div id="systematic-kinetic-analysis" class="section level2 hasAnchor" number="3.2">
+<h2><span class="header-section-number">3.2</span> Systematic Kinetic Analysis<a href="simple-integrated-rate-laws.html#systematic-kinetic-analysis" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>In practice, kinetic analysis typically proceeds in the opposite direction:</p>
+<ol style="list-style-type: decimal">
+<li>Propose a plausible reaction mechanism</li>
+<li>Write down the corresponding differential rate law</li>
+<li>Integrate this rate law to obtain an integrated rate law</li>
+<li>Compare this integrated rate law with experimental data</li>
+</ol>
+<p>This systematic approach provides a rigorous test of mechanistic hypotheses. When experimental data match our derived integrated rate law, we have evidence supporting our proposed mechanism. Equally importantly, when they don’t match, we can conclusively reject that mechanism and must consider alternatives.</p>
+</div>
+<div id="simple-integrated-rate-laws-1" class="section level2 hasAnchor" number="3.3">
+<h2><span class="header-section-number">3.3</span> Simple Integrated Rate Laws<a href="simple-integrated-rate-laws.html#simple-integrated-rate-laws-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>We focus here on simple integrated rate laws—those corresponding to single-step reaction mechanisms. For any such mechanism, our analysis follows these steps:</p>
+<ol style="list-style-type: decimal">
+<li>Propose a single-step mechanism</li>
+<li>Write the differential rate law</li>
+<li>Integrate to obtain the integrated rate law</li>
+<li>Rearrange into linear form</li>
+<li>Compare with experimental data</li>
+</ol>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="simple-integrated-rate-laws.html#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Insert flowchart from slides</span></span></code></pre></div>
+<p>The linear form proves particularly useful because it allows straightforward graphical analysis: if experimental data plotted in this form give a straight line, the data are consistent with our proposed mechanism.</p>
+</div>
+<div id="zeroth-order-kinetics" class="section level2 hasAnchor" number="3.4">
+<h2><span class="header-section-number">3.4</span> Zeroth-Order Kinetics<a href="simple-integrated-rate-laws.html#zeroth-order-kinetics" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>For a zeroth-order mechanism, where rate is independent of concentration:</p>
+<p><span class="math display">\[\frac{\mathrm{d}[\mathrm{A}]}{\mathrm{d}t} = -k\]</span></p>
+<p>To obtain the integrated rate law:</p>
+<ol style="list-style-type: decimal">
+<li>Rearrange into integral form:</li>
+</ol>
+<p><span class="math display">\[\int_{[\mathrm{A}]_0}^{[\mathrm{A}]_t} \mathrm{d}[\mathrm{A}] = \int_0^t -k\,\mathrm{d}t\]</span></p>
+<ol start="2" style="list-style-type: decimal">
+<li>Integrate both sides:</li>
+</ol>
+<p><span class="math display">\[[[\mathrm{A}]]_{[\mathrm{A}]_0}^{[\mathrm{A}]_t} = [-kt]_0^t\]</span></p>
+<ol start="3" style="list-style-type: decimal">
+<li>Apply limits:</li>
+</ol>
+<p><span class="math display">\[[\mathrm{A}]_t - [\mathrm{A}]_0 = -kt\]</span></p>
+<ol start="4" style="list-style-type: decimal">
+<li>Rearrange to obtain the integrated rate law:</li>
+</ol>
+<p><span class="math display">\[[\mathrm{A}]_t = [\mathrm{A}]_0 - kt\]</span></p>
+<p>This is already in linear form.</p>
+<p>This equation tells us that if our reaction follows zeroth-order kinetics, then a plot <span class="math inline">\([\mathrm{A}]_t\)</span> versus <span class="math inline">\(t\)</span> should give a straight line with slope = <span class="math inline">\(-k\)</span> and intercept = <span class="math inline">\([\mathrm{A}]_0\)</span>.</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="simple-integrated-rate-laws.html#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Insert plot from slides</span></span></code></pre></div>
+</div>
+<div id="first-order-kinetics" class="section level2 hasAnchor" number="3.5">
+<h2><span class="header-section-number">3.5</span> First-Order Kinetics<a href="simple-integrated-rate-laws.html#first-order-kinetics" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>For a unimolecular mechanism:</p>
+<p><span class="math display">\[\frac{\mathrm{d}[\mathrm{A}]}{\mathrm{d}t} = -k[\mathrm{A}]\]</span></p>
+<ol style="list-style-type: decimal">
+<li>Separate variables:</li>
+</ol>
+<p><span class="math display">\[\frac{\mathrm{d}[\mathrm{A}]}{[\mathrm{A}]} = -k\,\mathrm{d}t\]</span></p>
+<ol start="2" style="list-style-type: decimal">
+<li>Set up integral equation:</li>
+</ol>
+<p><span class="math display">\[\int_{[\mathrm{A}]_0}^{[\mathrm{A}]_t} \frac{\mathrm{d}[\mathrm{A}]}{[\mathrm{A}]} = \int_0^t -k\,\mathrm{d}t\]</span></p>
+<ol start="3" style="list-style-type: decimal">
+<li>Integrate both sides:</li>
+</ol>
+<p><span class="math display">\[[\ln[\mathrm{A}]]_{[\mathrm{A}]_0}^{[\mathrm{A}]_t} = [-kt]_0^t\]</span></p>
+<ol start="4" style="list-style-type: decimal">
+<li>Apply limits:</li>
+</ol>
+<p><span class="math display">\[\ln[\mathrm{A}]_t - \ln[\mathrm{A}]_0 = -kt\]</span></p>
+<ol start="5" style="list-style-type: decimal">
+<li>Express as the integrated rate law:</li>
+</ol>
+<p><span class="math display">\[\ln[\mathrm{A}]_t = \ln[\mathrm{A}]_0 - kt\]</span></p>
+<p>This linear form shows that plotting <span class="math inline">\(\ln[\mathrm{A}]_t\)</span> versus <span class="math inline">\(t\)</span> gives slope = <span class="math inline">\(-k\)</span> and intercept = <span class="math inline">\(\ln[\mathrm{A}]_0\)</span>.</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="simple-integrated-rate-laws.html#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Insert plots from slides</span></span></code></pre></div>
+</div>
+<div id="second-order-kinetics" class="section level2 hasAnchor" number="3.6">
+<h2><span class="header-section-number">3.6</span> Second-Order Kinetics<a href="simple-integrated-rate-laws.html#second-order-kinetics" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>For a bimolecular mechanism with identical molecules:</p>
+<p><span class="math display">\[\frac{d[\mathrm{A}]}{dt} = -k[\mathrm{A}]^2\]</span></p>
+<ol style="list-style-type: decimal">
+<li>Separate variables:</li>
+</ol>
+<p><span class="math display">\[\frac{\mathrm{d}[\mathrm{A}]}{[\mathrm{A}]^2} = -k\,\mathrm{d}t\]</span></p>
+<ol start="2" style="list-style-type: decimal">
+<li>Set up integral equation:</li>
+</ol>
+<p><span class="math display">\[\int_{[\mathrm{A}]_0}^{[\mathrm{A}]_t} \frac{\mathrm{d}[\mathrm{A}]}{[\mathrm{A}]^2} = \int_0^t -k\,\mathrm{d}t\]</span></p>
+<ol start="3" style="list-style-type: decimal">
+<li>Integrate both sides:</li>
+</ol>
+<p><span class="math display">\[[-\frac{1}{[\mathrm{A}]}]_{[\mathrm{A}]_0}^{[\mathrm{A}]_t} = [-kt]_0^t\]</span></p>
+<ol start="4" style="list-style-type: decimal">
+<li>Apply limits:</li>
+</ol>
+<p><span class="math display">\[-\frac{1}{[\mathrm{A}]_t} + \frac{1}{[\mathrm{A}]_0} = -kt\]</span></p>
+<ol start="5" style="list-style-type: decimal">
+<li>Rearrange to give integrated rate law:</li>
+</ol>
+<p><span class="math display">\[\frac{1}{[\mathrm{A}]_t} = \frac{1}{[\mathrm{A}]_0} + kt\]</span></p>
+<p>This linear form shows that plotting <span class="math inline">\(1/[\mathrm{A}]_t\)</span> versus <span class="math inline">\(t\)</span> gives slope = <span class="math inline">\(k\)</span> and intercept = <span class="math inline">\(1/[A]_0\)</span>.</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="simple-integrated-rate-laws.html#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Insert plots from slides</span></span></code></pre></div>
+</div>
+<div id="more-complex-second-order-processes" class="section level2 hasAnchor" number="3.7">
+<h2><span class="header-section-number">3.7</span> More Complex Second-Order Processes<a href="simple-integrated-rate-laws.html#more-complex-second-order-processes" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>For reactions between different species (A + B → P):</p>
+<p><span class="math display">\[\frac{d[\mathrm{A}]}{dt} = -k[\mathrm{A}][\mathrm{B}]\]</span></p>
+<p>Integration is more complex due to the two-variable dependence:</p>
+<ol style="list-style-type: decimal">
+<li>Use stoichiometric relationships:</li>
+</ol>
+<ul>
+<li>If <span class="math inline">\([\mathrm{A}]_0 \neq [\mathrm{B}]_0\)</span>, then <span class="math inline">\([\mathrm{B}] - [\mathrm{A}] = [\mathrm{B}]_0 - [\mathrm{A}]_0\)</span> = constant</li>
+<li>Let <span class="math inline">\([\mathrm{B}] = [\mathrm{B}]_0 - ([\mathrm{A}]_0 - [\mathrm{A}])\)</span></li>
+</ul>
+<ol start="2" style="list-style-type: decimal">
+<li>Substitute and integrate to obtain:</li>
+</ol>
+<p><span class="math display">\[kt = \frac{1}{[\mathrm{B}]_0 - [\mathrm{A}]_0}\ln\left(\frac{[\mathrm{B}]/[\mathrm{B}]_0}{[\mathrm{A}]/[\mathrm{A}]_0}\right)\]</span></p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="simple-integrated-rate-laws.html#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Insert diagram from slides</span></span></code></pre></div>
+<div id="pseudo-first-order-conditions" class="section level3 hasAnchor" number="3.7.1">
+<h3><span class="header-section-number">3.7.1</span> Pseudo-First-Order Conditions<a href="simple-integrated-rate-laws.html#pseudo-first-order-conditions" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>When one reactant is in large excess (e.g., <span class="math inline">\([\mathrm{A}] \gg [\mathrm{B}]\)</span>):</p>
+<ol style="list-style-type: decimal">
+<li><span class="math inline">\([\mathrm{A}]\)</span> remains effectively constant
+2 . Define <span class="math inline">\(k^\prime = k[\mathrm{A}]\)</span></li>
+<li>Rate law simplifies to:</li>
+</ol>
+<p><span class="math display">\[\frac{\mathrm{d}[\mathrm{B}]}{\mathrm{d}t} = -k&#39;[\mathrm{B}]\]</span></p>
+<p>This transforms a complex second-order process into a simpler pseudo-first-order one with <span class="math inline">\(k^\prime = k[A]\)</span>.</p>
+</div>
+</div>
+<div id="graphical-analysis-applications" class="section level2 hasAnchor" number="3.8">
+<h2><span class="header-section-number">3.8</span> Graphical Analysis Applications<a href="simple-integrated-rate-laws.html#graphical-analysis-applications" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>When analyzing experimental data, we can determine reaction order by plotting the data in different ways:</p>
+<ol style="list-style-type: decimal">
+<li>Plot <span class="math inline">\([A]\)</span> vs <span class="math inline">\(t\)</span> to test for zeroth-order (straight line)</li>
+<li>Plot <span class="math inline">\(ln[A]\)</span> vs <span class="math inline">\(t\)</span> to test for first-order (straight line)</li>
+<li>Plot <span class="math inline">\(1/[A]\)</span> vs <span class="math inline">\(t\)</span> to test for second-order (straight line)</li>
+</ol>
+<p>(note somewhere that the same process can be applied to <em>any</em> simple rate law / also note that we can have a simple rate law even if we do not have a single-step reaction mechanism / so we can have, e.g., non-integer or even negative order reactions)</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="simple-integrated-rate-laws.html#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Insert comparative plots from slides</span></span></code></pre></div>
+<p>The plot that gives a straight line indicates the reaction order, with the slope providing the rate constant (with appropriate sign) and the intercept confirming the initial concentration <span class="math inline">\([\mathrm{A}]_0\)</span>.</p>
 
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-
-<a href="introduction.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="chemical-kinetics-and-reaction-mechanisms.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="methods-for-determining-rate-laws-from-experimental-data.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -261,7 +405,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/bjmorgan/CH12002/main/index.Rmd",
+"link": "https://github.com/bjmorgan/CH12002/main/lecture_3/lecture_03.Rmd",
 "text": "Edit"
 },
 "history": {
