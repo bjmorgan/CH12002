@@ -1,0 +1,178 @@
+# Complex Reaction Mechanisms: Understanding Third-Order Reactions
+
+## The Lindemann-Hinshelwood Mechanism
+
+Many reactions that appear simple at first glance actually proceed through complex mechanisms involving multiple elementary steps. A classic example is the thermal decomposition of azomethane:
+
+$$\mathrm{CH_3N_2CH_3} \rightarrow \mathrm{C_2H_6} + \mathrm{N_2}$$
+
+At high pressures, this reaction exhibits first-order kinetics:
+
+$$-\frac{\mathrm{d}[\mathrm{CH_3N_2CH_3}]}{\mathrm{d}t} = k[\mathrm{CH_3N_2CH_3}]$$
+
+This simple rate law presents us with a fundamental mechanistic puzzle when we examine the molecular-level implications. We observe two seemingly contradictory behaviors:
+
+1. The reaction shows first-order kinetics ($\nu = k[\mathrm{A}]$), suggesting each molecule reacts independently.
+
+2. The rate increases with temperature, indicating that energy is required to overcome an activation barrier. But how does each molecule acquire this activation energy?
+
+If the activation energy came from molecular collisions (the usual mechanism for thermal activation), we would expect the rate to depend on the frequency of these collisions. Since collision frequency is proportional to the concentration of both colliding species, this would lead to second-order kinetics ($\nu = k[\mathrm{A}]^2$). Yet we observe first-order behavior.
+
+```{r activation-puzzle, fig.cap="Schematic showing the apparent contradiction between molecular collision requirements and observed first-order kinetics."}
+# Insert diagram comparing collision-based activation (suggesting second-order) with observed first-order behavior
+```
+
+This puzzle suggests that a more complex mechanism must be at work - one that can explain both the thermal activation and the first-order kinetics.
+
+### The Lindemann Mechanism
+
+In 1921, Frederick Lindemann proposed a three-step mechanism to explain this behavior:
+
+1. Excitation by collision:
+   $$\mathrm{A} + \mathrm{M} \xrightarrow{k_1} \mathrm{A^*} + \mathrm{M}$$
+
+2. Deactivation by collision:
+   $$\mathrm{A^*} + \mathrm{M} \xrightarrow{k_{-1}} \mathrm{A} + \mathrm{M}$$
+
+3. Unimolecular decomposition:
+   $$\mathrm{A^*} \xrightarrow{k_2} \mathrm{P}$$
+
+Here, M represents any collision partner (often the reactant molecule itself), and A* represents an energetically excited molecule.
+
+```{r lindemann-steps, fig.cap="The three steps of the Lindemann mechanism showing (a) excitation by collision, (b) deactivation by collision, and (c) unimolecular decomposition."}
+# Insert diagram from slides showing the three steps
+```
+
+### Mathematical Analysis
+
+We can apply the steady-state approximation to the excited intermediate A*:
+
+$$\frac{\mathrm{d}[\mathrm{A^*}]}{\mathrm{d}t} = k_1[\mathrm{A}][\mathrm{M}] - k_{-1}[\mathrm{A^*}][\mathrm{M}] - k_2[\mathrm{A^*}] = 0$$
+
+Solving for [A*]:
+
+$$[\mathrm{A^*}] = \frac{k_1[\mathrm{A}][\mathrm{M}]}{k_{-1}[\mathrm{M}] + k_2}$$
+
+The overall reaction rate is determined by the decomposition of A*:
+
+$$\frac{\mathrm{d}[\mathrm{P}]}{\mathrm{d}t} = k_2[\mathrm{A^*}] = \frac{k_1k_2[\mathrm{A}][\mathrm{M}]}{k_{-1}[\mathrm{M}] + k_2}$$
+
+For the specific case of azomethane decomposition, where M = CH~3~N~2~CH~3~:
+
+$$\frac{\mathrm{d}[\mathrm{C_2H_6}]}{\mathrm{d}t} = \frac{k_1k_2[\mathrm{CH_3N_2CH_3}]^2}{k_{-1}[\mathrm{CH_3N_2CH_3}] + k_2}$$
+
+### High-Pressure Limit
+
+At high pressures, collisional deactivation is much faster than unimolecular decomposition ($k_{-1}[\mathrm{CH_3N_2CH_3}] \gg k_2$). Under these conditions:
+
+$$\frac{\mathrm{d}[\mathrm{C_2H_6}]}{\mathrm{d}t} = \frac{k_1k_2}{k_{-1}}[\mathrm{CH_3N_2CH_3}]$$
+
+This simplifies to first-order kinetics with an effective rate constant $k = \frac{k_1k_2}{k_{-1}}$, explaining the observed behavior.
+
+### Low-Pressure Limit
+
+Conversely, at low pressures where $k_{-1}[\mathrm{CH_3N_2CH_3}] \ll k_2$:
+
+$$\frac{\mathrm{d}[\mathrm{C_2H_6}]}{\mathrm{d}t} = k_1[\mathrm{CH_3N_2CH_3}]^2$$
+
+The reaction shows second-order kinetics with $k = k_1$. This prediction was experimentally verified in 1927, providing strong support for the Lindemann mechanism.
+
+## Third-Order Reactions
+
+Some reactions exhibit third-order kinetics, such as the oxidation of nitric oxide:
+
+$$2\mathrm{NO} + \mathrm{O_2} \rightarrow 2\mathrm{NO_2}$$
+
+with rate law:
+
+$$\frac{\mathrm{d}[\mathrm{NO_2}]}{\mathrm{d}t} = k[\mathrm{NO}]^2[\mathrm{O_2}]$$
+
+### Mechanistic Implications
+
+A simple termolecular collision mechanism seems implausible - simultaneous three-body collisions are extremely rare. Moreover, the reaction rate decreases with increasing temperature, suggesting a more complex mechanism.
+
+```{r collision-constraints, fig.cap="Energy and momentum constraints in bimolecular collisions showing why a third molecule is necessary for stabilization."}
+# Insert diagram from slides showing conservation of momentum and energy
+```
+
+An alternative mechanism involving a pre-equilibrium better explains these observations:
+
+$$\mathrm{NO} + \mathrm{NO} \underset{k_{-1}}{\stackrel{k_1}{\rightleftharpoons}} (\mathrm{NO})_2$$
+$$(\mathrm{NO})_2 + \mathrm{O_2} \xrightarrow{k_2} 2\mathrm{NO_2}$$
+
+At equilibrium:
+
+$$K = \frac{k_1}{k_{-1}} = \frac{[(\mathrm{NO})_2]}{[\mathrm{NO}]^2}$$
+
+The overall rate:
+
+$$\frac{\mathrm{d}[\mathrm{NO_2}]}{\mathrm{d}t} = 2k_2[(\mathrm{NO})_2][\mathrm{O_2}] = 2k_2K[\mathrm{NO}]^2[\mathrm{O_2}]$$
+
+This mechanism explains both the observed third-order kinetics and the negative temperature dependence (as the pre-equilibrium favors dissociation at higher temperatures).
+
+### Formation of Ozone
+
+TODO: write this entire section
+
+Similar principles apply to ozone formation:
+
+$$\mathrm{O} + \mathrm{O_2} \rightarrow \mathrm{O_3}$$
+
+To understand why ozone formation requires a third body, let's examine what happens in a simple bimolecular collision between O and O~2~. Consider the conservation laws that must be satisfied:
+
+1. Conservation of Momentum:  
+   For a head-on collision between O and O~2~:
+   $m_\mathrm{O}v_\mathrm{O} + m_\mathrm{O_2}v_\mathrm{O_2} = m_\mathrm{O_3}v_\mathrm{O_3}$
+
+2. Conservation of Energy:  
+   The total energy (kinetic + internal) must be conserved. When O and O~2~ collide, their relative kinetic energy must be converted into:
+   - Kinetic energy of O~3~
+   - Internal energy (vibrational and rotational) of O~3~
+
+```{r ozone-collision, fig.cap="Head-on collision between O and O₂ showing momentum vectors before and after collision. The resulting O₃ molecule has high internal vibrational energy."}
+# Insert diagram from slides showing bimolecular collision process
+```
+
+When O and O~2~ collide, energy conservation gives us crucial insights into the reaction energetics. Consider a head-on collision:
+
+1. Initially, we have:
+   - Kinetic energy of the colliding molecules
+   - Electronic and vibrational energy of O~2~
+   - Potential energy stored in the reactants
+
+2. During bond formation:
+   - New O-O bonds form in O~3~
+   - This lowers the system's potential energy
+   - By conservation of energy, this energy must appear elsewhere in the system
+
+3. The energy released by bond formation must be distributed into:
+   - Translational kinetic energy of the O~3~ molecule
+   - Internal (vibrational and rotational) energy of O~3~
+
+```{r ozone-energetics, fig.cap="Energy distribution during O + O₂ collision, showing conversion of potential energy from bond formation into kinetic and vibrational modes."}
+# Insert diagram showing energy conversion during collision
+```
+
+The fundamental problem is that in a two-body collision, conservation of momentum severely constrains how this released energy can be distributed. Most of it ends up as vibrational energy of the O~3~ molecule, creating a highly excited O~3~* that rapidly dissociates back to O + O~2~. This explains why a third body M is essential - it provides additional degrees of freedom for redistributing the energy released during bond formation.
+
+To form stable O~3~, this excess vibrational energy must be removed. This is where a third body M (typically O or O~2~) becomes essential. The reaction proceeds through two steps:
+
+1. Formation of excited ozone:
+   $\mathrm{O} + \mathrm{O_2} \rightleftharpoons \mathrm{O_3^*}$
+
+2. Collisional deactivation:
+   $\mathrm{O_3^*} + \mathrm{M} \rightarrow \mathrm{O_3} + \mathrm{M}$
+
+```{r energy-transfer, fig.cap="Energy transfer mechanism showing how the third body M removes excess vibrational energy from O₃*, stabilizing the ozone molecule."}
+# Insert diagram showing energy transfer to third body
+```
+
+In this mechanism, M carries away the excess energy as translational or internal energy, allowing the O~3~ molecule to stabilize. This necessity for a third body leads to the observed third-order kinetics:
+
+$\frac{\mathrm{d}[\mathrm{O_3}]}{\mathrm{d}t} = k_2K[\mathrm{O}][\mathrm{O_2}][\mathrm{M}]$
+
+This analysis mirrors our earlier discussion of NO~2~ formation, where a similar pre-equilibrium mechanism explains the observed third-order rate law.
+
+```{r ozone-energy-transfer, fig.cap="Energy transfer mechanism in ozone formation showing the role of the third body M in stabilizing the O₃ molecule."}
+# Insert diagram from slides showing energy transfer to third body
+```

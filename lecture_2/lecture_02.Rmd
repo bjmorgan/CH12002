@@ -12,7 +12,7 @@ Figure 1: Time evolution plot showing reactant [A](t) and product [B](t) concent
 
 When we measure reactant and product concentrations over time, we observe characteristic concentration profiles like those shown in Figure 1. For a simple decomposition reaction A → B, the reactant concentration decreases exponentially while the product concentration rises in a complementary fashion. The instantaneous reaction rate at any point equals the gradient of the tangent to these concentration curves, providing our best linear estimate of the rate at that specific moment:
 
-$$\text{rate} = -\frac{d[\text{A}]}{dt}$$
+$$\text{rate} = -\frac{\mathrm{d}[\text{A}]}{\mathrm{d}t}$$
 
 ## Elementary Processes and Rate Laws
 
