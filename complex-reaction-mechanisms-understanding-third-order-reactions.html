@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Lecture 4 Methods for Determining Rate Laws from Experimental Data | CH12002 Lecture Notes</title>
+  <title>Lecture 7 Complex Reaction Mechanisms: Understanding Third-Order Reactions | CH12002 Lecture Notes</title>
   <meta name="description" content="These are notes to accompany the 2025 CH12002 lecture course on Chemical Kinetics." />
   <meta name="generator" content="bookdown 0.42 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Lecture 4 Methods for Determining Rate Laws from Experimental Data | CH12002 Lecture Notes" />
+  <meta property="og:title" content="Lecture 7 Complex Reaction Mechanisms: Understanding Third-Order Reactions | CH12002 Lecture Notes" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="These are notes to accompany the 2025 CH12002 lecture course on Chemical Kinetics." />
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Lecture 4 Methods for Determining Rate Laws from Experimental Data | CH12002 Lecture Notes" />
+  <meta name="twitter:title" content="Lecture 7 Complex Reaction Mechanisms: Understanding Third-Order Reactions | CH12002 Lecture Notes" />
   
   <meta name="twitter:description" content="These are notes to accompany the 2025 CH12002 lecture course on Chemical Kinetics." />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="simple-integrated-rate-laws.html"/>
-<link rel="next" href="rate-laws-for-complex-reactions.html"/>
+<link rel="prev" href="the-steady-state-approximation.html"/>
+<link rel="next" href="mass-balance-in-chemical-kinetics.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -261,186 +261,145 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="methods-for-determining-rate-laws-from-experimental-data" class="section level1 hasAnchor" number="4">
-<h1><span class="header-section-number">Lecture 4</span> Methods for Determining Rate Laws from Experimental Data<a href="methods-for-determining-rate-laws-from-experimental-data.html#methods-for-determining-rate-laws-from-experimental-data" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<div id="introduction-1" class="section level2 hasAnchor" number="4.1">
-<h2><span class="header-section-number">4.1</span> Introduction<a href="methods-for-determining-rate-laws-from-experimental-data.html#introduction-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>In physical chemistry, the determination of rate laws from experimental data represents a fundamental challenge. While theoretical understanding of reaction mechanisms can suggest potential rate laws, ultimately we must determine these laws empirically through careful analysis of kinetic data. In this chapter, we explore four complementary methods for extracting rate law information from concentration-time measurements.</p>
-</div>
-<div id="the-integral-method" class="section level2 hasAnchor" number="4.2">
-<h2><span class="header-section-number">4.2</span> The Integral Method<a href="methods-for-determining-rate-laws-from-experimental-data.html#the-integral-method" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div id="theoretical-background" class="section level3 hasAnchor" number="4.2.1">
-<h3><span class="header-section-number">4.2.1</span> Theoretical Background<a href="methods-for-determining-rate-laws-from-experimental-data.html#theoretical-background" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>As we saw in Lecture 3, different rate laws lead to different integrated rate laws, each predicting distinct functional forms for the time evolution of reactant concentrations. This provides a powerful method for determining rate laws: we can compare experimental concentration-time data against these predicted functional forms.</p>
-<p>The standard method involves transforming the integrated rate laws into linear form. The key relationships are summarised below:</p>
-<table>
-<colgroup>
-<col width="13%" />
-<col width="19%" />
-<col width="41%" />
-<col width="25%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Order</th>
-<th>Rate Law</th>
-<th>Integrated Rate Law</th>
-<th>Linear Form</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>0</td>
-<td><span class="math inline">\(\nu = \color{660099}{k}\)</span></td>
-<td><span class="math inline">\([\mathrm{A}]_t = [\mathrm{A}]_0 - kt\)</span></td>
-<td><span class="math inline">\([\mathrm{A}]_t = [\mathrm{A}]_0 - kt\)</span></td>
-</tr>
-<tr class="even">
-<td>1</td>
-<td><span class="math inline">\(\nu = k[\mathrm{A}]\)</span></td>
-<td><span class="math inline">\([\mathrm{A}]_t = [\mathrm{A}]_0e^{-kt}\)</span></td>
-<td><span class="math inline">\(\ln[\mathrm{A}]_t = \ln[\mathrm{A}]_0 - kt\)</span></td>
-</tr>
-<tr class="odd">
-<td>2</td>
-<td><span class="math inline">\(\nu = k[\mathrm{A}]^2\)</span></td>
-<td><span class="math inline">\([\mathrm{A}]_t = \frac{[\mathrm{A}]_0}{1 + kt[\mathrm{A}]_0}\)</span></td>
-<td><span class="math inline">\(\frac{1}{[\mathrm{A}]_t} = \frac{1}{[\mathrm{A}]_0} + kt\)</span></td>
-</tr>
-</tbody>
-</table>
-<p>By plotting experimental data in these linear forms, we can readily identify which rate law best describes our reaction.</p>
-</div>
-<div id="example-testing-for-second-order-kinetics" class="section level3 hasAnchor" number="4.2.2">
-<h3><span class="header-section-number">4.2.2</span> Example: Testing for Second-Order Kinetics<a href="methods-for-determining-rate-laws-from-experimental-data.html#example-testing-for-second-order-kinetics" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Consider experimental data showing the decay of reactant A. To test whether these data are consistent with second-order kinetics, we plot <span class="math inline">\(\frac{1}{[\mathrm{A}]_t}\)</span> versus <span class="math inline">\(t\)</span>. A straight line would indicate consistency with second-order kinetics, with slope <span class="math inline">\(k\)</span> and intercept <span class="math inline">\(\frac{1}{[\mathrm{A}]_0}\)</span>.</p>
-</div>
-<div id="example-decomposition-of-azomethane" class="section level3 hasAnchor" number="4.2.3">
-<h3><span class="header-section-number">4.2.3</span> Example: Decomposition of Azomethane<a href="methods-for-determining-rate-laws-from-experimental-data.html#example-decomposition-of-azomethane" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>The decomposition of azomethane was studied at a pressure of <span class="math inline">\(2.18 \times 10^4\)</span> Pa and temperature of 576 K, yielding the following concentration-time data:</p>
-<table>
-<colgroup>
-<col width="34%" />
-<col width="6%" />
-<col width="9%" />
-<col width="9%" />
-<col width="9%" />
-<col width="9%" />
-<col width="11%" />
-<col width="11%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th><span class="math inline">\(t\)</span> / minutes</th>
-<th>0</th>
-<th>30</th>
-<th>60</th>
-<th>90</th>
-<th>120</th>
-<th>150</th>
-<th>180</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><span class="math inline">\([\text{azomethane}]\)</span> / <span class="math inline">\(10^{-3}\)</span> mol dm<span class="math inline">\(^{-3}\)</span></td>
-<td>8.70</td>
-<td>6.52</td>
-<td>4.89</td>
-<td>3.67</td>
-<td>2.75</td>
-<td>2.06</td>
-<td>1.55</td>
-</tr>
-</tbody>
-</table>
-<p>To test for first-order kinetics, we plot <span class="math inline">\(\ln[\text{azomethane}]\)</span> versus <span class="math inline">\(t\)</span>. The resulting linear plot (with slope <span class="math inline">\(-k = -9.6 \times 10^{-3}\)</span> min<span class="math inline">\(^{-1}\)</span>) confirms first-order behaviour.</p>
-</div>
-<div id="a-note-on-modern-analysis-methods" class="section level3 hasAnchor" number="4.2.4">
-<h3><span class="header-section-number">4.2.4</span> A Note on Modern Analysis Methods<a href="methods-for-determining-rate-laws-from-experimental-data.html#a-note-on-modern-analysis-methods" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>While we have focused on analysing concentration-time data using linear transformations, this is not the only approach. Modern computational methods allow direct non-linear fitting of the integrated rate laws in their original form. However, the linear analysis method presented here remains valuable both for understanding the mathematical relationships involved and for providing a straightforward way to identify compatible rate laws from experimental data.</p>
-</div>
-</div>
-<div id="the-half-life-method" class="section level2 hasAnchor" number="4.3">
-<h2><span class="header-section-number">4.3</span> The Half-Life Method<a href="methods-for-determining-rate-laws-from-experimental-data.html#the-half-life-method" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div id="characteristic-exponential-decay" class="section level3 hasAnchor" number="4.3.1">
-<h3><span class="header-section-number">4.3.1</span> Characteristic Exponential Decay<a href="methods-for-determining-rate-laws-from-experimental-data.html#characteristic-exponential-decay" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>First-order kinetics corresponds to characteristic exponential decay, where the concentration decreases by the same proportion in any fixed time interval. This leads to a key diagnostic: if we examine the time taken for the concentration to fall to <span class="math inline">\(\frac{1}{n}\)</span> of its initial value (where <span class="math inline">\(n\)</span> is any number), this time interval remains constant throughout the reaction.</p>
-<p>The “half-life” (<span class="math inline">\(t_{1/2}\)</span>) represents the special case where <span class="math inline">\(n = 2\)</span>, but there is nothing unique about this choice. For a first-order reaction:</p>
-<p><span class="math display">\[t_{1/n} = \frac{\ln(n)}{k}\]</span></p>
-</div>
-<div id="example-azomethane-decomposition-revisited" class="section level3 hasAnchor" number="4.3.2">
-<h3><span class="header-section-number">4.3.2</span> Example: Azomethane Decomposition Revisited<a href="methods-for-determining-rate-laws-from-experimental-data.html#example-azomethane-decomposition-revisited" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Returning to our azomethane data, we can verify first-order kinetics by showing that successive time intervals required for the concentration to halve remain constant. From the data:</p>
-<table>
-<thead>
-<tr class="header">
-<th>Time interval</th>
-<th>Initial [A]</th>
-<th>Final [A]</th>
-<th>Δt</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>First half-life</td>
-<td>8.70</td>
-<td>4.35</td>
-<td>72.3</td>
-</tr>
-<tr class="even">
-<td>Second half-life</td>
-<td>4.35</td>
-<td>2.18</td>
-<td>72.3</td>
-</tr>
-</tbody>
-</table>
-<p>The constant half-life provides independent confirmation of first-order kinetics.</p>
-</div>
-</div>
-<div id="the-isolation-method" class="section level2 hasAnchor" number="4.4">
-<h2><span class="header-section-number">4.4</span> The Isolation Method<a href="methods-for-determining-rate-laws-from-experimental-data.html#the-isolation-method" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>For reactions involving multiple reactants, the isolation method allows us to determine partial reaction orders by artificially simplifying the kinetics. By using a large excess of all but one reactant, their concentrations remain effectively constant throughout the reaction.</p>
-<p>Consider our bimolecular reaction:</p>
-<p><span class="math display">\[\nu = k[\mathrm{A}]^\alpha[\mathrm{B}]^\beta\]</span></p>
-<p>If <span class="math inline">\([\mathrm{B}]_0 \gg [\mathrm{A}]_0\)</span> then <span class="math inline">\([\mathrm{B}]_t \approx [\mathrm{B}]_0\)</span> and:</p>
-<p><span class="math display">\[\nu = k^\prime[\mathrm{A}]^\alpha\]</span></p>
-<p>where <span class="math inline">\(k^\prime = k[\mathrm{B}]_0^\beta\)</span> is a pseudo-rate constant.</p>
-<p>To determine <span class="math inline">\(\beta\)</span>, we can repeat the experiment with different initial concentrations of B:</p>
-<p><span class="math display">\[\ln k^\prime = \ln k + \beta\ln[\mathrm{B}]_0\]</span></p>
-<p>A plot of <span class="math inline">\(\ln k^\prime\)</span> versus <span class="math inline">\(\ln[\mathrm{B}]_0\)</span> gives slope <span class="math inline">\(\beta\)</span>.</p>
-</div>
-<div id="the-differential-method" class="section level2 hasAnchor" number="4.5">
-<h2><span class="header-section-number">4.5</span> The Differential Method<a href="methods-for-determining-rate-laws-from-experimental-data.html#the-differential-method" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>The differential method works directly with reaction rates rather than integrated concentration profiles. Taking logarithms of the rate law:</p>
-<p><span class="math display">\[\ln\nu = \ln k + \alpha\ln[\mathrm{A}] + \beta\ln[\mathrm{B}]\]</span></p>
-<p>Using initial rates with varying starting concentrations:</p>
-<p><span class="math display">\[\ln\nu_0 = \ln k + \alpha\ln[\mathrm{A}]_0 + \beta\ln[\mathrm{B}]_0\]</span></p>
-<p>When <span class="math inline">\([\mathrm{B}]_0\)</span> is held constant:</p>
-<p><span class="math display">\[\ln\nu_0 = (\ln k + \beta\ln[\mathrm{B}]_0) + \alpha\ln[\mathrm{A}]_0\]</span></p>
-<p>A plot of <span class="math inline">\(\ln\nu_0\)</span> versus <span class="math inline">\(\ln[\mathrm{A}]_0\)</span> gives slope <span class="math inline">\(\alpha\)</span>.</p>
-</div>
-<div id="summary" class="section level2 hasAnchor" number="4.6">
-<h2><span class="header-section-number">4.6</span> Summary<a href="methods-for-determining-rate-laws-from-experimental-data.html#summary" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>These four methods provide complementary approaches to rate law determination:</p>
+<div id="complex-reaction-mechanisms-understanding-third-order-reactions" class="section level1 hasAnchor" number="7">
+<h1><span class="header-section-number">Lecture 7</span> Complex Reaction Mechanisms: Understanding Third-Order Reactions<a href="complex-reaction-mechanisms-understanding-third-order-reactions.html#complex-reaction-mechanisms-understanding-third-order-reactions" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="the-lindemann-hinshelwood-mechanism" class="section level2 hasAnchor" number="7.1">
+<h2><span class="header-section-number">7.1</span> The Lindemann-Hinshelwood Mechanism<a href="complex-reaction-mechanisms-understanding-third-order-reactions.html#the-lindemann-hinshelwood-mechanism" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Many reactions that appear simple at first glance actually proceed through complex mechanisms involving multiple elementary steps. A classic example is the thermal decomposition of azomethane:</p>
+<p><span class="math display">\[\mathrm{CH_3N_2CH_3} \rightarrow \mathrm{C_2H_6} + \mathrm{N_2}\]</span></p>
+<p>At high pressures, this reaction exhibits first-order kinetics:</p>
+<p><span class="math display">\[-\frac{\mathrm{d}[\mathrm{CH_3N_2CH_3}]}{\mathrm{d}t} = k[\mathrm{CH_3N_2CH_3}]\]</span></p>
+<p>This simple rate law presents us with a fundamental mechanistic puzzle when we examine the molecular-level implications. We observe two seemingly contradictory behaviors:</p>
 <ol style="list-style-type: decimal">
-<li>The integral method compares experimental data against predicted concentration-time profiles</li>
-<li>The half-life method identifies first-order behaviour through time interval analysis</li>
-<li>The isolation method simplifies complex kinetics to determine partial orders</li>
-<li>The differential method uses initial rates to directly determine reaction orders</li>
+<li><p>The reaction shows first-order kinetics (<span class="math inline">\(\nu = k[\mathrm{A}]\)</span>), suggesting each molecule reacts independently.</p></li>
+<li><p>The rate increases with temperature, indicating that energy is required to overcome an activation barrier. But how does each molecule acquire this activation energy?</p></li>
 </ol>
-<p>Each method has particular strengths and limitations. The choice of method often depends on the specific reaction system and available experimental data.</p>
+<p>If the activation energy came from molecular collisions (the usual mechanism for thermal activation), we would expect the rate to depend on the frequency of these collisions. Since collision frequency is proportional to the concentration of both colliding species, this would lead to second-order kinetics (<span class="math inline">\(\nu = k[\mathrm{A}]^2\)</span>). Yet we observe first-order behavior.</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="complex-reaction-mechanisms-understanding-third-order-reactions.html#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Insert diagram comparing collision-based activation (suggesting second-order) with observed first-order behavior</span></span></code></pre></div>
+<p>This puzzle suggests that a more complex mechanism must be at work - one that can explain both the thermal activation and the first-order kinetics.</p>
+<div id="the-lindemann-mechanism" class="section level3 hasAnchor" number="7.1.1">
+<h3><span class="header-section-number">7.1.1</span> The Lindemann Mechanism<a href="complex-reaction-mechanisms-understanding-third-order-reactions.html#the-lindemann-mechanism" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>In 1921, Frederick Lindemann proposed a three-step mechanism to explain this behavior:</p>
+<ol style="list-style-type: decimal">
+<li><p>Excitation by collision:
+<span class="math display">\[\mathrm{A} + \mathrm{M} \xrightarrow{k_1} \mathrm{A^*} + \mathrm{M}\]</span></p></li>
+<li><p>Deactivation by collision:
+<span class="math display">\[\mathrm{A^*} + \mathrm{M} \xrightarrow{k_{-1}} \mathrm{A} + \mathrm{M}\]</span></p></li>
+<li><p>Unimolecular decomposition:
+<span class="math display">\[\mathrm{A^*} \xrightarrow{k_2} \mathrm{P}\]</span></p></li>
+</ol>
+<p>Here, M represents any collision partner (often the reactant molecule itself), and A* represents an energetically excited molecule.</p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="complex-reaction-mechanisms-understanding-third-order-reactions.html#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Insert diagram from slides showing the three steps</span></span></code></pre></div>
+</div>
+<div id="mathematical-analysis" class="section level3 hasAnchor" number="7.1.2">
+<h3><span class="header-section-number">7.1.2</span> Mathematical Analysis<a href="complex-reaction-mechanisms-understanding-third-order-reactions.html#mathematical-analysis" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>We can apply the steady-state approximation to the excited intermediate A*:</p>
+<p><span class="math display">\[\frac{\mathrm{d}[\mathrm{A^*}]}{\mathrm{d}t} = k_1[\mathrm{A}][\mathrm{M}] - k_{-1}[\mathrm{A^*}][\mathrm{M}] - k_2[\mathrm{A^*}] = 0\]</span></p>
+<p>Solving for [A*]:</p>
+<p><span class="math display">\[[\mathrm{A^*}] = \frac{k_1[\mathrm{A}][\mathrm{M}]}{k_{-1}[\mathrm{M}] + k_2}\]</span></p>
+<p>The overall reaction rate is determined by the decomposition of A*:</p>
+<p><span class="math display">\[\frac{\mathrm{d}[\mathrm{P}]}{\mathrm{d}t} = k_2[\mathrm{A^*}] = \frac{k_1k_2[\mathrm{A}][\mathrm{M}]}{k_{-1}[\mathrm{M}] + k_2}\]</span></p>
+<p>For the specific case of azomethane decomposition, where M = CH<sub>3</sub>N<sub>2</sub>CH<sub>3</sub>:</p>
+<p><span class="math display">\[\frac{\mathrm{d}[\mathrm{C_2H_6}]}{\mathrm{d}t} = \frac{k_1k_2[\mathrm{CH_3N_2CH_3}]^2}{k_{-1}[\mathrm{CH_3N_2CH_3}] + k_2}\]</span></p>
+</div>
+<div id="high-pressure-limit" class="section level3 hasAnchor" number="7.1.3">
+<h3><span class="header-section-number">7.1.3</span> High-Pressure Limit<a href="complex-reaction-mechanisms-understanding-third-order-reactions.html#high-pressure-limit" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>At high pressures, collisional deactivation is much faster than unimolecular decomposition (<span class="math inline">\(k_{-1}[\mathrm{CH_3N_2CH_3}] \gg k_2\)</span>). Under these conditions:</p>
+<p><span class="math display">\[\frac{\mathrm{d}[\mathrm{C_2H_6}]}{\mathrm{d}t} = \frac{k_1k_2}{k_{-1}}[\mathrm{CH_3N_2CH_3}]\]</span></p>
+<p>This simplifies to first-order kinetics with an effective rate constant <span class="math inline">\(k = \frac{k_1k_2}{k_{-1}}\)</span>, explaining the observed behavior.</p>
+</div>
+<div id="low-pressure-limit" class="section level3 hasAnchor" number="7.1.4">
+<h3><span class="header-section-number">7.1.4</span> Low-Pressure Limit<a href="complex-reaction-mechanisms-understanding-third-order-reactions.html#low-pressure-limit" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Conversely, at low pressures where <span class="math inline">\(k_{-1}[\mathrm{CH_3N_2CH_3}] \ll k_2\)</span>:</p>
+<p><span class="math display">\[\frac{\mathrm{d}[\mathrm{C_2H_6}]}{\mathrm{d}t} = k_1[\mathrm{CH_3N_2CH_3}]^2\]</span></p>
+<p>The reaction shows second-order kinetics with <span class="math inline">\(k = k_1\)</span>. This prediction was experimentally verified in 1927, providing strong support for the Lindemann mechanism.</p>
+</div>
+</div>
+<div id="third-order-reactions" class="section level2 hasAnchor" number="7.2">
+<h2><span class="header-section-number">7.2</span> Third-Order Reactions<a href="complex-reaction-mechanisms-understanding-third-order-reactions.html#third-order-reactions" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Some reactions exhibit third-order kinetics, such as the oxidation of nitric oxide:</p>
+<p><span class="math display">\[2\mathrm{NO} + \mathrm{O_2} \rightarrow 2\mathrm{NO_2}\]</span></p>
+<p>with rate law:</p>
+<p><span class="math display">\[\frac{\mathrm{d}[\mathrm{NO_2}]}{\mathrm{d}t} = k[\mathrm{NO}]^2[\mathrm{O_2}]\]</span></p>
+<div id="mechanistic-implications" class="section level3 hasAnchor" number="7.2.1">
+<h3><span class="header-section-number">7.2.1</span> Mechanistic Implications<a href="complex-reaction-mechanisms-understanding-third-order-reactions.html#mechanistic-implications" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>A simple termolecular collision mechanism seems implausible - simultaneous three-body collisions are extremely rare. Moreover, the reaction rate decreases with increasing temperature, suggesting a more complex mechanism.</p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="complex-reaction-mechanisms-understanding-third-order-reactions.html#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Insert diagram from slides showing conservation of momentum and energy</span></span></code></pre></div>
+<p>An alternative mechanism involving a pre-equilibrium better explains these observations:</p>
+<p><span class="math display">\[\mathrm{NO} + \mathrm{NO} \underset{k_{-1}}{\stackrel{k_1}{\rightleftharpoons}} (\mathrm{NO})_2\]</span>
+<span class="math display">\[(\mathrm{NO})_2 + \mathrm{O_2} \xrightarrow{k_2} 2\mathrm{NO_2}\]</span></p>
+<p>At equilibrium:</p>
+<p><span class="math display">\[K = \frac{k_1}{k_{-1}} = \frac{[(\mathrm{NO})_2]}{[\mathrm{NO}]^2}\]</span></p>
+<p>The overall rate:</p>
+<p><span class="math display">\[\frac{\mathrm{d}[\mathrm{NO_2}]}{\mathrm{d}t} = 2k_2[(\mathrm{NO})_2][\mathrm{O_2}] = 2k_2K[\mathrm{NO}]^2[\mathrm{O_2}]\]</span></p>
+<p>This mechanism explains both the observed third-order kinetics and the negative temperature dependence (as the pre-equilibrium favors dissociation at higher temperatures).</p>
+</div>
+<div id="formation-of-ozone" class="section level3 hasAnchor" number="7.2.2">
+<h3><span class="header-section-number">7.2.2</span> Formation of Ozone<a href="complex-reaction-mechanisms-understanding-third-order-reactions.html#formation-of-ozone" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>TODO: write this entire section</p>
+<p>Similar principles apply to ozone formation:</p>
+<p><span class="math display">\[\mathrm{O} + \mathrm{O_2} \rightarrow \mathrm{O_3}\]</span></p>
+<p>To understand why ozone formation requires a third body, let’s examine what happens in a simple bimolecular collision between O and O<sub>2</sub>. Consider the conservation laws that must be satisfied:</p>
+<ol style="list-style-type: decimal">
+<li><p>Conservation of Momentum:<br />
+For a head-on collision between O and O<sub>2</sub>:
+<span class="math inline">\(m_\mathrm{O}v_\mathrm{O} + m_\mathrm{O_2}v_\mathrm{O_2} = m_\mathrm{O_3}v_\mathrm{O_3}\)</span></p></li>
+<li><p>Conservation of Energy:<br />
+The total energy (kinetic + internal) must be conserved. When O and O<sub>2</sub> collide, their relative kinetic energy must be converted into:</p>
+<ul>
+<li>Kinetic energy of O<sub>3</sub></li>
+<li>Internal energy (vibrational and rotational) of O<sub>3</sub></li>
+</ul></li>
+</ol>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="complex-reaction-mechanisms-understanding-third-order-reactions.html#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Insert diagram from slides showing bimolecular collision process</span></span></code></pre></div>
+<p>When O and O<sub>2</sub> collide, energy conservation gives us crucial insights into the reaction energetics. Consider a head-on collision:</p>
+<ol style="list-style-type: decimal">
+<li>Initially, we have:
+<ul>
+<li>Kinetic energy of the colliding molecules</li>
+<li>Electronic and vibrational energy of O<sub>2</sub></li>
+<li>Potential energy stored in the reactants</li>
+</ul></li>
+<li>During bond formation:
+<ul>
+<li>New O-O bonds form in O<sub>3</sub></li>
+<li>This lowers the system’s potential energy</li>
+<li>By conservation of energy, this energy must appear elsewhere in the system</li>
+</ul></li>
+<li>The energy released by bond formation must be distributed into:
+<ul>
+<li>Translational kinetic energy of the O<sub>3</sub> molecule</li>
+<li>Internal (vibrational and rotational) energy of O<sub>3</sub></li>
+</ul></li>
+</ol>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="complex-reaction-mechanisms-understanding-third-order-reactions.html#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Insert diagram showing energy conversion during collision</span></span></code></pre></div>
+<p>The fundamental problem is that in a two-body collision, conservation of momentum severely constrains how this released energy can be distributed. Most of it ends up as vibrational energy of the O<sub>3</sub> molecule, creating a highly excited O<sub>3</sub>* that rapidly dissociates back to O + O<sub>2</sub>. This explains why a third body M is essential - it provides additional degrees of freedom for redistributing the energy released during bond formation.</p>
+<p>To form stable O<sub>3</sub>, this excess vibrational energy must be removed. This is where a third body M (typically O or O<sub>2</sub>) becomes essential. The reaction proceeds through two steps:</p>
+<ol style="list-style-type: decimal">
+<li><p>Formation of excited ozone:
+<span class="math inline">\(\mathrm{O} + \mathrm{O_2} \rightleftharpoons \mathrm{O_3^*}\)</span></p></li>
+<li><p>Collisional deactivation:
+<span class="math inline">\(\mathrm{O_3^*} + \mathrm{M} \rightarrow \mathrm{O_3} + \mathrm{M}\)</span></p></li>
+</ol>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="complex-reaction-mechanisms-understanding-third-order-reactions.html#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Insert diagram showing energy transfer to third body</span></span></code></pre></div>
+<p>In this mechanism, M carries away the excess energy as translational or internal energy, allowing the O<sub>3</sub> molecule to stabilize. This necessity for a third body leads to the observed third-order kinetics:</p>
+<p><span class="math inline">\(\frac{\mathrm{d}[\mathrm{O_3}]}{\mathrm{d}t} = k_2K[\mathrm{O}][\mathrm{O_2}][\mathrm{M}]\)</span></p>
+<p>This analysis mirrors our earlier discussion of NO<sub>2</sub> formation, where a similar pre-equilibrium mechanism explains the observed third-order rate law.</p>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="complex-reaction-mechanisms-understanding-third-order-reactions.html#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Insert diagram from slides showing energy transfer to third body</span></span></code></pre></div>
 
 </div>
 </div>
+</div>
+
+
+
             </section>
 
           </div>
         </div>
       </div>
-<a href="simple-integrated-rate-laws.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="rate-laws-for-complex-reactions.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="the-steady-state-approximation.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="mass-balance-in-chemical-kinetics.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -471,7 +430,7 @@ gitbook.start({
     "size": 2
   },
   "edit": {
-    "link": "https://github.com/bjmorgan/CH12002/main/lecture_4/lecture_04.Rmd",
+    "link": "https://github.com/bjmorgan/CH12002/main/lecture_7/lecture_07.Rmd",
     "text": "Edit"
   },
   "history": {

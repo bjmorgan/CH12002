@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Lecture 4 Methods for Determining Rate Laws from Experimental Data | CH12002 Lecture Notes</title>
+  <title>A Mass Balance in Chemical Kinetics | CH12002 Lecture Notes</title>
   <meta name="description" content="These are notes to accompany the 2025 CH12002 lecture course on Chemical Kinetics." />
   <meta name="generator" content="bookdown 0.42 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Lecture 4 Methods for Determining Rate Laws from Experimental Data | CH12002 Lecture Notes" />
+  <meta property="og:title" content="A Mass Balance in Chemical Kinetics | CH12002 Lecture Notes" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="These are notes to accompany the 2025 CH12002 lecture course on Chemical Kinetics." />
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Lecture 4 Methods for Determining Rate Laws from Experimental Data | CH12002 Lecture Notes" />
+  <meta name="twitter:title" content="A Mass Balance in Chemical Kinetics | CH12002 Lecture Notes" />
   
   <meta name="twitter:description" content="These are notes to accompany the 2025 CH12002 lecture course on Chemical Kinetics." />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="simple-integrated-rate-laws.html"/>
-<link rel="next" href="rate-laws-for-complex-reactions.html"/>
+<link rel="prev" href="complex-reaction-mechanisms-understanding-third-order-reactions.html"/>
+
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -261,176 +261,78 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="methods-for-determining-rate-laws-from-experimental-data" class="section level1 hasAnchor" number="4">
-<h1><span class="header-section-number">Lecture 4</span> Methods for Determining Rate Laws from Experimental Data<a href="methods-for-determining-rate-laws-from-experimental-data.html#methods-for-determining-rate-laws-from-experimental-data" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<div id="introduction-1" class="section level2 hasAnchor" number="4.1">
-<h2><span class="header-section-number">4.1</span> Introduction<a href="methods-for-determining-rate-laws-from-experimental-data.html#introduction-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>In physical chemistry, the determination of rate laws from experimental data represents a fundamental challenge. While theoretical understanding of reaction mechanisms can suggest potential rate laws, ultimately we must determine these laws empirically through careful analysis of kinetic data. In this chapter, we explore four complementary methods for extracting rate law information from concentration-time measurements.</p>
+<div id="mass-balance-in-chemical-kinetics" class="section level1 hasAnchor" number="8">
+<h1><span class="header-section-number">A</span> Mass Balance in Chemical Kinetics<a href="mass-balance-in-chemical-kinetics.html#mass-balance-in-chemical-kinetics" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>In Lecture 1, we encountered a fundamental relationship between reaction rates and concentration changes. For any species X involved in a reaction, its rate of concentration change is related to the overall reaction rate <span class="math inline">\(\nu\)</span> by:</p>
+<p><span class="math display">\[\nu = \frac{1}{n}\frac{\mathrm{d}[\mathrm{X}]}{\mathrm{d}t}\]</span></p>
+<p>where <span class="math inline">\(n\)</span> is the stoichiometric coefficient of X (positive for products, negative for reactants). This elegant relationship unifies the rates of change of all species in a reaction—but where does it come from?</p>
+<p>The answer lies in a fundamental principle of chemistry: the conservation of mass. When we examine how reaction concentrations evolve over time, mass balance relationships provide the key to understanding how different species’ rates of change are connected. This appendix explores how mass conservation leads naturally to these rate relationships.</p>
+<div id="the-origins-of-mass-balance" class="section level2 hasAnchor" number="8.1">
+<h2><span class="header-section-number">A.1</span> The Origins of Mass Balance<a href="mass-balance-in-chemical-kinetics.html#the-origins-of-mass-balance" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Consider a simple reaction:</p>
+<p><span class="math display">\[\mathrm{A} \rightarrow \mathrm{B}\]</span></p>
+<p>While concentrations of A and B change over time, the total mass of the system remains constant - this is the principle of conservation of mass. For this simple reaction, at any time <span class="math inline">\(t\)</span>:</p>
+<p><span class="math display">\[[\mathrm{A}]_t + [\mathrm{B}]_t = [\mathrm{A}]_0 + [\mathrm{B}]_0\]</span></p>
+<p>where <span class="math inline">\([\mathrm{A}]_0\)</span> and <span class="math inline">\([\mathrm{B}]_0\)</span> are the initial concentrations at <span class="math inline">\(t=0\)</span>.</p>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="mass-balance-in-chemical-kinetics.html#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot showing [A] and [B] vs time with horizontal line showing constant total</span></span></code></pre></div>
+<p>In cases where <span class="math inline">\([\mathrm{B}]_0 = 0\)</span> (starting with pure reactant), this simplifies to:</p>
+<p><span class="math display">\[[\mathrm{A}]_t + [\mathrm{B}]_t = [\mathrm{A}]_0\]</span></p>
 </div>
-<div id="the-integral-method" class="section level2 hasAnchor" number="4.2">
-<h2><span class="header-section-number">4.2</span> The Integral Method<a href="methods-for-determining-rate-laws-from-experimental-data.html#the-integral-method" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div id="theoretical-background" class="section level3 hasAnchor" number="4.2.1">
-<h3><span class="header-section-number">4.2.1</span> Theoretical Background<a href="methods-for-determining-rate-laws-from-experimental-data.html#theoretical-background" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>As we saw in Lecture 3, different rate laws lead to different integrated rate laws, each predicting distinct functional forms for the time evolution of reactant concentrations. This provides a powerful method for determining rate laws: we can compare experimental concentration-time data against these predicted functional forms.</p>
-<p>The standard method involves transforming the integrated rate laws into linear form. The key relationships are summarised below:</p>
-<table>
-<colgroup>
-<col width="13%" />
-<col width="19%" />
-<col width="41%" />
-<col width="25%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Order</th>
-<th>Rate Law</th>
-<th>Integrated Rate Law</th>
-<th>Linear Form</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>0</td>
-<td><span class="math inline">\(\nu = \color{660099}{k}\)</span></td>
-<td><span class="math inline">\([\mathrm{A}]_t = [\mathrm{A}]_0 - kt\)</span></td>
-<td><span class="math inline">\([\mathrm{A}]_t = [\mathrm{A}]_0 - kt\)</span></td>
-</tr>
-<tr class="even">
-<td>1</td>
-<td><span class="math inline">\(\nu = k[\mathrm{A}]\)</span></td>
-<td><span class="math inline">\([\mathrm{A}]_t = [\mathrm{A}]_0e^{-kt}\)</span></td>
-<td><span class="math inline">\(\ln[\mathrm{A}]_t = \ln[\mathrm{A}]_0 - kt\)</span></td>
-</tr>
-<tr class="odd">
-<td>2</td>
-<td><span class="math inline">\(\nu = k[\mathrm{A}]^2\)</span></td>
-<td><span class="math inline">\([\mathrm{A}]_t = \frac{[\mathrm{A}]_0}{1 + kt[\mathrm{A}]_0}\)</span></td>
-<td><span class="math inline">\(\frac{1}{[\mathrm{A}]_t} = \frac{1}{[\mathrm{A}]_0} + kt\)</span></td>
-</tr>
-</tbody>
-</table>
-<p>By plotting experimental data in these linear forms, we can readily identify which rate law best describes our reaction.</p>
+<div id="from-mass-balance-to-rate-relationships" class="section level2 hasAnchor" number="8.2">
+<h2><span class="header-section-number">A.2</span> From Mass Balance to Rate Relationships<a href="mass-balance-in-chemical-kinetics.html#from-mass-balance-to-rate-relationships" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The mass balance equation provides a constraint that links the rates of change of A and B. Taking the derivative with respect to time:</p>
+<p><span class="math display">\[\frac{\mathrm{d}}{\mathrm{d}t}([\mathrm{A}]_t + [\mathrm{B}]_t) = \frac{\mathrm{d}}{\mathrm{d}t}[\mathrm{A}]_0\]</span></p>
+<p>Since <span class="math inline">\([\mathrm{A}]_0\)</span> is constant, its derivative is zero:</p>
+<p><span class="math display">\[\frac{\mathrm{d}[\mathrm{A}]}{\mathrm{d}t} + \frac{\mathrm{d}[\mathrm{B}]}{\mathrm{d}t} = 0\]</span></p>
+<p>Rearranging:</p>
+<p><span class="math display">\[\frac{\mathrm{d}[\mathrm{B}]}{\mathrm{d}t} = -\frac{\mathrm{d}[\mathrm{A}]}{\mathrm{d}t}\]</span></p>
+<p>This tells us that for this simple reaction, the rate of formation of B equals the rate of consumption of A.</p>
 </div>
-<div id="example-testing-for-second-order-kinetics" class="section level3 hasAnchor" number="4.2.2">
-<h3><span class="header-section-number">4.2.2</span> Example: Testing for Second-Order Kinetics<a href="methods-for-determining-rate-laws-from-experimental-data.html#example-testing-for-second-order-kinetics" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Consider experimental data showing the decay of reactant A. To test whether these data are consistent with second-order kinetics, we plot <span class="math inline">\(\frac{1}{[\mathrm{A}]_t}\)</span> versus <span class="math inline">\(t\)</span>. A straight line would indicate consistency with second-order kinetics, with slope <span class="math inline">\(k\)</span> and intercept <span class="math inline">\(\frac{1}{[\mathrm{A}]_0}\)</span>.</p>
+<div id="mass-balance-with-stoichiometry" class="section level2 hasAnchor" number="8.3">
+<h2><span class="header-section-number">A.3</span> Mass Balance with Stoichiometry<a href="mass-balance-in-chemical-kinetics.html#mass-balance-with-stoichiometry" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Now consider a reaction where one molecule of A produces two molecules of B:</p>
+<p><span class="math display">\[\mathrm{A} \rightarrow 2\mathrm{B}\]</span></p>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="mass-balance-in-chemical-kinetics.html#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Diagram showing A → 2B transformation</span></span></code></pre></div>
+<p>The mass balance equation becomes:</p>
+<p><span class="math display">\[2[\mathrm{A}]_t + [\mathrm{B}]_t = 2[\mathrm{A}]_0\]</span></p>
+<p>The factor of 2 for [A] accounts for the fact that each A molecule contains the mass equivalent of two B molecules. Taking the derivative:</p>
+<p><span class="math display">\[2\frac{\mathrm{d}[\mathrm{A}]}{\mathrm{d}t} + \frac{\mathrm{d}[\mathrm{B}]}{\mathrm{d}t} = 0\]</span></p>
+<p>Rearranging:</p>
+<p><span class="math display">\[\frac{\mathrm{d}[\mathrm{B}]}{\mathrm{d}t} = -2\frac{\mathrm{d}[\mathrm{A}]}{\mathrm{d}t}\]</span></p>
+<p>This shows that B is produced twice as fast as A is consumed, consistent with the stoichiometry.</p>
 </div>
-<div id="example-decomposition-of-azomethane" class="section level3 hasAnchor" number="4.2.3">
-<h3><span class="header-section-number">4.2.3</span> Example: Decomposition of Azomethane<a href="methods-for-determining-rate-laws-from-experimental-data.html#example-decomposition-of-azomethane" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>The decomposition of azomethane was studied at a pressure of <span class="math inline">\(2.18 \times 10^4\)</span> Pa and temperature of 576 K, yielding the following concentration-time data:</p>
-<table>
-<colgroup>
-<col width="34%" />
-<col width="6%" />
-<col width="9%" />
-<col width="9%" />
-<col width="9%" />
-<col width="9%" />
-<col width="11%" />
-<col width="11%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th><span class="math inline">\(t\)</span> / minutes</th>
-<th>0</th>
-<th>30</th>
-<th>60</th>
-<th>90</th>
-<th>120</th>
-<th>150</th>
-<th>180</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><span class="math inline">\([\text{azomethane}]\)</span> / <span class="math inline">\(10^{-3}\)</span> mol dm<span class="math inline">\(^{-3}\)</span></td>
-<td>8.70</td>
-<td>6.52</td>
-<td>4.89</td>
-<td>3.67</td>
-<td>2.75</td>
-<td>2.06</td>
-<td>1.55</td>
-</tr>
-</tbody>
-</table>
-<p>To test for first-order kinetics, we plot <span class="math inline">\(\ln[\text{azomethane}]\)</span> versus <span class="math inline">\(t\)</span>. The resulting linear plot (with slope <span class="math inline">\(-k = -9.6 \times 10^{-3}\)</span> min<span class="math inline">\(^{-1}\)</span>) confirms first-order behaviour.</p>
+<div id="generalizing-to-complex-reactions" class="section level2 hasAnchor" number="8.4">
+<h2><span class="header-section-number">A.4</span> Generalizing to Complex Reactions<a href="mass-balance-in-chemical-kinetics.html#generalizing-to-complex-reactions" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>For a general reaction:</p>
+<p><span class="math display">\[\mathrm{A} + 2\mathrm{B} \rightarrow \mathrm{C} + 3\mathrm{D}\]</span></p>
+<p>The reaction rate <span class="math inline">\(\nu\)</span> can be expressed in terms of any species’ concentration change:</p>
+<p><span class="math display">\[\nu = -\frac{\mathrm{d}[\mathrm{A}]}{\mathrm{d}t} = -\frac{1}{2}\frac{\mathrm{d}[\mathrm{B}]}{\mathrm{d}t} = \frac{\mathrm{d}[\mathrm{C}]}{\mathrm{d}t} = \frac{1}{3}\frac{\mathrm{d}[\mathrm{D}]}{\mathrm{d}t}\]</span></p>
+<p>This leads to the general form:</p>
+<p><span class="math display">\[\nu = \frac{1}{n}\frac{\mathrm{d}[\mathrm{X}]}{\mathrm{d}t}\]</span></p>
+<p>where <span class="math inline">\(n\)</span> is the stoichiometric coefficient of species X (negative for reactants, positive for products).</p>
 </div>
-<div id="a-note-on-modern-analysis-methods" class="section level3 hasAnchor" number="4.2.4">
-<h3><span class="header-section-number">4.2.4</span> A Note on Modern Analysis Methods<a href="methods-for-determining-rate-laws-from-experimental-data.html#a-note-on-modern-analysis-methods" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>While we have focused on analysing concentration-time data using linear transformations, this is not the only approach. Modern computational methods allow direct non-linear fitting of the integrated rate laws in their original form. However, the linear analysis method presented here remains valuable both for understanding the mathematical relationships involved and for providing a straightforward way to identify compatible rate laws from experimental data.</p>
+<div id="equilibrium-reactions-and-mass-balance" class="section level2 hasAnchor" number="8.5">
+<h2><span class="header-section-number">A.5</span> Equilibrium Reactions and Mass Balance<a href="mass-balance-in-chemical-kinetics.html#equilibrium-reactions-and-mass-balance" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>For an equilibrium reaction:</p>
+<p><span class="math display">\[\mathrm{A} \underset{k_{-1}}{\stackrel{k_1}{\rightleftharpoons}} 2\mathrm{B}\]</span></p>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="mass-balance-in-chemical-kinetics.html#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Diagram showing equilibrium with labeled rate constants</span></span></code></pre></div>
+<p>The rate of change of [A] has contributions from both forward and reverse reactions:</p>
+<p><span class="math display">\[\frac{\mathrm{d}[\mathrm{A}]}{\mathrm{d}t} = -k_1[\mathrm{A}] + k_{-1}[\mathrm{B}]^2\]</span></p>
+<p>The first term represents unimolecular decomposition of A, while the second term represents the bimolecular recombination of B.</p>
+<p>Similarly for B:</p>
+<p><span class="math display">\[\frac{\mathrm{d}[\mathrm{B}]}{\mathrm{d}t} = +2k_1[\mathrm{A}] - 2k_{-1}[\mathrm{B}]^2\]</span></p>
+<p>These equations satisfy mass balance:</p>
+<p><span class="math display">\[\frac{\mathrm{d}[\mathrm{B}]}{\mathrm{d}t} = -2\frac{\mathrm{d}[\mathrm{A}]}{\mathrm{d}t}\]</span></p>
 </div>
-</div>
-<div id="the-half-life-method" class="section level2 hasAnchor" number="4.3">
-<h2><span class="header-section-number">4.3</span> The Half-Life Method<a href="methods-for-determining-rate-laws-from-experimental-data.html#the-half-life-method" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div id="characteristic-exponential-decay" class="section level3 hasAnchor" number="4.3.1">
-<h3><span class="header-section-number">4.3.1</span> Characteristic Exponential Decay<a href="methods-for-determining-rate-laws-from-experimental-data.html#characteristic-exponential-decay" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>First-order kinetics corresponds to characteristic exponential decay, where the concentration decreases by the same proportion in any fixed time interval. This leads to a key diagnostic: if we examine the time taken for the concentration to fall to <span class="math inline">\(\frac{1}{n}\)</span> of its initial value (where <span class="math inline">\(n\)</span> is any number), this time interval remains constant throughout the reaction.</p>
-<p>The “half-life” (<span class="math inline">\(t_{1/2}\)</span>) represents the special case where <span class="math inline">\(n = 2\)</span>, but there is nothing unique about this choice. For a first-order reaction:</p>
-<p><span class="math display">\[t_{1/n} = \frac{\ln(n)}{k}\]</span></p>
-</div>
-<div id="example-azomethane-decomposition-revisited" class="section level3 hasAnchor" number="4.3.2">
-<h3><span class="header-section-number">4.3.2</span> Example: Azomethane Decomposition Revisited<a href="methods-for-determining-rate-laws-from-experimental-data.html#example-azomethane-decomposition-revisited" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Returning to our azomethane data, we can verify first-order kinetics by showing that successive time intervals required for the concentration to halve remain constant. From the data:</p>
-<table>
-<thead>
-<tr class="header">
-<th>Time interval</th>
-<th>Initial [A]</th>
-<th>Final [A]</th>
-<th>Δt</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>First half-life</td>
-<td>8.70</td>
-<td>4.35</td>
-<td>72.3</td>
-</tr>
-<tr class="even">
-<td>Second half-life</td>
-<td>4.35</td>
-<td>2.18</td>
-<td>72.3</td>
-</tr>
-</tbody>
-</table>
-<p>The constant half-life provides independent confirmation of first-order kinetics.</p>
-</div>
-</div>
-<div id="the-isolation-method" class="section level2 hasAnchor" number="4.4">
-<h2><span class="header-section-number">4.4</span> The Isolation Method<a href="methods-for-determining-rate-laws-from-experimental-data.html#the-isolation-method" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>For reactions involving multiple reactants, the isolation method allows us to determine partial reaction orders by artificially simplifying the kinetics. By using a large excess of all but one reactant, their concentrations remain effectively constant throughout the reaction.</p>
-<p>Consider our bimolecular reaction:</p>
-<p><span class="math display">\[\nu = k[\mathrm{A}]^\alpha[\mathrm{B}]^\beta\]</span></p>
-<p>If <span class="math inline">\([\mathrm{B}]_0 \gg [\mathrm{A}]_0\)</span> then <span class="math inline">\([\mathrm{B}]_t \approx [\mathrm{B}]_0\)</span> and:</p>
-<p><span class="math display">\[\nu = k^\prime[\mathrm{A}]^\alpha\]</span></p>
-<p>where <span class="math inline">\(k^\prime = k[\mathrm{B}]_0^\beta\)</span> is a pseudo-rate constant.</p>
-<p>To determine <span class="math inline">\(\beta\)</span>, we can repeat the experiment with different initial concentrations of B:</p>
-<p><span class="math display">\[\ln k^\prime = \ln k + \beta\ln[\mathrm{B}]_0\]</span></p>
-<p>A plot of <span class="math inline">\(\ln k^\prime\)</span> versus <span class="math inline">\(\ln[\mathrm{B}]_0\)</span> gives slope <span class="math inline">\(\beta\)</span>.</p>
-</div>
-<div id="the-differential-method" class="section level2 hasAnchor" number="4.5">
-<h2><span class="header-section-number">4.5</span> The Differential Method<a href="methods-for-determining-rate-laws-from-experimental-data.html#the-differential-method" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>The differential method works directly with reaction rates rather than integrated concentration profiles. Taking logarithms of the rate law:</p>
-<p><span class="math display">\[\ln\nu = \ln k + \alpha\ln[\mathrm{A}] + \beta\ln[\mathrm{B}]\]</span></p>
-<p>Using initial rates with varying starting concentrations:</p>
-<p><span class="math display">\[\ln\nu_0 = \ln k + \alpha\ln[\mathrm{A}]_0 + \beta\ln[\mathrm{B}]_0\]</span></p>
-<p>When <span class="math inline">\([\mathrm{B}]_0\)</span> is held constant:</p>
-<p><span class="math display">\[\ln\nu_0 = (\ln k + \beta\ln[\mathrm{B}]_0) + \alpha\ln[\mathrm{A}]_0\]</span></p>
-<p>A plot of <span class="math inline">\(\ln\nu_0\)</span> versus <span class="math inline">\(\ln[\mathrm{A}]_0\)</span> gives slope <span class="math inline">\(\alpha\)</span>.</p>
-</div>
-<div id="summary" class="section level2 hasAnchor" number="4.6">
-<h2><span class="header-section-number">4.6</span> Summary<a href="methods-for-determining-rate-laws-from-experimental-data.html#summary" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>These four methods provide complementary approaches to rate law determination:</p>
+<div id="key-principles" class="section level2 hasAnchor" number="8.6">
+<h2><span class="header-section-number">A.6</span> Key Principles<a href="mass-balance-in-chemical-kinetics.html#key-principles" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ol style="list-style-type: decimal">
-<li>The integral method compares experimental data against predicted concentration-time profiles</li>
-<li>The half-life method identifies first-order behaviour through time interval analysis</li>
-<li>The isolation method simplifies complex kinetics to determine partial orders</li>
-<li>The differential method uses initial rates to directly determine reaction orders</li>
+<li>Total mass is conserved in chemical reactions</li>
+<li>Mass balance provides constraints on concentration changes</li>
+<li>Stoichiometric coefficients determine the relative rates of concentration changes</li>
+<li>Mass balance applies to both irreversible and equilibrium reactions</li>
 </ol>
-<p>Each method has particular strengths and limitations. The choice of method often depends on the specific reaction system and available experimental data.</p>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="mass-balance-in-chemical-kinetics.html#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Diagram illustrating key concepts</span></span></code></pre></div>
 
 </div>
 </div>
@@ -439,8 +341,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           </div>
         </div>
       </div>
-<a href="simple-integrated-rate-laws.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="rate-laws-for-complex-reactions.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="complex-reaction-mechanisms-understanding-third-order-reactions.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -471,7 +373,7 @@ gitbook.start({
     "size": 2
   },
   "edit": {
-    "link": "https://github.com/bjmorgan/CH12002/main/lecture_4/lecture_04.Rmd",
+    "link": "https://github.com/bjmorgan/CH12002/main/appendices/mass_balance.Rmd",
     "text": "Edit"
   },
   "history": {
