@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Lecture 6 The Steady State Approximation | CH12002 Lecture Notes</title>
+  <title>Lecture 10 Temperature Effects on Reaction Rates | CH12002 Lecture Notes</title>
   <meta name="description" content="These are notes to accompany the 2025 CH12002 lecture course on Chemical Kinetics." />
   <meta name="generator" content="bookdown 0.43 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Lecture 6 The Steady State Approximation | CH12002 Lecture Notes" />
+  <meta property="og:title" content="Lecture 10 Temperature Effects on Reaction Rates | CH12002 Lecture Notes" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="These are notes to accompany the 2025 CH12002 lecture course on Chemical Kinetics." />
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Lecture 6 The Steady State Approximation | CH12002 Lecture Notes" />
+  <meta name="twitter:title" content="Lecture 10 Temperature Effects on Reaction Rates | CH12002 Lecture Notes" />
   
   <meta name="twitter:description" content="These are notes to accompany the 2025 CH12002 lecture course on Chemical Kinetics." />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="rate-laws-for-complex-reactions.html"/>
-<link rel="next" href="complex-reaction-mechanisms-understanding-third-order-reactions.html"/>
+<link rel="prev" href="chain-reactions-and-reaction-feedback.html"/>
+<link rel="next" href="mass-balance-in-chemical-kinetics.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -357,113 +357,202 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="the-steady-state-approximation" class="section level1 hasAnchor" number="6">
-<h1><span class="header-section-number">Lecture 6</span> The Steady State Approximation<a href="the-steady-state-approximation.html#the-steady-state-approximation" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<div id="introduction-2" class="section level2 hasAnchor" number="6.1">
-<h2><span class="header-section-number">6.1</span> Introduction<a href="the-steady-state-approximation.html#introduction-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>In our previous lectures, we explored how complex reaction mechanisms can be analyzed by breaking them down into elementary steps and deriving their rate laws. However, for many reactions, the complete kinetic analysis becomes mathematically intractable.
-In cases where the reaction intermediates are highly reactive and are quickly converted into products, we can apply a simplifying approximation called the Steady State Approximation, which often allows us to simplify the differential rate equations to derive an approximate mathematical description of the overall reaction rate.</p>
-<p>Consider a reaction pathway involving a reactive intermediate B:</p>
-<p><span class="math display">\[\mathrm{A} \underset{k_{-1}}{\stackrel{k_1}{\rightleftharpoons}} \mathrm{B} \xrightarrow{k_2} \mathrm{C}\]</span></p>
-<p>The concentration of intermediate B changes through three competing processes:
-- Formation from reactant A (rate <span class="math inline">\(k_1[\mathrm{A}]\)</span>)
-- Back-reaction to A (rate <span class="math inline">\(k_{-1}[\mathrm{B}]\)</span>)
-- Forward reaction to product C (rate <span class="math inline">\(k_2[\mathrm{B}]\)</span>)</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="the-steady-state-approximation.html#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Figure showing competing processes affecting [B]</span></span>
-<span id="cb12-2"><a href="the-steady-state-approximation.html#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="co"># - Blue arrow showing formation from A </span></span>
-<span id="cb12-3"><a href="the-steady-state-approximation.html#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="co"># - Red arrow showing back-reaction to A</span></span>
-<span id="cb12-4"><a href="the-steady-state-approximation.html#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="co"># - Green arrow showing conversion to C</span></span></code></pre></div>
-<p>Under steady state conditions, the intermediate’s concentration remains approximately constant because its rate of formation equals its rate of consumption. Mathematically, this means:</p>
-<p><span class="math display">\[\frac{\mathrm{d}[\mathrm{B}]}{\mathrm{d}t} \approx 0\]</span></p>
-<p>This approximation doesn’t imply that [B] = 0, but rather that [B] rapidly reaches and maintains a nearly constant value throughout most of the reaction.</p>
+<div id="temperature-effects-on-reaction-rates" class="section level1 hasAnchor" number="10">
+<h1><span class="header-section-number">Lecture 10</span> Temperature Effects on Reaction Rates<a href="temperature-effects-on-reaction-rates.html#temperature-effects-on-reaction-rates" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="introduction-3" class="section level2 hasAnchor" number="10.1">
+<h2><span class="header-section-number">10.1</span> Introduction<a href="temperature-effects-on-reaction-rates.html#introduction-3" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The effect of temperature on reaction rates is readily observable in numerous chemical processes. Food preservation through refrigeration, the acceleration of cooking at higher temperatures, and the use of heat to speed up laboratory reactions all demonstrate the significant influence of temperature on chemical kinetics. These observations reflect a fundamental principle: most chemical reactions proceed more rapidly as temperature increases.</p>
+<p>In previous chapters, we examined how reaction rates depend on reactant concentrations, establishing methods for determining rate laws and exploring the relationship between mechanisms and observed kinetics. This chapter addresses the second major factor affecting reaction rates: temperature. Understanding the temperature dependence of reaction rates is essential for predicting reaction behavior under various conditions and provides insight into the energetic requirements of chemical transformations.</p>
 </div>
-<div id="analysis-of-pre-equilibrium-systems" class="section level2 hasAnchor" number="6.2">
-<h2><span class="header-section-number">6.2</span> Analysis of Pre-equilibrium Systems<a href="the-steady-state-approximation.html#analysis-of-pre-equilibrium-systems" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Let’s examine a mechanism involving both equilibrium and steady state behavior:</p>
-<p><span class="math display">\[\mathrm{A} + \mathrm{B} \underset{k_{-1}}{\stackrel{k_1}{\rightleftharpoons}} \mathrm{C} \xrightarrow{k_2} \mathrm{D}\]</span></p>
-<p>The complete set of rate equations for this system is:</p>
-<p><span class="math display">\[\begin{align*}
-\frac{\mathrm{d}[\mathrm{A}]}{\mathrm{d}t} &amp;= -k_1[\mathrm{A}][\mathrm{B}] + k_{-1}[\mathrm{C}] \\
-\frac{\mathrm{d}[\mathrm{B}]}{\mathrm{d}t} &amp;= -k_1[\mathrm{A}][\mathrm{B}] + k_{-1}[\mathrm{C}] \\
-\frac{\mathrm{d}[\mathrm{C}]}{\mathrm{d}t} &amp;= k_1[\mathrm{A}][\mathrm{B}] - k_{-1}[\mathrm{C}] - k_2[\mathrm{C}] \\
-\frac{\mathrm{d}[\mathrm{D}]}{\mathrm{d}t} &amp;= k_2[\mathrm{C}]
-\end{align*}\]</span></p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="the-steady-state-approximation.html#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot showing concentration profiles over time</span></span>
-<span id="cb13-2"><a href="the-steady-state-approximation.html#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="co"># - [A] and [B] decreasing</span></span>
-<span id="cb13-3"><a href="the-steady-state-approximation.html#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="co"># - [C] reaching steady state rapidly</span></span>
-<span id="cb13-4"><a href="the-steady-state-approximation.html#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="co"># - [D] increasing as product forms</span></span></code></pre></div>
-<div id="application-of-the-steady-state-approximation" class="section level3 hasAnchor" number="6.2.1">
-<h3><span class="header-section-number">6.2.1</span> Application of the Steady State Approximation<a href="the-steady-state-approximation.html#application-of-the-steady-state-approximation" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>We apply the steady state approximation to intermediate C:</p>
-<p><span class="math display">\[\frac{\mathrm{d}[\mathrm{C}]}{\mathrm{d}t} = k_1[\mathrm{A}][\mathrm{B}] - k_{-1}[\mathrm{C}] - k_2[\mathrm{C}] \approx 0\]</span></p>
-<p>This equation can be rearranged:</p>
-<p><span class="math display">\[k_1[\mathrm{A}][\mathrm{B}] = (k_{-1} + k_2)[\mathrm{C}]\]</span></p>
-<p>Solving for [C]:</p>
-<p><span class="math display">\[[\mathrm{C}] = \frac{k_1[\mathrm{A}][\mathrm{B}]}{k_{-1} + k_2}\]</span></p>
-<p>The overall reaction rate becomes:</p>
-<p><span class="math display">\[\begin{align*}
-\nu &amp;= \frac{\mathrm{d}[\mathrm{D}]}{\mathrm{d}t} = k_2[\mathrm{C}] \\
-&amp;= k_2\left(\frac{k_1[\mathrm{A}][\mathrm{B}]}{k_{-1} + k_2}\right) \\
-&amp;= \frac{k_2k_1[\mathrm{A}][\mathrm{B}]}{k_{-1} + k_2}
-\end{align*}\]</span></p>
+<div id="the-arrhenius-equation" class="section level2 hasAnchor" number="10.2">
+<h2><span class="header-section-number">10.2</span> The Arrhenius Equation<a href="temperature-effects-on-reaction-rates.html#the-arrhenius-equation" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>In the late 19th century, Swedish chemist Svante Arrhenius observed that for many reactions, the rate constant varies with temperature according to a simple mathematical relationship. This relationship, now known as the Arrhenius equation, expresses the rate constant as:</p>
+<p><span class="math display">\[k = A \exp \left( \frac{-E_\mathrm{a}}{RT} \right)\]</span></p>
+<p>where:
+- <span class="math inline">\(k\)</span> is the rate constant
+- <span class="math inline">\(A\)</span> is the pre-exponential factor (with the same units as <span class="math inline">\(k\)</span>)
+- <span class="math inline">\(E_\mathrm{a}\)</span> is the activation energy (typically in kJ mol<span class="math inline">\(^{-1}\)</span>)
+- <span class="math inline">\(R\)</span> is the gas constant (8.314 J K<span class="math inline">\(^{-1}\)</span> mol<span class="math inline">\(^{-1}\)</span>)
+- <span class="math inline">\(T\)</span> is the absolute temperature (in Kelvin)</p>
+<p>The Arrhenius equation has proven remarkably effective in describing the temperature dependence of rate constants across diverse chemical systems. It establishes that rate constants increase exponentially with temperature, which explains the substantial acceleration of reactions observed when temperature is raised.</p>
+<!-- ```{r arrhenius-equation, fig.cap="Temperature dependence of rate constants according to the Arrhenius equation. The plot shows how rate constants increase exponentially with temperature, with higher activation energies leading to stronger temperature dependence."}
+# Figure showing k vs T curves for different activation energies
+``` -->
 </div>
-<div id="analysis-of-limiting-cases" class="section level3 hasAnchor" number="6.2.2">
-<h3><span class="header-section-number">6.2.2</span> Analysis of Limiting Cases<a href="the-steady-state-approximation.html#analysis-of-limiting-cases" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Two important limiting behaviors emerge from this rate law:</p>
+<div id="linearised-form-of-the-arrhenius-equation" class="section level2 hasAnchor" number="10.3">
+<h2><span class="header-section-number">10.3</span> Linearised Form of the Arrhenius Equation<a href="temperature-effects-on-reaction-rates.html#linearised-form-of-the-arrhenius-equation" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>For experimental analysis, the Arrhenius equation is often recast in logarithmic form. Taking the natural logarithm of both sides yields:</p>
+<p><span class="math display">\[\ln k = \ln A - \frac{E_\mathrm{a}}{RT}\]</span></p>
+<p>This transformation produces a linear relationship between <span class="math inline">\(\ln k\)</span> and <span class="math inline">\(\frac{1}{T}\)</span>, with:</p>
+<ul>
+<li>Slope = <span class="math inline">\(-\frac{E_\mathrm{a}}{R}\)</span></li>
+<li>y-intercept = <span class="math inline">\(\ln A\)</span></li>
+</ul>
+<!-- ```{r arrhenius-plot, fig.cap="Linearised Arrhenius plot showing the determination of activation energy from the slope and pre-exponential factor from the y-intercept."}
+# Figure showing linearized Arrhenius plot with slope and intercept indicated
+``` -->
+<p>This linear form facilitates the experimental determination of Arrhenius parameters from rate constant measurements at different temperatures.</p>
+</div>
+<div id="general-expression-for-activation-energy" class="section level2 hasAnchor" number="10.4">
+<h2><span class="header-section-number">10.4</span> General Expression for Activation Energy<a href="temperature-effects-on-reaction-rates.html#general-expression-for-activation-energy" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The activation energy can be defined more generally through the temperature dependence of the rate constant:</p>
+<p><span class="math display">\[E_\mathrm{a}(T) = -R \frac{d \ln k}{d(1/T)}\]</span></p>
+<p>For reactions that strictly follow the Arrhenius equation, <span class="math inline">\(E_\mathrm{a}\)</span> is independent of temperature. However, many real systems show some temperature variation in <span class="math inline">\(E_\mathrm{a}\)</span>, requiring more complex models.</p>
+</div>
+<div id="alternative-forms-of-the-arrhenius-equation" class="section level2 hasAnchor" number="10.5">
+<h2><span class="header-section-number">10.5</span> Alternative Forms of the Arrhenius Equation<a href="temperature-effects-on-reaction-rates.html#alternative-forms-of-the-arrhenius-equation" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The Arrhenius equation can also be expressed in terms of the Boltzmann distribution factor:</p>
+<p><span class="math display">\[k = A e^{-E_\mathrm{a}/RT}\]</span></p>
+<p>This formulation emphasizes that the rate constant comprises two distinct components: the pre-exponential factor <span class="math inline">\(A\)</span> and the exponential term that contains both temperature and activation energy.</p>
+</div>
+<div id="physical-meaning-of-arrhenius-parameters" class="section level2 hasAnchor" number="10.6">
+<h2><span class="header-section-number">10.6</span> Physical Meaning of Arrhenius Parameters<a href="temperature-effects-on-reaction-rates.html#physical-meaning-of-arrhenius-parameters" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The Arrhenius equation incorporates two parameters that characterize how a reaction responds to temperature changes. While these parameters were initially derived empirically, they possess physical interpretations that enhance our understanding of reaction kinetics.</p>
+<div id="the-activation-energy-e_mathrma" class="section level3 hasAnchor" number="10.6.1">
+<h3><span class="header-section-number">10.6.1</span> The Activation Energy (<span class="math inline">\(E_\mathrm{a}\)</span>)<a href="temperature-effects-on-reaction-rates.html#the-activation-energy-e_mathrma" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The activation energy represents an energy threshold that must be exceeded for a chemical reaction to occur. This concept provides insight into the temperature dependence of reaction rates:</p>
+<ul>
+<li><span class="math inline">\(E_\mathrm{a}\)</span> corresponds approximately to the minimum energy required for reactants to transform into products</li>
+<li>At higher temperatures, a larger fraction of molecules possess sufficient energy to surpass this threshold</li>
+<li>The exponential term in the Arrhenius equation (<span class="math inline">\(e^{-E_\mathrm{a}/RT}\)</span>) quantifies the proportion of molecules with energy exceeding the required minimum</li>
+</ul>
+</div>
+<div id="the-pre-exponential-factor-a" class="section level3 hasAnchor" number="10.6.2">
+<h3><span class="header-section-number">10.6.2</span> The Pre-exponential Factor (<span class="math inline">\(A\)</span>)<a href="temperature-effects-on-reaction-rates.html#the-pre-exponential-factor-a" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The pre-exponential factor <span class="math inline">\(A\)</span> represents the theoretical maximum rate constant—the value that would be observed if either the activation energy barrier were absent (<span class="math inline">\(E_\mathrm{a} = 0\)</span>) or the temperature were infinite.</p>
+<p>From a physical perspective, <span class="math inline">\(A\)</span> encompasses several factors:
+- The frequency of molecular collisions
+- Geometric requirements for successful reaction (such as molecular orientation)
+- Other factors that influence reaction probability independent of energy considerations</p>
+<p>The pre-exponential factor has the same units as the rate constant <span class="math inline">\(k\)</span> and is specific to each reaction.</p>
+</div>
+</div>
+<div id="reaction-energy-profiles" class="section level2 hasAnchor" number="10.7">
+<h2><span class="header-section-number">10.7</span> Reaction Energy Profiles<a href="temperature-effects-on-reaction-rates.html#reaction-energy-profiles" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>A valuable conceptual tool for understanding activation energy is the reaction energy profile, also known as a reaction coordinate diagram:</p>
+<!-- ```{r reaction-coordinate, fig.cap="Reaction coordinate diagram showing the energy profile of a chemical reaction. The activation energy represents the energy barrier between reactants and products."}
+# Figure showing potential energy surface with activation barrier
+``` -->
+<p>This diagram illustrates the energy changes that occur as reactants transform into products. The activation energy <span class="math inline">\(E_\mathrm{a}\)</span> corresponds to the height of the energy barrier that separates reactants from products. This representation provides an intuitive framework for understanding why energy input (often in the form of heat) facilitates chemical reactions.</p>
+<p>More sophisticated treatments of reaction kinetics will provide additional refinements to this conceptual model, but the essential framework remains valid—reactions require energy to overcome a barrier, and the Arrhenius equation quantifies how temperature affects this process.</p>
+</div>
+<div id="determining-arrhenius-parameters-from-experimental-data" class="section level2 hasAnchor" number="10.8">
+<h2><span class="header-section-number">10.8</span> Determining Arrhenius Parameters from Experimental Data<a href="temperature-effects-on-reaction-rates.html#determining-arrhenius-parameters-from-experimental-data" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Several methodologies exist for extracting Arrhenius parameters from experimental measurements of rate constants at different temperatures.</p>
+<div id="linear-regression-analysis" class="section level3 hasAnchor" number="10.8.1">
+<h3><span class="header-section-number">10.8.1</span> Linear Regression Analysis<a href="temperature-effects-on-reaction-rates.html#linear-regression-analysis" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The most common approach involves measuring rate constants at multiple temperatures and plotting <span class="math inline">\(\ln k\)</span> versus <span class="math inline">\(\frac{1}{T}\)</span>. Linear regression analysis of this plot provides:</p>
+<ul>
+<li>Slope = <span class="math inline">\(-\frac{E_\mathrm{a}}{R}\)</span>, from which <span class="math inline">\(E_\mathrm{a}\)</span> is calculated</li>
+<li>y-intercept = <span class="math inline">\(\ln A\)</span>, from which <span class="math inline">\(A\)</span> is determined</li>
+</ul>
+<!-- ```{r linear-regression, fig.cap="Arrhenius plot with experimental data points and fitted line. The slope equals -E_a/R, allowing direct determination of the activation energy."}
+# Figure showing Arrhenius plot with data points and best-fit line
+``` -->
+<p>While conceptually straightforward, this approach has certain limitations. The logarithmic transformation can distort experimental errors, particularly at extreme temperatures. Additionally, extrapolation to determine the y-intercept (<span class="math inline">\(\frac{1}{T} = 0\)</span>, corresponding to infinite temperature) introduces substantial uncertainties in the estimation of <span class="math inline">\(A\)</span>.</p>
+</div>
+<div id="non-linear-regression-1" class="section level3 hasAnchor" number="10.8.2">
+<h3><span class="header-section-number">10.8.2</span> Non-linear Regression<a href="temperature-effects-on-reaction-rates.html#non-linear-regression-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Contemporary computational methods permit direct non-linear fitting of the Arrhenius equation in its original exponential form:</p>
+<p><span class="math display">\[k = A \exp \left( \frac{-E_\mathrm{a}}{RT} \right)\]</span></p>
+<p>This approach avoids the error distortion that occurs with logarithmic transformation and typically yields more reliable parameter estimates, especially when data span a limited temperature range.</p>
+<!-- ```{r nonlinear-fit, fig.cap="Non-linear regression fit of the Arrhenius equation to rate constant data. This approach avoids the potential error distortion that can occur with linearised methods."}
+# Figure showing non-linear fit to k vs T data
+``` -->
+</div>
+<div id="two-point-estimation" class="section level3 hasAnchor" number="10.8.3">
+<h3><span class="header-section-number">10.8.3</span> Two-Point Estimation<a href="temperature-effects-on-reaction-rates.html#two-point-estimation" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>When data are available at only two temperatures, the activation energy can still be estimated. For temperatures <span class="math inline">\(T_1\)</span> and <span class="math inline">\(T_2\)</span> with corresponding rate constants <span class="math inline">\(k_1\)</span> and <span class="math inline">\(k_2\)</span>:</p>
+<p><span class="math display">\[\ln k_1 = \ln A - \frac{E_\mathrm{a}}{RT_1}\]</span>
+<span class="math display">\[\ln k_2 = \ln A - \frac{E_\mathrm{a}}{RT_2}\]</span></p>
+<p>Subtracting the first equation from the second eliminates <span class="math inline">\(\ln A\)</span>:</p>
+<p><span class="math display">\[\ln k_2 - \ln k_1 = \frac{E_\mathrm{a}}{R} \left( \frac{1}{T_1} - \frac{1}{T_2} \right)\]</span></p>
+<p>Rearranging to solve for <span class="math inline">\(E_\mathrm{a}\)</span>:</p>
+<p><span class="math display">\[E_\mathrm{a} = \frac{R \ln(k_2/k_1)}{\frac{1}{T_1} - \frac{1}{T_2}}\]</span></p>
+<p>This approach provides a first approximation but cannot account for deviations from Arrhenius behavior across broader temperature ranges.</p>
+</div>
+<div id="estimating-a-from-graphical-data" class="section level3 hasAnchor" number="10.8.4">
+<h3><span class="header-section-number">10.8.4</span> Estimating <span class="math inline">\(A\)</span> from Graphical Data<a href="temperature-effects-on-reaction-rates.html#estimating-a-from-graphical-data" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>When working with Arrhenius plots (<span class="math inline">\(\ln k\)</span> versus <span class="math inline">\(\frac{1}{T}\)</span>), the pre-exponential factor <span class="math inline">\(A\)</span> corresponds to the y-intercept (<span class="math inline">\(\ln A\)</span>). Direct extrapolation to <span class="math inline">\(\frac{1}{T} = 0\)</span> introduces large uncertainties because this point lies far from the experimental data range.</p>
+<p>A more reliable method uses the slope and a point on the fitted line:</p>
 <ol style="list-style-type: decimal">
-<li><p>Pre-equilibrium Limit (<span class="math inline">\(k_{-1} \gg k_2\)</span>):
-<span class="math display">\[\nu = \frac{k_2k_1}{k_{-1}}[\mathrm{A}][\mathrm{B}]\]</span>
-The reaction exhibits second-order kinetics with an effective rate constant <span class="math inline">\(k_\mathrm{eff} = k_2k_1/k_{-1}\)</span>.</p></li>
-<li><p>Rate-determining Step Limit (<span class="math inline">\(k_2[\mathrm{C}] \gg k_{-1}\)</span>):
-<span class="math display">\[\nu = k_1[\mathrm{A}]\]</span>
-The reaction shows first-order kinetics with rate constant <span class="math inline">\(k_1\)</span>.</p></li>
+<li>Determine the slope <span class="math inline">\(m = -\frac{E_\mathrm{a}}{R}\)</span> from the linear fit</li>
+<li>Select a point <span class="math inline">\((x_0, y_0)\)</span> on the line, preferably within the data range</li>
+<li>Calculate the intercept <span class="math inline">\(c = y_0 - mx_0\)</span></li>
+<li>Compute the pre-exponential factor as <span class="math inline">\(A = e^c\)</span></li>
 </ol>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="the-steady-state-approximation.html#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Side-by-side plots comparing concentration profiles</span></span>
-<span id="cb14-2"><a href="the-steady-state-approximation.html#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Left: Pre-equilibrium case</span></span>
-<span id="cb14-3"><a href="the-steady-state-approximation.html#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Right: Rate-determining step case</span></span></code></pre></div>
+<!-- ```{r intercept-estimation, fig.cap="Estimation of the pre-exponential factor from an Arrhenius plot without direct extrapolation to 1/T = 0. Using a data point and the slope provides more reliable estimates."}
+# Figure showing improved method for estimating A
+``` -->
+<p>This method circumvents the uncertainties associated with extreme extrapolation while providing a reliable estimate of <span class="math inline">\(A\)</span>.</p>
 </div>
 </div>
-<div id="mathematical-foundation-of-steady-state-behavior" class="section level2 hasAnchor" number="6.3">
-<h2><span class="header-section-number">6.3</span> Mathematical Foundation of Steady State Behavior<a href="the-steady-state-approximation.html#mathematical-foundation-of-steady-state-behavior" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Consider a general reaction system where an intermediate species I is:
-- Produced with rate <span class="math inline">\(\nu_f\)</span>
-- Consumed with rate proportional to [I]</p>
-<p>The rate equation is:</p>
-<p><span class="math display">\[\frac{\mathrm{d}[\mathrm{I}]}{\mathrm{d}t} = \nu_f - k[\mathrm{I}]\]</span></p>
-<p>This linear first-order differential equation has the solution:</p>
-<p><span class="math display">\[[\mathrm{I}]_t = \frac{\nu_f}{k}(1 - e^{-kt})\]</span></p>
-<p>This solution shows that:
-1. [I] approaches steady state value <span class="math inline">\(\nu_f/k\)</span> exponentially
-2. Characteristic time to reach steady state is <span class="math inline">\(1/k\)</span>
-3. Steady state approximation is valid when <span class="math inline">\(t \gg 1/k\)</span></p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="the-steady-state-approximation.html#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot showing:</span></span>
-<span id="cb15-2"><a href="the-steady-state-approximation.html#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="co"># - Exponential approach to steady state</span></span>
-<span id="cb15-3"><a href="the-steady-state-approximation.html#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="co"># - Characteristic time marked</span></span>
-<span id="cb15-4"><a href="the-steady-state-approximation.html#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="co"># - Steady state value indicated</span></span></code></pre></div>
+<div id="special-cases-and-deviations-from-arrhenius-behavior" class="section level2 hasAnchor" number="10.9">
+<h2><span class="header-section-number">10.9</span> Special Cases and Deviations from Arrhenius Behavior<a href="temperature-effects-on-reaction-rates.html#special-cases-and-deviations-from-arrhenius-behavior" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>While the Arrhenius equation successfully describes many reactions, several important cases exhibit more complex temperature dependence.</p>
+<div id="negative-activation-energies" class="section level3 hasAnchor" number="10.9.1">
+<h3><span class="header-section-number">10.9.1</span> Negative Activation Energies<a href="temperature-effects-on-reaction-rates.html#negative-activation-energies" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>For most reactions, the activation energy is positive, and rates increase with temperature. However, certain reactions display the opposite behavior—their rates decrease as temperature rises, corresponding to a negative activation energy.</p>
+<p>This counterintuitive behavior typically indicates a complex reaction mechanism rather than a true “downhill” elementary process. For example, the oxidation of nitric oxide:</p>
+<p><span class="math display">\[2\mathrm{NO} + \mathrm{O}_2 \rightarrow 2\mathrm{NO}_2\]</span></p>
+<p>exhibits a negative temperature dependence with empirical rate law:</p>
+<p><span class="math display">\[\frac{d[\mathrm{NO}_2]}{dt} = k[\mathrm{NO}]^2[\mathrm{O}_2]\]</span></p>
+<!-- ```{r negative-ea, fig.cap="Arrhenius plot for a reaction with negative activation energy. The positive slope indicates that the rate constant decreases with increasing temperature."}
+# Figure showing Arrhenius plot with positive slope
+``` -->
+<p>Such behavior typically arises in multi-step reaction mechanisms. In the case of NO oxidation, a reversible first step becomes less favorable at higher temperatures, leading to the observed decrease in overall reaction rate.</p>
 </div>
-<div id="validation-criteria-for-steady-state" class="section level2 hasAnchor" number="6.4">
-<h2><span class="header-section-number">6.4</span> Validation Criteria for Steady State<a href="the-steady-state-approximation.html#validation-criteria-for-steady-state" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>The steady state approximation is valid when:
-1. The intermediate concentration remains small throughout the reaction
-2. The intermediate reaches steady state rapidly compared to overall reaction time
-3. The steady state persists for most of the reaction duration</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="the-steady-state-approximation.html#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Side-by-side plots:</span></span>
-<span id="cb16-2"><a href="the-steady-state-approximation.html#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Left: Valid steady state case</span></span>
-<span id="cb16-3"><a href="the-steady-state-approximation.html#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Right: Invalid case where approximation fails</span></span></code></pre></div>
-<p>These criteria can be assessed by comparing characteristic timescales:
-- <span class="math inline">\(\tau_\mathrm{SS} = 1/k\)</span> for reaching steady state
-- <span class="math inline">\(\tau_\mathrm{rxn}\)</span> for overall reaction progress</p>
-<p>The approximation is valid when <span class="math inline">\(\tau_\mathrm{SS} \ll \tau_\mathrm{rxn}\)</span>.</p>
+<div id="non-arrhenius-behavior" class="section level3 hasAnchor" number="10.9.2">
+<h3><span class="header-section-number">10.9.2</span> Non-Arrhenius Behavior<a href="temperature-effects-on-reaction-rates.html#non-arrhenius-behavior" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Several situations can lead to deviations from simple Arrhenius behavior:</p>
+<ol style="list-style-type: decimal">
+<li><strong>Multiple reaction pathways</strong>: When parallel reaction paths with different activation energies contribute to the overall process, the apparent activation energy may vary with temperature. This occurs because the relative contribution of each pathway changes with temperature—lower-<span class="math inline">\(E_\mathrm{a}\)</span> paths dominate at lower temperatures, while higher-<span class="math inline">\(E_\mathrm{a}\)</span> paths become increasingly important at higher temperatures.</li>
+</ol>
+<!-- ```{r multiple-pathways, fig.cap="Curved Arrhenius plot resulting from multiple reaction pathways with different activation energies. The effective activation energy changes with temperature range."}
+# Figure showing curved Arrhenius plot
+``` -->
+<ol start="2" style="list-style-type: decimal">
+<li><p><strong>Change in rate-determining step</strong>: For reactions with sequential steps in a mechanism, changes in temperature can shift which step limits the overall rate. This phenomenon occurs because steps with different activation energies respond differently to temperature changes, potentially altering which step is rate-determining as temperature varies.</p></li>
+<li><p><strong>Diffusion-limited reactions</strong>: When reaction rates approach the limit set by diffusion processes, the temperature dependence weakens. This occurs because diffusion typically has a lower activation energy than chemical transformation steps.</p></li>
+<li><p><strong>Quantum tunneling effects</strong>: At very low temperatures, quantum tunneling can allow reactions to proceed despite insufficient thermal energy to overcome the classical barrier, causing deviations from Arrhenius behavior.</p></li>
+</ol>
+</div>
+</div>
+<div id="predicting-rate-constants-at-different-temperatures" class="section level2 hasAnchor" number="10.10">
+<h2><span class="header-section-number">10.10</span> Predicting Rate Constants at Different Temperatures<a href="temperature-effects-on-reaction-rates.html#predicting-rate-constants-at-different-temperatures" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>A practical application of the Arrhenius equation involves predicting rate constants at temperatures where direct measurements may be impractical. If the activation energy and rate constant are known at one temperature, the rate constant at another temperature can be estimated.</p>
+<p>Starting with the Arrhenius equation in logarithmic form:</p>
+<p><span class="math display">\[\ln k_1 = \ln A - \frac{E_\mathrm{a}}{RT_1}\]</span>
+<span class="math display">\[\ln k_2 = \ln A - \frac{E_\mathrm{a}}{RT_2}\]</span></p>
+<p>Subtracting the first equation from the second:</p>
+<p><span class="math display">\[\ln k_2 - \ln k_1 = \frac{E_\mathrm{a}}{R} \left( \frac{1}{T_1} - \frac{1}{T_2} \right)\]</span></p>
+<p>Rearranging:</p>
+<p><span class="math display">\[\ln \frac{k_2}{k_1} = \frac{E_\mathrm{a}}{R} \left( \frac{1}{T_1} - \frac{1}{T_2} \right)\]</span></p>
+<p>This equation enables estimation of how rate constants change between two temperatures without requiring knowledge of the pre-exponential factor <span class="math inline">\(A\)</span>. This approach assumes that <span class="math inline">\(E_\mathrm{a}\)</span> remains constant across the temperature range of interest—a reasonable approximation for many reactions within moderate temperature intervals.</p>
+<!-- ```{r temperature-prediction, fig.cap="Estimation of rate constants at different temperatures using the Arrhenius relationship. Known data points allow prediction of rate constants at new temperatures."}
+# Figure showing prediction of k at new temperatures
+``` -->
+<p>For reactions with positive activation energies, rate constants increase with temperature. A general guideline derived from typical activation energy values suggests that many reaction rates approximately double with every 10°C increase in temperature, though the exact factor depends on the specific activation energy of the reaction in question.</p>
+</div>
+<div id="summary-2" class="section level2 hasAnchor" number="10.11">
+<h2><span class="header-section-number">10.11</span> Summary<a href="temperature-effects-on-reaction-rates.html#summary-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The Arrhenius equation provides a fundamental framework for understanding and quantifying how temperature affects reaction rates. The exponential relationship between temperature and rate constants explains the significant acceleration of most chemical reactions at elevated temperatures.</p>
+<p>The two Arrhenius parameters—the pre-exponential factor <span class="math inline">\(A\)</span> and the activation energy <span class="math inline">\(E_\mathrm{a}\)</span>—relate empirical kinetic behavior to a conceptual model of reactions requiring an energy threshold to proceed. The activation energy represents the energy barrier that reactant molecules must overcome, while the pre-exponential factor encompasses various factors affecting reaction probability independent of energy considerations.</p>
+<p>Experimental determination of these parameters through regression analysis allows for characterization of reactions and prediction of their behavior across different temperature ranges. The Arrhenius equation thus serves as a powerful tool linking macroscopic kinetic measurements to fundamental aspects of chemical reactivity.</p>
+<p>While the Arrhenius equation applies to a wide range of chemical processes, cases such as negative activation energies and non-Arrhenius behavior reveal the complexity of reaction mechanisms. These exceptions provide valuable insights into the intricate nature of chemical transformations and the limitations of simple kinetic models.</p>
 
 </div>
 </div>
+
+
+
             </section>
 
           </div>
         </div>
       </div>
-<a href="rate-laws-for-complex-reactions.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="complex-reaction-mechanisms-understanding-third-order-reactions.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="chain-reactions-and-reaction-feedback.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="mass-balance-in-chemical-kinetics.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -494,7 +583,7 @@ gitbook.start({
     "size": 2
   },
   "edit": {
-    "link": "https://github.com/bjmorgan/CH12002/main/lecture_6/lecture_06.Rmd",
+    "link": "https://github.com/bjmorgan/CH12002/main/lecture_10/lecture_10.Rmd",
     "text": "Edit"
   },
   "history": {

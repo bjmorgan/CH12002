@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Lecture 6 The Steady State Approximation | CH12002 Lecture Notes</title>
+  <title>Lecture 8 Enzyme Kinetics | CH12002 Lecture Notes</title>
   <meta name="description" content="These are notes to accompany the 2025 CH12002 lecture course on Chemical Kinetics." />
   <meta name="generator" content="bookdown 0.43 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Lecture 6 The Steady State Approximation | CH12002 Lecture Notes" />
+  <meta property="og:title" content="Lecture 8 Enzyme Kinetics | CH12002 Lecture Notes" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="These are notes to accompany the 2025 CH12002 lecture course on Chemical Kinetics." />
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Lecture 6 The Steady State Approximation | CH12002 Lecture Notes" />
+  <meta name="twitter:title" content="Lecture 8 Enzyme Kinetics | CH12002 Lecture Notes" />
   
   <meta name="twitter:description" content="These are notes to accompany the 2025 CH12002 lecture course on Chemical Kinetics." />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="rate-laws-for-complex-reactions.html"/>
-<link rel="next" href="complex-reaction-mechanisms-understanding-third-order-reactions.html"/>
+<link rel="prev" href="complex-reaction-mechanisms-understanding-third-order-reactions.html"/>
+<link rel="next" href="chain-reactions-and-reaction-feedback.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -357,103 +357,193 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="the-steady-state-approximation" class="section level1 hasAnchor" number="6">
-<h1><span class="header-section-number">Lecture 6</span> The Steady State Approximation<a href="the-steady-state-approximation.html#the-steady-state-approximation" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<div id="introduction-2" class="section level2 hasAnchor" number="6.1">
-<h2><span class="header-section-number">6.1</span> Introduction<a href="the-steady-state-approximation.html#introduction-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>In our previous lectures, we explored how complex reaction mechanisms can be analyzed by breaking them down into elementary steps and deriving their rate laws. However, for many reactions, the complete kinetic analysis becomes mathematically intractable.
-In cases where the reaction intermediates are highly reactive and are quickly converted into products, we can apply a simplifying approximation called the Steady State Approximation, which often allows us to simplify the differential rate equations to derive an approximate mathematical description of the overall reaction rate.</p>
-<p>Consider a reaction pathway involving a reactive intermediate B:</p>
-<p><span class="math display">\[\mathrm{A} \underset{k_{-1}}{\stackrel{k_1}{\rightleftharpoons}} \mathrm{B} \xrightarrow{k_2} \mathrm{C}\]</span></p>
-<p>The concentration of intermediate B changes through three competing processes:
-- Formation from reactant A (rate <span class="math inline">\(k_1[\mathrm{A}]\)</span>)
-- Back-reaction to A (rate <span class="math inline">\(k_{-1}[\mathrm{B}]\)</span>)
-- Forward reaction to product C (rate <span class="math inline">\(k_2[\mathrm{B}]\)</span>)</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="the-steady-state-approximation.html#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Figure showing competing processes affecting [B]</span></span>
-<span id="cb12-2"><a href="the-steady-state-approximation.html#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="co"># - Blue arrow showing formation from A </span></span>
-<span id="cb12-3"><a href="the-steady-state-approximation.html#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="co"># - Red arrow showing back-reaction to A</span></span>
-<span id="cb12-4"><a href="the-steady-state-approximation.html#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="co"># - Green arrow showing conversion to C</span></span></code></pre></div>
-<p>Under steady state conditions, the intermediate’s concentration remains approximately constant because its rate of formation equals its rate of consumption. Mathematically, this means:</p>
-<p><span class="math display">\[\frac{\mathrm{d}[\mathrm{B}]}{\mathrm{d}t} \approx 0\]</span></p>
-<p>This approximation doesn’t imply that [B] = 0, but rather that [B] rapidly reaches and maintains a nearly constant value throughout most of the reaction.</p>
+<div id="enzyme-kinetics" class="section level1 hasAnchor" number="8">
+<h1><span class="header-section-number">Lecture 8</span> Enzyme Kinetics<a href="enzyme-kinetics.html#enzyme-kinetics" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="introduction-to-enzymatic-catalysis" class="section level2 hasAnchor" number="8.1">
+<h2><span class="header-section-number">8.1</span> Introduction to Enzymatic Catalysis<a href="enzyme-kinetics.html#introduction-to-enzymatic-catalysis" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Enzymes represent one of nature’s most elegant solutions to a fundamental chemical challenge: how to accelerate reactions under the mild conditions required for biological systems. While industrial catalysis often employs elevated temperatures, extreme pH values, or high pressures, enzymes achieve remarkable catalytic efficiency at physiological conditions. This specificity and efficiency make enzyme kinetics a particularly fascinating branch of chemical kinetics.</p>
+<p>Enzymes are biological catalysts—predominantly proteins—that dramatically increase reaction rates by lowering activation energies. Their highly specific three-dimensional structures create active sites where substrate molecules bind and undergo transformation into products. This substrate specificity gives enzymes their remarkable selectivity, often catalysing just one specific reaction among many possibilities.</p>
+<!--
+
+``` r
+# Insert figure showing enzyme-substrate binding
+```
+-->
+<p>The basic model of enzyme catalysis follows a sequential process:</p>
+<p><span class="math display">\[\mathrm{E} + \mathrm{S} \rightleftharpoons \mathrm{ES} \rightarrow \mathrm{E} + \mathrm{P}\]</span></p>
+<p>Where:</p>
+<ul>
+<li>E represents the enzyme</li>
+<li>S represents the substrate (reactant molecule)</li>
+<li>ES represents the enzyme-substrate complex</li>
+<li>P represents the product</li>
+</ul>
+<p>This simple scheme, first proposed by <a href="https://en.wikipedia.org/wiki/Victor_Henri">Victor Henri</a> and later refined by <a href="https://en.wikipedia.org/wiki/Leonor_Michaelis">Leonor Michaelis</a> and <a href="https://en.wikipedia.org/wiki/Maud_Menten">Maud Menten</a>, provides the foundation for understanding enzyme kinetics. In this model, the enzyme first binds reversibly to its substrate, forming the enzyme-substrate complex. This complex then undergoes a transformation, releasing the product and regenerating the free enzyme.</p>
 </div>
-<div id="analysis-of-pre-equilibrium-systems" class="section level2 hasAnchor" number="6.2">
-<h2><span class="header-section-number">6.2</span> Analysis of Pre-equilibrium Systems<a href="the-steady-state-approximation.html#analysis-of-pre-equilibrium-systems" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Let’s examine a mechanism involving both equilibrium and steady state behavior:</p>
-<p><span class="math display">\[\mathrm{A} + \mathrm{B} \underset{k_{-1}}{\stackrel{k_1}{\rightleftharpoons}} \mathrm{C} \xrightarrow{k_2} \mathrm{D}\]</span></p>
-<p>The complete set of rate equations for this system is:</p>
-<p><span class="math display">\[\begin{align*}
-\frac{\mathrm{d}[\mathrm{A}]}{\mathrm{d}t} &amp;= -k_1[\mathrm{A}][\mathrm{B}] + k_{-1}[\mathrm{C}] \\
-\frac{\mathrm{d}[\mathrm{B}]}{\mathrm{d}t} &amp;= -k_1[\mathrm{A}][\mathrm{B}] + k_{-1}[\mathrm{C}] \\
-\frac{\mathrm{d}[\mathrm{C}]}{\mathrm{d}t} &amp;= k_1[\mathrm{A}][\mathrm{B}] - k_{-1}[\mathrm{C}] - k_2[\mathrm{C}] \\
-\frac{\mathrm{d}[\mathrm{D}]}{\mathrm{d}t} &amp;= k_2[\mathrm{C}]
-\end{align*}\]</span></p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="the-steady-state-approximation.html#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot showing concentration profiles over time</span></span>
-<span id="cb13-2"><a href="the-steady-state-approximation.html#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="co"># - [A] and [B] decreasing</span></span>
-<span id="cb13-3"><a href="the-steady-state-approximation.html#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="co"># - [C] reaching steady state rapidly</span></span>
-<span id="cb13-4"><a href="the-steady-state-approximation.html#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="co"># - [D] increasing as product forms</span></span></code></pre></div>
-<div id="application-of-the-steady-state-approximation" class="section level3 hasAnchor" number="6.2.1">
-<h3><span class="header-section-number">6.2.1</span> Application of the Steady State Approximation<a href="the-steady-state-approximation.html#application-of-the-steady-state-approximation" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>We apply the steady state approximation to intermediate C:</p>
-<p><span class="math display">\[\frac{\mathrm{d}[\mathrm{C}]}{\mathrm{d}t} = k_1[\mathrm{A}][\mathrm{B}] - k_{-1}[\mathrm{C}] - k_2[\mathrm{C}] \approx 0\]</span></p>
-<p>This equation can be rearranged:</p>
-<p><span class="math display">\[k_1[\mathrm{A}][\mathrm{B}] = (k_{-1} + k_2)[\mathrm{C}]\]</span></p>
-<p>Solving for [C]:</p>
-<p><span class="math display">\[[\mathrm{C}] = \frac{k_1[\mathrm{A}][\mathrm{B}]}{k_{-1} + k_2}\]</span></p>
-<p>The overall reaction rate becomes:</p>
-<p><span class="math display">\[\begin{align*}
-\nu &amp;= \frac{\mathrm{d}[\mathrm{D}]}{\mathrm{d}t} = k_2[\mathrm{C}] \\
-&amp;= k_2\left(\frac{k_1[\mathrm{A}][\mathrm{B}]}{k_{-1} + k_2}\right) \\
-&amp;= \frac{k_2k_1[\mathrm{A}][\mathrm{B}]}{k_{-1} + k_2}
-\end{align*}\]</span></p>
+<div id="the-kinetics-of-enzyme-substrate-binding" class="section level2 hasAnchor" number="8.2">
+<h2><span class="header-section-number">8.2</span> The Kinetics of Enzyme-Substrate Binding<a href="enzyme-kinetics.html#the-kinetics-of-enzyme-substrate-binding" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>To develop a quantitative understanding of enzyme kinetics, we must analyse the reaction mechanism step by step. The overall process can be represented more precisely with rate constants:</p>
+<p><span class="math display">\[\mathrm{E} + \mathrm{S} \underset{k_{-1}}{\stackrel{k_1}{\rightleftharpoons}} \mathrm{ES} \stackrel{k_{\mathrm{cat}}}{\longrightarrow} \mathrm{E} + \mathrm{P}\]</span></p>
+<p>Here:</p>
+<ul>
+<li><span class="math inline">\(k_1\)</span> represents the rate constant for enzyme-substrate association</li>
+<li><span class="math inline">\(k_{-1}\)</span> represents the rate constant for enzyme-substrate dissociation</li>
+<li><span class="math inline">\(k_{\mathrm{cat}}\)</span> (often called the catalytic constant or turnover number) represents the rate constant for the conversion of the enzyme-substrate complex to products</li>
+</ul>
+<p>This mechanism leads to the following rate equations:</p>
+<p><span class="math display">\[\frac{\mathrm{d}[\mathrm{ES}]}{\mathrm{d}t} = k_1[\mathrm{E}][\mathrm{S}] - k_{-1}[\mathrm{ES}] - k_{\mathrm{cat}}[\mathrm{ES}]\]</span></p>
+<p><span class="math display">\[\frac{\mathrm{d}[\mathrm{P}]}{\mathrm{d}t} = k_{\mathrm{cat}}[\mathrm{ES}]\]</span></p>
+<p>The rate of product formation—which we typically measure experimentally—depends directly on the concentration of the enzyme-substrate complex. However, [ES] is difficult to measure directly during a reaction. To develop a useful rate equation, we need to express [ES] in terms of experimentally accessible quantities.</p>
 </div>
-<div id="analysis-of-limiting-cases" class="section level3 hasAnchor" number="6.2.2">
-<h3><span class="header-section-number">6.2.2</span> Analysis of Limiting Cases<a href="the-steady-state-approximation.html#analysis-of-limiting-cases" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Two important limiting behaviors emerge from this rate law:</p>
+<div id="the-steady-state-approximation-for-enzyme-kinetics" class="section level2 hasAnchor" number="8.3">
+<h2><span class="header-section-number">8.3</span> The Steady State Approximation for Enzyme Kinetics<a href="enzyme-kinetics.html#the-steady-state-approximation-for-enzyme-kinetics" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>As we’ve seen in previous chapters, the steady state approximation offers a powerful tool for analysing reaction mechanisms involving reactive intermediates. This approach is particularly useful for enzyme kinetics, where the enzyme-substrate complex often reaches a steady-state concentration early in the reaction.</p>
+<p>To apply the steady state approximation to the ES complex, we set:</p>
+<p><span class="math display">\[\frac{\mathrm{d}[\mathrm{ES}]}{\mathrm{d}t} = 0\]</span></p>
+<p>This gives:</p>
+<p><span class="math display">\[k_1[\mathrm{E}][\mathrm{S}] - k_{-1}[\mathrm{ES}] - k_{\mathrm{cat}}[\mathrm{ES}] = 0\]</span></p>
+<p>Rearranging to solve for [ES]:</p>
+<p><span class="math display">\[k_1[\mathrm{E}][\mathrm{S}] = [\mathrm{ES}](k_{-1} + k_{\mathrm{cat}})\]</span></p>
+<p><span class="math display">\[[\mathrm{ES}] = \frac{k_1[\mathrm{E}][\mathrm{S}]}{k_{-1} + k_{\mathrm{cat}}}\]</span></p>
+<p>This equation expresses [ES] in terms of [E] and [S], but we still face a challenge: [E] represents the concentration of free enzyme, which changes during the reaction and is difficult to measure directly. Instead, what we typically know is the total enzyme concentration <span class="math inline">\([\mathrm{E}]_0\)</span>, which remains constant throughout the reaction.</p>
+<p>The relationship between total enzyme, free enzyme, and enzyme-substrate complex is:</p>
+<p><span class="math display">\[[\mathrm{E}]_0 = [\mathrm{E}] + [\mathrm{ES}]\]</span></p>
+<p>Rearranging to express [E] in terms of <span class="math inline">\([\mathrm{E}]_0\)</span>:</p>
+<p><span class="math display">\[[\mathrm{E}] = [\mathrm{E}]_0 - [\mathrm{ES}]\]</span></p>
+<p>Substituting this into our expression for [ES]:</p>
+<p><span class="math display">\[[\mathrm{ES}] = \frac{k_1([\mathrm{E}]_0 - [\mathrm{ES}])[\mathrm{S}]}{k_{-1} + k_{\mathrm{cat}}}\]</span></p>
+<p>Multiplying both sides by <span class="math inline">\((k_{-1} + k_{\mathrm{cat}})\)</span>:</p>
+<p><span class="math display">\[[\mathrm{ES}](k_{-1} + k_{\mathrm{cat}}) = k_1([\mathrm{E}]_0 - [\mathrm{ES}])[\mathrm{S}]\]</span></p>
+<p>Expanding the right side:</p>
+<p><span class="math display">\[[\mathrm{ES}](k_{-1} + k_{\mathrm{cat}}) = k_1[\mathrm{E}]_0[\mathrm{S}] - k_1[\mathrm{ES}][\mathrm{S}]\]</span></p>
+<p>Rearranging to isolate [ES]:</p>
+<p><span class="math display">\[[\mathrm{ES}](k_{-1} + k_{\mathrm{cat}} + k_1[\mathrm{S}]) = k_1[\mathrm{E}]_0[\mathrm{S}]\]</span></p>
+<p><span class="math display">\[[\mathrm{ES}] = \frac{k_1[\mathrm{E}]_0[\mathrm{S}]}{k_{-1} + k_{\mathrm{cat}} + k_1[\mathrm{S}]}\]</span></p>
+<p>To simplify this expression further, we can divide both numerator and denominator by <span class="math inline">\(k_1\)</span>:</p>
+<p><span class="math display">\[[\mathrm{ES}] = \frac{[\mathrm{E}]_0[\mathrm{S}]}{\frac{k_{-1} + k_{\mathrm{cat}}}{k_1} + [\mathrm{S}]}\]</span></p>
+</div>
+<div id="the-michaelis-menten-equation" class="section level2 hasAnchor" number="8.4">
+<h2><span class="header-section-number">8.4</span> The Michaelis-Menten Equation<a href="enzyme-kinetics.html#the-michaelis-menten-equation" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>At this point, we the Michaelis constant <span class="math inline">\(K_{\mathrm{M}}\)</span>, defined as:</p>
+<p><span class="math display">\[K_{\mathrm{M}} = \frac{k_{-1} + k_{\mathrm{cat}}}{k_1}\]</span></p>
+<p>The Michaelis constant combines the rate constants for the various steps in the enzyme mechanism. It has units of concentration (mol dm<span class="math inline">\(^{-3}\)</span>) and quantifies the affinity between enzyme and substrate. A low <span class="math inline">\(K_{\mathrm{M}}\)</span> value indicates high affinity (strong binding), while a high <span class="math inline">\(K_{\mathrm{M}}\)</span> indicates low affinity (weak binding).</p>
+<p>Using this definition, we can rewrite our expression for [ES]:</p>
+<p><span class="math display">\[[\mathrm{ES}] = \frac{[\mathrm{E}]_0[\mathrm{S}]}{K_{\mathrm{M}} + [\mathrm{S}]}\]</span></p>
+<p>Now, the rate of product formation becomes:</p>
+<p><span class="math display">\[\frac{\mathrm{d}[\mathrm{P}]}{\mathrm{d}t} = k_{\mathrm{cat}}[\mathrm{ES}] = k_{\mathrm{cat}}\frac{[\mathrm{E}]_0[\mathrm{S}]}{K_{\mathrm{M}} + [\mathrm{S}]}\]</span></p>
+<p>We can further simplify by defining the “maximum velocity” <span class="math inline">\(v_{\mathrm{max}}\)</span> as the rate when all enzyme molecules are bound to substrate:</p>
+<p><span class="math display">\[v_{\mathrm{max}} = k_{\mathrm{cat}}[\mathrm{E}]_0\]</span></p>
+<p>This gives us the famous Michaelis-Menten equation:</p>
+<p><span class="math display">\[v = \frac{\mathrm{d}[\mathrm{P}]}{\mathrm{d}t} = \frac{v_{\mathrm{max}}[\mathrm{S}]}{K_{\mathrm{M}} + [\mathrm{S}]}\]</span></p>
+<!--
+
+``` r
+# Insert figure showing the Michaelis-Menten curve
+```
+-->
+<p>This equation expresses the initial reaction velocity as a function of substrate concentration, with two key parameters: <span class="math inline">\(v_{\mathrm{max}}\)</span> and <span class="math inline">\(K_{\mathrm{M}}\)</span>. The equation encapsulates the characteristic behaviour of many enzyme-catalysed reactions:</p>
 <ol style="list-style-type: decimal">
-<li><p>Pre-equilibrium Limit (<span class="math inline">\(k_{-1} \gg k_2\)</span>):
-<span class="math display">\[\nu = \frac{k_2k_1}{k_{-1}}[\mathrm{A}][\mathrm{B}]\]</span>
-The reaction exhibits second-order kinetics with an effective rate constant <span class="math inline">\(k_\mathrm{eff} = k_2k_1/k_{-1}\)</span>.</p></li>
-<li><p>Rate-determining Step Limit (<span class="math inline">\(k_2[\mathrm{C}] \gg k_{-1}\)</span>):
-<span class="math display">\[\nu = k_1[\mathrm{A}]\]</span>
-The reaction shows first-order kinetics with rate constant <span class="math inline">\(k_1\)</span>.</p></li>
+<li><p>At low substrate concentrations (<span class="math inline">\([\mathrm{S}] \ll K_{\mathrm{M}}\)</span>), the rate is approximately first-order in [S]:
+<span class="math display">\[v \approx \frac{v_{\mathrm{max}}}{K_{\mathrm{M}}}[\mathrm{S}]\]</span></p></li>
+<li><p>At high substrate concentrations (<span class="math inline">\([\mathrm{S}] \gg K_{\mathrm{M}}\)</span>), the enzyme becomes saturated, and the rate approaches a maximum value (<span class="math inline">\(v_{\mathrm{max}}\)</span>):
+<span class="math display">\[v \approx v_{\mathrm{max}}\]</span></p></li>
 </ol>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="the-steady-state-approximation.html#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Side-by-side plots comparing concentration profiles</span></span>
-<span id="cb14-2"><a href="the-steady-state-approximation.html#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Left: Pre-equilibrium case</span></span>
-<span id="cb14-3"><a href="the-steady-state-approximation.html#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Right: Rate-determining step case</span></span></code></pre></div>
+</div>
+<div id="determining-michaelis-menten-parameters" class="section level2 hasAnchor" number="8.5">
+<h2><span class="header-section-number">8.5</span> Determining Michaelis-Menten Parameters<a href="enzyme-kinetics.html#determining-michaelis-menten-parameters" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>To characterise an enzyme’s kinetic behaviour, we need to determine the parameters <span class="math inline">\(v_{\mathrm{max}}\)</span> and <span class="math inline">\(K_{\mathrm{M}}\)</span> from experimental data. Several approaches are available:</p>
+<div id="non-linear-regression" class="section level3 hasAnchor" number="8.5.1">
+<h3><span class="header-section-number">8.5.1</span> Non-linear Regression<a href="enzyme-kinetics.html#non-linear-regression" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The most accurate approach uses computational methods to fit the Michaelis-Menten equation directly to experimental data. Non-linear least-squares fitting algorithms determine the parameter values that minimise the difference between the model predictions and the observed reaction rates across a range of substrate concentrations.</p>
+<!--
+
+``` r
+# Insert figure showing non-linear regression
+```
+-->
+</div>
+<div id="graphical-determination-of-k_mathrmm" class="section level3 hasAnchor" number="8.5.2">
+<h3><span class="header-section-number">8.5.2</span> Graphical Determination of <span class="math inline">\(K_{\mathrm{M}}\)</span><a href="enzyme-kinetics.html#graphical-determination-of-k_mathrmm" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>A simple graphical method takes advantage of the fact that when <span class="math inline">\(v = v_{\mathrm{max}}/2\)</span>, the substrate concentration equals <span class="math inline">\(K_{\mathrm{M}}\)</span>. We can demonstrate this by substituting <span class="math inline">\(v = v_{\mathrm{max}}/2\)</span> into the Michaelis-Menten equation:</p>
+<p><span class="math display">\[\frac{v_{\mathrm{max}}}{2} = \frac{v_{\mathrm{max}}[\mathrm{S}]}{K_{\mathrm{M}} + [\mathrm{S}]}\]</span></p>
+<p>Multiplying both sides by <span class="math inline">\((K_{\mathrm{M}} + [\mathrm{S}])\)</span>:</p>
+<p><span class="math display">\[\frac{v_{\mathrm{max}}}{2}(K_{\mathrm{M}} + [\mathrm{S}]) = v_{\mathrm{max}}[\mathrm{S}]\]</span></p>
+<p>Expanding the left side:</p>
+<p><span class="math display">\[\frac{v_{\mathrm{max}}K_{\mathrm{M}}}{2} + \frac{v_{\mathrm{max}}[\mathrm{S}]}{2} = v_{\mathrm{max}}[\mathrm{S}]\]</span></p>
+<p>Subtracting <span class="math inline">\(\frac{v_{\mathrm{max}}[\mathrm{S}]}{2}\)</span> from both sides:</p>
+<p><span class="math display">\[\frac{v_{\mathrm{max}}K_{\mathrm{M}}}{2} = v_{\mathrm{max}}[\mathrm{S}] - \frac{v_{\mathrm{max}}[\mathrm{S}]}{2} = \frac{v_{\mathrm{max}}[\mathrm{S}]}{2}\]</span></p>
+<p>Dividing both sides by <span class="math inline">\(\frac{v_{\mathrm{max}}}{2}\)</span>:</p>
+<p><span class="math display">\[K_{\mathrm{M}} = [\mathrm{S}]\]</span></p>
+<p>This confirms that when the reaction rate equals half the maximum rate, the substrate concentration equals <span class="math inline">\(K_{\mathrm{M}}\)</span>. This property allows us to estimate <span class="math inline">\(K_{\mathrm{M}}\)</span> from a plot of reaction rate versus substrate concentration.</p>
+<!--
+
+``` r
+# Insert figure showing K_M determination
+```
+-->
+</div>
+<div id="lineweaver-burk-plot" class="section level3 hasAnchor" number="8.5.3">
+<h3><span class="header-section-number">8.5.3</span> Lineweaver-Burk Plot<a href="enzyme-kinetics.html#lineweaver-burk-plot" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>A third approach transforms the Michaelis-Menten equation into a linear form. Taking the reciprocal of both sides of the Michaelis-Menten equation:</p>
+<p><span class="math display">\[\frac{1}{v} = \frac{K_{\mathrm{M}} + [\mathrm{S}]}{v_{\mathrm{max}}[\mathrm{S}]} = \frac{K_{\mathrm{M}}}{v_{\mathrm{max}}[\mathrm{S}]} + \frac{[\mathrm{S}]}{v_{\mathrm{max}}[\mathrm{S}]} = \frac{K_{\mathrm{M}}}{v_{\mathrm{max}}}\frac{1}{[\mathrm{S}]} + \frac{1}{v_{\mathrm{max}}}\]</span></p>
+<p>This transformation produces a linear relationship between <span class="math inline">\(1/v\)</span> and <span class="math inline">\(1/[\mathrm{S}]\)</span>:</p>
+<p><span class="math display">\[\frac{1}{v} = \frac{K_{\mathrm{M}}}{v_{\mathrm{max}}}\frac{1}{[\mathrm{S}]} + \frac{1}{v_{\mathrm{max}}}\]</span></p>
+<p>This is the equation of a straight line with:</p>
+<ul>
+<li>Slope = <span class="math inline">\(K_{\mathrm{M}}/v_{\mathrm{max}}\)</span></li>
+<li>y-intercept = <span class="math inline">\(1/v_{\mathrm{max}}\)</span></li>
+<li>x-intercept = <span class="math inline">\(-1/K_{\mathrm{M}}\)</span></li>
+</ul>
+<p>By plotting experimental data as <span class="math inline">\(1/v\)</span> versus <span class="math inline">\(1/[\mathrm{S}]\)</span> (known as a Lineweaver-Burk or double-reciprocal plot), we can determine <span class="math inline">\(v_{\mathrm{max}}\)</span> and <span class="math inline">\(K_{\mathrm{M}}\)</span> from the intercepts.</p>
+<!--
+
+``` r
+# Insert figure showing Lineweaver-Burk plot
+```
+-->
+<p>While the Lineweaver-Burk plot provides a straightforward method for estimating Michaelis-Menten parameters, it has limitations. The transformation magnifies errors in measurements at low substrate concentrations. Consequently, modern practice favours direct non-linear regression of the untransformed Michaelis-Menten equation when computational tools are available.</p>
 </div>
 </div>
-<div id="mathematical-foundation-of-steady-state-behavior" class="section level2 hasAnchor" number="6.3">
-<h2><span class="header-section-number">6.3</span> Mathematical Foundation of Steady State Behavior<a href="the-steady-state-approximation.html#mathematical-foundation-of-steady-state-behavior" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Consider a general reaction system where an intermediate species I is:
-- Produced with rate <span class="math inline">\(\nu_f\)</span>
-- Consumed with rate proportional to [I]</p>
-<p>The rate equation is:</p>
-<p><span class="math display">\[\frac{\mathrm{d}[\mathrm{I}]}{\mathrm{d}t} = \nu_f - k[\mathrm{I}]\]</span></p>
-<p>This linear first-order differential equation has the solution:</p>
-<p><span class="math display">\[[\mathrm{I}]_t = \frac{\nu_f}{k}(1 - e^{-kt})\]</span></p>
-<p>This solution shows that:
-1. [I] approaches steady state value <span class="math inline">\(\nu_f/k\)</span> exponentially
-2. Characteristic time to reach steady state is <span class="math inline">\(1/k\)</span>
-3. Steady state approximation is valid when <span class="math inline">\(t \gg 1/k\)</span></p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="the-steady-state-approximation.html#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot showing:</span></span>
-<span id="cb15-2"><a href="the-steady-state-approximation.html#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="co"># - Exponential approach to steady state</span></span>
-<span id="cb15-3"><a href="the-steady-state-approximation.html#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="co"># - Characteristic time marked</span></span>
-<span id="cb15-4"><a href="the-steady-state-approximation.html#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="co"># - Steady state value indicated</span></span></code></pre></div>
+<div id="quantifying-enzyme-catalytic-efficiency" class="section level2 hasAnchor" number="8.6">
+<h2><span class="header-section-number">8.6</span> Quantifying Enzyme Catalytic Efficiency<a href="enzyme-kinetics.html#quantifying-enzyme-catalytic-efficiency" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The parameters <span class="math inline">\(v_{\mathrm{max}}\)</span> and <span class="math inline">\(K_{\mathrm{M}}\)</span> provide valuable insights into enzyme behaviour, but they don’t fully capture an enzyme’s catalytic efficiency. A more comprehensive measure comes from examining the relationship between these parameters.</p>
+<p>The catalytic constant <span class="math inline">\(k_{\mathrm{cat}}\)</span> (also called the turnover number) represents the maximum number of substrate molecules converted to product per enzyme molecule per unit time:</p>
+<p><span class="math display">\[k_{\mathrm{cat}} = \frac{v_{\mathrm{max}}}{[\mathrm{E}]_0}\]</span></p>
+<p>This parameter quantifies how quickly an enzyme can catalyse a reaction once the substrate is bound. High values of <span class="math inline">\(k_{\mathrm{cat}}\)</span> indicate that the enzyme rapidly converts bound substrate to product.</p>
+<p>However, the catalytic constant alone doesn’t account for how efficiently an enzyme binds its substrate. For a complete picture of catalytic efficiency, we need to consider both binding and catalysis. The specificity constant (or kinetic efficiency) combines these aspects:</p>
+<p><span class="math display">\[\varepsilon = \frac{k_{\mathrm{cat}}}{K_{\mathrm{M}}}\]</span></p>
+<p>The ratio <span class="math inline">\(k_{\mathrm{cat}}/K_{\mathrm{M}}\)</span> represents the rate constant for the reaction of enzyme with substrate under conditions where the substrate concentration is much lower than <span class="math inline">\(K_{\mathrm{M}}\)</span>. It provides a measure of how efficiently an enzyme converts substrate to product at low substrate concentrations.</p>
+<p>We can understand the physical significance of this ratio by examining the initial rate equation at low substrate concentrations:</p>
+<p>When <span class="math inline">\([\mathrm{S}] \ll K_{\mathrm{M}}\)</span>, the Michaelis-Menten equation simplifies to:</p>
+<p><span class="math display">\[v \approx \frac{v_{\mathrm{max}}[\mathrm{S}]}{K_{\mathrm{M}}} = \frac{k_{\mathrm{cat}}[\mathrm{E}]_0[\mathrm{S}]}{K_{\mathrm{M}}} = \frac{k_{\mathrm{cat}}}{K_{\mathrm{M}}}[\mathrm{E}]_0[\mathrm{S}]\]</span></p>
+<p>The term <span class="math inline">\(\frac{k_{\mathrm{cat}}}{K_{\mathrm{M}}}\)</span> appears as a second-order rate constant, describing how rapidly enzyme and substrate molecules come together and form product.</p>
+<!--
+
+``` r
+# Insert figure showing enzyme efficiency comparison
+```
+-->
+<p>We can gain further insight by examining the physical meaning of <span class="math inline">\(k_{\mathrm{cat}}/K_{\mathrm{M}}\)</span> in terms of the individual rate constants in the enzyme mechanism:</p>
+<p><span class="math display">\[\frac{k_{\mathrm{cat}}}{K_{\mathrm{M}}} = \frac{k_{\mathrm{cat}}}{(k_{-1} + k_{\mathrm{cat}})/k_1} = \frac{k_{\mathrm{cat}} \cdot k_1}{k_{-1} + k_{\mathrm{cat}}}\]</span></p>
+<p>This ratio relates the processes that convert substrate to product (<span class="math inline">\(k_{\mathrm{cat}}\)</span> and <span class="math inline">\(k_1\)</span>) to the processes that convert the enzyme-substrate complex back to free enzyme (<span class="math inline">\(k_{-1}\)</span> and <span class="math inline">\(k_{\mathrm{cat}}\)</span>). The highest possible value of <span class="math inline">\(k_{\mathrm{cat}}/K_{\mathrm{M}}\)</span> occurs when every enzyme-substrate encounter leads to product formation—a situation limited only by the rate of diffusion-controlled collisions between enzyme and substrate molecules (approximately 10<sup>8</sup>–10<sup>9</sup> M<sup>−1</sup> s<sup>−1</sup>).</p>
+<p>Many of the most efficient enzymes, such as catalase and carbonic anhydrase, approach this diffusion-controlled limit, making them among the most catalytically perfect enzymes known.</p>
+<!--
+
+``` r
+# Insert figure showing diffusion-controlled limit
+```
+-->
 </div>
-<div id="validation-criteria-for-steady-state" class="section level2 hasAnchor" number="6.4">
-<h2><span class="header-section-number">6.4</span> Validation Criteria for Steady State<a href="the-steady-state-approximation.html#validation-criteria-for-steady-state" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>The steady state approximation is valid when:
-1. The intermediate concentration remains small throughout the reaction
-2. The intermediate reaches steady state rapidly compared to overall reaction time
-3. The steady state persists for most of the reaction duration</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="the-steady-state-approximation.html#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Side-by-side plots:</span></span>
-<span id="cb16-2"><a href="the-steady-state-approximation.html#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Left: Valid steady state case</span></span>
-<span id="cb16-3"><a href="the-steady-state-approximation.html#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Right: Invalid case where approximation fails</span></span></code></pre></div>
-<p>These criteria can be assessed by comparing characteristic timescales:
-- <span class="math inline">\(\tau_\mathrm{SS} = 1/k\)</span> for reaching steady state
-- <span class="math inline">\(\tau_\mathrm{rxn}\)</span> for overall reaction progress</p>
-<p>The approximation is valid when <span class="math inline">\(\tau_\mathrm{SS} \ll \tau_\mathrm{rxn}\)</span>.</p>
+<div id="summary-of-enzyme-kinetic-parameters" class="section level2 hasAnchor" number="8.7">
+<h2><span class="header-section-number">8.7</span> Summary of Enzyme Kinetic Parameters<a href="enzyme-kinetics.html#summary-of-enzyme-kinetic-parameters" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The Michaelis-Menten framework provides several key parameters for characterising enzyme kinetics:</p>
+<ol style="list-style-type: decimal">
+<li><p><strong>Michaelis constant</strong> (<span class="math inline">\(K_{\mathrm{M}}\)</span>): A measure of the affinity between enzyme and substrate. Lower values indicate stronger binding.</p></li>
+<li><p><strong>Maximum velocity</strong> (<span class="math inline">\(v_{\mathrm{max}}\)</span>): The maximum rate of the reaction, achieved when the enzyme is saturated with substrate.</p></li>
+<li><p><strong>Catalytic constant</strong> (<span class="math inline">\(k_{\mathrm{cat}}\)</span>): The turnover number, representing the maximum number of substrate molecules converted to product per enzyme molecule per unit time.</p></li>
+<li><p><strong>Specificity constant</strong> (<span class="math inline">\(k_{\mathrm{cat}}/K_{\mathrm{M}}\)</span>): A measure of the overall catalytic efficiency, combining aspects of binding affinity and catalytic rate.</p></li>
+</ol>
+<p>These parameters provide a quantitative framework for comparing enzymes, investigating reaction mechanisms, and understanding how enzyme function responds to changing conditions or modifications.</p>
 
 </div>
 </div>
@@ -462,8 +552,8 @@ The reaction shows first-order kinetics with rate constant <span class="math inl
           </div>
         </div>
       </div>
-<a href="rate-laws-for-complex-reactions.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="complex-reaction-mechanisms-understanding-third-order-reactions.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="complex-reaction-mechanisms-understanding-third-order-reactions.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="chain-reactions-and-reaction-feedback.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -494,7 +584,7 @@ gitbook.start({
     "size": 2
   },
   "edit": {
-    "link": "https://github.com/bjmorgan/CH12002/main/lecture_6/lecture_06.Rmd",
+    "link": "https://github.com/bjmorgan/CH12002/main/lecture_8/lecture_08.Rmd",
     "text": "Edit"
   },
   "history": {

@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Lecture 6 The Steady State Approximation | CH12002 Lecture Notes</title>
+  <title>B Why Aren’t All Bimolecular Reactions Third Order? | CH12002 Lecture Notes</title>
   <meta name="description" content="These are notes to accompany the 2025 CH12002 lecture course on Chemical Kinetics." />
   <meta name="generator" content="bookdown 0.43 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Lecture 6 The Steady State Approximation | CH12002 Lecture Notes" />
+  <meta property="og:title" content="B Why Aren’t All Bimolecular Reactions Third Order? | CH12002 Lecture Notes" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="These are notes to accompany the 2025 CH12002 lecture course on Chemical Kinetics." />
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Lecture 6 The Steady State Approximation | CH12002 Lecture Notes" />
+  <meta name="twitter:title" content="B Why Aren’t All Bimolecular Reactions Third Order? | CH12002 Lecture Notes" />
   
   <meta name="twitter:description" content="These are notes to accompany the 2025 CH12002 lecture course on Chemical Kinetics." />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="rate-laws-for-complex-reactions.html"/>
-<link rel="next" href="complex-reaction-mechanisms-understanding-third-order-reactions.html"/>
+<link rel="prev" href="mass-balance-in-chemical-kinetics.html"/>
+<link rel="next" href="negative-reaction-orders.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -357,103 +357,154 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="the-steady-state-approximation" class="section level1 hasAnchor" number="6">
-<h1><span class="header-section-number">Lecture 6</span> The Steady State Approximation<a href="the-steady-state-approximation.html#the-steady-state-approximation" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<div id="introduction-2" class="section level2 hasAnchor" number="6.1">
-<h2><span class="header-section-number">6.1</span> Introduction<a href="the-steady-state-approximation.html#introduction-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>In our previous lectures, we explored how complex reaction mechanisms can be analyzed by breaking them down into elementary steps and deriving their rate laws. However, for many reactions, the complete kinetic analysis becomes mathematically intractable.
-In cases where the reaction intermediates are highly reactive and are quickly converted into products, we can apply a simplifying approximation called the Steady State Approximation, which often allows us to simplify the differential rate equations to derive an approximate mathematical description of the overall reaction rate.</p>
-<p>Consider a reaction pathway involving a reactive intermediate B:</p>
-<p><span class="math display">\[\mathrm{A} \underset{k_{-1}}{\stackrel{k_1}{\rightleftharpoons}} \mathrm{B} \xrightarrow{k_2} \mathrm{C}\]</span></p>
-<p>The concentration of intermediate B changes through three competing processes:
-- Formation from reactant A (rate <span class="math inline">\(k_1[\mathrm{A}]\)</span>)
-- Back-reaction to A (rate <span class="math inline">\(k_{-1}[\mathrm{B}]\)</span>)
-- Forward reaction to product C (rate <span class="math inline">\(k_2[\mathrm{B}]\)</span>)</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="the-steady-state-approximation.html#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Figure showing competing processes affecting [B]</span></span>
-<span id="cb12-2"><a href="the-steady-state-approximation.html#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="co"># - Blue arrow showing formation from A </span></span>
-<span id="cb12-3"><a href="the-steady-state-approximation.html#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="co"># - Red arrow showing back-reaction to A</span></span>
-<span id="cb12-4"><a href="the-steady-state-approximation.html#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="co"># - Green arrow showing conversion to C</span></span></code></pre></div>
-<p>Under steady state conditions, the intermediate’s concentration remains approximately constant because its rate of formation equals its rate of consumption. Mathematically, this means:</p>
-<p><span class="math display">\[\frac{\mathrm{d}[\mathrm{B}]}{\mathrm{d}t} \approx 0\]</span></p>
-<p>This approximation doesn’t imply that [B] = 0, but rather that [B] rapidly reaches and maintains a nearly constant value throughout most of the reaction.</p>
+<div id="why-arent-all-bimolecular-reactions-third-order" class="section level1 hasAnchor" number="12">
+<h1><span class="header-section-number">B</span> Why Aren’t All Bimolecular Reactions Third Order?<a href="why-arent-all-bimolecular-reactions-third-order.html#why-arent-all-bimolecular-reactions-third-order" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="an-apparent-contradiction-in-reaction-kinetics" class="section level2 hasAnchor" number="12.1">
+<h2><span class="header-section-number">B.1</span> An Apparent Contradiction in Reaction Kinetics<a href="why-arent-all-bimolecular-reactions-third-order.html#an-apparent-contradiction-in-reaction-kinetics" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The formation of ozone follows an unusual kinetic pattern:</p>
+<p><span class="math display">\[\mathrm{O} + \mathrm{O_2} + \mathrm{M} \rightarrow \mathrm{O_3} + \mathrm{M}\]</span></p>
+<p>Despite appearing to be a simple combination of an oxygen atom and an oxygen molecule, this reaction exhibits third-order kinetics, requiring the involvement of a third body (M). This raises an important question: if the reaction between O and O<sub>2</sub> cannot proceed without a third body, why do we observe countless other bimolecular gas-phase reactions that follow simple second-order kinetics?</p>
+<!--
+FIGURE 1: Comparison of Reaction Orders
+A two-panel diagram comparing:
+LEFT: The O + O₂ + M → O₃ + M reaction, showing three molecules (O atom, O₂ molecule, and third body M) with arrows indicating their collision paths, labeled "Third-order kinetics"
+RIGHT: A typical bimolecular reaction A + B → AB, showing just two molecules colliding, labeled "Second-order kinetics"
+CAPTION: Figure 1: Comparison of third-order and second-order reaction schemes. Left: Ozone formation requires three bodies to collide - an oxygen atom, an oxygen molecule, and a third body (M). Right: Most bimolecular reactions proceed through simple two-body collisions.
+-->
+<p>The laws of physics—conservation of energy and momentum—apply universally to all molecular collisions. If these constraints prevent a simple O + O<sub>2</sub> reaction, they should theoretically create similar challenges for other bimolecular reactions. Understanding why this isn’t the case requires examining the molecular-level details of different reaction types.</p>
 </div>
-<div id="analysis-of-pre-equilibrium-systems" class="section level2 hasAnchor" number="6.2">
-<h2><span class="header-section-number">6.2</span> Analysis of Pre-equilibrium Systems<a href="the-steady-state-approximation.html#analysis-of-pre-equilibrium-systems" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Let’s examine a mechanism involving both equilibrium and steady state behavior:</p>
-<p><span class="math display">\[\mathrm{A} + \mathrm{B} \underset{k_{-1}}{\stackrel{k_1}{\rightleftharpoons}} \mathrm{C} \xrightarrow{k_2} \mathrm{D}\]</span></p>
-<p>The complete set of rate equations for this system is:</p>
-<p><span class="math display">\[\begin{align*}
-\frac{\mathrm{d}[\mathrm{A}]}{\mathrm{d}t} &amp;= -k_1[\mathrm{A}][\mathrm{B}] + k_{-1}[\mathrm{C}] \\
-\frac{\mathrm{d}[\mathrm{B}]}{\mathrm{d}t} &amp;= -k_1[\mathrm{A}][\mathrm{B}] + k_{-1}[\mathrm{C}] \\
-\frac{\mathrm{d}[\mathrm{C}]}{\mathrm{d}t} &amp;= k_1[\mathrm{A}][\mathrm{B}] - k_{-1}[\mathrm{C}] - k_2[\mathrm{C}] \\
-\frac{\mathrm{d}[\mathrm{D}]}{\mathrm{d}t} &amp;= k_2[\mathrm{C}]
-\end{align*}\]</span></p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="the-steady-state-approximation.html#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot showing concentration profiles over time</span></span>
-<span id="cb13-2"><a href="the-steady-state-approximation.html#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="co"># - [A] and [B] decreasing</span></span>
-<span id="cb13-3"><a href="the-steady-state-approximation.html#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="co"># - [C] reaching steady state rapidly</span></span>
-<span id="cb13-4"><a href="the-steady-state-approximation.html#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="co"># - [D] increasing as product forms</span></span></code></pre></div>
-<div id="application-of-the-steady-state-approximation" class="section level3 hasAnchor" number="6.2.1">
-<h3><span class="header-section-number">6.2.1</span> Application of the Steady State Approximation<a href="the-steady-state-approximation.html#application-of-the-steady-state-approximation" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>We apply the steady state approximation to intermediate C:</p>
-<p><span class="math display">\[\frac{\mathrm{d}[\mathrm{C}]}{\mathrm{d}t} = k_1[\mathrm{A}][\mathrm{B}] - k_{-1}[\mathrm{C}] - k_2[\mathrm{C}] \approx 0\]</span></p>
-<p>This equation can be rearranged:</p>
-<p><span class="math display">\[k_1[\mathrm{A}][\mathrm{B}] = (k_{-1} + k_2)[\mathrm{C}]\]</span></p>
-<p>Solving for [C]:</p>
-<p><span class="math display">\[[\mathrm{C}] = \frac{k_1[\mathrm{A}][\mathrm{B}]}{k_{-1} + k_2}\]</span></p>
-<p>The overall reaction rate becomes:</p>
-<p><span class="math display">\[\begin{align*}
-\nu &amp;= \frac{\mathrm{d}[\mathrm{D}]}{\mathrm{d}t} = k_2[\mathrm{C}] \\
-&amp;= k_2\left(\frac{k_1[\mathrm{A}][\mathrm{B}]}{k_{-1} + k_2}\right) \\
-&amp;= \frac{k_2k_1[\mathrm{A}][\mathrm{B}]}{k_{-1} + k_2}
-\end{align*}\]</span></p>
+<div id="the-ozone-formation-challenge" class="section level2 hasAnchor" number="12.2">
+<h2><span class="header-section-number">B.2</span> The Ozone Formation Challenge<a href="why-arent-all-bimolecular-reactions-third-order.html#the-ozone-formation-challenge" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>When an oxygen atom collides with an oxygen molecule, forming a new O-O bond releases approximately 107 kJ/mol of energy. This substantial energy must be accommodated within the newly formed O<sub>3</sub> molecule.</p>
+<p>Conservation of momentum constrains this process. In a head-on collision, momentum conservation dictates that the resulting O<sub>3</sub> molecule carries the combined momentum of both reactants. This constraint directs much of the released energy into vibrational modes of the O<sub>3</sub> molecule rather than allowing it to dissipate as translational energy.</p>
+<!--
+FIGURE 2: Momentum Conservation in the O + O₂ Collision
+A diagram showing:
+- Initial state: O atom approaching O₂ molecule, with momentum vectors shown
+- Final state: O₃ molecule with concentrated vibrational energy (shown as oscillation) in the newly formed bond
+- Energy distribution pie charts before and after collision showing how energy shifts from translational to vibrational
+CAPTION: Figure 2: Momentum conservation in O + O₂ collision. When an oxygen atom collides with an oxygen molecule, momentum conservation constrains how the released energy (107 kJ/mol) can be distributed, directing it predominantly into vibrational modes of the newly formed bond.
+-->
+<p>With only three atoms, ozone has just three vibrational modes available to absorb this energy. Consequently, the newly formed bond becomes so vibrationally excited that it exceeds its own dissociation energy—the molecule would break apart again without some mechanism to remove this excess energy.</p>
+<!--
+FIGURE 3: Vibrational Modes of Ozone
+A diagram showing all three vibrational modes of ozone:
+- Symmetric stretch (both O-O bonds extending/contracting in phase)
+- Asymmetric stretch (one bond extending while the other contracts)
+- Bending mode (the angle between bonds changing)
+With arrows indicating the motion of each atom during the vibration.
+CAPTION: Figure 3: The three vibrational modes of ozone. As a non-linear triatomic molecule, ozone has only three ways to store vibrational energy: symmetric stretching, asymmetric stretching, and bending. This limited number of modes means energy cannot be widely distributed within the molecule.
+-->
+<p>The third body (M) provides the necessary solution. When it collides with the vibrationally excited O<sub>3</sub>*, it can carry away excess energy as translational motion, allowing the ozone molecule to stabilize.</p>
+<!--
+FIGURE 4: Third-Body Stabilization Mechanism
+A sequential diagram showing:
+1. Formation of excited O₃* (showing vibrating bond)
+2. Collision with third body M
+3. Post-collision state showing stabilized O₃ and accelerated M (with motion arrow)
+With energy distribution charts at each stage.
+CAPTION: Figure 4: The third-body stabilization mechanism. Left: The vibrationally excited O₃* molecule contains more energy than its dissociation threshold. Center: Collision with third body M. Right: After collision, excess vibrational energy transfers to translational energy of both molecules, allowing O₃ to stabilize.
+-->
 </div>
-<div id="analysis-of-limiting-cases" class="section level3 hasAnchor" number="6.2.2">
-<h3><span class="header-section-number">6.2.2</span> Analysis of Limiting Cases<a href="the-steady-state-approximation.html#analysis-of-limiting-cases" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Two important limiting behaviors emerge from this rate law:</p>
-<ol style="list-style-type: decimal">
-<li><p>Pre-equilibrium Limit (<span class="math inline">\(k_{-1} \gg k_2\)</span>):
-<span class="math display">\[\nu = \frac{k_2k_1}{k_{-1}}[\mathrm{A}][\mathrm{B}]\]</span>
-The reaction exhibits second-order kinetics with an effective rate constant <span class="math inline">\(k_\mathrm{eff} = k_2k_1/k_{-1}\)</span>.</p></li>
-<li><p>Rate-determining Step Limit (<span class="math inline">\(k_2[\mathrm{C}] \gg k_{-1}\)</span>):
-<span class="math display">\[\nu = k_1[\mathrm{A}]\]</span>
-The reaction shows first-order kinetics with rate constant <span class="math inline">\(k_1\)</span>.</p></li>
-</ol>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="the-steady-state-approximation.html#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Side-by-side plots comparing concentration profiles</span></span>
-<span id="cb14-2"><a href="the-steady-state-approximation.html#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Left: Pre-equilibrium case</span></span>
-<span id="cb14-3"><a href="the-steady-state-approximation.html#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Right: Rate-determining step case</span></span></code></pre></div>
+<div id="why-most-bimolecular-reactions-dont-require-a-third-body" class="section level2 hasAnchor" number="12.3">
+<h2><span class="header-section-number">B.3</span> Why Most Bimolecular Reactions Don’t Require a Third Body<a href="why-arent-all-bimolecular-reactions-third-order.html#why-most-bimolecular-reactions-dont-require-a-third-body" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Given that momentum and energy conservation apply universally, one might expect all bimolecular reactions to require third bodies. This would mean we should never observe simple second-order kinetics for any gas-phase bimolecular reaction. Yet such reactions are common.</p>
+<p>Several key factors allow most bimolecular reactions to proceed without third-body intervention:</p>
+<div id="activation-barriers-redirecting-energy-flow" class="section level3 hasAnchor" number="12.3.1">
+<h3><span class="header-section-number">B.3.1</span> Activation Barriers: Redirecting Energy Flow<a href="why-arent-all-bimolecular-reactions-third-order.html#activation-barriers-redirecting-energy-flow" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Most chemical reactions feature an activation energy barrier, creating a transition state that must be traversed before products form. This feature plays a crucial role in energy redistribution.</p>
+<!--
+FIGURE 5: Reaction Coordinate Diagrams - Barrier vs. Barrierless
+A side-by-side comparison of reaction coordinate diagrams:
+LEFT: Barrierless reaction (O + O₂ → O₃) showing direct downhill path to products
+RIGHT: Reaction with barrier showing clear activation energy hill with transition state at the top
+Both diagrams should show potential energy on vertical axis, reaction coordinate on horizontal axis
+CAPTION: Figure 5: Comparison of reaction coordinate diagrams. Left: A barrierless reaction (like O + O₂ → O₃) proceeds directly downhill to products, providing no mechanism to redirect energy flow. Right: A reaction with an activation barrier forces reactants to climb an energy hill and pass through a transition state before descending to products.
+-->
+<p>On a potential energy surface, a reaction with a barrier features a saddle point—a mountain pass through which the reaction must proceed. As the system descends from this saddle point toward products, the topography of the energy landscape guides energy into multiple modes of motion.</p>
+<!--
+FIGURE 6: Potential Energy Surfaces in 2D
+A side-by-side comparison of 2D contour maps:
+LEFT: Barrierless surface showing contours that lead directly from reactants to products (concentric patterns around product well)
+RIGHT: Surface with saddle point showing characteristic mountain pass topology
+Both maps should use contour lines to show energy levels, with arrows indicating reaction paths
+CAPTION: Figure 6: Two-dimensional potential energy surfaces. Left: A barrierless reaction has a direct path into the product well with no saddle point. Right: A reaction with a barrier features a saddle point topology that constrains the reaction trajectory and redirects energy as the system descends to products.
+-->
+<p>This descent from a barrier redistributes energy among various degrees of freedom—vibrational, rotational, and translational—preventing excessive concentration in any single vibration. This redistribution often keeps the energy in any single bond below the dissociation threshold.</p>
+<p>Ozone formation, being barrierless, lacks this redistribution mechanism. Without a saddle point to navigate, energy remains concentrated along the direct approach coordinate.</p>
+</div>
+<div id="molecular-complexity-more-storage-compartments-for-energy" class="section level3 hasAnchor" number="12.3.2">
+<h3><span class="header-section-number">B.3.2</span> Molecular Complexity: More Storage Compartments for Energy<a href="why-arent-all-bimolecular-reactions-third-order.html#molecular-complexity-more-storage-compartments-for-energy" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The capacity of a molecule to absorb energy without dissociating increases with its size and complexity. A non-linear molecule with N atoms has 3N-6 vibrational modes. For ozone (N=3), this means only 3 vibrational modes, offering limited pathways to distribute the reaction energy.</p>
+<!--
+FIGURE 7: Energy Distribution in Simple vs. Complex Molecules
+A comparative diagram showing energy distribution:
+LEFT: Small molecule (like O₃) with few vibrational modes, showing energy concentrated in limited modes
+RIGHT: Complex organic molecule with many atoms, showing same amount of energy widely distributed across numerous vibrational modes
+Use color intensity to represent energy concentration
+CAPTION: Figure 7: Energy distribution in molecules of different complexity. Left: In a small molecule like ozone (3 atoms), energy becomes concentrated in just three vibrational modes, potentially exceeding bond dissociation energies. Right: In a complex molecule (10+ atoms), the same amount of energy spreads across many vibrational modes, reducing the amount in any single bond.
+-->
+<p>Consider, by contrast, a reaction forming a molecule with 10 atoms. With 24 vibrational modes available, energy can distribute much more widely, reducing the amount concentrated in any single bond. This spreading of energy decreases the likelihood that any particular bond will receive enough energy to break.</p>
+</div>
+<div id="exchange-reactions-energy-balancing-acts" class="section level3 hasAnchor" number="12.3.3">
+<h3><span class="header-section-number">B.3.3</span> Exchange Reactions: Energy Balancing Acts<a href="why-arent-all-bimolecular-reactions-third-order.html#exchange-reactions-energy-balancing-acts" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Many bimolecular reactions involve simultaneous bond breaking and formation:</p>
+<p><span class="math display">\[\mathrm{A} + \mathrm{BC} \rightarrow \mathrm{AB} + \mathrm{C}\]</span></p>
+<p>In these exchange reactions, energy required to break the BC bond partly offsets energy released by forming the AB bond. This balanced energy flow reduces the net energy that products must accommodate, avoiding the problem of excessive vibrational excitation.</p>
+<!--
+FIGURE 8: Energy Balance in Different Reaction Types
+A comparative diagram showing energy flow:
+LEFT: Association reaction (O + O₂ → O₃) with arrow showing large energy input to product
+CENTER: Exchange reaction (H + Cl₂ → HCl + Cl) with arrows showing energy input/output balance
+RIGHT: Endothermic reaction with arrow showing net energy absorption
+Use downward arrows for energy release, upward for energy absorption
+CAPTION: Figure 8: Energy balance in different reaction types. Left: In pure association reactions (like ozone formation), all energy from bond formation must be accommodated by the product. Center: In exchange reactions, energy required to break existing bonds partly offsets energy released by forming new bonds. Right: In endothermic reactions, energy is absorbed rather than released.
+-->
+<p>The formation of ozone, in contrast, involves pure bond formation with no offsetting bond breaking, creating a significant energy management challenge.</p>
+</div>
+<div id="the-influence-of-reaction-barriers-on-energy-partitioning" class="section level3 hasAnchor" number="12.3.4">
+<h3><span class="header-section-number">B.3.4</span> The Influence of Reaction Barriers on Energy Partitioning<a href="why-arent-all-bimolecular-reactions-third-order.html#the-influence-of-reaction-barriers-on-energy-partitioning" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The presence of an activation barrier does more than simply redirect energy—it changes how energy partitions between different molecular motions in the products.</p>
+<!--
+FIGURE 9: Energy Partitioning in Different Reaction Types
+A diagram showing:
+TOP: Barrierless reaction trajectory with pie charts showing energy distribution in products (mostly vibrational)
+BOTTOM: Barrier-crossing reaction trajectory with pie charts showing energy distribution in products (more balanced between vibrational, rotational, and translational)
+Use a 2D reaction coordinate diagram as the base with overlaid pie charts
+CAPTION: Figure 9: Energy partitioning in barrierless vs. barrier-crossing reactions. Top: In a barrierless reaction, energy predominantly enters vibrational modes of the newly formed bond. Bottom: When descending from a transition state, energy distributes across vibrational, rotational, and translational modes due to the topography of the potential energy surface.
+-->
+<p>In barrierless reactions like ozone formation, momentum conservation in the direct approach directs energy predominantly into vibration along the bond-forming coordinate. The system lacks any mechanism to redirect this energy flow.</p>
+<p>For reactions with barriers, the descent from the transition state involves a trajectory along multiple coordinates. The saddle point geometry creates couplings between different molecular motions, directing energy into rotational and translational modes rather than concentrating it in vibration.</p>
+<p>This energy partitioning explains why many exothermic reactions with barriers can proceed without third-body stabilization despite releasing considerable energy.</p>
 </div>
 </div>
-<div id="mathematical-foundation-of-steady-state-behavior" class="section level2 hasAnchor" number="6.3">
-<h2><span class="header-section-number">6.3</span> Mathematical Foundation of Steady State Behavior<a href="the-steady-state-approximation.html#mathematical-foundation-of-steady-state-behavior" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Consider a general reaction system where an intermediate species I is:
-- Produced with rate <span class="math inline">\(\nu_f\)</span>
-- Consumed with rate proportional to [I]</p>
-<p>The rate equation is:</p>
-<p><span class="math display">\[\frac{\mathrm{d}[\mathrm{I}]}{\mathrm{d}t} = \nu_f - k[\mathrm{I}]\]</span></p>
-<p>This linear first-order differential equation has the solution:</p>
-<p><span class="math display">\[[\mathrm{I}]_t = \frac{\nu_f}{k}(1 - e^{-kt})\]</span></p>
-<p>This solution shows that:
-1. [I] approaches steady state value <span class="math inline">\(\nu_f/k\)</span> exponentially
-2. Characteristic time to reach steady state is <span class="math inline">\(1/k\)</span>
-3. Steady state approximation is valid when <span class="math inline">\(t \gg 1/k\)</span></p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="the-steady-state-approximation.html#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot showing:</span></span>
-<span id="cb15-2"><a href="the-steady-state-approximation.html#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="co"># - Exponential approach to steady state</span></span>
-<span id="cb15-3"><a href="the-steady-state-approximation.html#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="co"># - Characteristic time marked</span></span>
-<span id="cb15-4"><a href="the-steady-state-approximation.html#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="co"># - Steady state value indicated</span></span></code></pre></div>
+<div id="a-spectrum-of-behavior" class="section level2 hasAnchor" number="12.4">
+<h2><span class="header-section-number">B.4</span> A Spectrum of Behavior<a href="why-arent-all-bimolecular-reactions-third-order.html#a-spectrum-of-behavior" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Rather than a strict division between reactions that do or don’t require third bodies, chemical reactions exhibit a spectrum of behaviors. The likelihood of requiring third-body stabilization increases with:</p>
+<ul>
+<li>Decreasing activation barrier height</li>
+<li>Increasing reaction exothermicity</li>
+<li>Decreasing molecular complexity</li>
+<li>Pure association rather than exchange character</li>
+</ul>
+<!--
+FIGURE 10: Spectrum of Third-Body Requirements
+A multi-axis diagram showing the spectrum of reactions requiring third bodies:
+X-axis: Activation barrier height (low to high)
+Y-axis: Reaction exothermicity (high to low)
+Z-axis or size: Molecular complexity (simple to complex)
+With reactions plotted as points in this space, and a gradient showing increasing need for third bodies
+Specific examples should be labeled, with ozone formation in the extreme corner
+CAPTION: Figure 10: Spectrum of third-body requirements across different reaction types. The need for third-body stabilization increases toward the top left (barrierless, highly exothermic reactions forming simple molecules) and decreases toward the bottom right (reactions with barriers, moderate energy release, and complex products).
+-->
+<p>The ozone formation reaction represents an extreme case along this spectrum—a highly exothermic, barrierless association reaction forming a small molecule. These combined factors create conditions requiring third-body intervention.</p>
+<p>Most bimolecular reactions we typically study feature some combination of activation barriers, moderate energy release, greater molecular complexity, or exchange character that allows them to manage reaction energy without third-body assistance.</p>
 </div>
-<div id="validation-criteria-for-steady-state" class="section level2 hasAnchor" number="6.4">
-<h2><span class="header-section-number">6.4</span> Validation Criteria for Steady State<a href="the-steady-state-approximation.html#validation-criteria-for-steady-state" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>The steady state approximation is valid when:
-1. The intermediate concentration remains small throughout the reaction
-2. The intermediate reaches steady state rapidly compared to overall reaction time
-3. The steady state persists for most of the reaction duration</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="the-steady-state-approximation.html#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Side-by-side plots:</span></span>
-<span id="cb16-2"><a href="the-steady-state-approximation.html#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Left: Valid steady state case</span></span>
-<span id="cb16-3"><a href="the-steady-state-approximation.html#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Right: Invalid case where approximation fails</span></span></code></pre></div>
-<p>These criteria can be assessed by comparing characteristic timescales:
-- <span class="math inline">\(\tau_\mathrm{SS} = 1/k\)</span> for reaching steady state
-- <span class="math inline">\(\tau_\mathrm{rxn}\)</span> for overall reaction progress</p>
-<p>The approximation is valid when <span class="math inline">\(\tau_\mathrm{SS} \ll \tau_\mathrm{rxn}\)</span>.</p>
+<div id="conclusions" class="section level2 hasAnchor" number="12.5">
+<h2><span class="header-section-number">B.5</span> Conclusions<a href="why-arent-all-bimolecular-reactions-third-order.html#conclusions" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The observation that some reactions require third bodies while others don’t is explained by examining how energy distributes during molecular collisions. The physical principles of energy and momentum conservation apply universally, but their consequences vary based on reaction energetics, molecular structure, and reaction mechanism.</p>
+<p>The existence of simple second-order kinetics for many bimolecular reactions doesn’t contradict the principles that make ozone formation require a third body. It reflects the different mechanisms by which chemical systems accommodate and redistribute energy during reactions.</p>
+<p>These principles help explain the diverse rate behaviors observed across chemical systems—from atmospheric processes to combustion chemistry to biological transformations.</p>
 
 </div>
 </div>
@@ -462,8 +513,8 @@ The reaction shows first-order kinetics with rate constant <span class="math inl
           </div>
         </div>
       </div>
-<a href="rate-laws-for-complex-reactions.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="complex-reaction-mechanisms-understanding-third-order-reactions.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="mass-balance-in-chemical-kinetics.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="negative-reaction-orders.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -494,7 +545,7 @@ gitbook.start({
     "size": 2
   },
   "edit": {
-    "link": "https://github.com/bjmorgan/CH12002/main/lecture_6/lecture_06.Rmd",
+    "link": "https://github.com/bjmorgan/CH12002/main/appendices/third_order.Rmd",
     "text": "Edit"
   },
   "history": {

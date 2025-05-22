@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Lecture 6 The Steady State Approximation | CH12002 Lecture Notes</title>
+  <title>C Negative Reaction Orders | CH12002 Lecture Notes</title>
   <meta name="description" content="These are notes to accompany the 2025 CH12002 lecture course on Chemical Kinetics." />
   <meta name="generator" content="bookdown 0.43 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Lecture 6 The Steady State Approximation | CH12002 Lecture Notes" />
+  <meta property="og:title" content="C Negative Reaction Orders | CH12002 Lecture Notes" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="These are notes to accompany the 2025 CH12002 lecture course on Chemical Kinetics." />
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Lecture 6 The Steady State Approximation | CH12002 Lecture Notes" />
+  <meta name="twitter:title" content="C Negative Reaction Orders | CH12002 Lecture Notes" />
   
   <meta name="twitter:description" content="These are notes to accompany the 2025 CH12002 lecture course on Chemical Kinetics." />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="rate-laws-for-complex-reactions.html"/>
-<link rel="next" href="complex-reaction-mechanisms-understanding-third-order-reactions.html"/>
+<link rel="prev" href="why-arent-all-bimolecular-reactions-third-order.html"/>
+
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -357,103 +357,95 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="the-steady-state-approximation" class="section level1 hasAnchor" number="6">
-<h1><span class="header-section-number">Lecture 6</span> The Steady State Approximation<a href="the-steady-state-approximation.html#the-steady-state-approximation" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<div id="introduction-2" class="section level2 hasAnchor" number="6.1">
-<h2><span class="header-section-number">6.1</span> Introduction<a href="the-steady-state-approximation.html#introduction-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>In our previous lectures, we explored how complex reaction mechanisms can be analyzed by breaking them down into elementary steps and deriving their rate laws. However, for many reactions, the complete kinetic analysis becomes mathematically intractable.
-In cases where the reaction intermediates are highly reactive and are quickly converted into products, we can apply a simplifying approximation called the Steady State Approximation, which often allows us to simplify the differential rate equations to derive an approximate mathematical description of the overall reaction rate.</p>
-<p>Consider a reaction pathway involving a reactive intermediate B:</p>
-<p><span class="math display">\[\mathrm{A} \underset{k_{-1}}{\stackrel{k_1}{\rightleftharpoons}} \mathrm{B} \xrightarrow{k_2} \mathrm{C}\]</span></p>
-<p>The concentration of intermediate B changes through three competing processes:
-- Formation from reactant A (rate <span class="math inline">\(k_1[\mathrm{A}]\)</span>)
-- Back-reaction to A (rate <span class="math inline">\(k_{-1}[\mathrm{B}]\)</span>)
-- Forward reaction to product C (rate <span class="math inline">\(k_2[\mathrm{B}]\)</span>)</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="the-steady-state-approximation.html#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Figure showing competing processes affecting [B]</span></span>
-<span id="cb12-2"><a href="the-steady-state-approximation.html#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="co"># - Blue arrow showing formation from A </span></span>
-<span id="cb12-3"><a href="the-steady-state-approximation.html#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="co"># - Red arrow showing back-reaction to A</span></span>
-<span id="cb12-4"><a href="the-steady-state-approximation.html#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="co"># - Green arrow showing conversion to C</span></span></code></pre></div>
-<p>Under steady state conditions, the intermediate’s concentration remains approximately constant because its rate of formation equals its rate of consumption. Mathematically, this means:</p>
-<p><span class="math display">\[\frac{\mathrm{d}[\mathrm{B}]}{\mathrm{d}t} \approx 0\]</span></p>
-<p>This approximation doesn’t imply that [B] = 0, but rather that [B] rapidly reaches and maintains a nearly constant value throughout most of the reaction.</p>
+<div id="negative-reaction-orders" class="section level1 hasAnchor" number="13">
+<h1><span class="header-section-number">C</span> Negative Reaction Orders<a href="negative-reaction-orders.html#negative-reaction-orders" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="what-are-negative-reaction-orders" class="section level2 hasAnchor" number="13.1">
+<h2><span class="header-section-number">C.1</span> What Are Negative Reaction Orders?<a href="negative-reaction-orders.html#what-are-negative-reaction-orders" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>In most cases, increasing the concentration of a reactant increases the reaction rate; this corresponds to positive reaction orders. In some reactions, however, increasing the concentration of a particular species <em>slows down</em> the reaction. This unusual behaviour manifests as a negative reaction order.</p>
+<p>Mathematically, when a species X appears with a negative order <span class="math inline">\(n\)</span> in a rate law:</p>
+<p><span class="math display">\[\nu = k[\mathrm{A}]^a[\mathrm{B}]^b[\mathrm{X}]^{-n}\]</span></p>
+<p>or equivalently:</p>
+<p><span class="math display">\[\nu = \frac{k[\mathrm{A}]^a[\mathrm{B}]^b}{[\mathrm{X}]^n}\]</span></p>
+<p>increasing <span class="math inline">\([\mathrm{X}]\)</span> decreases the reaction rate. The species X effectively acts as an <em>inhibitor</em> rather than a promoter of the reaction.</p>
 </div>
-<div id="analysis-of-pre-equilibrium-systems" class="section level2 hasAnchor" number="6.2">
-<h2><span class="header-section-number">6.2</span> Analysis of Pre-equilibrium Systems<a href="the-steady-state-approximation.html#analysis-of-pre-equilibrium-systems" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Let’s examine a mechanism involving both equilibrium and steady state behavior:</p>
-<p><span class="math display">\[\mathrm{A} + \mathrm{B} \underset{k_{-1}}{\stackrel{k_1}{\rightleftharpoons}} \mathrm{C} \xrightarrow{k_2} \mathrm{D}\]</span></p>
-<p>The complete set of rate equations for this system is:</p>
-<p><span class="math display">\[\begin{align*}
-\frac{\mathrm{d}[\mathrm{A}]}{\mathrm{d}t} &amp;= -k_1[\mathrm{A}][\mathrm{B}] + k_{-1}[\mathrm{C}] \\
-\frac{\mathrm{d}[\mathrm{B}]}{\mathrm{d}t} &amp;= -k_1[\mathrm{A}][\mathrm{B}] + k_{-1}[\mathrm{C}] \\
-\frac{\mathrm{d}[\mathrm{C}]}{\mathrm{d}t} &amp;= k_1[\mathrm{A}][\mathrm{B}] - k_{-1}[\mathrm{C}] - k_2[\mathrm{C}] \\
-\frac{\mathrm{d}[\mathrm{D}]}{\mathrm{d}t} &amp;= k_2[\mathrm{C}]
-\end{align*}\]</span></p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="the-steady-state-approximation.html#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot showing concentration profiles over time</span></span>
-<span id="cb13-2"><a href="the-steady-state-approximation.html#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="co"># - [A] and [B] decreasing</span></span>
-<span id="cb13-3"><a href="the-steady-state-approximation.html#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="co"># - [C] reaching steady state rapidly</span></span>
-<span id="cb13-4"><a href="the-steady-state-approximation.html#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="co"># - [D] increasing as product forms</span></span></code></pre></div>
-<div id="application-of-the-steady-state-approximation" class="section level3 hasAnchor" number="6.2.1">
-<h3><span class="header-section-number">6.2.1</span> Application of the Steady State Approximation<a href="the-steady-state-approximation.html#application-of-the-steady-state-approximation" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>We apply the steady state approximation to intermediate C:</p>
-<p><span class="math display">\[\frac{\mathrm{d}[\mathrm{C}]}{\mathrm{d}t} = k_1[\mathrm{A}][\mathrm{B}] - k_{-1}[\mathrm{C}] - k_2[\mathrm{C}] \approx 0\]</span></p>
-<p>This equation can be rearranged:</p>
-<p><span class="math display">\[k_1[\mathrm{A}][\mathrm{B}] = (k_{-1} + k_2)[\mathrm{C}]\]</span></p>
-<p>Solving for [C]:</p>
-<p><span class="math display">\[[\mathrm{C}] = \frac{k_1[\mathrm{A}][\mathrm{B}]}{k_{-1} + k_2}\]</span></p>
-<p>The overall reaction rate becomes:</p>
-<p><span class="math display">\[\begin{align*}
-\nu &amp;= \frac{\mathrm{d}[\mathrm{D}]}{\mathrm{d}t} = k_2[\mathrm{C}] \\
-&amp;= k_2\left(\frac{k_1[\mathrm{A}][\mathrm{B}]}{k_{-1} + k_2}\right) \\
-&amp;= \frac{k_2k_1[\mathrm{A}][\mathrm{B}]}{k_{-1} + k_2}
-\end{align*}\]</span></p>
-</div>
-<div id="analysis-of-limiting-cases" class="section level3 hasAnchor" number="6.2.2">
-<h3><span class="header-section-number">6.2.2</span> Analysis of Limiting Cases<a href="the-steady-state-approximation.html#analysis-of-limiting-cases" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Two important limiting behaviors emerge from this rate law:</p>
+<div id="physical-origins-of-negative-orders" class="section level2 hasAnchor" number="13.2">
+<h2><span class="header-section-number">C.2</span> Physical Origins of Negative Orders<a href="negative-reaction-orders.html#physical-origins-of-negative-orders" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Negative reaction orders always signal the presence of a complex, multi-step mechanism. They cannot arise from simple, elementary processes but instead emerge from:</p>
 <ol style="list-style-type: decimal">
-<li><p>Pre-equilibrium Limit (<span class="math inline">\(k_{-1} \gg k_2\)</span>):
-<span class="math display">\[\nu = \frac{k_2k_1}{k_{-1}}[\mathrm{A}][\mathrm{B}]\]</span>
-The reaction exhibits second-order kinetics with an effective rate constant <span class="math inline">\(k_\mathrm{eff} = k_2k_1/k_{-1}\)</span>.</p></li>
-<li><p>Rate-determining Step Limit (<span class="math inline">\(k_2[\mathrm{C}] \gg k_{-1}\)</span>):
-<span class="math display">\[\nu = k_1[\mathrm{A}]\]</span>
-The reaction shows first-order kinetics with rate constant <span class="math inline">\(k_1\)</span>.</p></li>
+<li><strong>Competitive inhibition</strong> - where a species competes with productive reaction pathways</li>
+<li><strong>Product inhibition</strong> - where reaction products interfere with the forward mechanism<br />
+</li>
+<li><strong>Site blocking</strong> - in surface reactions and enzyme systems where species compete for limited active sites</li>
+<li><strong>Reverse reactions</strong> - where a species promotes the backward reaction</li>
 </ol>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="the-steady-state-approximation.html#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Side-by-side plots comparing concentration profiles</span></span>
-<span id="cb14-2"><a href="the-steady-state-approximation.html#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Left: Pre-equilibrium case</span></span>
-<span id="cb14-3"><a href="the-steady-state-approximation.html#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Right: Rate-determining step case</span></span></code></pre></div>
+<p>The key insight is that these species participate in the overall mechanism but in ways that <em>hinder</em> rather than <em>help</em> the net forward reaction.</p>
+</div>
+<div id="example-1-chain-reaction-inhibition-in-h2-br2-2hbr" class="section level2 hasAnchor" number="13.3">
+<h2><span class="header-section-number">C.3</span> Example 1: Chain Reaction Inhibition in H<sub>2</sub> + Br<sub>2</sub> → 2HBr<a href="negative-reaction-orders.html#example-1-chain-reaction-inhibition-in-h2-br2-2hbr" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The formation of hydrogen bromide demonstrates product inhibition leading to negative orders. The empirical rate law for this reaction is:</p>
+<p><span class="math display">\[\nu = \frac{k[\mathrm{H_2}][\mathrm{Br_2}]^{1/2}}{1 + k&#39;[\mathrm{HBr}]/[\mathrm{Br_2}]}\]</span></p>
+<p>At high concentrations of HBr, this simplifies to show negative dependence on the product:</p>
+<p><span class="math display">\[\nu \approx \frac{k[\mathrm{H_2}][\mathrm{Br_2}]^{3/2}}{k&#39;[\mathrm{HBr}]}\]</span></p>
+<p>Here, HBr has an effective order of −1. The very product we are trying to make actually inhibits its own formation!</p>
+<div id="why-does-this-happen" class="section level3 hasAnchor" number="13.3.1">
+<h3><span class="header-section-number">C.3.1</span> Why Does This Happen?<a href="negative-reaction-orders.html#why-does-this-happen" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The H<sub>2</sub> + Br<sub>2</sub> reaction proceeds through a chain mechanism involving reactive radical intermediates. The key steps include:</p>
+<ul>
+<li><strong>Chain propagation</strong>: <span class="math inline">\(\mathrm{Br}^{\bullet} + \mathrm{H_2} \rightarrow \mathrm{H}^{\bullet} + \mathrm{HBr}\)</span></li>
+<li><strong>Chain propagation</strong>: <span class="math inline">\(\mathrm{H}^{\bullet} + \mathrm{Br_2} \rightarrow \mathrm{Br}^{\bullet} + \mathrm{HBr}\)</span></li>
+<li><strong>Chain inhibition</strong>: <span class="math inline">\(\mathrm{H}^{\bullet} + \mathrm{HBr} \rightarrow \mathrm{Br}^{\bullet} + \mathrm{H_2}\)</span></li>
+</ul>
+<p>The crucial point is the final step: HBr can react with the reactive H<span class="math inline">\(^{\bullet}\)</span> radicals that drive the chain reaction forward. This consumes the very intermediates needed for product formation. The more HBr present in the system, the more this reverse reaction competes with productive chain propagation, effectively slowing down the net rate of HBr formation.</p>
+<p>This illustrates a general principle: in chain reactions, anything that consumes or deactivates the chain-carrying intermediates will show negative kinetic behaviour.</p>
 </div>
 </div>
-<div id="mathematical-foundation-of-steady-state-behavior" class="section level2 hasAnchor" number="6.3">
-<h2><span class="header-section-number">6.3</span> Mathematical Foundation of Steady State Behavior<a href="the-steady-state-approximation.html#mathematical-foundation-of-steady-state-behavior" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Consider a general reaction system where an intermediate species I is:
-- Produced with rate <span class="math inline">\(\nu_f\)</span>
-- Consumed with rate proportional to [I]</p>
-<p>The rate equation is:</p>
-<p><span class="math display">\[\frac{\mathrm{d}[\mathrm{I}]}{\mathrm{d}t} = \nu_f - k[\mathrm{I}]\]</span></p>
-<p>This linear first-order differential equation has the solution:</p>
-<p><span class="math display">\[[\mathrm{I}]_t = \frac{\nu_f}{k}(1 - e^{-kt})\]</span></p>
-<p>This solution shows that:
-1. [I] approaches steady state value <span class="math inline">\(\nu_f/k\)</span> exponentially
-2. Characteristic time to reach steady state is <span class="math inline">\(1/k\)</span>
-3. Steady state approximation is valid when <span class="math inline">\(t \gg 1/k\)</span></p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="the-steady-state-approximation.html#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot showing:</span></span>
-<span id="cb15-2"><a href="the-steady-state-approximation.html#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="co"># - Exponential approach to steady state</span></span>
-<span id="cb15-3"><a href="the-steady-state-approximation.html#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="co"># - Characteristic time marked</span></span>
-<span id="cb15-4"><a href="the-steady-state-approximation.html#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="co"># - Steady state value indicated</span></span></code></pre></div>
+<div id="example-2-competitive-adsorption-in-surface-reactions" class="section level2 hasAnchor" number="13.4">
+<h2><span class="header-section-number">C.4</span> Example 2: Competitive Adsorption in Surface Reactions<a href="negative-reaction-orders.html#example-2-competitive-adsorption-in-surface-reactions" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Surface-catalysed reactions provide another important class of systems that show negative orders. Consider a reaction A + B → products occurring on a catalyst surface.</p>
+<p>Unlike homogeneous reactions, surface processes require that reactants first <em>adsorb</em> onto the catalyst before they can react. The catalyst surface has a limited number of active sites, creating the potential for competition between different species.</p>
+<p>For a typical surface reaction following the Langmuir-Hinshelwood mechanism:</p>
+<ol style="list-style-type: decimal">
+<li><span class="math inline">\(\mathrm{A}_{(\mathrm{g})} + * \rightleftharpoons \mathrm{A}*\)</span> (A adsorbs on empty site *)</li>
+<li><span class="math inline">\(\mathrm{B}_{(\mathrm{g})} + * \rightleftharpoons \mathrm{B}*\)</span> (B adsorbs on empty site *)<br />
+</li>
+<li><span class="math inline">\(\mathrm{A}* + \mathrm{B}* \rightarrow \text{products} + 2*\)</span> (reaction between adsorbed species)</li>
+</ol>
+<p>The rate depends on having both A and B adsorbed on adjacent sites. However, if one species (say B) adsorbs much more strongly than the other, or if its gas-phase pressure becomes very high, it can <em>monopolise</em> the surface sites.</p>
+<div id="the-site-blocking-effect" class="section level3 hasAnchor" number="13.4.1">
+<h3><span class="header-section-number">C.4.1</span> The Site-Blocking Effect<a href="negative-reaction-orders.html#the-site-blocking-effect" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>When B saturates the surface, there are fewer sites available for A to adsorb, even though we need both species present for the reaction to occur. Under these conditions, increasing the pressure of B actually <em>decreases</em> the reaction rate because:</p>
+<ul>
+<li>B blocks sites that A needs</li>
+<li>The surface coverage of A decreases<br />
+</li>
+<li>Fewer A-B pairs can form on adjacent sites</li>
+<li>The overall reaction rate falls</li>
+</ul>
+<p>This leads to negative apparent orders in B at high pressures, despite B being an essential reactant.</p>
+<p>This behaviour is commonly observed in industrial catalysis. For example:</p>
+<ul>
+<li>In ammonia synthesis, high hydrogen pressures can inhibit the reaction by preventing nitrogen adsorption</li>
+<li>In CO oxidation, excess CO can poison the catalyst by blocking oxygen adsorption sites</li>
+<li>In hydrogenation reactions, too much hydrogen can prevent the organic substrate from accessing the catalyst surface</li>
+</ul>
 </div>
-<div id="validation-criteria-for-steady-state" class="section level2 hasAnchor" number="6.4">
-<h2><span class="header-section-number">6.4</span> Validation Criteria for Steady State<a href="the-steady-state-approximation.html#validation-criteria-for-steady-state" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>The steady state approximation is valid when:
-1. The intermediate concentration remains small throughout the reaction
-2. The intermediate reaches steady state rapidly compared to overall reaction time
-3. The steady state persists for most of the reaction duration</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="the-steady-state-approximation.html#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Side-by-side plots:</span></span>
-<span id="cb16-2"><a href="the-steady-state-approximation.html#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Left: Valid steady state case</span></span>
-<span id="cb16-3"><a href="the-steady-state-approximation.html#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Right: Invalid case where approximation fails</span></span></code></pre></div>
-<p>These criteria can be assessed by comparing characteristic timescales:
-- <span class="math inline">\(\tau_\mathrm{SS} = 1/k\)</span> for reaching steady state
-- <span class="math inline">\(\tau_\mathrm{rxn}\)</span> for overall reaction progress</p>
-<p>The approximation is valid when <span class="math inline">\(\tau_\mathrm{SS} \ll \tau_\mathrm{rxn}\)</span>.</p>
+</div>
+<div id="recognising-negative-orders" class="section level2 hasAnchor" number="13.5">
+<h2><span class="header-section-number">C.5</span> Recognising Negative Orders<a href="negative-reaction-orders.html#recognising-negative-orders" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Negative orders often appear in disguised forms within rate expressions:</p>
+<ol style="list-style-type: decimal">
+<li><strong>Denominator terms</strong>: Any concentration appearing in the denominator has a negative effective order, whether directly (e.g., <span class="math inline">\(k[\mathrm{A}]/[\mathrm{X}]\)</span>) or within inhibition factors (e.g., <span class="math inline">\(k[\mathrm{A}]/(1 + k&#39;[\mathrm{X}])\)</span>)</li>
+<li><strong>Inhibition factors</strong>: Terms like <span class="math inline">\((1 + k[\mathrm{X}])\)</span> in the denominator indicate negative effects</li>
+<li><strong>Saturation behaviour</strong>: Rates that plateau or decrease with increasing concentration suggest competitive effects</li>
+</ol>
+</div>
+<div id="practical-implications" class="section level2 hasAnchor" number="13.6">
+<h2><span class="header-section-number">C.6</span> Practical Implications<a href="negative-reaction-orders.html#practical-implications" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Understanding negative orders has important practical consequences:</p>
+<p><strong>Process Optimisation</strong>: Simply increasing all reactant concentrations won’t necessarily speed up a reaction. There may be optimal concentration ratios that maximise the rate.</p>
+<p><strong>Catalyst Design</strong>: Recognising competitive adsorption helps in designing catalysts with appropriate site distributions or selectivities.</p>
+<p><strong>Product Removal</strong>: For reactions showing product inhibition, continuously removing products can maintain higher reaction rates.</p>
+<p><strong>Industrial Control</strong>: Many industrial processes must carefully control reactant ratios to avoid operating in negative-order regimes where increasing a reactant concentration actually decreases productivity.</p>
 
 </div>
 </div>
@@ -462,8 +454,8 @@ The reaction shows first-order kinetics with rate constant <span class="math inl
           </div>
         </div>
       </div>
-<a href="rate-laws-for-complex-reactions.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="complex-reaction-mechanisms-understanding-third-order-reactions.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="why-arent-all-bimolecular-reactions-third-order.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -494,7 +486,7 @@ gitbook.start({
     "size": 2
   },
   "edit": {
-    "link": "https://github.com/bjmorgan/CH12002/main/lecture_6/lecture_06.Rmd",
+    "link": "https://github.com/bjmorgan/CH12002/main/appendices/negative_orders.Rmd",
     "text": "Edit"
   },
   "history": {

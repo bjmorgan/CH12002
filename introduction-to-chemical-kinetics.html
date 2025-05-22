@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Lecture 6 The Steady State Approximation | CH12002 Lecture Notes</title>
+  <title>Lecture 1 Introduction to Chemical Kinetics | CH12002 Lecture Notes</title>
   <meta name="description" content="These are notes to accompany the 2025 CH12002 lecture course on Chemical Kinetics." />
   <meta name="generator" content="bookdown 0.43 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Lecture 6 The Steady State Approximation | CH12002 Lecture Notes" />
+  <meta property="og:title" content="Lecture 1 Introduction to Chemical Kinetics | CH12002 Lecture Notes" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="These are notes to accompany the 2025 CH12002 lecture course on Chemical Kinetics." />
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Lecture 6 The Steady State Approximation | CH12002 Lecture Notes" />
+  <meta name="twitter:title" content="Lecture 1 Introduction to Chemical Kinetics | CH12002 Lecture Notes" />
   
   <meta name="twitter:description" content="These are notes to accompany the 2025 CH12002 lecture course on Chemical Kinetics." />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="rate-laws-for-complex-reactions.html"/>
-<link rel="next" href="complex-reaction-mechanisms-understanding-third-order-reactions.html"/>
+<link rel="prev" href="index.html"/>
+<link rel="next" href="chemical-kinetics-and-reaction-mechanisms.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -357,103 +357,150 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="the-steady-state-approximation" class="section level1 hasAnchor" number="6">
-<h1><span class="header-section-number">Lecture 6</span> The Steady State Approximation<a href="the-steady-state-approximation.html#the-steady-state-approximation" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<div id="introduction-2" class="section level2 hasAnchor" number="6.1">
-<h2><span class="header-section-number">6.1</span> Introduction<a href="the-steady-state-approximation.html#introduction-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>In our previous lectures, we explored how complex reaction mechanisms can be analyzed by breaking them down into elementary steps and deriving their rate laws. However, for many reactions, the complete kinetic analysis becomes mathematically intractable.
-In cases where the reaction intermediates are highly reactive and are quickly converted into products, we can apply a simplifying approximation called the Steady State Approximation, which often allows us to simplify the differential rate equations to derive an approximate mathematical description of the overall reaction rate.</p>
-<p>Consider a reaction pathway involving a reactive intermediate B:</p>
-<p><span class="math display">\[\mathrm{A} \underset{k_{-1}}{\stackrel{k_1}{\rightleftharpoons}} \mathrm{B} \xrightarrow{k_2} \mathrm{C}\]</span></p>
-<p>The concentration of intermediate B changes through three competing processes:
-- Formation from reactant A (rate <span class="math inline">\(k_1[\mathrm{A}]\)</span>)
-- Back-reaction to A (rate <span class="math inline">\(k_{-1}[\mathrm{B}]\)</span>)
-- Forward reaction to product C (rate <span class="math inline">\(k_2[\mathrm{B}]\)</span>)</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="the-steady-state-approximation.html#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Figure showing competing processes affecting [B]</span></span>
-<span id="cb12-2"><a href="the-steady-state-approximation.html#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="co"># - Blue arrow showing formation from A </span></span>
-<span id="cb12-3"><a href="the-steady-state-approximation.html#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="co"># - Red arrow showing back-reaction to A</span></span>
-<span id="cb12-4"><a href="the-steady-state-approximation.html#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="co"># - Green arrow showing conversion to C</span></span></code></pre></div>
-<p>Under steady state conditions, the intermediate’s concentration remains approximately constant because its rate of formation equals its rate of consumption. Mathematically, this means:</p>
-<p><span class="math display">\[\frac{\mathrm{d}[\mathrm{B}]}{\mathrm{d}t} \approx 0\]</span></p>
-<p>This approximation doesn’t imply that [B] = 0, but rather that [B] rapidly reaches and maintains a nearly constant value throughout most of the reaction.</p>
+<div id="introduction-to-chemical-kinetics" class="section level1 hasAnchor" number="1">
+<h1><span class="header-section-number">Lecture 1</span> Introduction to Chemical Kinetics<a href="introduction-to-chemical-kinetics.html#introduction-to-chemical-kinetics" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="why-study-reaction-kinetics" class="section level2 hasAnchor" number="1.1">
+<h2><span class="header-section-number">1.1</span> Why Study Reaction Kinetics?<a href="introduction-to-chemical-kinetics.html#why-study-reaction-kinetics" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Chemistry is fundamentally a study of change—the transformation of substances into new forms with different properties. When we mix reactants together, we often want to know not just whether a reaction will occur, but how rapidly it will proceed. While thermodynamics provides powerful tools for determining whether a particular chemical change is spontaneous and what the final equilibrium composition will be, it cannot tell us how quickly this equilibrium will be reached.</p>
+<p>A reaction may be thermodynamically favourable, yet proceed so slowly that it appears not to happen at all. Consider the conversion of diamond to graphite—thermodynamically spontaneous at room temperature and pressure, yet the process occurs at such a negligible rate that diamonds remain stable for millions of years. Conversely, some reactions may reach equilibrium in fractions of a second.</p>
+<p>Chemical kinetics addresses these questions of reaction rates and mechanisms. Where thermodynamics concerns itself with the energy relationships that govern chemical equilibria, kinetics focuses on the rates of chemical processes and the molecular pathways by which they occur. Through kinetic analysis, we can determine how quickly reactants transform into products, what factors influence reaction speed, and what sequence of molecular events constitutes the reaction mechanism.</p>
+<p>The complementary nature of thermodynamics and kinetics provides a more complete picture of chemical change. Thermodynamics allows us to predict whether a reaction is possible and what the equilibrium state will be; kinetics reveals the rate at which this equilibrium is approached and the molecular steps involved in the transformation. Both perspectives are essential for understanding chemical processes in laboratory settings, industrial applications, and natural systems.</p>
 </div>
-<div id="analysis-of-pre-equilibrium-systems" class="section level2 hasAnchor" number="6.2">
-<h2><span class="header-section-number">6.2</span> Analysis of Pre-equilibrium Systems<a href="the-steady-state-approximation.html#analysis-of-pre-equilibrium-systems" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Let’s examine a mechanism involving both equilibrium and steady state behavior:</p>
-<p><span class="math display">\[\mathrm{A} + \mathrm{B} \underset{k_{-1}}{\stackrel{k_1}{\rightleftharpoons}} \mathrm{C} \xrightarrow{k_2} \mathrm{D}\]</span></p>
-<p>The complete set of rate equations for this system is:</p>
-<p><span class="math display">\[\begin{align*}
-\frac{\mathrm{d}[\mathrm{A}]}{\mathrm{d}t} &amp;= -k_1[\mathrm{A}][\mathrm{B}] + k_{-1}[\mathrm{C}] \\
-\frac{\mathrm{d}[\mathrm{B}]}{\mathrm{d}t} &amp;= -k_1[\mathrm{A}][\mathrm{B}] + k_{-1}[\mathrm{C}] \\
-\frac{\mathrm{d}[\mathrm{C}]}{\mathrm{d}t} &amp;= k_1[\mathrm{A}][\mathrm{B}] - k_{-1}[\mathrm{C}] - k_2[\mathrm{C}] \\
-\frac{\mathrm{d}[\mathrm{D}]}{\mathrm{d}t} &amp;= k_2[\mathrm{C}]
-\end{align*}\]</span></p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="the-steady-state-approximation.html#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot showing concentration profiles over time</span></span>
-<span id="cb13-2"><a href="the-steady-state-approximation.html#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="co"># - [A] and [B] decreasing</span></span>
-<span id="cb13-3"><a href="the-steady-state-approximation.html#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="co"># - [C] reaching steady state rapidly</span></span>
-<span id="cb13-4"><a href="the-steady-state-approximation.html#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="co"># - [D] increasing as product forms</span></span></code></pre></div>
-<div id="application-of-the-steady-state-approximation" class="section level3 hasAnchor" number="6.2.1">
-<h3><span class="header-section-number">6.2.1</span> Application of the Steady State Approximation<a href="the-steady-state-approximation.html#application-of-the-steady-state-approximation" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>We apply the steady state approximation to intermediate C:</p>
-<p><span class="math display">\[\frac{\mathrm{d}[\mathrm{C}]}{\mathrm{d}t} = k_1[\mathrm{A}][\mathrm{B}] - k_{-1}[\mathrm{C}] - k_2[\mathrm{C}] \approx 0\]</span></p>
-<p>This equation can be rearranged:</p>
-<p><span class="math display">\[k_1[\mathrm{A}][\mathrm{B}] = (k_{-1} + k_2)[\mathrm{C}]\]</span></p>
-<p>Solving for [C]:</p>
-<p><span class="math display">\[[\mathrm{C}] = \frac{k_1[\mathrm{A}][\mathrm{B}]}{k_{-1} + k_2}\]</span></p>
-<p>The overall reaction rate becomes:</p>
-<p><span class="math display">\[\begin{align*}
-\nu &amp;= \frac{\mathrm{d}[\mathrm{D}]}{\mathrm{d}t} = k_2[\mathrm{C}] \\
-&amp;= k_2\left(\frac{k_1[\mathrm{A}][\mathrm{B}]}{k_{-1} + k_2}\right) \\
-&amp;= \frac{k_2k_1[\mathrm{A}][\mathrm{B}]}{k_{-1} + k_2}
-\end{align*}\]</span></p>
+<div id="chemical-kinetics-describing-a" class="section level2 hasAnchor" number="1.2">
+<h2><span class="header-section-number">1.2</span> Chemical Kinetics → Describing <a href="t">A</a><a href="introduction-to-chemical-kinetics.html#chemical-kinetics-describing-a" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Let us start by examining a simple reaction, the conversion of a reactant A into a product B:</p>
+<p><span class="math display">\[\mathrm{A} \rightarrow \mathrm{B}\]</span></p>
+<!-- 
+
+``` r
+# Figure showing concentration profiles of A and B over time
+```
+-->
+<p>As the reaction proceeds, the concentrations of both species change. We can track the progress of the reaction by monitoring the concentrations of A and B as functions of time. Using square brackets to denote concentration (in mol dm<span class="math inline">\(^{-3}\)</span>), we write these as [<span class="math inline">\(\mathrm{A}\)</span>] and [<span class="math inline">\(\mathrm{B}\)</span>].</p>
+<p>Starting from initial values at <span class="math inline">\(t=0\)</span>, the system evolves toward its final state. Throughout this process, the total concentration remains constant:</p>
+<p><span class="math display">\[[\mathrm{A}]_t + [\mathrm{B}]_t = [\mathrm{A}]_{t=0} + [\mathrm{B}]_{t=0}\]</span></p>
+<p>This equation reflects the stoichiometric conversion between reactant and product—each molecule of A that disappears gives rise to exactly one molecule of B.</p>
+<p>We might ask questions such as:</p>
+<ul>
+<li>How much product B is there after time <span class="math inline">\(t\)</span>?</li>
+<li>How long will it take for a certain percentage of A to convert to B?</li>
+<li>If we change pressure, temperature, or initial concentrations, how will the reaction speed be affected?</li>
+</ul>
 </div>
-<div id="analysis-of-limiting-cases" class="section level3 hasAnchor" number="6.2.2">
-<h3><span class="header-section-number">6.2.2</span> Analysis of Limiting Cases<a href="the-steady-state-approximation.html#analysis-of-limiting-cases" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Two important limiting behaviors emerge from this rate law:</p>
+<div id="reaction-rates-describing-dadt" class="section level2 hasAnchor" number="1.3">
+<h2><span class="header-section-number">1.3</span> Reaction Rates → Describing d[A]/dt<a href="introduction-to-chemical-kinetics.html#reaction-rates-describing-dadt" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>We can quantify how quickly a reaction occurs in terms of the rate at which the concentrations of reactants and products change with time. This is what we call the reaction rate.</p>
+<!-- 
+
+``` r
+# Figure showing tangent lines to concentration curves indicating rates
+```
+-->
+<p>For our simple A → B reaction, the rate can be expressed as either the rate of disappearance of A or the rate of appearance of B:</p>
+<p><span class="math inline">\(\text{rate} = -\frac{\mathrm{d}[\mathrm{A}]}{\mathrm{d}t} = +\frac{\mathrm{d}[\mathrm{B}]}{\mathrm{d}t}\)</span></p>
+<p>The negative sign in the first term ensures that the rate is a positive quantity, since [<span class="math inline">\(\mathrm{A}\)</span>] decreases with time (giving a negative derivative).</p>
+<p>For a constant reaction rate, we can calculate the change in [A] per unit time as:</p>
+<p><span class="math inline">\(\text{change in [A] per unit time} = \frac{[\mathrm{A}]_{t_2} - [\mathrm{A}]_{t_1}}{t_2 - t_1} = \frac{\Delta[\mathrm{A}]}{\Delta t}\)</span></p>
+<p>In most cases, however, reaction rates aren’t constant but change as the reaction progresses and reactant concentrations decrease.</p>
+<p>For reactions with more complex stoichiometry, the relationship between concentration changes requires appropriate stoichiometric factors.</p>
+<p>Consider a reaction where one molecule of A combines with two molecules of B to form one molecule of C:</p>
+<p><span class="math inline">\(\mathrm{A} + 2\mathrm{B} \rightarrow \mathrm{C}\)</span></p>
+<p>Here, B is consumed twice as rapidly as A, and the rates are related by:</p>
+<p><span class="math inline">\(\text{rate} = -\frac{\mathrm{d}[\mathrm{A}]}{\mathrm{d}t} = -\frac{1}{2}\frac{\mathrm{d}[\mathrm{B}]}{\mathrm{d}t} = +\frac{\mathrm{d}[\mathrm{C}]}{\mathrm{d}t}\)</span></p>
+<p>In general, for a reaction with stoichiometry
+<span class="math inline">\(\nu_\mathrm{A}\mathrm{A} + \nu_\mathrm{B}\mathrm{B} + \ldots \rightarrow \nu_\mathrm{P}\mathrm{P} + \nu_\mathrm{Q}\mathrm{Q} + \ldots\)</span></p>
+<p>The rate can be written as:
+<span class="math inline">\(\text{rate} = -\frac{1}{\nu_\mathrm{A}}\frac{\mathrm{d}[\mathrm{A}]}{\mathrm{d}t} = -\frac{1}{\nu_\mathrm{B}}\frac{\mathrm{d}[\mathrm{B}]}{\mathrm{d}t} = \ldots = \frac{1}{\nu_\mathrm{P}}\frac{\mathrm{d}[\mathrm{P}]}{\mathrm{d}t} = \frac{1}{\nu_\mathrm{Q}}\frac{\mathrm{d}[\mathrm{Q}]}{\mathrm{d}t} = \ldots\)</span></p>
+<p>These relationships ensure that the stoichiometric ratios are properly accounted for when defining the reaction rate.</p>
+</div>
+<div id="calculus-for-kinetics" class="section level2 hasAnchor" number="1.4">
+<h2><span class="header-section-number">1.4</span> Calculus for Kinetics<a href="introduction-to-chemical-kinetics.html#calculus-for-kinetics" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Chemical kinetics relies heavily on the mathematical tools of calculus to connect concentration-time profiles with reaction rates:</p>
+<!-- 
+
+``` r
+# Figure showing the calculus relationship between concentration and rate
+```
+-->
+<p>These two aspects of kinetic data are related through differentiation and integration. If we know how concentration varies with time, we can determine the instantaneous reaction rate by taking the derivative:</p>
+<p><span class="math inline">\(\text{rate} = \nu = -\frac{\mathrm{d}[\mathrm{A}]}{\mathrm{d}t}\)</span></p>
+<p>Conversely, if we know the rate law for a reaction, we can predict the concentration-time profile by integration:</p>
+<p><span class="math inline">\([\mathrm{A}]_t = [\mathrm{A}]_0 - \int_0^t \nu\,\mathrm{d}t\)</span></p>
+<p>where <span class="math inline">\(\nu\)</span> represents the reaction rate as a function of time. This mathematical relationship forms the foundation for analysing kinetic data and determining rate laws experimentally.</p>
+</div>
+<div id="rate-laws" class="section level2 hasAnchor" number="1.5">
+<h2><span class="header-section-number">1.5</span> Rate Laws<a href="introduction-to-chemical-kinetics.html#rate-laws" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The rates of chemical reactions typically depend on the concentrations of the reactants. The mathematical relationship between the concentrations of reactants and the rate of a reaction is called a “rate law”.</p>
+<!-- 
+
+``` r
+# Figure showing molecular collisions and concentration effects
+```
+-->
+<p>Many reactions follow simple rate laws, where the rate of the reaction is proportional to the concentration of each reactant, raised to some power:</p>
+<p><span class="math inline">\(\text{rate} = k[\mathrm{A}]^a[\mathrm{B}]^b[\mathrm{C}]^c\cdots\)</span></p>
+<p>This equation contains several important components:</p>
+<ul>
+<li><span class="math inline">\(k\)</span> is the rate constant, a proportionality factor that depends on temperature but not on concentration</li>
+<li>The exponents <span class="math inline">\(a\)</span>, <span class="math inline">\(b\)</span>, <span class="math inline">\(c\)</span>, etc. are called the order of reaction with respect to reactants A, B, C, etc.</li>
+<li>The sum <span class="math inline">\((a + b + c + \cdots)\)</span> is called the overall reaction order</li>
+</ul>
+<p>It’s important to note that these orders need not reflect the stoichiometry of the overall reaction equation. For example:</p>
+<p><span class="math inline">\(\mathrm{H}_2 + \mathrm{I}_2 \rightarrow 2\mathrm{HI}\)</span> has rate law <span class="math inline">\(\nu = k[\mathrm{H}_2][\mathrm{I}_2]\)</span></p>
+<p><span class="math inline">\(3\mathrm{ClO}^- \rightarrow \mathrm{ClO}_3^- + 2\mathrm{Cl}^-\)</span> has rate law <span class="math inline">\(\nu = k[\mathrm{ClO}^-]^2\)</span></p>
+<p>Rate laws can also be complex, as in the case of hydrogen bromide formation:</p>
+<p><span class="math inline">\(\mathrm{H}_2 + \mathrm{Br}_2 \rightarrow 2\mathrm{HBr}\)</span> with rate law <span class="math inline">\(\nu = \frac{k[\mathrm{H}_2][\mathrm{Br}_2]^{1/2}}{1+k&#39;[\mathrm{HBr}]/[\mathrm{Br}_2]}\)</span></p>
+<p>A complex rate law always implies a multistep reaction mechanism.</p>
+</div>
+<div id="elementary-processes" class="section level2 hasAnchor" number="1.6">
+<h2><span class="header-section-number">1.6</span> Elementary Processes<a href="introduction-to-chemical-kinetics.html#elementary-processes" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Any chemical reaction can be broken down into a sequence of simple molecular-level steps called elementary processes. An elementary process represents a single molecular event—a simple transformation that cannot be broken down further.</p>
+<!-- 
+
+``` r
+# Figure showing the three types of elementary processes
+```
+-->
+<p>The molecularity of an elementary process tells us how many reactant molecules must come together for the reaction to occur. This concept allows us to classify elementary steps into three categories:</p>
 <ol style="list-style-type: decimal">
-<li><p>Pre-equilibrium Limit (<span class="math inline">\(k_{-1} \gg k_2\)</span>):
-<span class="math display">\[\nu = \frac{k_2k_1}{k_{-1}}[\mathrm{A}][\mathrm{B}]\]</span>
-The reaction exhibits second-order kinetics with an effective rate constant <span class="math inline">\(k_\mathrm{eff} = k_2k_1/k_{-1}\)</span>.</p></li>
-<li><p>Rate-determining Step Limit (<span class="math inline">\(k_2[\mathrm{C}] \gg k_{-1}\)</span>):
-<span class="math display">\[\nu = k_1[\mathrm{A}]\]</span>
-The reaction shows first-order kinetics with rate constant <span class="math inline">\(k_1\)</span>.</p></li>
+<li><p><strong>Unimolecular processes</strong> involve the transformation of a single molecule:
+<span class="math inline">\(\mathrm{A} \rightarrow \text{products} \qquad \text{rate} = k[\mathrm{A}]\)</span></p>
+<p>Typical examples include isomerization reactions (where a molecule rearranges its bonds without changing composition) and decomposition reactions (where a molecule breaks into smaller fragments).</p></li>
+<li><p><strong>Bimolecular processes</strong> require the collision of two molecules:
+<span class="math inline">\(\mathrm{A} + \mathrm{B} \rightarrow \text{products} \qquad \text{rate} = k[\mathrm{A}][\mathrm{B}]\)</span></p>
+<p>These represent the most common elementary reactions, as they involve the relatively probable event of two molecules encountering each other.</p></li>
+<li><p><strong>Termolecular processes</strong> involve the simultaneous collision of three molecules:
+<span class="math inline">\(\mathrm{A} + \mathrm{B} + \mathrm{C} \rightarrow \text{products} \qquad \text{rate} = k[\mathrm{A}][\mathrm{B}][\mathrm{C}]\)</span></p>
+<p>Such processes are rare in solution chemistry due to the low probability of three molecules colliding simultaneously with the correct orientation. When observed, they often involve a third body that absorbs excess energy from an energetic collision between two reactive species.</p></li>
 </ol>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="the-steady-state-approximation.html#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Side-by-side plots comparing concentration profiles</span></span>
-<span id="cb14-2"><a href="the-steady-state-approximation.html#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Left: Pre-equilibrium case</span></span>
-<span id="cb14-3"><a href="the-steady-state-approximation.html#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Right: Rate-determining step case</span></span></code></pre></div>
+<p>For elementary processes, there is a direct correspondence between molecularity and reaction order—the rate law exponents exactly match the number of molecules participating in the reaction. This correspondence provides a powerful tool for deducing reaction mechanisms from experimental rate laws.</p>
 </div>
+<div id="complex-reactions" class="section level2 hasAnchor" number="1.7">
+<h2><span class="header-section-number">1.7</span> Complex Reactions<a href="introduction-to-chemical-kinetics.html#complex-reactions" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>For complex reactions involving multiple elementary steps, we cannot deduce the rate law from the reaction stoichiometry alone. Consider the hydrogen bromide formation again:</p>
+<p><span class="math inline">\(\mathrm{H}_2 + \mathrm{Br}_2 \rightarrow 2\mathrm{HBr}\)</span></p>
+<p>This overall reaction actually proceeds through a mechanism involving four elementary steps:</p>
+<ol style="list-style-type: decimal">
+<li><span class="math inline">\(\mathrm{Br}_2 \rightarrow \mathrm{Br} + \mathrm{Br}\)</span> (bimolecular)</li>
+<li><span class="math inline">\(\mathrm{Br} + \mathrm{H}_2 \rightarrow \mathrm{H} + \mathrm{HBr}\)</span> (bimolecular)</li>
+<li><span class="math inline">\(\mathrm{H} + \mathrm{Br}_2 \rightarrow \mathrm{Br} + \mathrm{HBr}\)</span> (bimolecular)</li>
+<li><span class="math inline">\(\mathrm{Br} + \mathrm{Br} \rightarrow \mathrm{Br}_2\)</span> (unimolecular)</li>
+</ol>
+<p>Rate laws for complex reactions must be determined empirically through analysis of experimental data. However, as we shall see later, if we know the mechanism of a reaction (the sequence of elementary steps), we can predict its rate law. Conversely, experimental rate laws can help us deduce possible reaction mechanisms.</p>
 </div>
-<div id="mathematical-foundation-of-steady-state-behavior" class="section level2 hasAnchor" number="6.3">
-<h2><span class="header-section-number">6.3</span> Mathematical Foundation of Steady State Behavior<a href="the-steady-state-approximation.html#mathematical-foundation-of-steady-state-behavior" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Consider a general reaction system where an intermediate species I is:
-- Produced with rate <span class="math inline">\(\nu_f\)</span>
-- Consumed with rate proportional to [I]</p>
-<p>The rate equation is:</p>
-<p><span class="math display">\[\frac{\mathrm{d}[\mathrm{I}]}{\mathrm{d}t} = \nu_f - k[\mathrm{I}]\]</span></p>
-<p>This linear first-order differential equation has the solution:</p>
-<p><span class="math display">\[[\mathrm{I}]_t = \frac{\nu_f}{k}(1 - e^{-kt})\]</span></p>
-<p>This solution shows that:
-1. [I] approaches steady state value <span class="math inline">\(\nu_f/k\)</span> exponentially
-2. Characteristic time to reach steady state is <span class="math inline">\(1/k\)</span>
-3. Steady state approximation is valid when <span class="math inline">\(t \gg 1/k\)</span></p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="the-steady-state-approximation.html#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot showing:</span></span>
-<span id="cb15-2"><a href="the-steady-state-approximation.html#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="co"># - Exponential approach to steady state</span></span>
-<span id="cb15-3"><a href="the-steady-state-approximation.html#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="co"># - Characteristic time marked</span></span>
-<span id="cb15-4"><a href="the-steady-state-approximation.html#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="co"># - Steady state value indicated</span></span></code></pre></div>
-</div>
-<div id="validation-criteria-for-steady-state" class="section level2 hasAnchor" number="6.4">
-<h2><span class="header-section-number">6.4</span> Validation Criteria for Steady State<a href="the-steady-state-approximation.html#validation-criteria-for-steady-state" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>The steady state approximation is valid when:
-1. The intermediate concentration remains small throughout the reaction
-2. The intermediate reaches steady state rapidly compared to overall reaction time
-3. The steady state persists for most of the reaction duration</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="the-steady-state-approximation.html#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Side-by-side plots:</span></span>
-<span id="cb16-2"><a href="the-steady-state-approximation.html#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Left: Valid steady state case</span></span>
-<span id="cb16-3"><a href="the-steady-state-approximation.html#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Right: Invalid case where approximation fails</span></span></code></pre></div>
-<p>These criteria can be assessed by comparing characteristic timescales:
-- <span class="math inline">\(\tau_\mathrm{SS} = 1/k\)</span> for reaching steady state
-- <span class="math inline">\(\tau_\mathrm{rxn}\)</span> for overall reaction progress</p>
-<p>The approximation is valid when <span class="math inline">\(\tau_\mathrm{SS} \ll \tau_\mathrm{rxn}\)</span>.</p>
+<div id="units-of-the-rate-constant" class="section level2 hasAnchor" number="1.8">
+<h2><span class="header-section-number">1.8</span> Units of the Rate Constant<a href="introduction-to-chemical-kinetics.html#units-of-the-rate-constant" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The units of a rate constant depend on the form of the rate law in which it appears. This dependence arises from the requirement of dimensional consistency—both sides of a rate equation must have the same units.</p>
+<p>For reactions following first-order kinetics (rate = <span class="math inline">\(k[\mathrm{A}]\)</span>), we have:</p>
+<p><span class="math inline">\(\text{mol}\,\text{dm}^{-3}\text{s}^{-1} = k \times \text{mol}\,\text{dm}^{-3}\)</span></p>
+<p>Solving for <span class="math inline">\(k\)</span> shows that its units must be s<span class="math inline">\(^{-1}\)</span>:</p>
+<p><span class="math inline">\(k \text{ has units } \text{s}^{-1}\)</span></p>
+<p>For second-order reactions (rate = <span class="math inline">\(k[\mathrm{A}]^2\)</span>):</p>
+<p><span class="math inline">\(\text{mol}\,\text{dm}^{-3}\text{s}^{-1} = k \times (\text{mol}\,\text{dm}^{-3})^2\)</span></p>
+<p>Here, the rate constant has units of mol<span class="math inline">\(^{-1}\)</span>dm<span class="math inline">\(^3\)</span>s<span class="math inline">\(^{-1}\)</span>:</p>
+<p><span class="math inline">\(k \text{ has units } \text{mol}^{-1}\text{dm}^3\text{s}^{-1}\)</span></p>
+<p>In general, for a reaction of order <span class="math inline">\(n\)</span>, the rate constant has units of mol<span class="math inline">\(^{1-n}\)</span>dm<span class="math inline">\(^{3(n-1)}\)</span>s<span class="math inline">\(^{-1}\)</span>. This pattern reflects the fundamental relationship between reaction order and the dimensions of the rate constant.</p>
+<p>Understanding these units is essential for interpreting kinetic data correctly and for comparing rate constants across different reaction systems.</p>
 
 </div>
 </div>
@@ -462,8 +509,8 @@ The reaction shows first-order kinetics with rate constant <span class="math inl
           </div>
         </div>
       </div>
-<a href="rate-laws-for-complex-reactions.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="complex-reaction-mechanisms-understanding-third-order-reactions.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="chemical-kinetics-and-reaction-mechanisms.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -494,7 +541,7 @@ gitbook.start({
     "size": 2
   },
   "edit": {
-    "link": "https://github.com/bjmorgan/CH12002/main/lecture_6/lecture_06.Rmd",
+    "link": "https://github.com/bjmorgan/CH12002/main/lecture_1/lecture_01.Rmd",
     "text": "Edit"
   },
   "history": {

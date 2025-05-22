@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Lecture 6 The Steady State Approximation | CH12002 Lecture Notes</title>
+  <title>Lecture 9 Chain Reactions and Reaction Feedback | CH12002 Lecture Notes</title>
   <meta name="description" content="These are notes to accompany the 2025 CH12002 lecture course on Chemical Kinetics." />
   <meta name="generator" content="bookdown 0.43 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Lecture 6 The Steady State Approximation | CH12002 Lecture Notes" />
+  <meta property="og:title" content="Lecture 9 Chain Reactions and Reaction Feedback | CH12002 Lecture Notes" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="These are notes to accompany the 2025 CH12002 lecture course on Chemical Kinetics." />
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Lecture 6 The Steady State Approximation | CH12002 Lecture Notes" />
+  <meta name="twitter:title" content="Lecture 9 Chain Reactions and Reaction Feedback | CH12002 Lecture Notes" />
   
   <meta name="twitter:description" content="These are notes to accompany the 2025 CH12002 lecture course on Chemical Kinetics." />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="rate-laws-for-complex-reactions.html"/>
-<link rel="next" href="complex-reaction-mechanisms-understanding-third-order-reactions.html"/>
+<link rel="prev" href="enzyme-kinetics.html"/>
+<link rel="next" href="temperature-effects-on-reaction-rates.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -357,103 +357,166 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="the-steady-state-approximation" class="section level1 hasAnchor" number="6">
-<h1><span class="header-section-number">Lecture 6</span> The Steady State Approximation<a href="the-steady-state-approximation.html#the-steady-state-approximation" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<div id="introduction-2" class="section level2 hasAnchor" number="6.1">
-<h2><span class="header-section-number">6.1</span> Introduction<a href="the-steady-state-approximation.html#introduction-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>In our previous lectures, we explored how complex reaction mechanisms can be analyzed by breaking them down into elementary steps and deriving their rate laws. However, for many reactions, the complete kinetic analysis becomes mathematically intractable.
-In cases where the reaction intermediates are highly reactive and are quickly converted into products, we can apply a simplifying approximation called the Steady State Approximation, which often allows us to simplify the differential rate equations to derive an approximate mathematical description of the overall reaction rate.</p>
-<p>Consider a reaction pathway involving a reactive intermediate B:</p>
-<p><span class="math display">\[\mathrm{A} \underset{k_{-1}}{\stackrel{k_1}{\rightleftharpoons}} \mathrm{B} \xrightarrow{k_2} \mathrm{C}\]</span></p>
-<p>The concentration of intermediate B changes through three competing processes:
-- Formation from reactant A (rate <span class="math inline">\(k_1[\mathrm{A}]\)</span>)
-- Back-reaction to A (rate <span class="math inline">\(k_{-1}[\mathrm{B}]\)</span>)
-- Forward reaction to product C (rate <span class="math inline">\(k_2[\mathrm{B}]\)</span>)</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="the-steady-state-approximation.html#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Figure showing competing processes affecting [B]</span></span>
-<span id="cb12-2"><a href="the-steady-state-approximation.html#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="co"># - Blue arrow showing formation from A </span></span>
-<span id="cb12-3"><a href="the-steady-state-approximation.html#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="co"># - Red arrow showing back-reaction to A</span></span>
-<span id="cb12-4"><a href="the-steady-state-approximation.html#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="co"># - Green arrow showing conversion to C</span></span></code></pre></div>
-<p>Under steady state conditions, the intermediate’s concentration remains approximately constant because its rate of formation equals its rate of consumption. Mathematically, this means:</p>
-<p><span class="math display">\[\frac{\mathrm{d}[\mathrm{B}]}{\mathrm{d}t} \approx 0\]</span></p>
-<p>This approximation doesn’t imply that [B] = 0, but rather that [B] rapidly reaches and maintains a nearly constant value throughout most of the reaction.</p>
+<div id="chain-reactions-and-reaction-feedback" class="section level1 hasAnchor" number="9">
+<h1><span class="header-section-number">Lecture 9</span> Chain Reactions and Reaction Feedback<a href="chain-reactions-and-reaction-feedback.html#chain-reactions-and-reaction-feedback" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="introduction-to-chain-reactions" class="section level2 hasAnchor" number="9.1">
+<h2><span class="header-section-number">9.1</span> Introduction to Chain Reactions<a href="chain-reactions-and-reaction-feedback.html#introduction-to-chain-reactions" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Chemical reactions take many forms, from simple one-step processes to complex mechanisms involving multiple elementary steps. Among these, chain reactions represent a particularly important class characterized by self-propagating sequences of steps. These reactions play crucial roles in diverse processes ranging from polymer synthesis to combustion phenomena and even nuclear fission.</p>
+<p>Chain reactions involve sequential steps where reactive intermediates, generated in one step, participate in subsequent steps to create new reactive intermediates. This self-perpetuating sequence can lead to distinctive kinetic behavior and, under certain conditions, explosive reactions.</p>
 </div>
-<div id="analysis-of-pre-equilibrium-systems" class="section level2 hasAnchor" number="6.2">
-<h2><span class="header-section-number">6.2</span> Analysis of Pre-equilibrium Systems<a href="the-steady-state-approximation.html#analysis-of-pre-equilibrium-systems" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Let’s examine a mechanism involving both equilibrium and steady state behavior:</p>
-<p><span class="math display">\[\mathrm{A} + \mathrm{B} \underset{k_{-1}}{\stackrel{k_1}{\rightleftharpoons}} \mathrm{C} \xrightarrow{k_2} \mathrm{D}\]</span></p>
-<p>The complete set of rate equations for this system is:</p>
-<p><span class="math display">\[\begin{align*}
-\frac{\mathrm{d}[\mathrm{A}]}{\mathrm{d}t} &amp;= -k_1[\mathrm{A}][\mathrm{B}] + k_{-1}[\mathrm{C}] \\
-\frac{\mathrm{d}[\mathrm{B}]}{\mathrm{d}t} &amp;= -k_1[\mathrm{A}][\mathrm{B}] + k_{-1}[\mathrm{C}] \\
-\frac{\mathrm{d}[\mathrm{C}]}{\mathrm{d}t} &amp;= k_1[\mathrm{A}][\mathrm{B}] - k_{-1}[\mathrm{C}] - k_2[\mathrm{C}] \\
-\frac{\mathrm{d}[\mathrm{D}]}{\mathrm{d}t} &amp;= k_2[\mathrm{C}]
-\end{align*}\]</span></p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="the-steady-state-approximation.html#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot showing concentration profiles over time</span></span>
-<span id="cb13-2"><a href="the-steady-state-approximation.html#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="co"># - [A] and [B] decreasing</span></span>
-<span id="cb13-3"><a href="the-steady-state-approximation.html#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="co"># - [C] reaching steady state rapidly</span></span>
-<span id="cb13-4"><a href="the-steady-state-approximation.html#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="co"># - [D] increasing as product forms</span></span></code></pre></div>
-<div id="application-of-the-steady-state-approximation" class="section level3 hasAnchor" number="6.2.1">
-<h3><span class="header-section-number">6.2.1</span> Application of the Steady State Approximation<a href="the-steady-state-approximation.html#application-of-the-steady-state-approximation" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>We apply the steady state approximation to intermediate C:</p>
-<p><span class="math display">\[\frac{\mathrm{d}[\mathrm{C}]}{\mathrm{d}t} = k_1[\mathrm{A}][\mathrm{B}] - k_{-1}[\mathrm{C}] - k_2[\mathrm{C}] \approx 0\]</span></p>
-<p>This equation can be rearranged:</p>
-<p><span class="math display">\[k_1[\mathrm{A}][\mathrm{B}] = (k_{-1} + k_2)[\mathrm{C}]\]</span></p>
-<p>Solving for [C]:</p>
-<p><span class="math display">\[[\mathrm{C}] = \frac{k_1[\mathrm{A}][\mathrm{B}]}{k_{-1} + k_2}\]</span></p>
-<p>The overall reaction rate becomes:</p>
-<p><span class="math display">\[\begin{align*}
-\nu &amp;= \frac{\mathrm{d}[\mathrm{D}]}{\mathrm{d}t} = k_2[\mathrm{C}] \\
-&amp;= k_2\left(\frac{k_1[\mathrm{A}][\mathrm{B}]}{k_{-1} + k_2}\right) \\
-&amp;= \frac{k_2k_1[\mathrm{A}][\mathrm{B}]}{k_{-1} + k_2}
-\end{align*}\]</span></p>
-</div>
-<div id="analysis-of-limiting-cases" class="section level3 hasAnchor" number="6.2.2">
-<h3><span class="header-section-number">6.2.2</span> Analysis of Limiting Cases<a href="the-steady-state-approximation.html#analysis-of-limiting-cases" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Two important limiting behaviors emerge from this rate law:</p>
+<div id="the-h_2-br_2-2hbr-chain-reaction" class="section level2 hasAnchor" number="9.2">
+<h2><span class="header-section-number">9.2</span> The H<span class="math inline">\(_2\)</span> + Br<span class="math inline">\(_2\)</span> → 2HBr Chain Reaction<a href="chain-reactions-and-reaction-feedback.html#the-h_2-br_2-2hbr-chain-reaction" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>A classic example of a chain reaction is the formation of hydrogen bromide from hydrogen and bromine gases:</p>
+<p><span class="math display">\[\mathrm{H}_2 + \mathrm{Br}_2 \rightarrow 2\mathrm{HBr}\]</span></p>
+<p>This seemingly simple reaction follows a complex mechanism involving reactive intermediates. The experimentally determined rate law does not reflect the overall stoichiometric equation:</p>
+<p><span class="math display">\[\nu = \frac{k[\mathrm{H}_2][\mathrm{Br}_2]^{1/2}}{1+k&#39;[\mathrm{HBr}]/[\mathrm{Br}_2]}\]</span></p>
+<p>This unusual rate expression hints at the underlying complexity of the reaction mechanism.</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="chain-reactions-and-reaction-feedback.html#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Insert schematic of chain reaction cycle</span></span></code></pre></div>
+<p>The actual mechanism consists of several elementary steps:</p>
 <ol style="list-style-type: decimal">
-<li><p>Pre-equilibrium Limit (<span class="math inline">\(k_{-1} \gg k_2\)</span>):
-<span class="math display">\[\nu = \frac{k_2k_1}{k_{-1}}[\mathrm{A}][\mathrm{B}]\]</span>
-The reaction exhibits second-order kinetics with an effective rate constant <span class="math inline">\(k_\mathrm{eff} = k_2k_1/k_{-1}\)</span>.</p></li>
-<li><p>Rate-determining Step Limit (<span class="math inline">\(k_2[\mathrm{C}] \gg k_{-1}\)</span>):
-<span class="math display">\[\nu = k_1[\mathrm{A}]\]</span>
-The reaction shows first-order kinetics with rate constant <span class="math inline">\(k_1\)</span>.</p></li>
+<li><p><strong>Initiation</strong>:
+<span class="math display">\[\mathrm{Br}_2 + \mathrm{M} \stackrel{k_1}{\longrightarrow} \mathrm{Br}^{\bullet} + \mathrm{Br}^{\bullet} + \mathrm{M}\]</span></p></li>
+<li><p><strong>Propagation</strong>:
+<span class="math display">\[\mathrm{Br}^{\bullet} + \mathrm{H}_2 \stackrel{k_2}{\rightleftharpoons} \mathrm{H}^{\bullet} + \mathrm{HBr}\]</span>
+<span class="math display">\[\mathrm{H}^{\bullet} + \mathrm{Br}_2 \stackrel{k_3}{\longrightarrow} \mathrm{Br}^{\bullet} + \mathrm{HBr}\]</span></p></li>
+<li><p><strong>Termination</strong>:
+<span class="math display">\[\mathrm{Br}^{\bullet} + \mathrm{Br}^{\bullet} + \mathrm{M} \stackrel{k_4}{\longrightarrow} \mathrm{Br}_2 + \mathrm{M}\]</span></p></li>
 </ol>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="the-steady-state-approximation.html#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Side-by-side plots comparing concentration profiles</span></span>
-<span id="cb14-2"><a href="the-steady-state-approximation.html#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Left: Pre-equilibrium case</span></span>
-<span id="cb14-3"><a href="the-steady-state-approximation.html#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Right: Rate-determining step case</span></span></code></pre></div>
+<p>In these equations, M represents a third body (often another gas molecule) that absorbs excess energy during collision, and the bullet symbol (<span class="math inline">\(\bullet\)</span>) indicates a radical species with an unpaired electron.</p>
+<p>This mechanism includes two key reactive intermediates—bromine atoms (Br<span class="math inline">\(^{\bullet}\)</span>) and hydrogen atoms (H<span class="math inline">\(^{\bullet}\)</span>)—that sustain the chain reaction. Once formed in the initiation step, these radicals participate in propagation steps that generate product (HBr) while regenerating a reactive intermediate to continue the chain.</p>
+</div>
+<div id="steady-state-analysis-of-the-chain-reaction" class="section level2 hasAnchor" number="9.3">
+<h2><span class="header-section-number">9.3</span> Steady State Analysis of the Chain Reaction<a href="chain-reactions-and-reaction-feedback.html#steady-state-analysis-of-the-chain-reaction" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>To analyse the kinetics of this complex mechanism, we apply the steady state approximation to both reactive intermediates, Br<span class="math inline">\(^{\bullet}\)</span> and H<span class="math inline">\(^{\bullet}\)</span>. This approach assumes that after an initial transient period, the concentrations of these highly reactive species remain approximately constant as their rates of formation and consumption balance.</p>
+<p>First, let’s consider the rate equation for H<span class="math inline">\(^{\bullet}\)</span>:</p>
+<p><span class="math display">\[\frac{\mathrm{d}[\mathrm{H}^{\bullet}]}{\mathrm{d}t} = +k_2[\mathrm{Br}^{\bullet}][\mathrm{H}_2] - k_{-2}[\mathrm{H}^{\bullet}][\mathrm{HBr}] - k_3[\mathrm{H}^{\bullet}][\mathrm{Br}_2] = 0\]</span></p>
+<p>Rearranging to solve for [H<span class="math inline">\(^{\bullet}\)</span>]:</p>
+<p><span class="math display">\[[\mathrm{H}^{\bullet}] = \frac{k_2[\mathrm{Br}^{\bullet}][\mathrm{H}_2]}{k_{-2}[\mathrm{HBr}] + k_3[\mathrm{Br}_2]}\]</span></p>
+<p>Next, for Br<span class="math inline">\(^{\bullet}\)</span>:</p>
+<p><span class="math display">\[\frac{\mathrm{d}[\mathrm{Br}^{\bullet}]}{\mathrm{d}t} = 2k_1[\mathrm{Br}_2][\mathrm{M}] - k_2[\mathrm{Br}^{\bullet}][\mathrm{H}_2] + k_{-2}[\mathrm{H}^{\bullet}][\mathrm{HBr}] + k_3[\mathrm{H}^{\bullet}][\mathrm{Br}_2] - 2k_4[\mathrm{Br}^{\bullet}]^2[\mathrm{M}] = 0\]</span></p>
+<p>When we substitute our expression for [H<span class="math inline">\(^{\bullet}\)</span>], the equation becomes quite complex. However, if we recognize that the propagation steps maintain the balance of Br<span class="math inline">\(^{\bullet}\)</span> (Br<span class="math inline">\(^{\bullet}\)</span> is consumed in one step and regenerated in the next), we can simplify:</p>
+<p><span class="math display">\[\frac{\mathrm{d}[\mathrm{Br}^{\bullet}]}{\mathrm{d}t} = 2k_1[\mathrm{Br}_2][\mathrm{M}] - 2k_4[\mathrm{Br}^{\bullet}]^2[\mathrm{M}] = 0\]</span></p>
+<p>This simplification assumes that the propagation steps are much faster than the initiation and termination steps, which is typically true for chain reactions. From this simplified equation, we can solve for [Br<span class="math inline">\(^{\bullet}\)</span>]:</p>
+<p><span class="math display">\[2k_1[\mathrm{Br}_2][\mathrm{M}] = 2k_4[\mathrm{Br}^{\bullet}]^2[\mathrm{M}]\]</span></p>
+<p><span class="math display">\[[\mathrm{Br}^{\bullet}] = \sqrt{\frac{k_1[\mathrm{Br}_2]}{k_4}}\]</span></p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="chain-reactions-and-reaction-feedback.html#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Insert figure showing steady state concentration of Br•</span></span></code></pre></div>
+<p>Now we can determine the overall rate of HBr formation. The rate equation is:</p>
+<p><span class="math display">\[\nu = \frac{\mathrm{d}[\mathrm{HBr}]}{\mathrm{d}t} = k_2[\mathrm{Br}^{\bullet}][\mathrm{H}_2] - k_{-2}[\mathrm{H}^{\bullet}][\mathrm{HBr}] + k_3[\mathrm{H}^{\bullet}][\mathrm{Br}_2]\]</span></p>
+<p>Substituting our expressions for [Br<span class="math inline">\(^{\bullet}\)</span>] and [H<span class="math inline">\(^{\bullet}\)</span>] and performing algebraic manipulations (the detailed steps are quite involved), we eventually arrive at:</p>
+<p><span class="math display">\[\nu = \frac{2k_2\sqrt{\frac{k_1}{k_4}}[\mathrm{H}_2][\mathrm{Br}_2]^{1/2}}{1 + \frac{k_{-2}}{k_3}\frac{[\mathrm{HBr}]}{[\mathrm{Br}_2]}}\]</span></p>
+<p>This derived rate law matches the experimentally observed form, with <span class="math inline">\(k = 2k_2\sqrt{\frac{k_1}{k_4}}\)</span> and <span class="math inline">\(k&#39; = \frac{k_{-2}}{k_3}\)</span>.</p>
+<p>The presence of HBr in the denominator represents an inhibitory effect—the reverse reaction <span class="math inline">\(\mathrm{H}^{\bullet} + \mathrm{HBr} \rightarrow \mathrm{Br}^{\bullet} + \mathrm{H}_2\)</span> competes with the forward propagation step, reducing the overall reaction rate. This step is called an inhibition step.</p>
+</div>
+<div id="chain-reaction-types-and-characteristics" class="section level2 hasAnchor" number="9.4">
+<h2><span class="header-section-number">9.4</span> Chain Reaction Types and Characteristics<a href="chain-reactions-and-reaction-feedback.html#chain-reaction-types-and-characteristics" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Chain reactions exhibit several distinctive characteristics:</p>
+<ol style="list-style-type: decimal">
+<li><strong>A cyclic propagation sequence</strong> where reactive intermediates continually regenerate</li>
+<li><strong>Initiation steps</strong> that create the initial reactive intermediates</li>
+<li><strong>Termination steps</strong> that remove reactive intermediates from the cycle</li>
+<li><strong>Possible inhibition steps</strong> that can compete with propagation</li>
+</ol>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="chain-reactions-and-reaction-feedback.html#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Insert diagram of chain reaction steps</span></span></code></pre></div>
+<p>Chain reactions can be further classified based on how the reactive intermediates evolve during the propagation sequence:</p>
+<div id="straight-chain-reactions" class="section level3 hasAnchor" number="9.4.1">
+<h3><span class="header-section-number">9.4.1</span> Straight Chain Reactions<a href="chain-reactions-and-reaction-feedback.html#straight-chain-reactions" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>In a straight chain reaction, each propagation step regenerates exactly one reactive intermediate. The HBr formation reaction is an example—each time Br<span class="math inline">\(^{\bullet}\)</span> is consumed, exactly one H<span class="math inline">\(^{\bullet}\)</span> is generated, and when H<span class="math inline">\(^{\bullet}\)</span> is consumed, exactly one Br<span class="math inline">\(^{\bullet}\)</span> is regenerated.</p>
+</div>
+<div id="branching-chain-reactions" class="section level3 hasAnchor" number="9.4.2">
+<h3><span class="header-section-number">9.4.2</span> Branching Chain Reactions<a href="chain-reactions-and-reaction-feedback.html#branching-chain-reactions" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>In a branching chain reaction, one or more propagation steps create multiple reactive intermediates from a single one. The classic example is the combustion of hydrogen:</p>
+<p><span class="math display">\[\mathrm{H}^{\bullet} + \mathrm{O}_2 \rightarrow \mathrm{OH}^{\bullet} + \mathrm{O}^{\bullet}\]</span>
+<span class="math display">\[\mathrm{O}^{\bullet} + \mathrm{H}_2 \rightarrow \mathrm{OH}^{\bullet} + \mathrm{H}^{\bullet}\]</span>
+<span class="math display">\[\mathrm{OH}^{\bullet} + \mathrm{H}_2 \rightarrow \mathrm{H}_2\mathrm{O} + \mathrm{H}^{\bullet}\]</span></p>
+<p>In the first step, one radical (H<span class="math inline">\(^{\bullet}\)</span>) generates two radicals (OH<span class="math inline">\(^{\bullet}\)</span> and O<span class="math inline">\(^{\bullet}\)</span>), causing the reaction to accelerate as the chain branches. Branching chain reactions can lead to explosive behavior if the rate of intermediate generation exceeds the rate of termination.</p>
 </div>
 </div>
-<div id="mathematical-foundation-of-steady-state-behavior" class="section level2 hasAnchor" number="6.3">
-<h2><span class="header-section-number">6.3</span> Mathematical Foundation of Steady State Behavior<a href="the-steady-state-approximation.html#mathematical-foundation-of-steady-state-behavior" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Consider a general reaction system where an intermediate species I is:
-- Produced with rate <span class="math inline">\(\nu_f\)</span>
-- Consumed with rate proportional to [I]</p>
-<p>The rate equation is:</p>
+<div id="feedback-mechanisms-in-chain-reactions" class="section level2 hasAnchor" number="9.5">
+<h2><span class="header-section-number">9.5</span> Feedback Mechanisms in Chain Reactions<a href="chain-reactions-and-reaction-feedback.html#feedback-mechanisms-in-chain-reactions" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Chain reactions often exhibit complex kinetic behavior due to feedback mechanisms between the reactants, products, and reactive intermediates. These feedback mechanisms can be either negative (self-regulating) or positive (self-accelerating).</p>
+<div id="negative-feedback-and-steady-state-behavior" class="section level3 hasAnchor" number="9.5.1">
+<h3><span class="header-section-number">9.5.1</span> Negative Feedback and Steady State Behavior<a href="chain-reactions-and-reaction-feedback.html#negative-feedback-and-steady-state-behavior" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>In a reaction with negative feedback, the concentration of reactive intermediates naturally stabilizes due to self-regulating processes. This behavior underlies the steady state approximation that we applied earlier.</p>
+<p>Consider a simple model where an intermediate I forms at rate <span class="math inline">\(\nu_f\)</span> and is consumed at a rate proportional to its concentration:</p>
 <p><span class="math display">\[\frac{\mathrm{d}[\mathrm{I}]}{\mathrm{d}t} = \nu_f - k[\mathrm{I}]\]</span></p>
-<p>This linear first-order differential equation has the solution:</p>
+<p>This differential equation has the solution:</p>
 <p><span class="math display">\[[\mathrm{I}]_t = \frac{\nu_f}{k}(1 - e^{-kt})\]</span></p>
-<p>This solution shows that:
-1. [I] approaches steady state value <span class="math inline">\(\nu_f/k\)</span> exponentially
-2. Characteristic time to reach steady state is <span class="math inline">\(1/k\)</span>
-3. Steady state approximation is valid when <span class="math inline">\(t \gg 1/k\)</span></p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="the-steady-state-approximation.html#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot showing:</span></span>
-<span id="cb15-2"><a href="the-steady-state-approximation.html#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="co"># - Exponential approach to steady state</span></span>
-<span id="cb15-3"><a href="the-steady-state-approximation.html#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="co"># - Characteristic time marked</span></span>
-<span id="cb15-4"><a href="the-steady-state-approximation.html#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="co"># - Steady state value indicated</span></span></code></pre></div>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="chain-reactions-and-reaction-feedback.html#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Insert plot showing approach to steady state</span></span></code></pre></div>
+<p>As <span class="math inline">\(t\)</span> increases, <span class="math inline">\([\mathrm{I}]_t\)</span> approaches a steady-state value <span class="math inline">\(\nu_f/k\)</span>. This represents a balance between formation and consumption processes. The higher the concentration of I becomes, the faster it is consumed, providing a natural stabilizing mechanism.</p>
 </div>
-<div id="validation-criteria-for-steady-state" class="section level2 hasAnchor" number="6.4">
-<h2><span class="header-section-number">6.4</span> Validation Criteria for Steady State<a href="the-steady-state-approximation.html#validation-criteria-for-steady-state" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>The steady state approximation is valid when:
-1. The intermediate concentration remains small throughout the reaction
-2. The intermediate reaches steady state rapidly compared to overall reaction time
-3. The steady state persists for most of the reaction duration</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="the-steady-state-approximation.html#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Side-by-side plots:</span></span>
-<span id="cb16-2"><a href="the-steady-state-approximation.html#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Left: Valid steady state case</span></span>
-<span id="cb16-3"><a href="the-steady-state-approximation.html#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Right: Invalid case where approximation fails</span></span></code></pre></div>
-<p>These criteria can be assessed by comparing characteristic timescales:
-- <span class="math inline">\(\tau_\mathrm{SS} = 1/k\)</span> for reaching steady state
-- <span class="math inline">\(\tau_\mathrm{rxn}\)</span> for overall reaction progress</p>
-<p>The approximation is valid when <span class="math inline">\(\tau_\mathrm{SS} \ll \tau_\mathrm{rxn}\)</span>.</p>
+<div id="feedback-behavior-and-system-stability" class="section level3 hasAnchor" number="9.5.2">
+<h3><span class="header-section-number">9.5.2</span> Feedback Behavior and System Stability<a href="chain-reactions-and-reaction-feedback.html#feedback-behavior-and-system-stability" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Chain reactions can exhibit either stable or explosive behavior depending on the balance between intermediate production and consumption. This balance is captured in a general rate equation for the reactive intermediate I:</p>
+<p><span class="math inline">\(\frac{\mathrm{d}[\mathrm{I}]}{\mathrm{d}t} = k_{\mathrm{init}}[\mathrm{M}] + \phi[\mathrm{I}]\)</span></p>
+<p>where <span class="math inline">\(\phi = k_{\mathrm{prop}}[\mathrm{A}] - k_{\mathrm{term}}\)</span> represents the balance between propagation and termination processes.</p>
+<p>The constant term <span class="math inline">\(k_{\mathrm{init}}[\mathrm{M}]\)</span> (which we can denote as <span class="math inline">\(\nu_f\)</span> for simplicity) represents the rate of initiation—the formation of new intermediates independent of existing intermediates.</p>
+<p>The parameter <span class="math inline">\(\phi\)</span> crucially determines the system’s behavior:</p>
+<ol style="list-style-type: decimal">
+<li>If <span class="math inline">\(\phi &lt; 0\)</span> (termination dominates), the system exhibits negative feedback and reaches a steady state.</li>
+<li>If <span class="math inline">\(\phi &gt; 0\)</span> (propagation dominates), the system exhibits positive feedback and undergoes exponential growth, potentially leading to explosive behavior.</li>
+</ol>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="chain-reactions-and-reaction-feedback.html#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Insert comparative plot of negative and positive feedback</span></span></code></pre></div>
+<p>The general solution to this differential equation is:</p>
+<p><span class="math inline">\([\mathrm{I}]_t = \frac{\nu_f}{\phi}(e^{\phi t} - 1)\)</span></p>
+<p>This single equation describes both stabilizing and explosive behaviors:</p>
+<ul>
+<li>When <span class="math inline">\(\phi &lt; 0\)</span> (negative feedback), <span class="math inline">\([\mathrm{I}]_t\)</span> approaches a steady-state value of <span class="math inline">\(\frac{\nu_f}{|\phi|}\)</span> as <span class="math inline">\(t\)</span> increases.</li>
+<li>When <span class="math inline">\(\phi &gt; 0\)</span> (positive feedback), <span class="math inline">\([\mathrm{I}]_t\)</span> grows exponentially as <span class="math inline">\(t\)</span> increases, continuing until limited by reactant depletion or other physical constraints.</li>
+</ul>
+</div>
+</div>
+<div id="mathematical-analysis-of-feedback-systems" class="section level2 hasAnchor" number="9.6">
+<h2><span class="header-section-number">9.6</span> Mathematical Analysis of Feedback Systems<a href="chain-reactions-and-reaction-feedback.html#mathematical-analysis-of-feedback-systems" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Let’s rigorously derive the time-dependent concentration profile for our general feedback system. The governing differential equation is:</p>
+<p><span class="math inline">\(\frac{\mathrm{d}[\mathrm{I}]}{\mathrm{d}t} = \nu_f + \phi[\mathrm{I}]\)</span></p>
+<p>This single equation describes both negative and positive feedback systems, with the sign of <span class="math inline">\(\phi\)</span> determining which behavior emerges. To solve this equation, we begin by separating variables:</p>
+<p><span class="math inline">\(\frac{\mathrm{d}[\mathrm{I}]}{\nu_f + \phi[\mathrm{I}]} = \mathrm{d}t\)</span></p>
+<p>Integrating both sides from the initial concentration <span class="math inline">\([\mathrm{I}]_0\)</span> (typically zero) to <span class="math inline">\([\mathrm{I}]_t\)</span>:</p>
+<p><span class="math inline">\(\int_{[\mathrm{I}]_0}^{[\mathrm{I}]_t} \frac{\mathrm{d}[\mathrm{I}]}{\nu_f + \phi[\mathrm{I}]} = \int_0^t \mathrm{d}t\)</span></p>
+<p>The left-hand integral can be solved by substitution with <span class="math inline">\(u = \nu_f + \phi[\mathrm{I}]\)</span>, which gives <span class="math inline">\(\mathrm{d}[\mathrm{I}] = \frac{\mathrm{d}u}{\phi}\)</span>:</p>
+<p><span class="math inline">\(\int \frac{\mathrm{d}[\mathrm{I}]}{\nu_f + \phi[\mathrm{I}]} = \frac{1}{\phi}\int\frac{\mathrm{d}u}{u} = \frac{1}{\phi}\ln(u) + C\)</span></p>
+<p>Applying the limits of integration:</p>
+<p><span class="math inline">\(\frac{1}{\phi}\ln\left(\frac{\nu_f + \phi[\mathrm{I}]_t}{\nu_f + \phi[\mathrm{I}]_0}\right) = t\)</span></p>
+<p>With <span class="math inline">\([\mathrm{I}]_0 = 0\)</span>, this simplifies to:</p>
+<p><span class="math inline">\(\frac{1}{\phi}\ln\left(\frac{\nu_f + \phi[\mathrm{I}]_t}{\nu_f}\right) = t\)</span></p>
+<p>Rearranging to solve for <span class="math inline">\([\mathrm{I}]_t\)</span>:</p>
+<p><span class="math inline">\(\frac{\nu_f + \phi[\mathrm{I}]_t}{\nu_f} = e^{\phi t}\)</span></p>
+<p><span class="math inline">\(\nu_f + \phi[\mathrm{I}]_t = \nu_f e^{\phi t}\)</span></p>
+<p><span class="math inline">\(\phi[\mathrm{I}]_t = \nu_f(e^{\phi t} - 1)\)</span></p>
+<p><span class="math inline">\([\mathrm{I}]_t = \frac{\nu_f}{\phi}(e^{\phi t} - 1)\)</span></p>
+<p>This solution applies universally to our feedback system, with the behavior determined by the sign of <span class="math inline">\(\phi\)</span>:</p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="chain-reactions-and-reaction-feedback.html#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Insert figure showing solution profiles for different φ values</span></span></code></pre></div>
+<ol style="list-style-type: decimal">
+<li><p>For negative feedback (<span class="math inline">\(\phi &lt; 0\)</span>):
+As <span class="math inline">\(t \rightarrow \infty\)</span>, <span class="math inline">\(e^{\phi t} \rightarrow 0\)</span>, so <span class="math inline">\([\mathrm{I}]_t \rightarrow \frac{\nu_f}{|\phi|}\)</span>
+The system reaches a steady state concentration where formation and consumption rates balance.</p></li>
+<li><p>For positive feedback (<span class="math inline">\(\phi &gt; 0\)</span>):
+As <span class="math inline">\(t\)</span> increases, <span class="math inline">\(e^{\phi t}\)</span> grows exponentially, so <span class="math inline">\([\mathrm{I}]_t\)</span> also grows exponentially
+This growth continues until physical limitations (such as reactant depletion) intervene.</p></li>
+</ol>
+<p>This mathematical analysis demonstrates how a single differential equation can generate qualitatively different behaviors depending on the parameter values, a hallmark of many complex chemical systems.</p>
+</div>
+<div id="practical-implications-of-chain-reactions" class="section level2 hasAnchor" number="9.7">
+<h2><span class="header-section-number">9.7</span> Practical Implications of Chain Reactions<a href="chain-reactions-and-reaction-feedback.html#practical-implications-of-chain-reactions" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Chain reactions have numerous practical implications in both natural systems and industrial processes:</p>
+<ol style="list-style-type: decimal">
+<li><p><strong>Combustion and Explosion Control</strong>: Understanding chain reaction mechanisms is crucial for preventing industrial accidents and designing safe combustion systems.</p></li>
+<li><p><strong>Polymer Synthesis</strong>: Many polymerization reactions proceed via chain mechanisms, where control of initiation and termination determines the polymer’s molecular weight distribution.</p></li>
+<li><p><strong>Free Radical Chemistry</strong>: Biological free radical processes, including oxidative stress mechanisms, often involve chain reactions that must be controlled by antioxidants to prevent cellular damage.</p></li>
+<li><p><strong>Atmospheric Chemistry</strong>: Chain reactions involving free radicals drive many important processes in atmospheric chemistry, including ozone depletion and smog formation.</p></li>
+</ol>
+<p>The balance between propagation, branching, and termination steps determines whether a chain reaction proceeds steadily or explosively—a fundamental consideration in both industrial safety and chemical process design.</p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="chain-reactions-and-reaction-feedback.html#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Insert figure showing applications of chain reactions</span></span></code></pre></div>
+</div>
+<div id="summary-1" class="section level2 hasAnchor" number="9.8">
+<h2><span class="header-section-number">9.8</span> Summary<a href="chain-reactions-and-reaction-feedback.html#summary-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Chain reactions represent a distinctive class of chemical processes characterized by self-propagating sequences of elementary steps involving reactive intermediates. The application of steady state approximations allows us to derive complex rate laws that emerge from these multi-step mechanisms.</p>
+<p>The feedback behavior in chain reactions—whether negative or positive—determines their stability characteristics:</p>
+<ol style="list-style-type: decimal">
+<li>Negative feedback leads to self-regulating, steady-state behavior</li>
+<li>Positive feedback can lead to exponential growth and potentially explosive reactions</li>
+</ol>
+<p>Mathematical analysis of these systems reveals how the competition between initiation, propagation, and termination processes controls the overall reaction dynamics. These principles provide essential insights for understanding complex reaction systems ranging from atmospheric chemistry to industrial processes.</p>
 
 </div>
 </div>
@@ -462,8 +525,8 @@ The reaction shows first-order kinetics with rate constant <span class="math inl
           </div>
         </div>
       </div>
-<a href="rate-laws-for-complex-reactions.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="complex-reaction-mechanisms-understanding-third-order-reactions.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="enzyme-kinetics.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="temperature-effects-on-reaction-rates.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -494,7 +557,7 @@ gitbook.start({
     "size": 2
   },
   "edit": {
-    "link": "https://github.com/bjmorgan/CH12002/main/lecture_6/lecture_06.Rmd",
+    "link": "https://github.com/bjmorgan/CH12002/main/lecture_9/lecture_09.Rmd",
     "text": "Edit"
   },
   "history": {
