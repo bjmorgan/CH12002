@@ -10,11 +10,11 @@ Chemical kinetics addresses these questions of reaction rates and mechanisms. Wh
 
 The complementary nature of thermodynamics and kinetics provides a more complete picture of chemical change. Thermodynamics allows us to predict whether a reaction is possible and what the equilibrium state will be; kinetics reveals the rate at which this equilibrium is approached and the molecular steps involved in the transformation. Both perspectives are essential for understanding chemical processes in laboratory settings, industrial applications, and natural systems.
 
-## Chemical Kinetics → Describing $[\text{A}](t)$
+## Chemical Kinetics → Describing [A] as a function of time
 
 Let us start by examining a simple reaction, the conversion of a reactant A into a product B:
 
-$$\mathrm{A} \rightarrow \mathrm{B}$$
+$${\mathrm{A}} \rightarrow {\mathrm{B}}$$
 
 <!-- 
 ```{r concentration-profile, fig.cap="Time evolution of concentrations for A → B. The curve shows depletion of reactant [A], while the complementary curve shows formation of product [B]."}
@@ -144,7 +144,7 @@ The molecularity of an elementary process tells us how many reactant molecules m
 1. **Unimolecular processes** involve the transformation of a single molecule:
    $\mathrm{A} \rightarrow \text{products} \qquad \text{rate} = k[\mathrm{A}]$
    
-   Typical examples include isomerization reactions (where a molecule rearranges its bonds without changing composition) and decomposition reactions (where a molecule breaks into smaller fragments).
+   Typical examples include isomerisation reactions (where a molecule rearranges its bonds without changing composition) and decomposition reactions (where a molecule breaks into smaller fragments).
 
 2. **Bimolecular processes** require the collision of two molecules:
    $\mathrm{A} + \mathrm{B} \rightarrow \text{products} \qquad \text{rate} = k[\mathrm{A}][\mathrm{B}]$
