@@ -48,13 +48,13 @@ We can quantify how quickly a reaction occurs in terms of the rate at which the 
 
 For our simple A → B reaction, the rate can be expressed as either the rate of disappearance of A or the rate of appearance of B:
 
-$\text{rate} = -\frac{\mathrm{d}[\mathrm{A}]}{\mathrm{d}t} = +\frac{\mathrm{d}[\mathrm{B}]}{\mathrm{d}t}$
+$$\text{rate} = -\frac{\mathrm{d}[\mathrm{A}]}{\mathrm{d}t} = +\frac{\mathrm{d}[\mathrm{B}]}{\mathrm{d}t}$$
 
 The negative sign in the first term ensures that the rate is a positive quantity, since [$\mathrm{A}$] decreases with time (giving a negative derivative).
 
 For a constant reaction rate, we can calculate the change in [A] per unit time as:
 
-$\text{change in [A] per unit time} = \frac{[\mathrm{A}]_{t_2} - [\mathrm{A}]_{t_1}}{t_2 - t_1} = \frac{\Delta[\mathrm{A}]}{\Delta t}$
+$$\text{change in [A] per unit time} = \frac{[\mathrm{A}]_{t_2} - [\mathrm{A}]_{t_1}}{t_2 - t_1} = \frac{\Delta[\mathrm{A}]}{\Delta t}$$
 
 In most cases, however, reaction rates aren't constant but change as the reaction progresses and reactant concentrations decrease.
 
@@ -66,13 +66,14 @@ $\mathrm{A} + 2\mathrm{B} \rightarrow \mathrm{C}$
 
 Here, B is consumed twice as rapidly as A, and the rates are related by:
 
-$\text{rate} = -\frac{\mathrm{d}[\mathrm{A}]}{\mathrm{d}t} = -\frac{1}{2}\frac{\mathrm{d}[\mathrm{B}]}{\mathrm{d}t} = +\frac{\mathrm{d}[\mathrm{C}]}{\mathrm{d}t}$
+$$\text{rate} = -\frac{\mathrm{d}[\mathrm{A}]}{\mathrm{d}t} = -\frac{1}{2}\frac{\mathrm{d}[\mathrm{B}]}{\mathrm{d}t} = +\frac{\mathrm{d}[\mathrm{C}]}{\mathrm{d}t}$$
 
 In general, for a reaction with stoichiometry
 $\nu_\mathrm{A}\mathrm{A} + \nu_\mathrm{B}\mathrm{B} + \ldots \rightarrow \nu_\mathrm{P}\mathrm{P} + \nu_\mathrm{Q}\mathrm{Q} + \ldots$
 
 The rate can be written as:
-$\text{rate} = -\frac{1}{\nu_\mathrm{A}}\frac{\mathrm{d}[\mathrm{A}]}{\mathrm{d}t} = -\frac{1}{\nu_\mathrm{B}}\frac{\mathrm{d}[\mathrm{B}]}{\mathrm{d}t} = \ldots = \frac{1}{\nu_\mathrm{P}}\frac{\mathrm{d}[\mathrm{P}]}{\mathrm{d}t} = \frac{1}{\nu_\mathrm{Q}}\frac{\mathrm{d}[\mathrm{Q}]}{\mathrm{d}t} = \ldots$
+
+$$\text{rate} = -\frac{1}{\nu_\mathrm{A}}\frac{\mathrm{d}[\mathrm{A}]}{\mathrm{d}t} = -\frac{1}{\nu_\mathrm{B}}\frac{\mathrm{d}[\mathrm{B}]}{\mathrm{d}t} = \ldots = \frac{1}{\nu_\mathrm{P}}\frac{\mathrm{d}[\mathrm{P}]}{\mathrm{d}t} = \frac{1}{\nu_\mathrm{Q}}\frac{\mathrm{d}[\mathrm{Q}]}{\mathrm{d}t} = \ldots$$
 
 These relationships ensure that the stoichiometric ratios are properly accounted for when defining the reaction rate.
 
@@ -88,11 +89,11 @@ Chemical kinetics relies heavily on the mathematical tools of calculus to connec
 
 These two aspects of kinetic data are related through differentiation and integration. If we know how concentration varies with time, we can determine the instantaneous reaction rate by taking the derivative:
 
-$\text{rate} = \nu = -\frac{\mathrm{d}[\mathrm{A}]}{\mathrm{d}t}$
+$$\text{rate} = \nu = -\frac{\mathrm{d}[\mathrm{A}]}{\mathrm{d}t}$$
 
 Conversely, if we know the rate law for a reaction, we can predict the concentration-time profile by integration:
 
-$[\mathrm{A}]_t = [\mathrm{A}]_0 - \int_0^t \nu\,\mathrm{d}t$
+$$[\mathrm{A}]_t = [\mathrm{A}]_0 - \int_0^t \nu\,\mathrm{d}t$$
 
 where $\nu$ represents the reaction rate as a function of time. This mathematical relationship forms the foundation for analysing kinetic data and determining rate laws experimentally.
 
@@ -108,7 +109,7 @@ The rates of chemical reactions typically depend on the concentrations of the re
 
 Many reactions follow simple rate laws, where the rate of the reaction is proportional to the concentration of each reactant, raised to some power:
 
-$\text{rate} = k[\mathrm{A}]^a[\mathrm{B}]^b[\mathrm{C}]^c\cdots$
+$$\text{rate} = k[\mathrm{A}]^a[\mathrm{B}]^b[\mathrm{C}]^c\cdots$$
 
 This equation contains several important components:
 
@@ -161,7 +162,7 @@ For elementary processes, there is a direct correspondence between molecularity 
 
 For complex reactions involving multiple elementary steps, we cannot deduce the rate law from the reaction stoichiometry alone. Consider the hydrogen bromide formation again:
 
-$\mathrm{H}_2 + \mathrm{Br}_2 \rightarrow 2\mathrm{HBr}$
+$$\mathrm{H}_2 + \mathrm{Br}_2 \rightarrow 2\mathrm{HBr}$$
 
 This overall reaction actually proceeds through a mechanism involving four elementary steps:
 
@@ -178,7 +179,7 @@ The units of a rate constant depend on the form of the rate law in which it appe
 
 For reactions following first-order kinetics (rate = $k[\mathrm{A}]$), we have:
 
-$\text{mol}\,\text{dm}^{-3}\text{s}^{-1} = k \times \text{mol}\,\text{dm}^{-3}$
+$$\text{mol}\,\text{dm}^{-3}\text{s}^{-1} = k \times \text{mol}\,\text{dm}^{-3}$$
 
 Solving for $k$ shows that its units must be s$^{-1}$:
 
@@ -186,12 +187,12 @@ $k \text{ has units } \text{s}^{-1}$
 
 For second-order reactions (rate = $k[\mathrm{A}]^2$):
 
-$\text{mol}\,\text{dm}^{-3}\text{s}^{-1} = k \times (\text{mol}\,\text{dm}^{-3})^2$
+$$\text{mol}\,\text{dm}^{-3}\text{s}^{-1} = k \times (\text{mol}\,\text{dm}^{-3})^2$$
 
 Here, the rate constant has units of mol$^{-1}$dm$^3$s$^{-1}$:
 
-$k \text{ has units } \text{mol}^{-1}\text{dm}^3\text{s}^{-1}$
+$$k \text{ has units } \text{mol}^{-1}\text{dm}^3\text{s}^{-1}$$
 
-In general, for a reaction of order $n$, the rate constant has units of mol$^{1-n}$dm$^{3(n-1)}$s$^{-1}$. This pattern reflects the fundamental relationship between reaction order and the dimensions of the rate constant.
+In general, for a reaction of order $n$, the rate constant has units of mol$^{1-n}$ dm$^{3(n-1)}$s $^{-1}$. This pattern reflects the fundamental relationship between reaction order and the dimensions of the rate constant.
 
 Understanding these units is essential for interpreting kinetic data correctly and for comparing rate constants across different reaction systems.
