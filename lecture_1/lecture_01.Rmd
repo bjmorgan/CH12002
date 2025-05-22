@@ -10,7 +10,7 @@ Chemical kinetics addresses these questions of reaction rates and mechanisms. Wh
 
 The complementary nature of thermodynamics and kinetics provides a more complete picture of chemical change. Thermodynamics allows us to predict whether a reaction is possible and what the equilibrium state will be; kinetics reveals the rate at which this equilibrium is approached and the molecular steps involved in the transformation. Both perspectives are essential for understanding chemical processes in laboratory settings, industrial applications, and natural systems.
 
-## Chemical Kinetics → Describing [A](t)
+## Chemical Kinetics → Describing $[\text{A}](t)$
 
 Let us start by examining a simple reaction, the conversion of a reactant A into a product B:
 
