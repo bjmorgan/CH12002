@@ -1,0 +1,262 @@
+# Enzyme Kinetics
+
+## Introduction to Enzymatic Catalysis
+
+Enzymes represent one of nature's most elegant solutions to a fundamental chemical challenge: how to accelerate reactions under the mild conditions required for biological systems. While industrial catalysis often employs elevated temperatures, extreme pH values, or high pressures, enzymes achieve remarkable catalytic efficiency at physiological conditions. This specificity and efficiency make enzyme kinetics a particularly fascinating branch of chemical kinetics.
+
+Enzymes are biological catalysts—predominantly proteins—that dramatically increase reaction rates by lowering activation energies. Their highly specific three-dimensional structures create active sites where substrate molecules bind and undergo transformation into products. This substrate specificity gives enzymes their remarkable selectivity, often catalysing just one specific reaction among many possibilities.
+
+<!--
+```{r enzyme-structure, fig.cap="Schematic representation of an enzyme showing the active site where substrate binding occurs. The enzyme's three-dimensional structure creates a specific binding pocket that accommodates the substrate molecule."}
+# Insert figure showing enzyme-substrate binding
+```
+-->
+
+The basic model of enzyme catalysis follows a sequential process:
+
+$$\mathrm{E} + \mathrm{S} \rightleftharpoons \mathrm{ES} \rightarrow \mathrm{E} + \mathrm{P}$$
+
+Where:
+
+- E represents the enzyme
+- S represents the substrate (reactant molecule)
+- ES represents the enzyme-substrate complex
+- P represents the product
+
+This simple scheme, first proposed by [Victor Henri](https://en.wikipedia.org/wiki/Victor_Henri) and later refined by [Leonor Michaelis](https://en.wikipedia.org/wiki/Leonor_Michaelis) and [Maud Menten](https://en.wikipedia.org/wiki/Maud_Menten), provides the foundation for understanding enzyme kinetics. In this model, the enzyme first binds reversibly to its substrate, forming the enzyme-substrate complex. This complex then undergoes a transformation, releasing the product and regenerating the free enzyme.
+
+## The Kinetics of Enzyme-Substrate Binding
+
+To develop a quantitative understanding of enzyme kinetics, we must analyse the reaction mechanism step by step. The overall process can be represented more precisely with rate constants:
+
+$$\mathrm{E} + \mathrm{S} \underset{k_{-1}}{\stackrel{k_1}{\rightleftharpoons}} \mathrm{ES} \stackrel{k_{\mathrm{cat}}}{\longrightarrow} \mathrm{E} + \mathrm{P}$$
+
+Here:
+
+- $k_1$ represents the rate constant for enzyme-substrate association
+- $k_{-1}$ represents the rate constant for enzyme-substrate dissociation
+- $k_{\mathrm{cat}}$ (often called the catalytic constant or turnover number) represents the rate constant for the conversion of the enzyme-substrate complex to products
+
+This mechanism leads to the following rate equations:
+
+$$\frac{\mathrm{d}[\mathrm{ES}]}{\mathrm{d}t} = k_1[\mathrm{E}][\mathrm{S}] - k_{-1}[\mathrm{ES}] - k_{\mathrm{cat}}[\mathrm{ES}]$$
+
+$$\frac{\mathrm{d}[\mathrm{P}]}{\mathrm{d}t} = k_{\mathrm{cat}}[\mathrm{ES}]$$
+
+The rate of product formation—which we typically measure experimentally—depends directly on the concentration of the enzyme-substrate complex. However, [ES] is difficult to measure directly during a reaction. To develop a useful rate equation, we need to express [ES] in terms of experimentally accessible quantities.
+
+## The Steady State Approximation for Enzyme Kinetics
+
+As we've seen in previous chapters, the steady state approximation offers a powerful tool for analysing reaction mechanisms involving reactive intermediates. This approach is particularly useful for enzyme kinetics, where the enzyme-substrate complex often reaches a steady-state concentration early in the reaction.
+
+To apply the steady state approximation to the ES complex, we set:
+
+$$\frac{\mathrm{d}[\mathrm{ES}]}{\mathrm{d}t} = 0$$
+
+This gives:
+
+$$k_1[\mathrm{E}][\mathrm{S}] - k_{-1}[\mathrm{ES}] - k_{\mathrm{cat}}[\mathrm{ES}] = 0$$
+
+Rearranging to solve for [ES]:
+
+$$k_1[\mathrm{E}][\mathrm{S}] = [\mathrm{ES}](k_{-1} + k_{\mathrm{cat}})$$
+
+$$[\mathrm{ES}] = \frac{k_1[\mathrm{E}][\mathrm{S}]}{k_{-1} + k_{\mathrm{cat}}}$$
+
+This equation expresses [ES] in terms of [E] and [S], but we still face a challenge: [E] represents the concentration of free enzyme, which changes during the reaction and is difficult to measure directly. Instead, what we typically know is the total enzyme concentration $[\mathrm{E}]_0$, which remains constant throughout the reaction.
+
+The relationship between total enzyme, free enzyme, and enzyme-substrate complex is:
+
+$$[\mathrm{E}]_0 = [\mathrm{E}] + [\mathrm{ES}]$$
+
+Rearranging to express [E] in terms of $[\mathrm{E}]_0$:
+
+$$[\mathrm{E}] = [\mathrm{E}]_0 - [\mathrm{ES}]$$
+
+Substituting this into our expression for [ES]:
+
+$$[\mathrm{ES}] = \frac{k_1([\mathrm{E}]_0 - [\mathrm{ES}])[\mathrm{S}]}{k_{-1} + k_{\mathrm{cat}}}$$
+
+Multiplying both sides by $(k_{-1} + k_{\mathrm{cat}})$:
+
+$$[\mathrm{ES}](k_{-1} + k_{\mathrm{cat}}) = k_1([\mathrm{E}]_0 - [\mathrm{ES}])[\mathrm{S}]$$
+
+Expanding the right side:
+
+$$[\mathrm{ES}](k_{-1} + k_{\mathrm{cat}}) = k_1[\mathrm{E}]_0[\mathrm{S}] - k_1[\mathrm{ES}][\mathrm{S}]$$
+
+Rearranging to isolate [ES]:
+
+$$[\mathrm{ES}](k_{-1} + k_{\mathrm{cat}} + k_1[\mathrm{S}]) = k_1[\mathrm{E}]_0[\mathrm{S}]$$
+
+$$[\mathrm{ES}] = \frac{k_1[\mathrm{E}]_0[\mathrm{S}]}{k_{-1} + k_{\mathrm{cat}} + k_1[\mathrm{S}]}$$
+
+To simplify this expression further, we can divide both numerator and denominator by $k_1$:
+
+$$[\mathrm{ES}] = \frac{[\mathrm{E}]_0[\mathrm{S}]}{\frac{k_{-1} + k_{\mathrm{cat}}}{k_1} + [\mathrm{S}]}$$
+
+## The Michaelis-Menten Equation
+
+At this point, we the Michaelis constant $K_{\mathrm{M}}$, defined as:
+
+$$K_{\mathrm{M}} = \frac{k_{-1} + k_{\mathrm{cat}}}{k_1}$$
+
+The Michaelis constant combines the rate constants for the various steps in the enzyme mechanism. It has units of concentration (mol dm$^{-3}$) and quantifies the affinity between enzyme and substrate. A low $K_{\mathrm{M}}$ value indicates high affinity (strong binding), while a high $K_{\mathrm{M}}$ indicates low affinity (weak binding).
+
+Using this definition, we can rewrite our expression for [ES]:
+
+$$[\mathrm{ES}] = \frac{[\mathrm{E}]_0[\mathrm{S}]}{K_{\mathrm{M}} + [\mathrm{S}]}$$
+
+Now, the rate of product formation becomes:
+
+$$\frac{\mathrm{d}[\mathrm{P}]}{\mathrm{d}t} = k_{\mathrm{cat}}[\mathrm{ES}] = k_{\mathrm{cat}}\frac{[\mathrm{E}]_0[\mathrm{S}]}{K_{\mathrm{M}} + [\mathrm{S}]}$$
+
+We can further simplify by defining the &ldquo;maximum velocity&rdquo; $v_{\mathrm{max}}$ as the rate when all enzyme molecules are bound to substrate:
+
+$$v_{\mathrm{max}} = k_{\mathrm{cat}}[\mathrm{E}]_0$$
+
+This gives us the famous Michaelis-Menten equation:
+
+$$v = \frac{\mathrm{d}[\mathrm{P}]}{\mathrm{d}t} = \frac{v_{\mathrm{max}}[\mathrm{S}]}{K_{\mathrm{M}} + [\mathrm{S}]}$$
+
+<!--
+```{r michaelis-menten-curve, fig.cap="The Michaelis-Menten curve showing reaction velocity as a function of substrate concentration. At low substrate concentrations, the velocity increases almost linearly with [S]. As [S] increases, the curve begins to level off, approaching v_max as the enzyme becomes saturated."}
+# Insert figure showing the Michaelis-Menten curve
+```
+-->
+
+This equation expresses the initial reaction velocity as a function of substrate concentration, with two key parameters: $v_{\mathrm{max}}$ and $K_{\mathrm{M}}$. The equation encapsulates the characteristic behaviour of many enzyme-catalysed reactions:
+
+1. At low substrate concentrations ($[\mathrm{S}] \ll K_{\mathrm{M}}$), the rate is approximately first-order in [S]:
+   $$v \approx \frac{v_{\mathrm{max}}}{K_{\mathrm{M}}}[\mathrm{S}]$$
+
+2. At high substrate concentrations ($[\mathrm{S}] \gg K_{\mathrm{M}}$), the enzyme becomes saturated, and the rate approaches a maximum value ($v_{\mathrm{max}}$):
+   $$v \approx v_{\mathrm{max}}$$
+
+## Determining Michaelis-Menten Parameters
+
+To characterise an enzyme's kinetic behaviour, we need to determine the parameters $v_{\mathrm{max}}$ and $K_{\mathrm{M}}$ from experimental data. Several approaches are available:
+
+### Non-linear Regression
+
+The most accurate approach uses computational methods to fit the Michaelis-Menten equation directly to experimental data. Non-linear least-squares fitting algorithms determine the parameter values that minimise the difference between the model predictions and the observed reaction rates across a range of substrate concentrations.
+
+<!--
+```{r nonlinear-fitting, fig.cap="Non-linear regression fit of the Michaelis-Menten equation to experimental data. The curve represents the best-fit model, with parameters chosen to minimise the sum of squared residuals."}
+# Insert figure showing non-linear regression
+```
+-->
+
+### Graphical Determination of $K_{\mathrm{M}}$
+
+A simple graphical method takes advantage of the fact that when $v = v_{\mathrm{max}}/2$, the substrate concentration equals $K_{\mathrm{M}}$. We can demonstrate this by substituting $v = v_{\mathrm{max}}/2$ into the Michaelis-Menten equation:
+
+$$\frac{v_{\mathrm{max}}}{2} = \frac{v_{\mathrm{max}}[\mathrm{S}]}{K_{\mathrm{M}} + [\mathrm{S}]}$$
+
+Multiplying both sides by $(K_{\mathrm{M}} + [\mathrm{S}])$:
+
+$$\frac{v_{\mathrm{max}}}{2}(K_{\mathrm{M}} + [\mathrm{S}]) = v_{\mathrm{max}}[\mathrm{S}]$$
+
+Expanding the left side:
+
+$$\frac{v_{\mathrm{max}}K_{\mathrm{M}}}{2} + \frac{v_{\mathrm{max}}[\mathrm{S}]}{2} = v_{\mathrm{max}}[\mathrm{S}]$$
+
+Subtracting $\frac{v_{\mathrm{max}}[\mathrm{S}]}{2}$ from both sides:
+
+$$\frac{v_{\mathrm{max}}K_{\mathrm{M}}}{2} = v_{\mathrm{max}}[\mathrm{S}] - \frac{v_{\mathrm{max}}[\mathrm{S}]}{2} = \frac{v_{\mathrm{max}}[\mathrm{S}]}{2}$$
+
+Dividing both sides by $\frac{v_{\mathrm{max}}}{2}$:
+
+$$K_{\mathrm{M}} = [\mathrm{S}]$$
+
+This confirms that when the reaction rate equals half the maximum rate, the substrate concentration equals $K_{\mathrm{M}}$. This property allows us to estimate $K_{\mathrm{M}}$ from a plot of reaction rate versus substrate concentration.
+
+<!--
+```{r km-determination, fig.cap="Graphical determination of K_M from a Michaelis-Menten plot. When v = v_max/2, the substrate concentration equals K_M."}
+# Insert figure showing K_M determination
+```
+-->
+
+### Lineweaver-Burk Plot
+
+A third approach transforms the Michaelis-Menten equation into a linear form. Taking the reciprocal of both sides of the Michaelis-Menten equation:
+
+$$\frac{1}{v} = \frac{K_{\mathrm{M}} + [\mathrm{S}]}{v_{\mathrm{max}}[\mathrm{S}]} = \frac{K_{\mathrm{M}}}{v_{\mathrm{max}}[\mathrm{S}]} + \frac{[\mathrm{S}]}{v_{\mathrm{max}}[\mathrm{S}]} = \frac{K_{\mathrm{M}}}{v_{\mathrm{max}}}\frac{1}{[\mathrm{S}]} + \frac{1}{v_{\mathrm{max}}}$$
+
+This transformation produces a linear relationship between $1/v$ and $1/[\mathrm{S}]$:
+
+$$\frac{1}{v} = \frac{K_{\mathrm{M}}}{v_{\mathrm{max}}}\frac{1}{[\mathrm{S}]} + \frac{1}{v_{\mathrm{max}}}$$
+
+This is the equation of a straight line with:
+
+- Slope = $K_{\mathrm{M}}/v_{\mathrm{max}}$
+- y-intercept = $1/v_{\mathrm{max}}$
+- x-intercept = $-1/K_{\mathrm{M}}$
+
+By plotting experimental data as $1/v$ versus $1/[\mathrm{S}]$ (known as a Lineweaver-Burk or double-reciprocal plot), we can determine $v_{\mathrm{max}}$ and $K_{\mathrm{M}}$ from the intercepts.
+
+<!--
+```{r lineweaver-burk, fig.cap="Lineweaver-Burk (double-reciprocal) plot for determining enzyme kinetic parameters. The y-intercept gives 1/v_max, while the slope equals K_M/v_max."}
+# Insert figure showing Lineweaver-Burk plot
+```
+-->
+
+While the Lineweaver-Burk plot provides a straightforward method for estimating Michaelis-Menten parameters, it has limitations. The transformation magnifies errors in measurements at low substrate concentrations. Consequently, modern practice favours direct non-linear regression of the untransformed Michaelis-Menten equation when computational tools are available.
+
+## Quantifying Enzyme Catalytic Efficiency
+
+The parameters $v_{\mathrm{max}}$ and $K_{\mathrm{M}}$ provide valuable insights into enzyme behaviour, but they don't fully capture an enzyme's catalytic efficiency. A more comprehensive measure comes from examining the relationship between these parameters.
+
+The catalytic constant $k_{\mathrm{cat}}$ (also called the turnover number) represents the maximum number of substrate molecules converted to product per enzyme molecule per unit time:
+
+$$k_{\mathrm{cat}} = \frac{v_{\mathrm{max}}}{[\mathrm{E}]_0}$$
+
+This parameter quantifies how quickly an enzyme can catalyse a reaction once the substrate is bound. High values of $k_{\mathrm{cat}}$ indicate that the enzyme rapidly converts bound substrate to product.
+
+However, the catalytic constant alone doesn't account for how efficiently an enzyme binds its substrate. For a complete picture of catalytic efficiency, we need to consider both binding and catalysis. The specificity constant (or kinetic efficiency) combines these aspects:
+
+$$\varepsilon = \frac{k_{\mathrm{cat}}}{K_{\mathrm{M}}}$$
+
+The ratio $k_{\mathrm{cat}}/K_{\mathrm{M}}$ represents the rate constant for the reaction of enzyme with substrate under conditions where the substrate concentration is much lower than $K_{\mathrm{M}}$. It provides a measure of how efficiently an enzyme converts substrate to product at low substrate concentrations.
+
+We can understand the physical significance of this ratio by examining the initial rate equation at low substrate concentrations:
+
+When $[\mathrm{S}] \ll K_{\mathrm{M}}$, the Michaelis-Menten equation simplifies to:
+
+$$v \approx \frac{v_{\mathrm{max}}[\mathrm{S}]}{K_{\mathrm{M}}} = \frac{k_{\mathrm{cat}}[\mathrm{E}]_0[\mathrm{S}]}{K_{\mathrm{M}}} = \frac{k_{\mathrm{cat}}}{K_{\mathrm{M}}}[\mathrm{E}]_0[\mathrm{S}]$$
+
+The term $\frac{k_{\mathrm{cat}}}{K_{\mathrm{M}}}$ appears as a second-order rate constant, describing how rapidly enzyme and substrate molecules come together and form product.
+
+<!--
+```{r enzyme-efficiency, fig.cap="Comparison of different enzymes based on their catalytic efficiency (k_cat/K_M). More efficient enzymes have higher values of k_cat (rapid turnover) and lower values of K_M (strong binding)."}
+# Insert figure showing enzyme efficiency comparison
+```
+-->
+
+We can gain further insight by examining the physical meaning of $k_{\mathrm{cat}}/K_{\mathrm{M}}$ in terms of the individual rate constants in the enzyme mechanism:
+
+$$\frac{k_{\mathrm{cat}}}{K_{\mathrm{M}}} = \frac{k_{\mathrm{cat}}}{(k_{-1} + k_{\mathrm{cat}})/k_1} = \frac{k_{\mathrm{cat}} \cdot k_1}{k_{-1} + k_{\mathrm{cat}}}$$
+
+This ratio relates the processes that convert substrate to product ($k_{\mathrm{cat}}$ and $k_1$) to the processes that convert the enzyme-substrate complex back to free enzyme ($k_{-1}$ and $k_{\mathrm{cat}}$). The highest possible value of $k_{\mathrm{cat}}/K_{\mathrm{M}}$ occurs when every enzyme-substrate encounter leads to product formation—a situation limited only by the rate of diffusion-controlled collisions between enzyme and substrate molecules (approximately 10<sup>8</sup>–10<sup>9</sup> M<sup>&minus;1</sup> s<sup>&minus;1</sup>).
+
+Many of the most efficient enzymes, such as catalase and carbonic anhydrase, approach this diffusion-controlled limit, making them among the most catalytically perfect enzymes known.
+
+<!--
+```{r diffusion-limit, fig.cap="Diagram illustrating the concept of diffusion-controlled limit in enzyme catalysis. At this limit, every collision between enzyme and substrate molecules results in product formation."}
+# Insert figure showing diffusion-controlled limit
+```
+-->
+
+## Summary of Enzyme Kinetic Parameters
+
+The Michaelis-Menten framework provides several key parameters for characterising enzyme kinetics:
+
+1. **Michaelis constant** ($K_{\mathrm{M}}$): A measure of the affinity between enzyme and substrate. Lower values indicate stronger binding.
+
+2. **Maximum velocity** ($v_{\mathrm{max}}$): The maximum rate of the reaction, achieved when the enzyme is saturated with substrate.
+
+3. **Catalytic constant** ($k_{\mathrm{cat}}$): The turnover number, representing the maximum number of substrate molecules converted to product per enzyme molecule per unit time.
+
+4. **Specificity constant** ($k_{\mathrm{cat}}/K_{\mathrm{M}}$): A measure of the overall catalytic efficiency, combining aspects of binding affinity and catalytic rate.
+
+These parameters provide a quantitative framework for comparing enzymes, investigating reaction mechanisms, and understanding how enzyme function responds to changing conditions or modifications.

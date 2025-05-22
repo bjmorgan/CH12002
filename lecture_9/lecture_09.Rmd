@@ -1,0 +1,241 @@
+# Chain Reactions and Reaction Feedback
+
+## Introduction to Chain Reactions
+
+Chemical reactions take many forms, from simple one-step processes to complex mechanisms involving multiple elementary steps. Among these, chain reactions represent a particularly important class characterized by self-propagating sequences of steps. These reactions play crucial roles in diverse processes ranging from polymer synthesis to combustion phenomena and even nuclear fission.
+
+Chain reactions involve sequential steps where reactive intermediates, generated in one step, participate in subsequent steps to create new reactive intermediates. This self-perpetuating sequence can lead to distinctive kinetic behavior and, under certain conditions, explosive reactions.
+
+## The H$_2$ + Br$_2$ → 2HBr Chain Reaction
+
+A classic example of a chain reaction is the formation of hydrogen bromide from hydrogen and bromine gases:
+
+$$\mathrm{H}_2 + \mathrm{Br}_2 \rightarrow 2\mathrm{HBr}$$
+
+This seemingly simple reaction follows a complex mechanism involving reactive intermediates. The experimentally determined rate law does not reflect the overall stoichiometric equation:
+
+$$\nu = \frac{k[\mathrm{H}_2][\mathrm{Br}_2]^{1/2}}{1+k'[\mathrm{HBr}]/[\mathrm{Br}_2]}$$
+
+This unusual rate expression hints at the underlying complexity of the reaction mechanism.
+
+```{r hbr-formation, fig.cap="Schematic representation of the H₂ + Br₂ → 2HBr chain reaction, showing the cyclic nature of the propagation steps where reactive intermediates continually generate new reactive species."}
+# Insert schematic of chain reaction cycle
+```
+
+The actual mechanism consists of several elementary steps:
+
+1. **Initiation**:
+   $$\mathrm{Br}_2 + \mathrm{M} \stackrel{k_1}{\longrightarrow} \mathrm{Br}^{\bullet} + \mathrm{Br}^{\bullet} + \mathrm{M}$$
+
+2. **Propagation**:
+   $$\mathrm{Br}^{\bullet} + \mathrm{H}_2 \stackrel{k_2}{\rightleftharpoons} \mathrm{H}^{\bullet} + \mathrm{HBr}$$
+   $$\mathrm{H}^{\bullet} + \mathrm{Br}_2 \stackrel{k_3}{\longrightarrow} \mathrm{Br}^{\bullet} + \mathrm{HBr}$$
+
+3. **Termination**:
+   $$\mathrm{Br}^{\bullet} + \mathrm{Br}^{\bullet} + \mathrm{M} \stackrel{k_4}{\longrightarrow} \mathrm{Br}_2 + \mathrm{M}$$
+
+In these equations, M represents a third body (often another gas molecule) that absorbs excess energy during collision, and the bullet symbol ($\bullet$) indicates a radical species with an unpaired electron.
+
+This mechanism includes two key reactive intermediates—bromine atoms (Br$^{\bullet}$) and hydrogen atoms (H$^{\bullet}$)—that sustain the chain reaction. Once formed in the initiation step, these radicals participate in propagation steps that generate product (HBr) while regenerating a reactive intermediate to continue the chain.
+
+## Steady State Analysis of the Chain Reaction
+
+To analyse the kinetics of this complex mechanism, we apply the steady state approximation to both reactive intermediates, Br$^{\bullet}$ and H$^{\bullet}$. This approach assumes that after an initial transient period, the concentrations of these highly reactive species remain approximately constant as their rates of formation and consumption balance.
+
+First, let's consider the rate equation for H$^{\bullet}$:
+
+$$\frac{\mathrm{d}[\mathrm{H}^{\bullet}]}{\mathrm{d}t} = +k_2[\mathrm{Br}^{\bullet}][\mathrm{H}_2] - k_{-2}[\mathrm{H}^{\bullet}][\mathrm{HBr}] - k_3[\mathrm{H}^{\bullet}][\mathrm{Br}_2] = 0$$
+
+Rearranging to solve for [H$^{\bullet}$]:
+
+$$[\mathrm{H}^{\bullet}] = \frac{k_2[\mathrm{Br}^{\bullet}][\mathrm{H}_2]}{k_{-2}[\mathrm{HBr}] + k_3[\mathrm{Br}_2]}$$
+
+Next, for Br$^{\bullet}$:
+
+$$\frac{\mathrm{d}[\mathrm{Br}^{\bullet}]}{\mathrm{d}t} = 2k_1[\mathrm{Br}_2][\mathrm{M}] - k_2[\mathrm{Br}^{\bullet}][\mathrm{H}_2] + k_{-2}[\mathrm{H}^{\bullet}][\mathrm{HBr}] + k_3[\mathrm{H}^{\bullet}][\mathrm{Br}_2] - 2k_4[\mathrm{Br}^{\bullet}]^2[\mathrm{M}] = 0$$
+
+When we substitute our expression for [H$^{\bullet}$], the equation becomes quite complex. However, if we recognize that the propagation steps maintain the balance of Br$^{\bullet}$ (Br$^{\bullet}$ is consumed in one step and regenerated in the next), we can simplify:
+
+$$\frac{\mathrm{d}[\mathrm{Br}^{\bullet}]}{\mathrm{d}t} = 2k_1[\mathrm{Br}_2][\mathrm{M}] - 2k_4[\mathrm{Br}^{\bullet}]^2[\mathrm{M}] = 0$$
+
+This simplification assumes that the propagation steps are much faster than the initiation and termination steps, which is typically true for chain reactions. From this simplified equation, we can solve for [Br$^{\bullet}$]:
+
+$$2k_1[\mathrm{Br}_2][\mathrm{M}] = 2k_4[\mathrm{Br}^{\bullet}]^2[\mathrm{M}]$$
+
+$$[\mathrm{Br}^{\bullet}] = \sqrt{\frac{k_1[\mathrm{Br}_2]}{k_4}}$$
+
+```{r steady-state-br, fig.cap="Steady state concentration of bromine radicals (Br•) in the H₂ + Br₂ reaction. After an initial transient period, the radical concentration stabilizes at a level determined by the balance between initiation and termination steps."}
+# Insert figure showing steady state concentration of Br•
+```
+
+Now we can determine the overall rate of HBr formation. The rate equation is:
+
+$$\nu = \frac{\mathrm{d}[\mathrm{HBr}]}{\mathrm{d}t} = k_2[\mathrm{Br}^{\bullet}][\mathrm{H}_2] - k_{-2}[\mathrm{H}^{\bullet}][\mathrm{HBr}] + k_3[\mathrm{H}^{\bullet}][\mathrm{Br}_2]$$
+
+Substituting our expressions for [Br$^{\bullet}$] and [H$^{\bullet}$] and performing algebraic manipulations (the detailed steps are quite involved), we eventually arrive at:
+
+$$\nu = \frac{2k_2\sqrt{\frac{k_1}{k_4}}[\mathrm{H}_2][\mathrm{Br}_2]^{1/2}}{1 + \frac{k_{-2}}{k_3}\frac{[\mathrm{HBr}]}{[\mathrm{Br}_2]}}$$
+
+This derived rate law matches the experimentally observed form, with $k = 2k_2\sqrt{\frac{k_1}{k_4}}$ and $k' = \frac{k_{-2}}{k_3}$.
+
+The presence of HBr in the denominator represents an inhibitory effect—the reverse reaction $\mathrm{H}^{\bullet} + \mathrm{HBr} \rightarrow \mathrm{Br}^{\bullet} + \mathrm{H}_2$ competes with the forward propagation step, reducing the overall reaction rate. This step is called an inhibition step.
+
+## Chain Reaction Types and Characteristics
+
+Chain reactions exhibit several distinctive characteristics:
+
+1. **A cyclic propagation sequence** where reactive intermediates continually regenerate
+2. **Initiation steps** that create the initial reactive intermediates
+3. **Termination steps** that remove reactive intermediates from the cycle
+4. **Possible inhibition steps** that can compete with propagation
+
+```{r chain-reaction-steps, fig.cap="The general steps in a chain reaction mechanism: initiation (creating reactive intermediates), propagation (regenerating intermediates while forming products), and termination (removing intermediates from the cycle)."}
+# Insert diagram of chain reaction steps
+```
+
+Chain reactions can be further classified based on how the reactive intermediates evolve during the propagation sequence:
+
+### Straight Chain Reactions
+
+In a straight chain reaction, each propagation step regenerates exactly one reactive intermediate. The HBr formation reaction is an example—each time Br$^{\bullet}$ is consumed, exactly one H$^{\bullet}$ is generated, and when H$^{\bullet}$ is consumed, exactly one Br$^{\bullet}$ is regenerated.
+
+### Branching Chain Reactions
+
+In a branching chain reaction, one or more propagation steps create multiple reactive intermediates from a single one. The classic example is the combustion of hydrogen:
+
+$$\mathrm{H}^{\bullet} + \mathrm{O}_2 \rightarrow \mathrm{OH}^{\bullet} + \mathrm{O}^{\bullet}$$
+$$\mathrm{O}^{\bullet} + \mathrm{H}_2 \rightarrow \mathrm{OH}^{\bullet} + \mathrm{H}^{\bullet}$$
+$$\mathrm{OH}^{\bullet} + \mathrm{H}_2 \rightarrow \mathrm{H}_2\mathrm{O} + \mathrm{H}^{\bullet}$$
+
+In the first step, one radical (H$^{\bullet}$) generates two radicals (OH$^{\bullet}$ and O$^{\bullet}$), causing the reaction to accelerate as the chain branches. Branching chain reactions can lead to explosive behavior if the rate of intermediate generation exceeds the rate of termination.
+
+## Feedback Mechanisms in Chain Reactions
+
+Chain reactions often exhibit complex kinetic behavior due to feedback mechanisms between the reactants, products, and reactive intermediates. These feedback mechanisms can be either negative (self-regulating) or positive (self-accelerating).
+
+### Negative Feedback and Steady State Behavior
+
+In a reaction with negative feedback, the concentration of reactive intermediates naturally stabilizes due to self-regulating processes. This behavior underlies the steady state approximation that we applied earlier.
+
+Consider a simple model where an intermediate I forms at rate $\nu_f$ and is consumed at a rate proportional to its concentration:
+
+$$\frac{\mathrm{d}[\mathrm{I}]}{\mathrm{d}t} = \nu_f - k[\mathrm{I}]$$
+
+This differential equation has the solution:
+
+$$[\mathrm{I}]_t = \frac{\nu_f}{k}(1 - e^{-kt})$$
+
+```{r negative-feedback, fig.cap="Negative feedback behavior in a chain reaction. The concentration of reactive intermediate I approaches a steady state value of ν_f/k as the reaction progresses."}
+# Insert plot showing approach to steady state
+```
+
+As $t$ increases, $[\mathrm{I}]_t$ approaches a steady-state value $\nu_f/k$. This represents a balance between formation and consumption processes. The higher the concentration of I becomes, the faster it is consumed, providing a natural stabilizing mechanism.
+
+### Feedback Behavior and System Stability
+
+Chain reactions can exhibit either stable or explosive behavior depending on the balance between intermediate production and consumption. This balance is captured in a general rate equation for the reactive intermediate I:
+
+$\frac{\mathrm{d}[\mathrm{I}]}{\mathrm{d}t} = k_{\mathrm{init}}[\mathrm{M}] + \phi[\mathrm{I}]$
+
+where $\phi = k_{\mathrm{prop}}[\mathrm{A}] - k_{\mathrm{term}}$ represents the balance between propagation and termination processes. 
+
+The constant term $k_{\mathrm{init}}[\mathrm{M}]$ (which we can denote as $\nu_f$ for simplicity) represents the rate of initiation—the formation of new intermediates independent of existing intermediates.
+
+The parameter $\phi$ crucially determines the system's behavior:
+
+1. If $\phi < 0$ (termination dominates), the system exhibits negative feedback and reaches a steady state.
+2. If $\phi > 0$ (propagation dominates), the system exhibits positive feedback and undergoes exponential growth, potentially leading to explosive behavior.
+
+```{r feedback-comparison, fig.cap="Comparison of negative feedback (top) and positive feedback (bottom) in chain reactions. When φ < 0, the concentration of reactive intermediates stabilizes. When φ > 0, the concentration grows exponentially, potentially leading to explosion."}
+# Insert comparative plot of negative and positive feedback
+```
+
+The general solution to this differential equation is:
+
+$[\mathrm{I}]_t = \frac{\nu_f}{\phi}(e^{\phi t} - 1)$
+
+This single equation describes both stabilizing and explosive behaviors:
+
+- When $\phi < 0$ (negative feedback), $[\mathrm{I}]_t$ approaches a steady-state value of $\frac{\nu_f}{|\phi|}$ as $t$ increases.
+- When $\phi > 0$ (positive feedback), $[\mathrm{I}]_t$ grows exponentially as $t$ increases, continuing until limited by reactant depletion or other physical constraints.
+
+## Mathematical Analysis of Feedback Systems
+
+Let's rigorously derive the time-dependent concentration profile for our general feedback system. The governing differential equation is:
+
+$\frac{\mathrm{d}[\mathrm{I}]}{\mathrm{d}t} = \nu_f + \phi[\mathrm{I}]$
+
+This single equation describes both negative and positive feedback systems, with the sign of $\phi$ determining which behavior emerges. To solve this equation, we begin by separating variables:
+
+$\frac{\mathrm{d}[\mathrm{I}]}{\nu_f + \phi[\mathrm{I}]} = \mathrm{d}t$
+
+Integrating both sides from the initial concentration $[\mathrm{I}]_0$ (typically zero) to $[\mathrm{I}]_t$:
+
+$\int_{[\mathrm{I}]_0}^{[\mathrm{I}]_t} \frac{\mathrm{d}[\mathrm{I}]}{\nu_f + \phi[\mathrm{I}]} = \int_0^t \mathrm{d}t$
+
+The left-hand integral can be solved by substitution with $u = \nu_f + \phi[\mathrm{I}]$, which gives $\mathrm{d}[\mathrm{I}] = \frac{\mathrm{d}u}{\phi}$:
+
+$\int \frac{\mathrm{d}[\mathrm{I}]}{\nu_f + \phi[\mathrm{I}]} = \frac{1}{\phi}\int\frac{\mathrm{d}u}{u} = \frac{1}{\phi}\ln(u) + C$
+
+Applying the limits of integration:
+
+$\frac{1}{\phi}\ln\left(\frac{\nu_f + \phi[\mathrm{I}]_t}{\nu_f + \phi[\mathrm{I}]_0}\right) = t$
+
+With $[\mathrm{I}]_0 = 0$, this simplifies to:
+
+$\frac{1}{\phi}\ln\left(\frac{\nu_f + \phi[\mathrm{I}]_t}{\nu_f}\right) = t$
+
+Rearranging to solve for $[\mathrm{I}]_t$:
+
+$\frac{\nu_f + \phi[\mathrm{I}]_t}{\nu_f} = e^{\phi t}$
+
+$\nu_f + \phi[\mathrm{I}]_t = \nu_f e^{\phi t}$
+
+$\phi[\mathrm{I}]_t = \nu_f(e^{\phi t} - 1)$
+
+$[\mathrm{I}]_t = \frac{\nu_f}{\phi}(e^{\phi t} - 1)$
+
+This solution applies universally to our feedback system, with the behavior determined by the sign of $\phi$:
+
+```{r feedback-solution, fig.cap="Solution profiles for the feedback differential equation. When φ < 0 (blue curve), [I] approaches a steady state. When φ > 0 (red curve), [I] increases exponentially."}
+# Insert figure showing solution profiles for different φ values
+```
+
+1. For negative feedback ($\phi < 0$):
+   As $t \rightarrow \infty$, $e^{\phi t} \rightarrow 0$, so $[\mathrm{I}]_t \rightarrow \frac{\nu_f}{|\phi|}$
+   The system reaches a steady state concentration where formation and consumption rates balance.
+
+2. For positive feedback ($\phi > 0$):
+   As $t$ increases, $e^{\phi t}$ grows exponentially, so $[\mathrm{I}]_t$ also grows exponentially
+   This growth continues until physical limitations (such as reactant depletion) intervene.
+
+This mathematical analysis demonstrates how a single differential equation can generate qualitatively different behaviors depending on the parameter values, a hallmark of many complex chemical systems.
+
+## Practical Implications of Chain Reactions
+
+Chain reactions have numerous practical implications in both natural systems and industrial processes:
+
+1. **Combustion and Explosion Control**: Understanding chain reaction mechanisms is crucial for preventing industrial accidents and designing safe combustion systems.
+
+2. **Polymer Synthesis**: Many polymerization reactions proceed via chain mechanisms, where control of initiation and termination determines the polymer's molecular weight distribution.
+
+3. **Free Radical Chemistry**: Biological free radical processes, including oxidative stress mechanisms, often involve chain reactions that must be controlled by antioxidants to prevent cellular damage.
+
+4. **Atmospheric Chemistry**: Chain reactions involving free radicals drive many important processes in atmospheric chemistry, including ozone depletion and smog formation.
+
+The balance between propagation, branching, and termination steps determines whether a chain reaction proceeds steadily or explosively—a fundamental consideration in both industrial safety and chemical process design.
+
+```{r chain-reaction-applications, fig.cap="Applications of chain reaction kinetics in various fields: polymer synthesis (top left), combustion control (top right), atmospheric chemistry (bottom left), and biological free radical processes (bottom right)."}
+# Insert figure showing applications of chain reactions
+```
+
+## Summary
+
+Chain reactions represent a distinctive class of chemical processes characterized by self-propagating sequences of elementary steps involving reactive intermediates. The application of steady state approximations allows us to derive complex rate laws that emerge from these multi-step mechanisms.
+
+The feedback behavior in chain reactions—whether negative or positive—determines their stability characteristics:
+
+1. Negative feedback leads to self-regulating, steady-state behavior
+2. Positive feedback can lead to exponential growth and potentially explosive reactions
+
+Mathematical analysis of these systems reveals how the competition between initiation, propagation, and termination processes controls the overall reaction dynamics. These principles provide essential insights for understanding complex reaction systems ranging from atmospheric chemistry to industrial processes.

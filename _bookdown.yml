@@ -12,7 +12,12 @@ rmd_files: [
   "lecture_5/lecture_05.Rmd",
   "lecture_6/lecture_06.Rmd",
   "lecture_7/lecture_07.Rmd",
-  "appendices/mass_balance.Rmd"
+  "lecture_8/lecture_08.Rmd",
+  "lecture_9/lecture_09.Rmd",
+  "lecture_10/lecture_10.Rmd",
+  "appendices/mass_balance.Rmd",
+  "appendices/third_order.Rmd",
+  "appendices/negative_orders.Rmd"
 ]
 
 output:

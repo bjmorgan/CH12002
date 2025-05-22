@@ -105,7 +105,7 @@ This linear form shows that plotting $\ln[\mathrm{A}]_t$ versus $t$ gives slope 
 
 For a bimolecular mechanism with identical molecules:
 
-$$\frac{d[\mathrm{A}]}{dt} = -k[\mathrm{A}]^2$$
+$$\frac{\mathrm{d}[\mathrm{A}]}{\mathrm{d}t} = -k[\mathrm{A}]^2$$
 
 1. Separate variables:
 
@@ -162,7 +162,7 @@ When one reactant is in large excess (e.g., $[\mathrm{A}] \gg [\mathrm{B}]$):
 2 . Define $k^\prime = k[\mathrm{A}]$
 3. Rate law simplifies to:
 
-$$\frac{\mathrm{d}[\mathrm{B}]}{\mathrm{d}t} = -k'[\mathrm{B}]$$
+$$\frac{\mathrm{d}[\mathrm{B}]}{\mathrm{d}t} = -k^\prime[\mathrm{B}]$$
 
 This transforms a complex second-order process into a simpler pseudo-first-order one with $k^\prime = k[A]$.
 
@@ -170,9 +170,9 @@ This transforms a complex second-order process into a simpler pseudo-first-order
 
 When analyzing experimental data, we can determine reaction order by plotting the data in different ways:
 
-1. Plot $[A]$ vs $t$ to test for zeroth-order (straight line)
-2. Plot $ln[A]$ vs $t$ to test for first-order (straight line)
-3. Plot $1/[A]$ vs $t$ to test for second-order (straight line)
+1. Plot $[\mathrm{A}]$ vs $t$ to test for zeroth-order (straight line)
+2. Plot $\ln[\mathrm{A}]$ vs $t$ to test for first-order (straight line)
+3. Plot $1/[\mathrm{A}]$ vs $t$ to test for second-order (straight line)
 
 (note somewhere that the same process can be applied to *any* simple rate law / also note that we can have a simple rate law even if we do not have a single-step reaction mechanism / so we can have, e.g., non-integer or even negative order reactions)
 ```{r order-determination, fig.cap="Comparison of concentration data plotted in different linear forms for determining reaction order."}
