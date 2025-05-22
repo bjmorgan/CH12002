@@ -1,6 +1,6 @@
 introduction-to-chemical-kinetics
 why-study-reaction-kinetics
-chemical-kinetics-describing-a
+chemical-kinetics-describing-textat
 reaction-rates-describing-dadt
 calculus-for-kinetics
 rate-laws
