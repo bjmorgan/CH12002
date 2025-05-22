@@ -397,20 +397,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ```
 -->
 <p>For our simple A → B reaction, the rate can be expressed as either the rate of disappearance of A or the rate of appearance of B:</p>
-<p><span class="math inline">\(\text{rate} = -\frac{\mathrm{d}[\mathrm{A}]}{\mathrm{d}t} = +\frac{\mathrm{d}[\mathrm{B}]}{\mathrm{d}t}\)</span></p>
+<p><span class="math display">\[\text{rate} = -\frac{\mathrm{d}[\mathrm{A}]}{\mathrm{d}t} = +\frac{\mathrm{d}[\mathrm{B}]}{\mathrm{d}t}\]</span></p>
 <p>The negative sign in the first term ensures that the rate is a positive quantity, since [<span class="math inline">\(\mathrm{A}\)</span>] decreases with time (giving a negative derivative).</p>
 <p>For a constant reaction rate, we can calculate the change in [A] per unit time as:</p>
-<p><span class="math inline">\(\text{change in [A] per unit time} = \frac{[\mathrm{A}]_{t_2} - [\mathrm{A}]_{t_1}}{t_2 - t_1} = \frac{\Delta[\mathrm{A}]}{\Delta t}\)</span></p>
+<p><span class="math display">\[\text{change in [A] per unit time} = \frac{[\mathrm{A}]_{t_2} - [\mathrm{A}]_{t_1}}{t_2 - t_1} = \frac{\Delta[\mathrm{A}]}{\Delta t}\]</span></p>
 <p>In most cases, however, reaction rates aren’t constant but change as the reaction progresses and reactant concentrations decrease.</p>
 <p>For reactions with more complex stoichiometry, the relationship between concentration changes requires appropriate stoichiometric factors.</p>
 <p>Consider a reaction where one molecule of A combines with two molecules of B to form one molecule of C:</p>
 <p><span class="math inline">\(\mathrm{A} + 2\mathrm{B} \rightarrow \mathrm{C}\)</span></p>
 <p>Here, B is consumed twice as rapidly as A, and the rates are related by:</p>
-<p><span class="math inline">\(\text{rate} = -\frac{\mathrm{d}[\mathrm{A}]}{\mathrm{d}t} = -\frac{1}{2}\frac{\mathrm{d}[\mathrm{B}]}{\mathrm{d}t} = +\frac{\mathrm{d}[\mathrm{C}]}{\mathrm{d}t}\)</span></p>
+<p><span class="math display">\[\text{rate} = -\frac{\mathrm{d}[\mathrm{A}]}{\mathrm{d}t} = -\frac{1}{2}\frac{\mathrm{d}[\mathrm{B}]}{\mathrm{d}t} = +\frac{\mathrm{d}[\mathrm{C}]}{\mathrm{d}t}\]</span></p>
 <p>In general, for a reaction with stoichiometry
 <span class="math inline">\(\nu_\mathrm{A}\mathrm{A} + \nu_\mathrm{B}\mathrm{B} + \ldots \rightarrow \nu_\mathrm{P}\mathrm{P} + \nu_\mathrm{Q}\mathrm{Q} + \ldots\)</span></p>
-<p>The rate can be written as:
-<span class="math inline">\(\text{rate} = -\frac{1}{\nu_\mathrm{A}}\frac{\mathrm{d}[\mathrm{A}]}{\mathrm{d}t} = -\frac{1}{\nu_\mathrm{B}}\frac{\mathrm{d}[\mathrm{B}]}{\mathrm{d}t} = \ldots = \frac{1}{\nu_\mathrm{P}}\frac{\mathrm{d}[\mathrm{P}]}{\mathrm{d}t} = \frac{1}{\nu_\mathrm{Q}}\frac{\mathrm{d}[\mathrm{Q}]}{\mathrm{d}t} = \ldots\)</span></p>
+<p>The rate can be written as:</p>
+<p><span class="math display">\[\text{rate} = -\frac{1}{\nu_\mathrm{A}}\frac{\mathrm{d}[\mathrm{A}]}{\mathrm{d}t} = -\frac{1}{\nu_\mathrm{B}}\frac{\mathrm{d}[\mathrm{B}]}{\mathrm{d}t} = \ldots = \frac{1}{\nu_\mathrm{P}}\frac{\mathrm{d}[\mathrm{P}]}{\mathrm{d}t} = \frac{1}{\nu_\mathrm{Q}}\frac{\mathrm{d}[\mathrm{Q}]}{\mathrm{d}t} = \ldots\]</span></p>
 <p>These relationships ensure that the stoichiometric ratios are properly accounted for when defining the reaction rate.</p>
 </div>
 <div id="calculus-for-kinetics" class="section level2 hasAnchor" number="1.4">
@@ -423,9 +423,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ```
 -->
 <p>These two aspects of kinetic data are related through differentiation and integration. If we know how concentration varies with time, we can determine the instantaneous reaction rate by taking the derivative:</p>
-<p><span class="math inline">\(\text{rate} = \nu = -\frac{\mathrm{d}[\mathrm{A}]}{\mathrm{d}t}\)</span></p>
+<p><span class="math display">\[\text{rate} = \nu = -\frac{\mathrm{d}[\mathrm{A}]}{\mathrm{d}t}\]</span></p>
 <p>Conversely, if we know the rate law for a reaction, we can predict the concentration-time profile by integration:</p>
-<p><span class="math inline">\([\mathrm{A}]_t = [\mathrm{A}]_0 - \int_0^t \nu\,\mathrm{d}t\)</span></p>
+<p><span class="math display">\[[\mathrm{A}]_t = [\mathrm{A}]_0 - \int_0^t \nu\,\mathrm{d}t\]</span></p>
 <p>where <span class="math inline">\(\nu\)</span> represents the reaction rate as a function of time. This mathematical relationship forms the foundation for analysing kinetic data and determining rate laws experimentally.</p>
 </div>
 <div id="rate-laws" class="section level2 hasAnchor" number="1.5">
@@ -438,7 +438,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ```
 -->
 <p>Many reactions follow simple rate laws, where the rate of the reaction is proportional to the concentration of each reactant, raised to some power:</p>
-<p><span class="math inline">\(\text{rate} = k[\mathrm{A}]^a[\mathrm{B}]^b[\mathrm{C}]^c\cdots\)</span></p>
+<p><span class="math display">\[\text{rate} = k[\mathrm{A}]^a[\mathrm{B}]^b[\mathrm{C}]^c\cdots\]</span></p>
 <p>This equation contains several important components:</p>
 <ul>
 <li><span class="math inline">\(k\)</span> is the rate constant, a proportionality factor that depends on temperature but not on concentration</li>
@@ -478,7 +478,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="complex-reactions" class="section level2 hasAnchor" number="1.7">
 <h2><span class="header-section-number">1.7</span> Complex Reactions<a href="introduction-to-chemical-kinetics.html#complex-reactions" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>For complex reactions involving multiple elementary steps, we cannot deduce the rate law from the reaction stoichiometry alone. Consider the hydrogen bromide formation again:</p>
-<p><span class="math inline">\(\mathrm{H}_2 + \mathrm{Br}_2 \rightarrow 2\mathrm{HBr}\)</span></p>
+<p><span class="math display">\[\mathrm{H}_2 + \mathrm{Br}_2 \rightarrow 2\mathrm{HBr}\]</span></p>
 <p>This overall reaction actually proceeds through a mechanism involving four elementary steps:</p>
 <ol style="list-style-type: decimal">
 <li><span class="math inline">\(\mathrm{Br}_2 \rightarrow \mathrm{Br} + \mathrm{Br}\)</span> (bimolecular)</li>
@@ -492,14 +492,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">1.8</span> Units of the Rate Constant<a href="introduction-to-chemical-kinetics.html#units-of-the-rate-constant" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>The units of a rate constant depend on the form of the rate law in which it appears. This dependence arises from the requirement of dimensional consistency—both sides of a rate equation must have the same units.</p>
 <p>For reactions following first-order kinetics (rate = <span class="math inline">\(k[\mathrm{A}]\)</span>), we have:</p>
-<p><span class="math inline">\(\text{mol}\,\text{dm}^{-3}\text{s}^{-1} = k \times \text{mol}\,\text{dm}^{-3}\)</span></p>
+<p><span class="math display">\[\text{mol}\,\text{dm}^{-3}\text{s}^{-1} = k \times \text{mol}\,\text{dm}^{-3}\]</span></p>
 <p>Solving for <span class="math inline">\(k\)</span> shows that its units must be s<span class="math inline">\(^{-1}\)</span>:</p>
 <p><span class="math inline">\(k \text{ has units } \text{s}^{-1}\)</span></p>
 <p>For second-order reactions (rate = <span class="math inline">\(k[\mathrm{A}]^2\)</span>):</p>
-<p><span class="math inline">\(\text{mol}\,\text{dm}^{-3}\text{s}^{-1} = k \times (\text{mol}\,\text{dm}^{-3})^2\)</span></p>
+<p><span class="math display">\[\text{mol}\,\text{dm}^{-3}\text{s}^{-1} = k \times (\text{mol}\,\text{dm}^{-3})^2\]</span></p>
 <p>Here, the rate constant has units of mol<span class="math inline">\(^{-1}\)</span>dm<span class="math inline">\(^3\)</span>s<span class="math inline">\(^{-1}\)</span>:</p>
-<p><span class="math inline">\(k \text{ has units } \text{mol}^{-1}\text{dm}^3\text{s}^{-1}\)</span></p>
-<p>In general, for a reaction of order <span class="math inline">\(n\)</span>, the rate constant has units of mol<span class="math inline">\(^{1-n}\)</span>dm<span class="math inline">\(^{3(n-1)}\)</span>s<span class="math inline">\(^{-1}\)</span>. This pattern reflects the fundamental relationship between reaction order and the dimensions of the rate constant.</p>
+<p><span class="math display">\[k \text{ has units } \text{mol}^{-1}\text{dm}^3\text{s}^{-1}\]</span></p>
+<p>In general, for a reaction of order <span class="math inline">\(n\)</span>, the rate constant has units of mol<span class="math inline">\(^{1-n}\)</span> dm<span class="math inline">\(^{3(n-1)}\)</span>s <span class="math inline">\(^{-1}\)</span>. This pattern reflects the fundamental relationship between reaction order and the dimensions of the rate constant.</p>
 <p>Understanding these units is essential for interpreting kinetic data correctly and for comparing rate constants across different reaction systems.</p>
 
 </div>
