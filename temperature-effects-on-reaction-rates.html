@@ -23,15 +23,15 @@
 <meta name="author" content="Benjamin J. Morgan" />
 
 
-<meta name="date" content="2026-01-23" />
+<meta name="date" content="2026-02-22" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="chain-reactions-and-reaction-feedback.html"/>
-<link rel="next" href="mass-balance-in-chemical-kinetics.html"/>
+<link rel="prev" href="feedback-stability-and-explosions.html"/>
+<link rel="next" href="appendix-two-reactants.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -54,70 +54,6 @@
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
-<style type="text/css">
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    color: #aaaaaa;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-</style>
 
 <style type="text/css">
   
@@ -141,229 +77,203 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>About</a></li>
+<li class="chapter" data-level="" data-path="mathematical-foundations.html"><a href="mathematical-foundations.html"><i class="fa fa-check"></i>Mathematical Foundations</a>
+<ul>
+<li class="chapter" data-level="0.1" data-path="mathematical-foundations.html"><a href="mathematical-foundations.html#working-with-exponentials-and-logarithms"><i class="fa fa-check"></i><b>0.1</b> Working with Exponentials and Logarithms</a>
+<ul>
+<li class="chapter" data-level="0.1.1" data-path="mathematical-foundations.html"><a href="mathematical-foundations.html#exponential-functions"><i class="fa fa-check"></i><b>0.1.1</b> Exponential Functions</a></li>
+<li class="chapter" data-level="0.1.2" data-path="mathematical-foundations.html"><a href="mathematical-foundations.html#logarithmic-functions"><i class="fa fa-check"></i><b>0.1.2</b> Logarithmic Functions</a></li>
+<li class="chapter" data-level="0.1.3" data-path="mathematical-foundations.html"><a href="mathematical-foundations.html#converting-between-exponential-and-logarithmic-forms"><i class="fa fa-check"></i><b>0.1.3</b> Converting Between Exponential and Logarithmic Forms</a></li>
+</ul></li>
+<li class="chapter" data-level="0.2" data-path="mathematical-foundations.html"><a href="mathematical-foundations.html#linearising-exponential-equations"><i class="fa fa-check"></i><b>0.2</b> Linearising Exponential Equations</a>
+<ul>
+<li class="chapter" data-level="0.2.1" data-path="mathematical-foundations.html"><a href="mathematical-foundations.html#general-approach"><i class="fa fa-check"></i><b>0.2.1</b> General Approach</a></li>
+<li class="chapter" data-level="0.2.2" data-path="mathematical-foundations.html"><a href="mathematical-foundations.html#example"><i class="fa fa-check"></i><b>0.2.2</b> Example</a></li>
+</ul></li>
+<li class="chapter" data-level="0.3" data-path="mathematical-foundations.html"><a href="mathematical-foundations.html#differentiation"><i class="fa fa-check"></i><b>0.3</b> Differentiation</a>
+<ul>
+<li class="chapter" data-level="0.3.1" data-path="mathematical-foundations.html"><a href="mathematical-foundations.html#key-results"><i class="fa fa-check"></i><b>0.3.1</b> Key Results</a></li>
+<li class="chapter" data-level="0.3.2" data-path="mathematical-foundations.html"><a href="mathematical-foundations.html#the-special-property-of-exponentials"><i class="fa fa-check"></i><b>0.3.2</b> The Special Property of Exponentials</a></li>
+<li class="chapter" data-level="0.3.3" data-path="mathematical-foundations.html"><a href="mathematical-foundations.html#example-1"><i class="fa fa-check"></i><b>0.3.3</b> Example</a></li>
+</ul></li>
+<li class="chapter" data-level="0.4" data-path="mathematical-foundations.html"><a href="mathematical-foundations.html#integration"><i class="fa fa-check"></i><b>0.4</b> Integration</a>
+<ul>
+<li class="chapter" data-level="0.4.1" data-path="mathematical-foundations.html"><a href="mathematical-foundations.html#key-results-1"><i class="fa fa-check"></i><b>0.4.1</b> Key Results</a></li>
+<li class="chapter" data-level="0.4.2" data-path="mathematical-foundations.html"><a href="mathematical-foundations.html#definite-integrals"><i class="fa fa-check"></i><b>0.4.2</b> Definite Integrals</a></li>
+<li class="chapter" data-level="0.4.3" data-path="mathematical-foundations.html"><a href="mathematical-foundations.html#example-solving-a-differential-equation-by-separation-of-variables"><i class="fa fa-check"></i><b>0.4.3</b> Example: Solving a Differential Equation by Separation of Variables</a></li>
+</ul></li>
+<li class="chapter" data-level="0.5" data-path="mathematical-foundations.html"><a href="mathematical-foundations.html#additional-resources"><i class="fa fa-check"></i><b>0.5</b> Additional Resources</a></li>
+</ul></li>
 <li class="chapter" data-level="1" data-path="introduction-to-chemical-kinetics.html"><a href="introduction-to-chemical-kinetics.html"><i class="fa fa-check"></i><b>1</b> Introduction to Chemical Kinetics</a>
 <ul>
 <li class="chapter" data-level="1.1" data-path="introduction-to-chemical-kinetics.html"><a href="introduction-to-chemical-kinetics.html#why-study-reaction-kinetics"><i class="fa fa-check"></i><b>1.1</b> Why Study Reaction Kinetics?</a></li>
 <li class="chapter" data-level="1.2" data-path="introduction-to-chemical-kinetics.html"><a href="introduction-to-chemical-kinetics.html#describing-how-concentrations-change-with-time"><i class="fa fa-check"></i><b>1.2</b> Describing How Concentrations Change with Time</a></li>
-<li class="chapter" data-level="1.3" data-path="introduction-to-chemical-kinetics.html"><a href="introduction-to-chemical-kinetics.html#reaction-rates"><i class="fa fa-check"></i><b>1.3</b> Reaction Rates</a>
-<ul>
-<li class="chapter" data-level="1.3.1" data-path="introduction-to-chemical-kinetics.html"><a href="introduction-to-chemical-kinetics.html#defining-the-rate"><i class="fa fa-check"></i><b>1.3.1</b> Defining the Rate</a></li>
-<li class="chapter" data-level="1.3.2" data-path="introduction-to-chemical-kinetics.html"><a href="introduction-to-chemical-kinetics.html#stoichiometric-factors"><i class="fa fa-check"></i><b>1.3.2</b> Stoichiometric Factors</a></li>
-</ul></li>
-<li class="chapter" data-level="1.4" data-path="introduction-to-chemical-kinetics.html"><a href="introduction-to-chemical-kinetics.html#mass-balance"><i class="fa fa-check"></i><b>1.4</b> Mass Balance</a>
-<ul>
-<li class="chapter" data-level="1.4.1" data-path="introduction-to-chemical-kinetics.html"><a href="introduction-to-chemical-kinetics.html#a-simple-case-a-b"><i class="fa fa-check"></i><b>1.4.1</b> A Simple Case: A → B</a></li>
-<li class="chapter" data-level="1.4.2" data-path="introduction-to-chemical-kinetics.html"><a href="introduction-to-chemical-kinetics.html#when-stoichiometry-differs-a-2b"><i class="fa fa-check"></i><b>1.4.2</b> When Stoichiometry Differs: A → 2B</a></li>
-<li class="chapter" data-level="1.4.3" data-path="introduction-to-chemical-kinetics.html"><a href="introduction-to-chemical-kinetics.html#the-general-result"><i class="fa fa-check"></i><b>1.4.3</b> The General Result</a></li>
-</ul></li>
-<li class="chapter" data-level="1.5" data-path="introduction-to-chemical-kinetics.html"><a href="introduction-to-chemical-kinetics.html#rate-laws"><i class="fa fa-check"></i><b>1.5</b> Rate Laws</a>
-<ul>
-<li class="chapter" data-level="1.5.1" data-path="introduction-to-chemical-kinetics.html"><a href="introduction-to-chemical-kinetics.html#simple-rate-laws"><i class="fa fa-check"></i><b>1.5.1</b> Simple Rate Laws</a></li>
-<li class="chapter" data-level="1.5.2" data-path="introduction-to-chemical-kinetics.html"><a href="introduction-to-chemical-kinetics.html#orders-need-not-match-stoichiometry"><i class="fa fa-check"></i><b>1.5.2</b> Orders Need Not Match Stoichiometry</a></li>
-<li class="chapter" data-level="1.5.3" data-path="introduction-to-chemical-kinetics.html"><a href="introduction-to-chemical-kinetics.html#complex-rate-laws"><i class="fa fa-check"></i><b>1.5.3</b> Complex Rate Laws</a></li>
-</ul></li>
-<li class="chapter" data-level="1.6" data-path="introduction-to-chemical-kinetics.html"><a href="introduction-to-chemical-kinetics.html#elementary-processes"><i class="fa fa-check"></i><b>1.6</b> Elementary Processes</a>
-<ul>
-<li class="chapter" data-level="1.6.1" data-path="introduction-to-chemical-kinetics.html"><a href="introduction-to-chemical-kinetics.html#molecularity"><i class="fa fa-check"></i><b>1.6.1</b> Molecularity</a></li>
-<li class="chapter" data-level="1.6.2" data-path="introduction-to-chemical-kinetics.html"><a href="introduction-to-chemical-kinetics.html#elementary-processes-have-simple-rate-laws"><i class="fa fa-check"></i><b>1.6.2</b> Elementary Processes Have Simple Rate Laws</a></li>
-</ul></li>
+<li class="chapter" data-level="1.3" data-path="introduction-to-chemical-kinetics.html"><a href="introduction-to-chemical-kinetics.html#reaction-rates"><i class="fa fa-check"></i><b>1.3</b> Reaction Rates</a></li>
+<li class="chapter" data-level="1.4" data-path="introduction-to-chemical-kinetics.html"><a href="introduction-to-chemical-kinetics.html#mass-balance"><i class="fa fa-check"></i><b>1.4</b> Mass Balance</a></li>
+<li class="chapter" data-level="1.5" data-path="introduction-to-chemical-kinetics.html"><a href="introduction-to-chemical-kinetics.html#rate-laws"><i class="fa fa-check"></i><b>1.5</b> Rate Laws</a></li>
+<li class="chapter" data-level="1.6" data-path="introduction-to-chemical-kinetics.html"><a href="introduction-to-chemical-kinetics.html#elementary-processes"><i class="fa fa-check"></i><b>1.6</b> Elementary Processes</a></li>
 <li class="chapter" data-level="1.7" data-path="introduction-to-chemical-kinetics.html"><a href="introduction-to-chemical-kinetics.html#complex-reactions"><i class="fa fa-check"></i><b>1.7</b> Complex Reactions</a></li>
-<li class="chapter" data-level="1.8" data-path="introduction-to-chemical-kinetics.html"><a href="introduction-to-chemical-kinetics.html#units-of-the-rate-constant"><i class="fa fa-check"></i><b>1.8</b> Units of the Rate Constant</a>
-<ul>
-<li class="chapter" data-level="1.8.1" data-path="introduction-to-chemical-kinetics.html"><a href="introduction-to-chemical-kinetics.html#first-order-reactions"><i class="fa fa-check"></i><b>1.8.1</b> First-Order Reactions</a></li>
-<li class="chapter" data-level="1.8.2" data-path="introduction-to-chemical-kinetics.html"><a href="introduction-to-chemical-kinetics.html#second-order-reactions"><i class="fa fa-check"></i><b>1.8.2</b> Second-Order Reactions</a></li>
-<li class="chapter" data-level="1.8.3" data-path="introduction-to-chemical-kinetics.html"><a href="introduction-to-chemical-kinetics.html#third-order-reactions"><i class="fa fa-check"></i><b>1.8.3</b> Third-Order Reactions</a></li>
-<li class="chapter" data-level="1.8.4" data-path="introduction-to-chemical-kinetics.html"><a href="introduction-to-chemical-kinetics.html#general-pattern"><i class="fa fa-check"></i><b>1.8.4</b> General Pattern</a></li>
+<li class="chapter" data-level="1.8" data-path="introduction-to-chemical-kinetics.html"><a href="introduction-to-chemical-kinetics.html#units-of-the-rate-constant"><i class="fa fa-check"></i><b>1.8</b> Units of the Rate Constant</a></li>
+<li class="chapter" data-level="1.9" data-path="introduction-to-chemical-kinetics.html"><a href="introduction-to-chemical-kinetics.html#key-concepts"><i class="fa fa-check"></i><b>1.9</b> Key Concepts</a></li>
 </ul></li>
-<li class="chapter" data-level="1.9" data-path="introduction-to-chemical-kinetics.html"><a href="introduction-to-chemical-kinetics.html#looking-ahead"><i class="fa fa-check"></i><b>1.9</b> Looking Ahead</a></li>
-</ul></li>
-<li class="chapter" data-level="2" data-path="chemical-kinetics-and-reaction-mechanisms.html"><a href="chemical-kinetics-and-reaction-mechanisms.html"><i class="fa fa-check"></i><b>2</b> Chemical Kinetics and Reaction Mechanisms</a>
+<li class="chapter" data-level="2" data-path="integrated-rate-laws.html"><a href="integrated-rate-laws.html"><i class="fa fa-check"></i><b>2</b> Integrated Rate Laws</a>
 <ul>
-<li class="chapter" data-level="2.1" data-path="chemical-kinetics-and-reaction-mechanisms.html"><a href="chemical-kinetics-and-reaction-mechanisms.html#kinetic-data-as-a-window-into-reaction-mechanisms"><i class="fa fa-check"></i><b>2.1</b> Kinetic Data as a Window into Reaction Mechanisms</a></li>
-<li class="chapter" data-level="2.2" data-path="chemical-kinetics-and-reaction-mechanisms.html"><a href="chemical-kinetics-and-reaction-mechanisms.html#elementary-processes-and-rate-laws"><i class="fa fa-check"></i><b>2.2</b> Elementary Processes and Rate Laws</a></li>
-<li class="chapter" data-level="2.3" data-path="chemical-kinetics-and-reaction-mechanisms.html"><a href="chemical-kinetics-and-reaction-mechanisms.html#building-and-testing-kinetic-models"><i class="fa fa-check"></i><b>2.3</b> Building and Testing Kinetic Models</a></li>
-<li class="chapter" data-level="2.4" data-path="chemical-kinetics-and-reaction-mechanisms.html"><a href="chemical-kinetics-and-reaction-mechanisms.html#connecting-mechanisms-to-observable-kinetics"><i class="fa fa-check"></i><b>2.4</b> Connecting Mechanisms to Observable Kinetics</a></li>
-<li class="chapter" data-level="2.5" data-path="chemical-kinetics-and-reaction-mechanisms.html"><a href="chemical-kinetics-and-reaction-mechanisms.html#kinetic-data-as-a-window-into-reaction-mechanisms-1"><i class="fa fa-check"></i><b>2.5</b> Kinetic Data as a Window into Reaction Mechanisms</a></li>
-<li class="chapter" data-level="2.6" data-path="chemical-kinetics-and-reaction-mechanisms.html"><a href="chemical-kinetics-and-reaction-mechanisms.html#principles-of-rate-law-analysis"><i class="fa fa-check"></i><b>2.6</b> Principles of Rate Law Analysis</a></li>
-<li class="chapter" data-level="2.7" data-path="chemical-kinetics-and-reaction-mechanisms.html"><a href="chemical-kinetics-and-reaction-mechanisms.html#building-a-kinetic-model"><i class="fa fa-check"></i><b>2.7</b> Building a Kinetic Model</a></li>
-<li class="chapter" data-level="2.8" data-path="chemical-kinetics-and-reaction-mechanisms.html"><a href="chemical-kinetics-and-reaction-mechanisms.html#from-model-to-mechanism"><i class="fa fa-check"></i><b>2.8</b> From Model to Mechanism</a></li>
-<li class="chapter" data-level="2.9" data-path="chemical-kinetics-and-reaction-mechanisms.html"><a href="chemical-kinetics-and-reaction-mechanisms.html#the-role-of-integrated-rate-laws"><i class="fa fa-check"></i><b>2.9</b> The Role of Integrated Rate Laws</a></li>
-<li class="chapter" data-level="2.10" data-path="chemical-kinetics-and-reaction-mechanisms.html"><a href="chemical-kinetics-and-reaction-mechanisms.html#beyond-first-order-kinetics"><i class="fa fa-check"></i><b>2.10</b> Beyond First-Order Kinetics</a></li>
+<li class="chapter" data-level="2.1" data-path="integrated-rate-laws.html"><a href="integrated-rate-laws.html#from-differential-to-integrated-rate-laws"><i class="fa fa-check"></i><b>2.1</b> From Differential to Integrated Rate Laws</a></li>
+<li class="chapter" data-level="2.2" data-path="integrated-rate-laws.html"><a href="integrated-rate-laws.html#zeroth-order-reactions"><i class="fa fa-check"></i><b>2.2</b> Zeroth-Order Reactions</a></li>
+<li class="chapter" data-level="2.3" data-path="integrated-rate-laws.html"><a href="integrated-rate-laws.html#first-order-reactions"><i class="fa fa-check"></i><b>2.3</b> First-Order Reactions</a></li>
+<li class="chapter" data-level="2.4" data-path="integrated-rate-laws.html"><a href="integrated-rate-laws.html#second-order-reactions"><i class="fa fa-check"></i><b>2.4</b> Second-Order Reactions</a></li>
+<li class="chapter" data-level="2.5" data-path="integrated-rate-laws.html"><a href="integrated-rate-laws.html#summary-and-graphical-analysis"><i class="fa fa-check"></i><b>2.5</b> Summary and Graphical Analysis</a></li>
+<li class="chapter" data-level="2.6" data-path="integrated-rate-laws.html"><a href="integrated-rate-laws.html#worked-example-decomposition-of-azomethane"><i class="fa fa-check"></i><b>2.6</b> Worked Example: Decomposition of Azomethane</a></li>
+<li class="chapter" data-level="2.7" data-path="integrated-rate-laws.html"><a href="integrated-rate-laws.html#reactions-with-two-different-reactants"><i class="fa fa-check"></i><b>2.7</b> Reactions with Two Different Reactants</a></li>
+<li class="chapter" data-level="2.8" data-path="integrated-rate-laws.html"><a href="integrated-rate-laws.html#key-concepts-1"><i class="fa fa-check"></i><b>2.8</b> Key Concepts</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="simple-integrated-rate-laws.html"><a href="simple-integrated-rate-laws.html"><i class="fa fa-check"></i><b>3</b> Simple Integrated Rate Laws</a>
+<li class="chapter" data-level="3" data-path="methods-for-determining-rate-laws-from-experimental-data.html"><a href="methods-for-determining-rate-laws-from-experimental-data.html"><i class="fa fa-check"></i><b>3</b> Methods for Determining Rate Laws from Experimental Data</a>
 <ul>
-<li class="chapter" data-level="3.1" data-path="simple-integrated-rate-laws.html"><a href="simple-integrated-rate-laws.html#from-mechanism-to-mathematical-model"><i class="fa fa-check"></i><b>3.1</b> From Mechanism to Mathematical Model</a></li>
-<li class="chapter" data-level="3.2" data-path="simple-integrated-rate-laws.html"><a href="simple-integrated-rate-laws.html#systematic-kinetic-analysis"><i class="fa fa-check"></i><b>3.2</b> Systematic Kinetic Analysis</a></li>
-<li class="chapter" data-level="3.3" data-path="simple-integrated-rate-laws.html"><a href="simple-integrated-rate-laws.html#simple-integrated-rate-laws-1"><i class="fa fa-check"></i><b>3.3</b> Simple Integrated Rate Laws</a></li>
-<li class="chapter" data-level="3.4" data-path="simple-integrated-rate-laws.html"><a href="simple-integrated-rate-laws.html#zeroth-order-kinetics"><i class="fa fa-check"></i><b>3.4</b> Zeroth-Order Kinetics</a></li>
-<li class="chapter" data-level="3.5" data-path="simple-integrated-rate-laws.html"><a href="simple-integrated-rate-laws.html#first-order-kinetics"><i class="fa fa-check"></i><b>3.5</b> First-Order Kinetics</a></li>
-<li class="chapter" data-level="3.6" data-path="simple-integrated-rate-laws.html"><a href="simple-integrated-rate-laws.html#second-order-kinetics"><i class="fa fa-check"></i><b>3.6</b> Second-Order Kinetics</a></li>
-<li class="chapter" data-level="3.7" data-path="simple-integrated-rate-laws.html"><a href="simple-integrated-rate-laws.html#more-complex-second-order-processes"><i class="fa fa-check"></i><b>3.7</b> More Complex Second-Order Processes</a>
+<li class="chapter" data-level="3.1" data-path="methods-for-determining-rate-laws-from-experimental-data.html"><a href="methods-for-determining-rate-laws-from-experimental-data.html#the-integral-method"><i class="fa fa-check"></i><b>3.1</b> The Integral Method</a>
 <ul>
-<li class="chapter" data-level="3.7.1" data-path="simple-integrated-rate-laws.html"><a href="simple-integrated-rate-laws.html#pseudo-first-order-conditions"><i class="fa fa-check"></i><b>3.7.1</b> Pseudo-First-Order Conditions</a></li>
+<li class="chapter" data-level="3.1.1" data-path="methods-for-determining-rate-laws-from-experimental-data.html"><a href="methods-for-determining-rate-laws-from-experimental-data.html#worked-example-azomethane-decomposition-revisited"><i class="fa fa-check"></i><b>3.1.1</b> Worked Example: Azomethane Decomposition Revisited</a></li>
 </ul></li>
-<li class="chapter" data-level="3.8" data-path="simple-integrated-rate-laws.html"><a href="simple-integrated-rate-laws.html#graphical-analysis-applications"><i class="fa fa-check"></i><b>3.8</b> Graphical Analysis Applications</a></li>
-</ul></li>
-<li class="chapter" data-level="4" data-path="methods-for-determining-rate-laws-from-experimental-data.html"><a href="methods-for-determining-rate-laws-from-experimental-data.html"><i class="fa fa-check"></i><b>4</b> Methods for Determining Rate Laws from Experimental Data</a>
+<li class="chapter" data-level="3.2" data-path="methods-for-determining-rate-laws-from-experimental-data.html"><a href="methods-for-determining-rate-laws-from-experimental-data.html#the-half-life-method"><i class="fa fa-check"></i><b>3.2</b> The Half-Life Method</a>
 <ul>
-<li class="chapter" data-level="4.1" data-path="methods-for-determining-rate-laws-from-experimental-data.html"><a href="methods-for-determining-rate-laws-from-experimental-data.html#introduction"><i class="fa fa-check"></i><b>4.1</b> Introduction</a></li>
-<li class="chapter" data-level="4.2" data-path="methods-for-determining-rate-laws-from-experimental-data.html"><a href="methods-for-determining-rate-laws-from-experimental-data.html#the-integral-method"><i class="fa fa-check"></i><b>4.2</b> The Integral Method</a>
-<ul>
-<li class="chapter" data-level="4.2.1" data-path="methods-for-determining-rate-laws-from-experimental-data.html"><a href="methods-for-determining-rate-laws-from-experimental-data.html#theoretical-background"><i class="fa fa-check"></i><b>4.2.1</b> Theoretical Background</a></li>
-<li class="chapter" data-level="4.2.2" data-path="methods-for-determining-rate-laws-from-experimental-data.html"><a href="methods-for-determining-rate-laws-from-experimental-data.html#example-testing-for-second-order-kinetics"><i class="fa fa-check"></i><b>4.2.2</b> Example: Testing for Second-Order Kinetics</a></li>
-<li class="chapter" data-level="4.2.3" data-path="methods-for-determining-rate-laws-from-experimental-data.html"><a href="methods-for-determining-rate-laws-from-experimental-data.html#example-decomposition-of-azomethane"><i class="fa fa-check"></i><b>4.2.3</b> Example: Decomposition of Azomethane</a></li>
-<li class="chapter" data-level="4.2.4" data-path="methods-for-determining-rate-laws-from-experimental-data.html"><a href="methods-for-determining-rate-laws-from-experimental-data.html#a-note-on-modern-analysis-methods"><i class="fa fa-check"></i><b>4.2.4</b> A Note on Modern Analysis Methods</a></li>
+<li class="chapter" data-level="3.2.1" data-path="methods-for-determining-rate-laws-from-experimental-data.html"><a href="methods-for-determining-rate-laws-from-experimental-data.html#deriving-the-half-life"><i class="fa fa-check"></i><b>3.2.1</b> Deriving the Half-Life</a></li>
+<li class="chapter" data-level="3.2.2" data-path="methods-for-determining-rate-laws-from-experimental-data.html"><a href="methods-for-determining-rate-laws-from-experimental-data.html#generalisation-constant-proportional-change"><i class="fa fa-check"></i><b>3.2.2</b> Generalisation: Constant Proportional Change</a></li>
+<li class="chapter" data-level="3.2.3" data-path="methods-for-determining-rate-laws-from-experimental-data.html"><a href="methods-for-determining-rate-laws-from-experimental-data.html#worked-example-azomethane-revisited"><i class="fa fa-check"></i><b>3.2.3</b> Worked Example: Azomethane Revisited</a></li>
 </ul></li>
-<li class="chapter" data-level="4.3" data-path="methods-for-determining-rate-laws-from-experimental-data.html"><a href="methods-for-determining-rate-laws-from-experimental-data.html#the-half-life-method"><i class="fa fa-check"></i><b>4.3</b> The Half-Life Method</a>
+<li class="chapter" data-level="3.3" data-path="methods-for-determining-rate-laws-from-experimental-data.html"><a href="methods-for-determining-rate-laws-from-experimental-data.html#the-isolation-method"><i class="fa fa-check"></i><b>3.3</b> The Isolation Method</a>
 <ul>
-<li class="chapter" data-level="4.3.1" data-path="methods-for-determining-rate-laws-from-experimental-data.html"><a href="methods-for-determining-rate-laws-from-experimental-data.html#characteristic-exponential-decay"><i class="fa fa-check"></i><b>4.3.1</b> Characteristic Exponential Decay</a></li>
-<li class="chapter" data-level="4.3.2" data-path="methods-for-determining-rate-laws-from-experimental-data.html"><a href="methods-for-determining-rate-laws-from-experimental-data.html#example-azomethane-decomposition-revisited"><i class="fa fa-check"></i><b>4.3.2</b> Example: Azomethane Decomposition Revisited</a></li>
+<li class="chapter" data-level="3.3.1" data-path="methods-for-determining-rate-laws-from-experimental-data.html"><a href="methods-for-determining-rate-laws-from-experimental-data.html#extracting-the-true-rate-constant"><i class="fa fa-check"></i><b>3.3.1</b> Extracting the True Rate Constant</a></li>
 </ul></li>
-<li class="chapter" data-level="4.4" data-path="methods-for-determining-rate-laws-from-experimental-data.html"><a href="methods-for-determining-rate-laws-from-experimental-data.html#the-isolation-method"><i class="fa fa-check"></i><b>4.4</b> The Isolation Method</a></li>
-<li class="chapter" data-level="4.5" data-path="methods-for-determining-rate-laws-from-experimental-data.html"><a href="methods-for-determining-rate-laws-from-experimental-data.html#the-differential-method"><i class="fa fa-check"></i><b>4.5</b> The Differential Method</a></li>
-<li class="chapter" data-level="4.6" data-path="methods-for-determining-rate-laws-from-experimental-data.html"><a href="methods-for-determining-rate-laws-from-experimental-data.html#summary"><i class="fa fa-check"></i><b>4.6</b> Summary</a></li>
+<li class="chapter" data-level="3.4" data-path="methods-for-determining-rate-laws-from-experimental-data.html"><a href="methods-for-determining-rate-laws-from-experimental-data.html#the-differential-method-initial-rates"><i class="fa fa-check"></i><b>3.4</b> The Differential Method (Initial Rates)</a></li>
+<li class="chapter" data-level="3.5" data-path="methods-for-determining-rate-laws-from-experimental-data.html"><a href="methods-for-determining-rate-laws-from-experimental-data.html#key-concepts-2"><i class="fa fa-check"></i><b>3.5</b> Key Concepts</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="rate-laws-for-complex-reactions.html"><a href="rate-laws-for-complex-reactions.html"><i class="fa fa-check"></i><b>5</b> Rate Laws for Complex Reactions</a>
+<li class="chapter" data-level="4" data-path="complex-reaction-mechanisms.html"><a href="complex-reaction-mechanisms.html"><i class="fa fa-check"></i><b>4</b> Complex Reaction Mechanisms</a>
 <ul>
-<li class="chapter" data-level="5.1" data-path="rate-laws-for-complex-reactions.html"><a href="rate-laws-for-complex-reactions.html#introduction-1"><i class="fa fa-check"></i><b>5.1</b> Introduction</a></li>
-<li class="chapter" data-level="5.2" data-path="rate-laws-for-complex-reactions.html"><a href="rate-laws-for-complex-reactions.html#consecutive-reactions"><i class="fa fa-check"></i><b>5.2</b> Consecutive Reactions</a>
+<li class="chapter" data-level="4.1" data-path="complex-reaction-mechanisms.html"><a href="complex-reaction-mechanisms.html#consecutive-reactions"><i class="fa fa-check"></i><b>4.1</b> Consecutive Reactions</a>
 <ul>
-<li class="chapter" data-level="5.2.1" data-path="rate-laws-for-complex-reactions.html"><a href="rate-laws-for-complex-reactions.html#solving-the-rate-equations"><i class="fa fa-check"></i><b>5.2.1</b> Solving the Rate Equations</a></li>
-<li class="chapter" data-level="5.2.2" data-path="rate-laws-for-complex-reactions.html"><a href="rate-laws-for-complex-reactions.html#rate-determining-step"><i class="fa fa-check"></i><b>5.2.2</b> Rate-Determining Step</a></li>
+<li class="chapter" data-level="4.1.1" data-path="complex-reaction-mechanisms.html"><a href="complex-reaction-mechanisms.html#solving-the-rate-equations"><i class="fa fa-check"></i><b>4.1.1</b> Solving the Rate Equations</a></li>
+<li class="chapter" data-level="4.1.2" data-path="complex-reaction-mechanisms.html"><a href="complex-reaction-mechanisms.html#the-rate-determining-step"><i class="fa fa-check"></i><b>4.1.2</b> The Rate-Determining Step</a></li>
 </ul></li>
-<li class="chapter" data-level="5.3" data-path="rate-laws-for-complex-reactions.html"><a href="rate-laws-for-complex-reactions.html#equilibrium-reactions"><i class="fa fa-check"></i><b>5.3</b> Equilibrium Reactions</a></li>
-<li class="chapter" data-level="5.4" data-path="rate-laws-for-complex-reactions.html"><a href="rate-laws-for-complex-reactions.html#pre-equilibrium-mechanisms"><i class="fa fa-check"></i><b>5.4</b> Pre-equilibrium Mechanisms</a></li>
+<li class="chapter" data-level="4.2" data-path="complex-reaction-mechanisms.html"><a href="complex-reaction-mechanisms.html#equilibrium-reactions"><i class="fa fa-check"></i><b>4.2</b> Equilibrium Reactions</a></li>
+<li class="chapter" data-level="4.3" data-path="complex-reaction-mechanisms.html"><a href="complex-reaction-mechanisms.html#pre-equilibrium-mechanisms"><i class="fa fa-check"></i><b>4.3</b> Pre-Equilibrium Mechanisms</a></li>
+<li class="chapter" data-level="4.4" data-path="complex-reaction-mechanisms.html"><a href="complex-reaction-mechanisms.html#key-concepts-3"><i class="fa fa-check"></i><b>4.4</b> Key Concepts</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="the-steady-state-approximation.html"><a href="the-steady-state-approximation.html"><i class="fa fa-check"></i><b>6</b> The Steady State Approximation</a>
+<li class="chapter" data-level="5" data-path="the-steady-state-approximation.html"><a href="the-steady-state-approximation.html"><i class="fa fa-check"></i><b>5</b> The Steady-State Approximation</a>
 <ul>
-<li class="chapter" data-level="6.1" data-path="the-steady-state-approximation.html"><a href="the-steady-state-approximation.html#introduction-2"><i class="fa fa-check"></i><b>6.1</b> Introduction</a></li>
-<li class="chapter" data-level="6.2" data-path="the-steady-state-approximation.html"><a href="the-steady-state-approximation.html#analysis-of-pre-equilibrium-systems"><i class="fa fa-check"></i><b>6.2</b> Analysis of Pre-equilibrium Systems</a>
+<li class="chapter" data-level="5.1" data-path="the-steady-state-approximation.html"><a href="the-steady-state-approximation.html#the-idea-behind-the-steady-state-approximation"><i class="fa fa-check"></i><b>5.1</b> The Idea Behind the Steady-State Approximation</a></li>
+<li class="chapter" data-level="5.2" data-path="the-steady-state-approximation.html"><a href="the-steady-state-approximation.html#sec:ssa-example-1"><i class="fa fa-check"></i><b>5.2</b> Worked Example: A + B ⇌ C → D</a>
 <ul>
-<li class="chapter" data-level="6.2.1" data-path="the-steady-state-approximation.html"><a href="the-steady-state-approximation.html#application-of-the-steady-state-approximation"><i class="fa fa-check"></i><b>6.2.1</b> Application of the Steady State Approximation</a></li>
-<li class="chapter" data-level="6.2.2" data-path="the-steady-state-approximation.html"><a href="the-steady-state-approximation.html#analysis-of-limiting-cases"><i class="fa fa-check"></i><b>6.2.2</b> Analysis of Limiting Cases</a></li>
+<li class="chapter" data-level="5.2.1" data-path="the-steady-state-approximation.html"><a href="the-steady-state-approximation.html#setting-up-the-rate-equations"><i class="fa fa-check"></i><b>5.2.1</b> Setting Up the Rate Equations</a></li>
+<li class="chapter" data-level="5.2.2" data-path="the-steady-state-approximation.html"><a href="the-steady-state-approximation.html#applying-the-ssa"><i class="fa fa-check"></i><b>5.2.2</b> Applying the SSA</a></li>
+<li class="chapter" data-level="5.2.3" data-path="the-steady-state-approximation.html"><a href="the-steady-state-approximation.html#limiting-cases"><i class="fa fa-check"></i><b>5.2.3</b> Limiting Cases</a></li>
 </ul></li>
-<li class="chapter" data-level="6.3" data-path="the-steady-state-approximation.html"><a href="the-steady-state-approximation.html#mathematical-foundation-of-steady-state-behavior"><i class="fa fa-check"></i><b>6.3</b> Mathematical Foundation of Steady State Behavior</a></li>
-<li class="chapter" data-level="6.4" data-path="the-steady-state-approximation.html"><a href="the-steady-state-approximation.html#validation-criteria-for-steady-state"><i class="fa fa-check"></i><b>6.4</b> Validation Criteria for Steady State</a></li>
-</ul></li>
-<li class="chapter" data-level="7" data-path="complex-reaction-mechanisms-understanding-third-order-reactions.html"><a href="complex-reaction-mechanisms-understanding-third-order-reactions.html"><i class="fa fa-check"></i><b>7</b> Complex Reaction Mechanisms: Understanding Third-Order Reactions</a>
+<li class="chapter" data-level="5.3" data-path="the-steady-state-approximation.html"><a href="the-steady-state-approximation.html#sec:ssa-example-2"><i class="fa fa-check"></i><b>5.3</b> A Second Example: A ⇌ B, B + C → D</a>
 <ul>
-<li class="chapter" data-level="7.1" data-path="complex-reaction-mechanisms-understanding-third-order-reactions.html"><a href="complex-reaction-mechanisms-understanding-third-order-reactions.html#the-lindemann-hinshelwood-mechanism"><i class="fa fa-check"></i><b>7.1</b> The Lindemann-Hinshelwood Mechanism</a>
-<ul>
-<li class="chapter" data-level="7.1.1" data-path="complex-reaction-mechanisms-understanding-third-order-reactions.html"><a href="complex-reaction-mechanisms-understanding-third-order-reactions.html#the-lindemann-mechanism"><i class="fa fa-check"></i><b>7.1.1</b> The Lindemann Mechanism</a></li>
-<li class="chapter" data-level="7.1.2" data-path="complex-reaction-mechanisms-understanding-third-order-reactions.html"><a href="complex-reaction-mechanisms-understanding-third-order-reactions.html#mathematical-analysis"><i class="fa fa-check"></i><b>7.1.2</b> Mathematical Analysis</a></li>
-<li class="chapter" data-level="7.1.3" data-path="complex-reaction-mechanisms-understanding-third-order-reactions.html"><a href="complex-reaction-mechanisms-understanding-third-order-reactions.html#high-pressure-limit"><i class="fa fa-check"></i><b>7.1.3</b> High-Pressure Limit</a></li>
-<li class="chapter" data-level="7.1.4" data-path="complex-reaction-mechanisms-understanding-third-order-reactions.html"><a href="complex-reaction-mechanisms-understanding-third-order-reactions.html#low-pressure-limit"><i class="fa fa-check"></i><b>7.1.4</b> Low-Pressure Limit</a></li>
+<li class="chapter" data-level="5.3.1" data-path="the-steady-state-approximation.html"><a href="the-steady-state-approximation.html#applying-the-ssa-to-b"><i class="fa fa-check"></i><b>5.3.1</b> Applying the SSA to B</a></li>
+<li class="chapter" data-level="5.3.2" data-path="the-steady-state-approximation.html"><a href="the-steady-state-approximation.html#limiting-cases-1"><i class="fa fa-check"></i><b>5.3.2</b> Limiting Cases</a></li>
 </ul></li>
-<li class="chapter" data-level="7.2" data-path="complex-reaction-mechanisms-understanding-third-order-reactions.html"><a href="complex-reaction-mechanisms-understanding-third-order-reactions.html#third-order-reactions-1"><i class="fa fa-check"></i><b>7.2</b> Third-Order Reactions</a>
-<ul>
-<li class="chapter" data-level="7.2.1" data-path="complex-reaction-mechanisms-understanding-third-order-reactions.html"><a href="complex-reaction-mechanisms-understanding-third-order-reactions.html#mechanistic-implications"><i class="fa fa-check"></i><b>7.2.1</b> Mechanistic Implications</a></li>
+<li class="chapter" data-level="5.4" data-path="the-steady-state-approximation.html"><a href="the-steady-state-approximation.html#ssa-versus-pre-equilibrium"><i class="fa fa-check"></i><b>5.4</b> SSA versus Pre-Equilibrium</a></li>
+<li class="chapter" data-level="5.5" data-path="the-steady-state-approximation.html"><a href="the-steady-state-approximation.html#key-concepts-4"><i class="fa fa-check"></i><b>5.5</b> Key Concepts</a></li>
 </ul></li>
-<li class="chapter" data-level="7.3" data-path="complex-reaction-mechanisms-understanding-third-order-reactions.html"><a href="complex-reaction-mechanisms-understanding-third-order-reactions.html#formation-of-ozone"><i class="fa fa-check"></i><b>7.3</b> Formation of Ozone</a>
+<li class="chapter" data-level="6" data-path="unimolecular-reactions-and-collision-dynamics.html"><a href="unimolecular-reactions-and-collision-dynamics.html"><i class="fa fa-check"></i><b>6</b> Unimolecular Reactions and Collision Dynamics</a>
 <ul>
-<li class="chapter" data-level="7.3.1" data-path="complex-reaction-mechanisms-understanding-third-order-reactions.html"><a href="complex-reaction-mechanisms-understanding-third-order-reactions.html#why-a-third-body-is-necessary"><i class="fa fa-check"></i><b>7.3.1</b> Why a Third Body is Necessary</a></li>
-<li class="chapter" data-level="7.3.2" data-path="complex-reaction-mechanisms-understanding-third-order-reactions.html"><a href="complex-reaction-mechanisms-understanding-third-order-reactions.html#fundamental-molecular-constraints"><i class="fa fa-check"></i><b>7.3.2</b> Fundamental Molecular Constraints</a></li>
-</ul></li>
-</ul></li>
-<li class="chapter" data-level="8" data-path="enzyme-kinetics.html"><a href="enzyme-kinetics.html"><i class="fa fa-check"></i><b>8</b> Enzyme Kinetics</a>
+<li class="chapter" data-level="6.1" data-path="unimolecular-reactions-and-collision-dynamics.html"><a href="unimolecular-reactions-and-collision-dynamics.html#sec:lindemann"><i class="fa fa-check"></i><b>6.1</b> The Lindemann–Hinshelwood Mechanism</a>
 <ul>
-<li class="chapter" data-level="8.1" data-path="enzyme-kinetics.html"><a href="enzyme-kinetics.html#introduction-to-enzymatic-catalysis"><i class="fa fa-check"></i><b>8.1</b> Introduction to Enzymatic Catalysis</a></li>
-<li class="chapter" data-level="8.2" data-path="enzyme-kinetics.html"><a href="enzyme-kinetics.html#the-kinetics-of-enzyme-substrate-binding"><i class="fa fa-check"></i><b>8.2</b> The Kinetics of Enzyme-Substrate Binding</a></li>
-<li class="chapter" data-level="8.3" data-path="enzyme-kinetics.html"><a href="enzyme-kinetics.html#the-steady-state-approximation-for-enzyme-kinetics"><i class="fa fa-check"></i><b>8.3</b> The Steady State Approximation for Enzyme Kinetics</a></li>
-<li class="chapter" data-level="8.4" data-path="enzyme-kinetics.html"><a href="enzyme-kinetics.html#the-michaelis-menten-equation"><i class="fa fa-check"></i><b>8.4</b> The Michaelis-Menten Equation</a></li>
-<li class="chapter" data-level="8.5" data-path="enzyme-kinetics.html"><a href="enzyme-kinetics.html#determining-michaelis-menten-parameters"><i class="fa fa-check"></i><b>8.5</b> Determining Michaelis-Menten Parameters</a>
-<ul>
-<li class="chapter" data-level="8.5.1" data-path="enzyme-kinetics.html"><a href="enzyme-kinetics.html#non-linear-regression"><i class="fa fa-check"></i><b>8.5.1</b> Non-linear Regression</a></li>
-<li class="chapter" data-level="8.5.2" data-path="enzyme-kinetics.html"><a href="enzyme-kinetics.html#graphical-determination-of-k_mathrmm"><i class="fa fa-check"></i><b>8.5.2</b> Graphical Determination of <span class="math inline">\(K_{\mathrm{M}}\)</span></a></li>
-<li class="chapter" data-level="8.5.3" data-path="enzyme-kinetics.html"><a href="enzyme-kinetics.html#lineweaver-burk-plot"><i class="fa fa-check"></i><b>8.5.3</b> Lineweaver-Burk Plot</a></li>
+<li class="chapter" data-level="6.1.1" data-path="unimolecular-reactions-and-collision-dynamics.html"><a href="unimolecular-reactions-and-collision-dynamics.html#the-mechanism"><i class="fa fa-check"></i><b>6.1.1</b> The Mechanism</a></li>
+<li class="chapter" data-level="6.1.2" data-path="unimolecular-reactions-and-collision-dynamics.html"><a href="unimolecular-reactions-and-collision-dynamics.html#applying-the-steady-state-approximation"><i class="fa fa-check"></i><b>6.1.2</b> Applying the Steady-State Approximation</a></li>
+<li class="chapter" data-level="6.1.3" data-path="unimolecular-reactions-and-collision-dynamics.html"><a href="unimolecular-reactions-and-collision-dynamics.html#pressure-dependence"><i class="fa fa-check"></i><b>6.1.3</b> Pressure Dependence</a></li>
 </ul></li>
-<li class="chapter" data-level="8.6" data-path="enzyme-kinetics.html"><a href="enzyme-kinetics.html#quantifying-enzyme-catalytic-efficiency"><i class="fa fa-check"></i><b>8.6</b> Quantifying Enzyme Catalytic Efficiency</a></li>
-<li class="chapter" data-level="8.7" data-path="enzyme-kinetics.html"><a href="enzyme-kinetics.html#summary-of-enzyme-kinetic-parameters"><i class="fa fa-check"></i><b>8.7</b> Summary of Enzyme Kinetic Parameters</a></li>
-</ul></li>
-<li class="chapter" data-level="9" data-path="chain-reactions-and-reaction-feedback.html"><a href="chain-reactions-and-reaction-feedback.html"><i class="fa fa-check"></i><b>9</b> Chain Reactions and Reaction Feedback</a>
+<li class="chapter" data-level="6.2" data-path="unimolecular-reactions-and-collision-dynamics.html"><a href="unimolecular-reactions-and-collision-dynamics.html#sec:third-order"><i class="fa fa-check"></i><b>6.2</b> Third-Order Reactions and Collision Dynamics</a>
 <ul>
-<li class="chapter" data-level="9.1" data-path="chain-reactions-and-reaction-feedback.html"><a href="chain-reactions-and-reaction-feedback.html#introduction-to-chain-reactions"><i class="fa fa-check"></i><b>9.1</b> Introduction to Chain Reactions</a></li>
-<li class="chapter" data-level="9.2" data-path="chain-reactions-and-reaction-feedback.html"><a href="chain-reactions-and-reaction-feedback.html#the-h_2-br_2-2hbr-chain-reaction"><i class="fa fa-check"></i><b>9.2</b> The H<span class="math inline">\(_2\)</span> + Br<span class="math inline">\(_2\)</span> → 2HBr Chain Reaction</a></li>
-<li class="chapter" data-level="9.3" data-path="chain-reactions-and-reaction-feedback.html"><a href="chain-reactions-and-reaction-feedback.html#steady-state-analysis-of-the-chain-reaction"><i class="fa fa-check"></i><b>9.3</b> Steady State Analysis of the Chain Reaction</a></li>
-<li class="chapter" data-level="9.4" data-path="chain-reactions-and-reaction-feedback.html"><a href="chain-reactions-and-reaction-feedback.html#chain-reaction-types-and-characteristics"><i class="fa fa-check"></i><b>9.4</b> Chain Reaction Types and Characteristics</a>
-<ul>
-<li class="chapter" data-level="9.4.1" data-path="chain-reactions-and-reaction-feedback.html"><a href="chain-reactions-and-reaction-feedback.html#straight-chain-reactions"><i class="fa fa-check"></i><b>9.4.1</b> Straight Chain Reactions</a></li>
-<li class="chapter" data-level="9.4.2" data-path="chain-reactions-and-reaction-feedback.html"><a href="chain-reactions-and-reaction-feedback.html#branching-chain-reactions"><i class="fa fa-check"></i><b>9.4.2</b> Branching Chain Reactions</a></li>
+<li class="chapter" data-level="6.2.1" data-path="unimolecular-reactions-and-collision-dynamics.html"><a href="unimolecular-reactions-and-collision-dynamics.html#the-no-oxidation-puzzle"><i class="fa fa-check"></i><b>6.2.1</b> The NO Oxidation Puzzle</a></li>
+<li class="chapter" data-level="6.2.2" data-path="unimolecular-reactions-and-collision-dynamics.html"><a href="unimolecular-reactions-and-collision-dynamics.html#formation-of-ozone-why-a-third-body-is-needed"><i class="fa fa-check"></i><b>6.2.2</b> Formation of Ozone: Why a Third Body is Needed</a></li>
 </ul></li>
-<li class="chapter" data-level="9.5" data-path="chain-reactions-and-reaction-feedback.html"><a href="chain-reactions-and-reaction-feedback.html#feedback-mechanisms-in-chain-reactions"><i class="fa fa-check"></i><b>9.5</b> Feedback Mechanisms in Chain Reactions</a>
-<ul>
-<li class="chapter" data-level="9.5.1" data-path="chain-reactions-and-reaction-feedback.html"><a href="chain-reactions-and-reaction-feedback.html#negative-feedback-and-steady-state-behavior"><i class="fa fa-check"></i><b>9.5.1</b> Negative Feedback and Steady State Behavior</a></li>
-<li class="chapter" data-level="9.5.2" data-path="chain-reactions-and-reaction-feedback.html"><a href="chain-reactions-and-reaction-feedback.html#feedback-behavior-and-system-stability"><i class="fa fa-check"></i><b>9.5.2</b> Feedback Behavior and System Stability</a></li>
+<li class="chapter" data-level="6.3" data-path="unimolecular-reactions-and-collision-dynamics.html"><a href="unimolecular-reactions-and-collision-dynamics.html#key-concepts-5"><i class="fa fa-check"></i><b>6.3</b> Key Concepts</a></li>
 </ul></li>
-<li class="chapter" data-level="9.6" data-path="chain-reactions-and-reaction-feedback.html"><a href="chain-reactions-and-reaction-feedback.html#mathematical-analysis-of-feedback-systems"><i class="fa fa-check"></i><b>9.6</b> Mathematical Analysis of Feedback Systems</a></li>
-<li class="chapter" data-level="9.7" data-path="chain-reactions-and-reaction-feedback.html"><a href="chain-reactions-and-reaction-feedback.html#practical-implications-of-chain-reactions"><i class="fa fa-check"></i><b>9.7</b> Practical Implications of Chain Reactions</a></li>
-<li class="chapter" data-level="9.8" data-path="chain-reactions-and-reaction-feedback.html"><a href="chain-reactions-and-reaction-feedback.html#summary-1"><i class="fa fa-check"></i><b>9.8</b> Summary</a></li>
+<li class="chapter" data-level="7" data-path="binding-and-catalysis.html"><a href="binding-and-catalysis.html"><i class="fa fa-check"></i><b>7</b> Binding and Catalysis</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="binding-and-catalysis.html"><a href="binding-and-catalysis.html#sec:enzyme-kinetics"><i class="fa fa-check"></i><b>7.1</b> Enzyme Kinetics</a>
+<ul>
+<li class="chapter" data-level="7.1.1" data-path="binding-and-catalysis.html"><a href="binding-and-catalysis.html#the-michaelismenten-mechanism"><i class="fa fa-check"></i><b>7.1.1</b> The Michaelis–Menten Mechanism</a></li>
+<li class="chapter" data-level="7.1.2" data-path="binding-and-catalysis.html"><a href="binding-and-catalysis.html#deriving-the-michaelismenten-equation"><i class="fa fa-check"></i><b>7.1.2</b> Deriving the Michaelis–Menten Equation</a></li>
+<li class="chapter" data-level="7.1.3" data-path="binding-and-catalysis.html"><a href="binding-and-catalysis.html#limiting-cases-2"><i class="fa fa-check"></i><b>7.1.3</b> Limiting Cases</a></li>
+<li class="chapter" data-level="7.1.4" data-path="binding-and-catalysis.html"><a href="binding-and-catalysis.html#determining-michaelismenten-parameters"><i class="fa fa-check"></i><b>7.1.4</b> Determining Michaelis–Menten Parameters</a></li>
+<li class="chapter" data-level="7.1.5" data-path="binding-and-catalysis.html"><a href="binding-and-catalysis.html#catalytic-efficiency"><i class="fa fa-check"></i><b>7.1.5</b> Catalytic Efficiency</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="binding-and-catalysis.html"><a href="binding-and-catalysis.html#sec:langmuir"><i class="fa fa-check"></i><b>7.2</b> The Langmuir Adsorption Isotherm</a>
+<ul>
+<li class="chapter" data-level="7.2.1" data-path="binding-and-catalysis.html"><a href="binding-and-catalysis.html#limiting-cases-3"><i class="fa fa-check"></i><b>7.2.1</b> Limiting Cases</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="binding-and-catalysis.html"><a href="binding-and-catalysis.html#sec:saturation-pattern"><i class="fa fa-check"></i><b>7.3</b> The Common Pattern: Saturation Kinetics</a></li>
+<li class="chapter" data-level="7.4" data-path="binding-and-catalysis.html"><a href="binding-and-catalysis.html#key-concepts-6"><i class="fa fa-check"></i><b>7.4</b> Key Concepts</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="chain-reactions.html"><a href="chain-reactions.html"><i class="fa fa-check"></i><b>8</b> Chain Reactions</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="chain-reactions.html"><a href="chain-reactions.html#sec:hbr"><i class="fa fa-check"></i><b>8.1</b> The H<sub>2</sub> + Br<sub>2</sub> Reaction</a>
+<ul>
+<li class="chapter" data-level="8.1.1" data-path="chain-reactions.html"><a href="chain-reactions.html#the-mechanism-1"><i class="fa fa-check"></i><b>8.1.1</b> The Mechanism</a></li>
+<li class="chapter" data-level="8.1.2" data-path="chain-reactions.html"><a href="chain-reactions.html#deriving-the-rate-law-using-the-ssa"><i class="fa fa-check"></i><b>8.1.2</b> Deriving the Rate Law Using the SSA</a></li>
+<li class="chapter" data-level="8.1.3" data-path="chain-reactions.html"><a href="chain-reactions.html#physical-interpretation"><i class="fa fa-check"></i><b>8.1.3</b> Physical Interpretation</a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="chain-reactions.html"><a href="chain-reactions.html#sec:chain-anatomy"><i class="fa fa-check"></i><b>8.2</b> The Anatomy of a Chain Reaction</a>
+<ul>
+<li class="chapter" data-level="8.2.1" data-path="chain-reactions.html"><a href="chain-reactions.html#straight-chains-versus-branching-chains"><i class="fa fa-check"></i><b>8.2.1</b> Straight Chains versus Branching Chains</a></li>
+</ul></li>
+<li class="chapter" data-level="8.3" data-path="chain-reactions.html"><a href="chain-reactions.html#key-concepts-7"><i class="fa fa-check"></i><b>8.3</b> Key Concepts</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="feedback-stability-and-explosions.html"><a href="feedback-stability-and-explosions.html"><i class="fa fa-check"></i><b>9</b> Feedback, Stability, and Explosions</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="feedback-stability-and-explosions.html"><a href="feedback-stability-and-explosions.html#sec:feedback-equation"><i class="fa fa-check"></i><b>9.1</b> The General Feedback Equation</a>
+<ul>
+<li class="chapter" data-level="9.1.1" data-path="feedback-stability-and-explosions.html"><a href="feedback-stability-and-explosions.html#what-determines-phi"><i class="fa fa-check"></i><b>9.1.1</b> What Determines <span class="math inline">\(\phi\)</span>?</a></li>
+</ul></li>
+<li class="chapter" data-level="9.2" data-path="feedback-stability-and-explosions.html"><a href="feedback-stability-and-explosions.html#sec:feedback-solution"><i class="fa fa-check"></i><b>9.2</b> Solving the Feedback Equation</a>
+<ul>
+<li class="chapter" data-level="9.2.1" data-path="feedback-stability-and-explosions.html"><a href="feedback-stability-and-explosions.html#negative-feedback-phi-0-steady-state"><i class="fa fa-check"></i><b>9.2.1</b> Negative Feedback (<span class="math inline">\(\phi &lt; 0\)</span>): Steady State</a></li>
+<li class="chapter" data-level="9.2.2" data-path="feedback-stability-and-explosions.html"><a href="feedback-stability-and-explosions.html#positive-feedback-phi-0-explosion"><i class="fa fa-check"></i><b>9.2.2</b> Positive Feedback (<span class="math inline">\(\phi &gt; 0\)</span>): Explosion</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="feedback-stability-and-explosions.html"><a href="feedback-stability-and-explosions.html#sec:mechanism-to-stability"><i class="fa fa-check"></i><b>9.3</b> From Mechanism to Stability</a></li>
+<li class="chapter" data-level="9.4" data-path="feedback-stability-and-explosions.html"><a href="feedback-stability-and-explosions.html#key-concepts-8"><i class="fa fa-check"></i><b>9.4</b> Key Concepts</a></li>
 </ul></li>
 <li class="chapter" data-level="10" data-path="temperature-effects-on-reaction-rates.html"><a href="temperature-effects-on-reaction-rates.html"><i class="fa fa-check"></i><b>10</b> Temperature Effects on Reaction Rates</a>
 <ul>
-<li class="chapter" data-level="10.1" data-path="temperature-effects-on-reaction-rates.html"><a href="temperature-effects-on-reaction-rates.html#introduction-3"><i class="fa fa-check"></i><b>10.1</b> Introduction</a></li>
-<li class="chapter" data-level="10.2" data-path="temperature-effects-on-reaction-rates.html"><a href="temperature-effects-on-reaction-rates.html#the-arrhenius-equation"><i class="fa fa-check"></i><b>10.2</b> The Arrhenius Equation</a></li>
-<li class="chapter" data-level="10.3" data-path="temperature-effects-on-reaction-rates.html"><a href="temperature-effects-on-reaction-rates.html#linearised-form-of-the-arrhenius-equation"><i class="fa fa-check"></i><b>10.3</b> Linearised Form of the Arrhenius Equation</a></li>
-<li class="chapter" data-level="10.4" data-path="temperature-effects-on-reaction-rates.html"><a href="temperature-effects-on-reaction-rates.html#general-expression-for-activation-energy"><i class="fa fa-check"></i><b>10.4</b> General Expression for Activation Energy</a></li>
-<li class="chapter" data-level="10.5" data-path="temperature-effects-on-reaction-rates.html"><a href="temperature-effects-on-reaction-rates.html#alternative-forms-of-the-arrhenius-equation"><i class="fa fa-check"></i><b>10.5</b> Alternative Forms of the Arrhenius Equation</a></li>
-<li class="chapter" data-level="10.6" data-path="temperature-effects-on-reaction-rates.html"><a href="temperature-effects-on-reaction-rates.html#physical-meaning-of-arrhenius-parameters"><i class="fa fa-check"></i><b>10.6</b> Physical Meaning of Arrhenius Parameters</a>
+<li class="chapter" data-level="10.1" data-path="temperature-effects-on-reaction-rates.html"><a href="temperature-effects-on-reaction-rates.html#sec:arrhenius"><i class="fa fa-check"></i><b>10.1</b> The Arrhenius Equation</a></li>
+<li class="chapter" data-level="10.2" data-path="temperature-effects-on-reaction-rates.html"><a href="temperature-effects-on-reaction-rates.html#sec:arrhenius-linear"><i class="fa fa-check"></i><b>10.2</b> The Linearised Arrhenius Equation</a></li>
+<li class="chapter" data-level="10.3" data-path="temperature-effects-on-reaction-rates.html"><a href="temperature-effects-on-reaction-rates.html#sec:arrhenius-meaning"><i class="fa fa-check"></i><b>10.3</b> Physical Meaning of the Arrhenius Parameters</a>
 <ul>
-<li class="chapter" data-level="10.6.1" data-path="temperature-effects-on-reaction-rates.html"><a href="temperature-effects-on-reaction-rates.html#the-activation-energy-e_mathrma"><i class="fa fa-check"></i><b>10.6.1</b> The Activation Energy (<span class="math inline">\(E_\mathrm{a}\)</span>)</a></li>
-<li class="chapter" data-level="10.6.2" data-path="temperature-effects-on-reaction-rates.html"><a href="temperature-effects-on-reaction-rates.html#the-pre-exponential-factor-a"><i class="fa fa-check"></i><b>10.6.2</b> The Pre-exponential Factor (<span class="math inline">\(A\)</span>)</a></li>
+<li class="chapter" data-level="10.3.1" data-path="temperature-effects-on-reaction-rates.html"><a href="temperature-effects-on-reaction-rates.html#the-activation-energy-e_mathrma"><i class="fa fa-check"></i><b>10.3.1</b> The Activation Energy (<span class="math inline">\(E_\mathrm{a}\)</span>)</a></li>
+<li class="chapter" data-level="10.3.2" data-path="temperature-effects-on-reaction-rates.html"><a href="temperature-effects-on-reaction-rates.html#the-pre-exponential-factor-a"><i class="fa fa-check"></i><b>10.3.2</b> The Pre-Exponential Factor (<span class="math inline">\(A\)</span>)</a></li>
 </ul></li>
-<li class="chapter" data-level="10.7" data-path="temperature-effects-on-reaction-rates.html"><a href="temperature-effects-on-reaction-rates.html#reaction-energy-profiles"><i class="fa fa-check"></i><b>10.7</b> Reaction Energy Profiles</a></li>
-<li class="chapter" data-level="10.8" data-path="temperature-effects-on-reaction-rates.html"><a href="temperature-effects-on-reaction-rates.html#determining-arrhenius-parameters-from-experimental-data"><i class="fa fa-check"></i><b>10.8</b> Determining Arrhenius Parameters from Experimental Data</a>
+<li class="chapter" data-level="10.4" data-path="temperature-effects-on-reaction-rates.html"><a href="temperature-effects-on-reaction-rates.html#sec:arrhenius-determination"><i class="fa fa-check"></i><b>10.4</b> Determining Arrhenius Parameters</a>
 <ul>
-<li class="chapter" data-level="10.8.1" data-path="temperature-effects-on-reaction-rates.html"><a href="temperature-effects-on-reaction-rates.html#linear-regression-analysis"><i class="fa fa-check"></i><b>10.8.1</b> Linear Regression Analysis</a></li>
-<li class="chapter" data-level="10.8.2" data-path="temperature-effects-on-reaction-rates.html"><a href="temperature-effects-on-reaction-rates.html#non-linear-regression-1"><i class="fa fa-check"></i><b>10.8.2</b> Non-linear Regression</a></li>
-<li class="chapter" data-level="10.8.3" data-path="temperature-effects-on-reaction-rates.html"><a href="temperature-effects-on-reaction-rates.html#two-point-estimation"><i class="fa fa-check"></i><b>10.8.3</b> Two-Point Estimation</a></li>
-<li class="chapter" data-level="10.8.4" data-path="temperature-effects-on-reaction-rates.html"><a href="temperature-effects-on-reaction-rates.html#estimating-a-from-graphical-data"><i class="fa fa-check"></i><b>10.8.4</b> Estimating <span class="math inline">\(A\)</span> from Graphical Data</a></li>
+<li class="chapter" data-level="10.4.1" data-path="temperature-effects-on-reaction-rates.html"><a href="temperature-effects-on-reaction-rates.html#from-an-arrhenius-plot"><i class="fa fa-check"></i><b>10.4.1</b> From an Arrhenius Plot</a></li>
+<li class="chapter" data-level="10.4.2" data-path="temperature-effects-on-reaction-rates.html"><a href="temperature-effects-on-reaction-rates.html#the-two-temperature-formula"><i class="fa fa-check"></i><b>10.4.2</b> The Two-Temperature Formula</a></li>
 </ul></li>
-<li class="chapter" data-level="10.9" data-path="temperature-effects-on-reaction-rates.html"><a href="temperature-effects-on-reaction-rates.html#special-cases-and-deviations-from-arrhenius-behavior"><i class="fa fa-check"></i><b>10.9</b> Special Cases and Deviations from Arrhenius Behavior</a>
+<li class="chapter" data-level="10.5" data-path="temperature-effects-on-reaction-rates.html"><a href="temperature-effects-on-reaction-rates.html#sec:non-arrhenius"><i class="fa fa-check"></i><b>10.5</b> Negative Activation Energies and Non-Arrhenius Behaviour</a>
 <ul>
-<li class="chapter" data-level="10.9.1" data-path="temperature-effects-on-reaction-rates.html"><a href="temperature-effects-on-reaction-rates.html#negative-activation-energies"><i class="fa fa-check"></i><b>10.9.1</b> Negative Activation Energies</a></li>
-<li class="chapter" data-level="10.9.2" data-path="temperature-effects-on-reaction-rates.html"><a href="temperature-effects-on-reaction-rates.html#non-arrhenius-behavior"><i class="fa fa-check"></i><b>10.9.2</b> Non-Arrhenius Behavior</a></li>
+<li class="chapter" data-level="10.5.1" data-path="temperature-effects-on-reaction-rates.html"><a href="temperature-effects-on-reaction-rates.html#negative-activation-energies"><i class="fa fa-check"></i><b>10.5.1</b> Negative Activation Energies</a></li>
+<li class="chapter" data-level="10.5.2" data-path="temperature-effects-on-reaction-rates.html"><a href="temperature-effects-on-reaction-rates.html#non-arrhenius-behaviour"><i class="fa fa-check"></i><b>10.5.2</b> Non-Arrhenius Behaviour</a></li>
 </ul></li>
-<li class="chapter" data-level="10.10" data-path="temperature-effects-on-reaction-rates.html"><a href="temperature-effects-on-reaction-rates.html#predicting-rate-constants-at-different-temperatures"><i class="fa fa-check"></i><b>10.10</b> Predicting Rate Constants at Different Temperatures</a></li>
-<li class="chapter" data-level="10.11" data-path="temperature-effects-on-reaction-rates.html"><a href="temperature-effects-on-reaction-rates.html#summary-2"><i class="fa fa-check"></i><b>10.11</b> Summary</a></li>
+<li class="chapter" data-level="10.6" data-path="temperature-effects-on-reaction-rates.html"><a href="temperature-effects-on-reaction-rates.html#key-concepts-9"><i class="fa fa-check"></i><b>10.6</b> Key Concepts</a></li>
 </ul></li>
 <li class="appendix"><span><b>Appendices</b></span></li>
-<li class="chapter" data-level="A" data-path="mass-balance-in-chemical-kinetics.html"><a href="mass-balance-in-chemical-kinetics.html"><i class="fa fa-check"></i><b>A</b> Mass Balance in Chemical Kinetics</a>
+<li class="chapter" data-level="A" data-path="appendix-two-reactants.html"><a href="appendix-two-reactants.html"><i class="fa fa-check"></i><b>A</b> Integrated Rate Law for Two Different Reactants</a>
 <ul>
-<li class="chapter" data-level="A.1" data-path="mass-balance-in-chemical-kinetics.html"><a href="mass-balance-in-chemical-kinetics.html#the-origins-of-mass-balance"><i class="fa fa-check"></i><b>A.1</b> The Origins of Mass Balance</a></li>
-<li class="chapter" data-level="A.2" data-path="mass-balance-in-chemical-kinetics.html"><a href="mass-balance-in-chemical-kinetics.html#from-mass-balance-to-rate-relationships"><i class="fa fa-check"></i><b>A.2</b> From Mass Balance to Rate Relationships</a></li>
-<li class="chapter" data-level="A.3" data-path="mass-balance-in-chemical-kinetics.html"><a href="mass-balance-in-chemical-kinetics.html#mass-balance-with-stoichiometry"><i class="fa fa-check"></i><b>A.3</b> Mass Balance with Stoichiometry</a></li>
-<li class="chapter" data-level="A.4" data-path="mass-balance-in-chemical-kinetics.html"><a href="mass-balance-in-chemical-kinetics.html#generalizing-to-complex-reactions"><i class="fa fa-check"></i><b>A.4</b> Generalizing to Complex Reactions</a></li>
-<li class="chapter" data-level="A.5" data-path="mass-balance-in-chemical-kinetics.html"><a href="mass-balance-in-chemical-kinetics.html#equilibrium-reactions-and-mass-balance"><i class="fa fa-check"></i><b>A.5</b> Equilibrium Reactions and Mass Balance</a></li>
-<li class="chapter" data-level="A.6" data-path="mass-balance-in-chemical-kinetics.html"><a href="mass-balance-in-chemical-kinetics.html#key-principles"><i class="fa fa-check"></i><b>A.6</b> Key Principles</a></li>
+<li class="chapter" data-level="A.1" data-path="appendix-two-reactants.html"><a href="appendix-two-reactants.html#setting-up-the-problem"><i class="fa fa-check"></i><b>A.1</b> Setting Up the Problem</a></li>
+<li class="chapter" data-level="A.2" data-path="appendix-two-reactants.html"><a href="appendix-two-reactants.html#solving-by-partial-fractions"><i class="fa fa-check"></i><b>A.2</b> Solving by Partial Fractions</a></li>
+<li class="chapter" data-level="A.3" data-path="appendix-two-reactants.html"><a href="appendix-two-reactants.html#the-equal-concentration-limit"><i class="fa fa-check"></i><b>A.3</b> The Equal-Concentration Limit</a></li>
 </ul></li>
-<li class="chapter" data-level="B" data-path="why-arent-all-bimolecular-reactions-third-order.html"><a href="why-arent-all-bimolecular-reactions-third-order.html"><i class="fa fa-check"></i><b>B</b> Why Aren’t All Bimolecular Reactions Third Order?</a>
+<li class="chapter" data-level="B" data-path="appendix-third-body.html"><a href="appendix-third-body.html"><i class="fa fa-check"></i><b>B</b> Why Don’t All Bimolecular Reactions Require a Third Body?</a>
 <ul>
-<li class="chapter" data-level="B.1" data-path="why-arent-all-bimolecular-reactions-third-order.html"><a href="why-arent-all-bimolecular-reactions-third-order.html#an-apparent-contradiction-in-reaction-kinetics"><i class="fa fa-check"></i><b>B.1</b> An Apparent Contradiction in Reaction Kinetics</a></li>
-<li class="chapter" data-level="B.2" data-path="why-arent-all-bimolecular-reactions-third-order.html"><a href="why-arent-all-bimolecular-reactions-third-order.html#the-ozone-formation-challenge"><i class="fa fa-check"></i><b>B.2</b> The Ozone Formation Challenge</a></li>
-<li class="chapter" data-level="B.3" data-path="why-arent-all-bimolecular-reactions-third-order.html"><a href="why-arent-all-bimolecular-reactions-third-order.html#why-most-bimolecular-reactions-dont-require-a-third-body"><i class="fa fa-check"></i><b>B.3</b> Why Most Bimolecular Reactions Don’t Require a Third Body</a>
-<ul>
-<li class="chapter" data-level="B.3.1" data-path="why-arent-all-bimolecular-reactions-third-order.html"><a href="why-arent-all-bimolecular-reactions-third-order.html#activation-barriers-redirecting-energy-flow"><i class="fa fa-check"></i><b>B.3.1</b> Activation Barriers: Redirecting Energy Flow</a></li>
-<li class="chapter" data-level="B.3.2" data-path="why-arent-all-bimolecular-reactions-third-order.html"><a href="why-arent-all-bimolecular-reactions-third-order.html#molecular-complexity-more-storage-compartments-for-energy"><i class="fa fa-check"></i><b>B.3.2</b> Molecular Complexity: More Storage Compartments for Energy</a></li>
-<li class="chapter" data-level="B.3.3" data-path="why-arent-all-bimolecular-reactions-third-order.html"><a href="why-arent-all-bimolecular-reactions-third-order.html#exchange-reactions-energy-balancing-acts"><i class="fa fa-check"></i><b>B.3.3</b> Exchange Reactions: Energy Balancing Acts</a></li>
-<li class="chapter" data-level="B.3.4" data-path="why-arent-all-bimolecular-reactions-third-order.html"><a href="why-arent-all-bimolecular-reactions-third-order.html#the-influence-of-reaction-barriers-on-energy-partitioning"><i class="fa fa-check"></i><b>B.3.4</b> The Influence of Reaction Barriers on Energy Partitioning</a></li>
+<li class="chapter" data-level="B.1" data-path="appendix-third-body.html"><a href="appendix-third-body.html#the-problem-energy-disposal-after-bond-formation"><i class="fa fa-check"></i><b>B.1</b> The Problem: Energy Disposal After Bond Formation</a></li>
+<li class="chapter" data-level="B.2" data-path="appendix-third-body.html"><a href="appendix-third-body.html#why-most-reactions-avoid-this-problem"><i class="fa fa-check"></i><b>B.2</b> Why Most Reactions Avoid This Problem</a></li>
+<li class="chapter" data-level="B.3" data-path="appendix-third-body.html"><a href="appendix-third-body.html#a-spectrum-of-behaviour"><i class="fa fa-check"></i><b>B.3</b> A Spectrum of Behaviour</a></li>
 </ul></li>
-<li class="chapter" data-level="B.4" data-path="why-arent-all-bimolecular-reactions-third-order.html"><a href="why-arent-all-bimolecular-reactions-third-order.html#a-spectrum-of-behavior"><i class="fa fa-check"></i><b>B.4</b> A Spectrum of Behavior</a></li>
-<li class="chapter" data-level="B.5" data-path="why-arent-all-bimolecular-reactions-third-order.html"><a href="why-arent-all-bimolecular-reactions-third-order.html#conclusions"><i class="fa fa-check"></i><b>B.5</b> Conclusions</a></li>
-</ul></li>
-<li class="chapter" data-level="C" data-path="negative-reaction-orders.html"><a href="negative-reaction-orders.html"><i class="fa fa-check"></i><b>C</b> Negative Reaction Orders</a>
+<li class="chapter" data-level="C" data-path="appendix-negative-orders.html"><a href="appendix-negative-orders.html"><i class="fa fa-check"></i><b>C</b> Negative Reaction Orders</a>
 <ul>
-<li class="chapter" data-level="C.1" data-path="negative-reaction-orders.html"><a href="negative-reaction-orders.html#what-are-negative-reaction-orders"><i class="fa fa-check"></i><b>C.1</b> What Are Negative Reaction Orders?</a></li>
-<li class="chapter" data-level="C.2" data-path="negative-reaction-orders.html"><a href="negative-reaction-orders.html#physical-origins-of-negative-orders"><i class="fa fa-check"></i><b>C.2</b> Physical Origins of Negative Orders</a></li>
-<li class="chapter" data-level="C.3" data-path="negative-reaction-orders.html"><a href="negative-reaction-orders.html#example-1-chain-reaction-inhibition-in-h2-br2-2hbr"><i class="fa fa-check"></i><b>C.3</b> Example 1: Chain Reaction Inhibition in H<sub>2</sub> + Br<sub>2</sub> → 2HBr</a>
-<ul>
-<li class="chapter" data-level="C.3.1" data-path="negative-reaction-orders.html"><a href="negative-reaction-orders.html#why-does-this-happen"><i class="fa fa-check"></i><b>C.3.1</b> Why Does This Happen?</a></li>
-</ul></li>
-<li class="chapter" data-level="C.4" data-path="negative-reaction-orders.html"><a href="negative-reaction-orders.html#example-2-competitive-adsorption-in-surface-reactions"><i class="fa fa-check"></i><b>C.4</b> Example 2: Competitive Adsorption in Surface Reactions</a>
-<ul>
-<li class="chapter" data-level="C.4.1" data-path="negative-reaction-orders.html"><a href="negative-reaction-orders.html#the-site-blocking-effect"><i class="fa fa-check"></i><b>C.4.1</b> The Site-Blocking Effect</a></li>
-</ul></li>
-<li class="chapter" data-level="C.5" data-path="negative-reaction-orders.html"><a href="negative-reaction-orders.html#recognising-negative-orders"><i class="fa fa-check"></i><b>C.5</b> Recognising Negative Orders</a></li>
-<li class="chapter" data-level="C.6" data-path="negative-reaction-orders.html"><a href="negative-reaction-orders.html#practical-implications"><i class="fa fa-check"></i><b>C.6</b> Practical Implications</a></li>
+<li class="chapter" data-level="C.1" data-path="appendix-negative-orders.html"><a href="appendix-negative-orders.html#what-does-a-negative-order-mean"><i class="fa fa-check"></i><b>C.1</b> What Does a Negative Order Mean?</a></li>
+<li class="chapter" data-level="C.2" data-path="appendix-negative-orders.html"><a href="appendix-negative-orders.html#example-1-product-inhibition-in-h2-br2-rightarrow-2hbr"><i class="fa fa-check"></i><b>C.2</b> Example 1: Product Inhibition in H<sub>2</sub> + Br<sub>2</sub> <span class="math inline">\(\rightarrow\)</span> 2HBr</a></li>
+<li class="chapter" data-level="C.3" data-path="appendix-negative-orders.html"><a href="appendix-negative-orders.html#example-2-competitive-adsorption-in-surface-reactions"><i class="fa fa-check"></i><b>C.3</b> Example 2: Competitive Adsorption in Surface Reactions</a></li>
+<li class="chapter" data-level="C.4" data-path="appendix-negative-orders.html"><a href="appendix-negative-orders.html#recognising-negative-orders"><i class="fa fa-check"></i><b>C.4</b> Recognising Negative Orders</a></li>
 </ul></li>
 </ul>
 
@@ -384,187 +294,142 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="temperature-effects-on-reaction-rates" class="section level1 hasAnchor" number="10">
 <h1><span class="header-section-number">Lecture 10</span> Temperature Effects on Reaction Rates<a href="temperature-effects-on-reaction-rates.html#temperature-effects-on-reaction-rates" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<div id="introduction-3" class="section level2 hasAnchor" number="10.1">
-<h2><span class="header-section-number">10.1</span> Introduction<a href="temperature-effects-on-reaction-rates.html#introduction-3" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>The effect of temperature on reaction rates is readily observable in numerous chemical processes. Food preservation through refrigeration, the acceleration of cooking at higher temperatures, and the use of heat to speed up laboratory reactions all demonstrate the significant influence of temperature on chemical kinetics. These observations reflect a fundamental principle: most chemical reactions proceed more rapidly as temperature increases.</p>
-<p>In previous chapters, we examined how reaction rates depend on reactant concentrations, establishing methods for determining rate laws and exploring the relationship between mechanisms and observed kinetics. This chapter addresses the second major factor affecting reaction rates: temperature. Understanding the temperature dependence of reaction rates is essential for predicting reaction behavior under various conditions and provides insight into the energetic requirements of chemical transformations.</p>
-</div>
-<div id="the-arrhenius-equation" class="section level2 hasAnchor" number="10.2">
-<h2><span class="header-section-number">10.2</span> The Arrhenius Equation<a href="temperature-effects-on-reaction-rates.html#the-arrhenius-equation" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>In the late 19th century, Swedish chemist Svante Arrhenius observed that for many reactions, the rate constant varies with temperature according to a simple mathematical relationship. This relationship, now known as the Arrhenius equation, expresses the rate constant as:</p>
-<p><span class="math display">\[k = A \exp \left( \frac{-E_\mathrm{a}}{RT} \right)\]</span></p>
-<p>where:
-- <span class="math inline">\(k\)</span> is the rate constant
-- <span class="math inline">\(A\)</span> is the pre-exponential factor (with the same units as <span class="math inline">\(k\)</span>)
-- <span class="math inline">\(E_\mathrm{a}\)</span> is the activation energy (typically in kJ mol<span class="math inline">\(^{-1}\)</span>)
-- <span class="math inline">\(R\)</span> is the gas constant (8.314 J K<span class="math inline">\(^{-1}\)</span> mol<span class="math inline">\(^{-1}\)</span>)
-- <span class="math inline">\(T\)</span> is the absolute temperature (in Kelvin)</p>
-<p>The Arrhenius equation has proven remarkably effective in describing the temperature dependence of rate constants across diverse chemical systems. It establishes that rate constants increase exponentially with temperature, which explains the substantial acceleration of reactions observed when temperature is raised.</p>
-<!-- ```{r arrhenius-equation, fig.cap="Temperature dependence of rate constants according to the Arrhenius equation. The plot shows how rate constants increase exponentially with temperature, with higher activation energies leading to stronger temperature dependence."}
-# Figure showing k vs T curves for different activation energies
-``` -->
-</div>
-<div id="linearised-form-of-the-arrhenius-equation" class="section level2 hasAnchor" number="10.3">
-<h2><span class="header-section-number">10.3</span> Linearised Form of the Arrhenius Equation<a href="temperature-effects-on-reaction-rates.html#linearised-form-of-the-arrhenius-equation" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>For experimental analysis, the Arrhenius equation is often recast in logarithmic form. Taking the natural logarithm of both sides yields:</p>
-<p><span class="math display">\[\ln k = \ln A - \frac{E_\mathrm{a}}{RT}\]</span></p>
-<p>This transformation produces a linear relationship between <span class="math inline">\(\ln k\)</span> and <span class="math inline">\(\frac{1}{T}\)</span>, with:</p>
+<p>Throughout the course so far, we have studied how reaction rates depend on <em>concentrations</em> — through rate laws, integrated rate equations, and the SSA. But concentration is only half the story. Every chemist knows that reactions go faster when you heat them up. In this chapter, we put this observation on a quantitative footing with the <strong>Arrhenius equation</strong>, which connects the rate constant to temperature and reveals the energetic requirements for a reaction to proceed.</p>
+<div id="sec:arrhenius" class="section level2 hasAnchor" number="10.1">
+<h2><span class="header-section-number">10.1</span> The Arrhenius Equation<a href="temperature-effects-on-reaction-rates.html#sec:arrhenius" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>In the late 19th century, Svante Arrhenius observed that for many reactions, the rate constant <span class="math inline">\(k\)</span> increases exponentially with temperature according to:</p>
+<p><span class="math display" id="eq:arrhenius">\[\begin{equation}
+k = A\,\mathrm{e}^{-E_\mathrm{a}/RT}
+\tag{10.1}
+\end{equation}\]</span></p>
+<p>where:</p>
 <ul>
-<li>Slope = <span class="math inline">\(-\frac{E_\mathrm{a}}{R}\)</span></li>
-<li>y-intercept = <span class="math inline">\(\ln A\)</span></li>
+<li><span class="math inline">\(A\)</span> is the <strong>pre-exponential factor</strong> (same units as <span class="math inline">\(k\)</span>)</li>
+<li><span class="math inline">\(E_\mathrm{a}\)</span> is the <strong>activation energy</strong> (<span class="math inline">\(\mathrm{kJ\,mol}^{-1}\)</span>)</li>
+<li><span class="math inline">\(R\)</span> is the gas constant (<span class="math inline">\(8.314\,\mathrm{J\,K}^{-1}\,\mathrm{mol}^{-1}\)</span>)</li>
+<li><span class="math inline">\(T\)</span> is the absolute temperature (K)</li>
 </ul>
-<!-- ```{r arrhenius-plot, fig.cap="Linearised Arrhenius plot showing the determination of activation energy from the slope and pre-exponential factor from the y-intercept."}
-# Figure showing linearized Arrhenius plot with slope and intercept indicated
-``` -->
-<p>This linear form facilitates the experimental determination of Arrhenius parameters from rate constant measurements at different temperatures.</p>
+<p>The exponential factor <span class="math inline">\(\mathrm{e}^{-E_\mathrm{a}/RT}\)</span> represents the fraction of molecules with enough energy to react. As <span class="math inline">\(T\)</span> increases, this fraction grows rapidly — explaining why even modest temperature increases can produce large rate enhancements.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:arrhenius-k-vs-T"></span>
+<img src="lecture_11/figures/arrhenius_k_vs_T.png" alt="Rate constant $k$ as a function of temperature. The exponential relationship means that $k$ increases steeply with $T$, with higher $E_\mathrm{a}$ giving a steeper temperature dependence." width="70%" />
+<p class="caption">
+Figure 10.1: Rate constant <span class="math inline">\(k\)</span> as a function of temperature. The exponential relationship means that <span class="math inline">\(k\)</span> increases steeply with <span class="math inline">\(T\)</span>, with higher <span class="math inline">\(E_\mathrm{a}\)</span> giving a steeper temperature dependence.
+</p>
 </div>
-<div id="general-expression-for-activation-energy" class="section level2 hasAnchor" number="10.4">
-<h2><span class="header-section-number">10.4</span> General Expression for Activation Energy<a href="temperature-effects-on-reaction-rates.html#general-expression-for-activation-energy" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>The activation energy can be defined more generally through the temperature dependence of the rate constant:</p>
-<p><span class="math display">\[E_\mathrm{a}(T) = -R \frac{d \ln k}{d(1/T)}\]</span></p>
-<p>For reactions that strictly follow the Arrhenius equation, <span class="math inline">\(E_\mathrm{a}\)</span> is independent of temperature. However, many real systems show some temperature variation in <span class="math inline">\(E_\mathrm{a}\)</span>, requiring more complex models.</p>
 </div>
-<div id="alternative-forms-of-the-arrhenius-equation" class="section level2 hasAnchor" number="10.5">
-<h2><span class="header-section-number">10.5</span> Alternative Forms of the Arrhenius Equation<a href="temperature-effects-on-reaction-rates.html#alternative-forms-of-the-arrhenius-equation" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>The Arrhenius equation can also be expressed in terms of the Boltzmann distribution factor:</p>
-<p><span class="math display">\[k = A e^{-E_\mathrm{a}/RT}\]</span></p>
-<p>This formulation emphasizes that the rate constant comprises two distinct components: the pre-exponential factor <span class="math inline">\(A\)</span> and the exponential term that contains both temperature and activation energy.</p>
-</div>
-<div id="physical-meaning-of-arrhenius-parameters" class="section level2 hasAnchor" number="10.6">
-<h2><span class="header-section-number">10.6</span> Physical Meaning of Arrhenius Parameters<a href="temperature-effects-on-reaction-rates.html#physical-meaning-of-arrhenius-parameters" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>The Arrhenius equation incorporates two parameters that characterize how a reaction responds to temperature changes. While these parameters were initially derived empirically, they possess physical interpretations that enhance our understanding of reaction kinetics.</p>
-<div id="the-activation-energy-e_mathrma" class="section level3 hasAnchor" number="10.6.1">
-<h3><span class="header-section-number">10.6.1</span> The Activation Energy (<span class="math inline">\(E_\mathrm{a}\)</span>)<a href="temperature-effects-on-reaction-rates.html#the-activation-energy-e_mathrma" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>The activation energy represents an energy threshold that must be exceeded for a chemical reaction to occur. This concept provides insight into the temperature dependence of reaction rates:</p>
+<div id="sec:arrhenius-linear" class="section level2 hasAnchor" number="10.2">
+<h2><span class="header-section-number">10.2</span> The Linearised Arrhenius Equation<a href="temperature-effects-on-reaction-rates.html#sec:arrhenius-linear" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Taking the natural logarithm of Eqn. <a href="temperature-effects-on-reaction-rates.html#eq:arrhenius">(10.1)</a>:</p>
+<p><span class="math display" id="eq:arrhenius-linear">\[\begin{equation}
+\ln k = \ln A - \frac{E_\mathrm{a}}{R} \cdot \frac{1}{T}
+\tag{10.2}
+\end{equation}\]</span></p>
+<p>This is the equation of a straight line with <span class="math inline">\(\ln k\)</span> on the <span class="math inline">\(y\)</span>-axis and <span class="math inline">\(1/T\)</span> on the <span class="math inline">\(x\)</span>-axis:</p>
 <ul>
-<li><span class="math inline">\(E_\mathrm{a}\)</span> corresponds approximately to the minimum energy required for reactants to transform into products</li>
-<li>At higher temperatures, a larger fraction of molecules possess sufficient energy to surpass this threshold</li>
-<li>The exponential term in the Arrhenius equation (<span class="math inline">\(e^{-E_\mathrm{a}/RT}\)</span>) quantifies the proportion of molecules with energy exceeding the required minimum</li>
+<li>Slope <span class="math inline">\(= -E_\mathrm{a}/R\)</span></li>
+<li><span class="math inline">\(y\)</span>-intercept <span class="math inline">\(= \ln A\)</span></li>
 </ul>
-</div>
-<div id="the-pre-exponential-factor-a" class="section level3 hasAnchor" number="10.6.2">
-<h3><span class="header-section-number">10.6.2</span> The Pre-exponential Factor (<span class="math inline">\(A\)</span>)<a href="temperature-effects-on-reaction-rates.html#the-pre-exponential-factor-a" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>The pre-exponential factor <span class="math inline">\(A\)</span> represents the theoretical maximum rate constant—the value that would be observed if either the activation energy barrier were absent (<span class="math inline">\(E_\mathrm{a} = 0\)</span>) or the temperature were infinite.</p>
-<p>From a physical perspective, <span class="math inline">\(A\)</span> encompasses several factors:
-- The frequency of molecular collisions
-- Geometric requirements for successful reaction (such as molecular orientation)
-- Other factors that influence reaction probability independent of energy considerations</p>
-<p>The pre-exponential factor has the same units as the rate constant <span class="math inline">\(k\)</span> and is specific to each reaction.</p>
+<p>An <strong>Arrhenius plot</strong> of <span class="math inline">\(\ln k\)</span> versus <span class="math inline">\(1/T\)</span> is therefore the standard graphical method for determining activation energies. A steeper (more negative) slope indicates a larger activation energy — the reaction is more sensitive to temperature.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:arrhenius-plot"></span>
+<img src="lecture_11/figures/arrhenius_plot.png" alt="Arrhenius plot: $\ln k$ versus $1/T$. The slope gives $-E_\mathrm{a}/R$ and the $y$-intercept gives $\ln A$. A steeper slope corresponds to a higher activation energy. The line of best fit is used to extract $E_\mathrm{a}$ and $A$ from experimental data." width="70%" />
+<p class="caption">
+Figure 10.2: Arrhenius plot: <span class="math inline">\(\ln k\)</span> versus <span class="math inline">\(1/T\)</span>. The slope gives <span class="math inline">\(-E_\mathrm{a}/R\)</span> and the <span class="math inline">\(y\)</span>-intercept gives <span class="math inline">\(\ln A\)</span>. A steeper slope corresponds to a higher activation energy. The line of best fit is used to extract <span class="math inline">\(E_\mathrm{a}\)</span> and <span class="math inline">\(A\)</span> from experimental data.
+</p>
 </div>
 </div>
-<div id="reaction-energy-profiles" class="section level2 hasAnchor" number="10.7">
-<h2><span class="header-section-number">10.7</span> Reaction Energy Profiles<a href="temperature-effects-on-reaction-rates.html#reaction-energy-profiles" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>A valuable conceptual tool for understanding activation energy is the reaction energy profile, also known as a reaction coordinate diagram:</p>
-<!-- ```{r reaction-coordinate, fig.cap="Reaction coordinate diagram showing the energy profile of a chemical reaction. The activation energy represents the energy barrier between reactants and products."}
-# Figure showing potential energy surface with activation barrier
-``` -->
-<p>This diagram illustrates the energy changes that occur as reactants transform into products. The activation energy <span class="math inline">\(E_\mathrm{a}\)</span> corresponds to the height of the energy barrier that separates reactants from products. This representation provides an intuitive framework for understanding why energy input (often in the form of heat) facilitates chemical reactions.</p>
-<p>More sophisticated treatments of reaction kinetics will provide additional refinements to this conceptual model, but the essential framework remains valid—reactions require energy to overcome a barrier, and the Arrhenius equation quantifies how temperature affects this process.</p>
+<div id="sec:arrhenius-meaning" class="section level2 hasAnchor" number="10.3">
+<h2><span class="header-section-number">10.3</span> Physical Meaning of the Arrhenius Parameters<a href="temperature-effects-on-reaction-rates.html#sec:arrhenius-meaning" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="the-activation-energy-e_mathrma" class="section level3 hasAnchor" number="10.3.1">
+<h3><span class="header-section-number">10.3.1</span> The Activation Energy (<span class="math inline">\(E_\mathrm{a}\)</span>)<a href="temperature-effects-on-reaction-rates.html#the-activation-energy-e_mathrma" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The activation energy represents an energy threshold that must be exceeded for reactants to transform into products. We can visualise this using a <strong>reaction coordinate diagram</strong>:</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:reaction-coordinate"></span>
+<img src="lecture_11/figures/reaction_coordinate.png" alt="Reaction coordinate diagram showing the energy profile along the reaction pathway. The activation energy $E_\mathrm{a}$ is the height of the energy barrier separating reactants from products. The transition state sits at the top of the barrier. The energy difference $\Delta E_\mathrm{r}$ between reactants and products determines the thermodynamics; $E_\mathrm{a}$ determines the kinetics." width="55%" />
+<p class="caption">
+Figure 10.3: Reaction coordinate diagram showing the energy profile along the reaction pathway. The activation energy <span class="math inline">\(E_\mathrm{a}\)</span> is the height of the energy barrier separating reactants from products. The transition state sits at the top of the barrier. The energy difference <span class="math inline">\(\Delta E_\mathrm{r}\)</span> between reactants and products determines the thermodynamics; <span class="math inline">\(E_\mathrm{a}\)</span> determines the kinetics.
+</p>
 </div>
-<div id="determining-arrhenius-parameters-from-experimental-data" class="section level2 hasAnchor" number="10.8">
-<h2><span class="header-section-number">10.8</span> Determining Arrhenius Parameters from Experimental Data<a href="temperature-effects-on-reaction-rates.html#determining-arrhenius-parameters-from-experimental-data" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Several methodologies exist for extracting Arrhenius parameters from experimental measurements of rate constants at different temperatures.</p>
-<div id="linear-regression-analysis" class="section level3 hasAnchor" number="10.8.1">
-<h3><span class="header-section-number">10.8.1</span> Linear Regression Analysis<a href="temperature-effects-on-reaction-rates.html#linear-regression-analysis" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>The most common approach involves measuring rate constants at multiple temperatures and plotting <span class="math inline">\(\ln k\)</span> versus <span class="math inline">\(\frac{1}{T}\)</span>. Linear regression analysis of this plot provides:</p>
+<p>At temperature <span class="math inline">\(T\)</span>, molecules have a distribution of kinetic energies. Only those with energy exceeding <span class="math inline">\(E_\mathrm{a}\)</span> can surmount the barrier and react. The Boltzmann factor <span class="math inline">\(\mathrm{e}^{-E_\mathrm{a}/RT}\)</span> gives the fraction of molecules that meet this criterion. As <span class="math inline">\(T\)</span> increases, the energy distribution broadens and a larger fraction of molecules can react — which is why the rate increases.</p>
+</div>
+<div id="the-pre-exponential-factor-a" class="section level3 hasAnchor" number="10.3.2">
+<h3><span class="header-section-number">10.3.2</span> The Pre-Exponential Factor (<span class="math inline">\(A\)</span>)<a href="temperature-effects-on-reaction-rates.html#the-pre-exponential-factor-a" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The pre-exponential factor represents the rate constant that would be observed if the energy barrier were absent (<span class="math inline">\(E_\mathrm{a} = 0\)</span>). It encapsulates all the non-energetic factors that affect the reaction rate:</p>
 <ul>
-<li>Slope = <span class="math inline">\(-\frac{E_\mathrm{a}}{R}\)</span>, from which <span class="math inline">\(E_\mathrm{a}\)</span> is calculated</li>
-<li>y-intercept = <span class="math inline">\(\ln A\)</span>, from which <span class="math inline">\(A\)</span> is determined</li>
+<li>The frequency of molecular collisions</li>
+<li>The probability that colliding molecules have the correct orientation</li>
+<li>Other geometric and steric factors</li>
 </ul>
-<!-- ```{r linear-regression, fig.cap="Arrhenius plot with experimental data points and fitted line. The slope equals -E_a/R, allowing direct determination of the activation energy."}
-# Figure showing Arrhenius plot with data points and best-fit line
-``` -->
-<p>While conceptually straightforward, this approach has certain limitations. The logarithmic transformation can distort experimental errors, particularly at extreme temperatures. Additionally, extrapolation to determine the y-intercept (<span class="math inline">\(\frac{1}{T} = 0\)</span>, corresponding to infinite temperature) introduces substantial uncertainties in the estimation of <span class="math inline">\(A\)</span>.</p>
-</div>
-<div id="non-linear-regression-1" class="section level3 hasAnchor" number="10.8.2">
-<h3><span class="header-section-number">10.8.2</span> Non-linear Regression<a href="temperature-effects-on-reaction-rates.html#non-linear-regression-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Contemporary computational methods permit direct non-linear fitting of the Arrhenius equation in its original exponential form:</p>
-<p><span class="math display">\[k = A \exp \left( \frac{-E_\mathrm{a}}{RT} \right)\]</span></p>
-<p>This approach avoids the error distortion that occurs with logarithmic transformation and typically yields more reliable parameter estimates, especially when data span a limited temperature range.</p>
-<!-- ```{r nonlinear-fit, fig.cap="Non-linear regression fit of the Arrhenius equation to rate constant data. This approach avoids the potential error distortion that can occur with linearised methods."}
-# Figure showing non-linear fit to k vs T data
-``` -->
-</div>
-<div id="two-point-estimation" class="section level3 hasAnchor" number="10.8.3">
-<h3><span class="header-section-number">10.8.3</span> Two-Point Estimation<a href="temperature-effects-on-reaction-rates.html#two-point-estimation" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>When data are available at only two temperatures, the activation energy can still be estimated. For temperatures <span class="math inline">\(T_1\)</span> and <span class="math inline">\(T_2\)</span> with corresponding rate constants <span class="math inline">\(k_1\)</span> and <span class="math inline">\(k_2\)</span>:</p>
-<p><span class="math display">\[\ln k_1 = \ln A - \frac{E_\mathrm{a}}{RT_1}\]</span>
-<span class="math display">\[\ln k_2 = \ln A - \frac{E_\mathrm{a}}{RT_2}\]</span></p>
-<p>Subtracting the first equation from the second eliminates <span class="math inline">\(\ln A\)</span>:</p>
-<p><span class="math display">\[\ln k_2 - \ln k_1 = \frac{E_\mathrm{a}}{R} \left( \frac{1}{T_1} - \frac{1}{T_2} \right)\]</span></p>
-<p>Rearranging to solve for <span class="math inline">\(E_\mathrm{a}\)</span>:</p>
-<p><span class="math display">\[E_\mathrm{a} = \frac{R \ln(k_2/k_1)}{\frac{1}{T_1} - \frac{1}{T_2}}\]</span></p>
-<p>This approach provides a first approximation but cannot account for deviations from Arrhenius behavior across broader temperature ranges.</p>
-</div>
-<div id="estimating-a-from-graphical-data" class="section level3 hasAnchor" number="10.8.4">
-<h3><span class="header-section-number">10.8.4</span> Estimating <span class="math inline">\(A\)</span> from Graphical Data<a href="temperature-effects-on-reaction-rates.html#estimating-a-from-graphical-data" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>When working with Arrhenius plots (<span class="math inline">\(\ln k\)</span> versus <span class="math inline">\(\frac{1}{T}\)</span>), the pre-exponential factor <span class="math inline">\(A\)</span> corresponds to the y-intercept (<span class="math inline">\(\ln A\)</span>). Direct extrapolation to <span class="math inline">\(\frac{1}{T} = 0\)</span> introduces large uncertainties because this point lies far from the experimental data range.</p>
-<p>A more reliable method uses the slope and a point on the fitted line:</p>
-<ol style="list-style-type: decimal">
-<li>Determine the slope <span class="math inline">\(m = -\frac{E_\mathrm{a}}{R}\)</span> from the linear fit</li>
-<li>Select a point <span class="math inline">\((x_0, y_0)\)</span> on the line, preferably within the data range</li>
-<li>Calculate the intercept <span class="math inline">\(c = y_0 - mx_0\)</span></li>
-<li>Compute the pre-exponential factor as <span class="math inline">\(A = e^c\)</span></li>
-</ol>
-<!-- ```{r intercept-estimation, fig.cap="Estimation of the pre-exponential factor from an Arrhenius plot without direct extrapolation to 1/T = 0. Using a data point and the slope provides more reliable estimates."}
-# Figure showing improved method for estimating A
-``` -->
-<p>This method circumvents the uncertainties associated with extreme extrapolation while providing a reliable estimate of <span class="math inline">\(A\)</span>.</p>
+<p>For bimolecular reactions, <span class="math inline">\(A\)</span> is typically in the range <span class="math inline">\(10^{9}\)</span>–<span class="math inline">\(10^{11}\,\mathrm{dm}^3\,\mathrm{mol}^{-1}\,\mathrm{s}^{-1}\)</span>, reflecting the collision frequency modified by steric requirements.</p>
 </div>
 </div>
-<div id="special-cases-and-deviations-from-arrhenius-behavior" class="section level2 hasAnchor" number="10.9">
-<h2><span class="header-section-number">10.9</span> Special Cases and Deviations from Arrhenius Behavior<a href="temperature-effects-on-reaction-rates.html#special-cases-and-deviations-from-arrhenius-behavior" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>While the Arrhenius equation successfully describes many reactions, several important cases exhibit more complex temperature dependence.</p>
-<div id="negative-activation-energies" class="section level3 hasAnchor" number="10.9.1">
-<h3><span class="header-section-number">10.9.1</span> Negative Activation Energies<a href="temperature-effects-on-reaction-rates.html#negative-activation-energies" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>For most reactions, the activation energy is positive, and rates increase with temperature. However, certain reactions display the opposite behavior—their rates decrease as temperature rises, corresponding to a negative activation energy.</p>
-<p>This counterintuitive behavior typically indicates a complex reaction mechanism rather than a true “downhill” elementary process. For example, the oxidation of nitric oxide:</p>
-<p><span class="math display">\[2\mathrm{NO} + \mathrm{O}_2 \rightarrow 2\mathrm{NO}_2\]</span></p>
-<p>exhibits a negative temperature dependence with empirical rate law:</p>
-<p><span class="math display">\[\frac{d[\mathrm{NO}_2]}{dt} = k[\mathrm{NO}]^2[\mathrm{O}_2]\]</span></p>
-<!-- ```{r negative-ea, fig.cap="Arrhenius plot for a reaction with negative activation energy. The positive slope indicates that the rate constant decreases with increasing temperature."}
-# Figure showing Arrhenius plot with positive slope
-``` -->
-<p>Such behavior typically arises in multi-step reaction mechanisms. In the case of NO oxidation, a reversible first step becomes less favorable at higher temperatures, leading to the observed decrease in overall reaction rate.</p>
+<div id="sec:arrhenius-determination" class="section level2 hasAnchor" number="10.4">
+<h2><span class="header-section-number">10.4</span> Determining Arrhenius Parameters<a href="temperature-effects-on-reaction-rates.html#sec:arrhenius-determination" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="from-an-arrhenius-plot" class="section level3 hasAnchor" number="10.4.1">
+<h3><span class="header-section-number">10.4.1</span> From an Arrhenius Plot<a href="temperature-effects-on-reaction-rates.html#from-an-arrhenius-plot" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The most common approach is to measure <span class="math inline">\(k\)</span> at several temperatures, plot <span class="math inline">\(\ln k\)</span> versus <span class="math inline">\(1/T\)</span>, and determine <span class="math inline">\(E_\mathrm{a}\)</span> from the slope and <span class="math inline">\(A\)</span> from the intercept. In practice, the <span class="math inline">\(y\)</span>-intercept (<span class="math inline">\(\ln A\)</span>) corresponds to <span class="math inline">\(1/T = 0\)</span> (infinite temperature), which lies far outside the experimental data range. A more reliable method is to use the slope together with a point on the fitted line to calculate <span class="math inline">\(A\)</span> without extrapolation.</p>
 </div>
-<div id="non-arrhenius-behavior" class="section level3 hasAnchor" number="10.9.2">
-<h3><span class="header-section-number">10.9.2</span> Non-Arrhenius Behavior<a href="temperature-effects-on-reaction-rates.html#non-arrhenius-behavior" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Several situations can lead to deviations from simple Arrhenius behavior:</p>
-<ol style="list-style-type: decimal">
-<li><strong>Multiple reaction pathways</strong>: When parallel reaction paths with different activation energies contribute to the overall process, the apparent activation energy may vary with temperature. This occurs because the relative contribution of each pathway changes with temperature—lower-<span class="math inline">\(E_\mathrm{a}\)</span> paths dominate at lower temperatures, while higher-<span class="math inline">\(E_\mathrm{a}\)</span> paths become increasingly important at higher temperatures.</li>
-</ol>
-<!-- ```{r multiple-pathways, fig.cap="Curved Arrhenius plot resulting from multiple reaction pathways with different activation energies. The effective activation energy changes with temperature range."}
-# Figure showing curved Arrhenius plot
-``` -->
-<ol start="2" style="list-style-type: decimal">
-<li><p><strong>Change in rate-determining step</strong>: For reactions with sequential steps in a mechanism, changes in temperature can shift which step limits the overall rate. This phenomenon occurs because steps with different activation energies respond differently to temperature changes, potentially altering which step is rate-determining as temperature varies.</p></li>
-<li><p><strong>Diffusion-limited reactions</strong>: When reaction rates approach the limit set by diffusion processes, the temperature dependence weakens. This occurs because diffusion typically has a lower activation energy than chemical transformation steps.</p></li>
-<li><p><strong>Quantum tunneling effects</strong>: At very low temperatures, quantum tunneling can allow reactions to proceed despite insufficient thermal energy to overcome the classical barrier, causing deviations from Arrhenius behavior.</p></li>
-</ol>
+<div id="the-two-temperature-formula" class="section level3 hasAnchor" number="10.4.2">
+<h3><span class="header-section-number">10.4.2</span> The Two-Temperature Formula<a href="temperature-effects-on-reaction-rates.html#the-two-temperature-formula" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>When rate constants are known at just two temperatures, the activation energy can be determined directly. Subtracting the Arrhenius equation at <span class="math inline">\(T_1\)</span> from that at <span class="math inline">\(T_2\)</span>:</p>
+<p><span class="math display" id="eq:two-temperature">\[\begin{equation}
+\ln\frac{k_2}{k_1} = \frac{E_\mathrm{a}}{R}\left(\frac{1}{T_1} - \frac{1}{T_2}\right)
+\tag{10.3}
+\end{equation}\]</span></p>
+<p>This is a very practical result: given <span class="math inline">\(k\)</span> at two temperatures, we can find <span class="math inline">\(E_\mathrm{a}\)</span> without knowing <span class="math inline">\(A\)</span>. Rearranging:</p>
+<p><span class="math display">\[E_\mathrm{a} = \frac{R\ln(k_2/k_1)}{1/T_1 - 1/T_2}\]</span></p>
+<p>The same equation can be used in reverse: given <span class="math inline">\(E_\mathrm{a}\)</span> and <span class="math inline">\(k\)</span> at one temperature, we can predict <span class="math inline">\(k\)</span> at another temperature. A rough rule of thumb for reactions with typical activation energies (<span class="math inline">\(\sim 50\,\mathrm{kJ\,mol}^{-1}\)</span>) is that the rate approximately doubles for every <span class="math inline">\(10\,\mathrm{K}\)</span> increase in temperature near room temperature — though the exact factor depends on <span class="math inline">\(E_\mathrm{a}\)</span>.</p>
+<div class="skill">
+<p><strong>You should be able to:</strong> Use the Arrhenius equation to construct an Arrhenius plot and extract <span class="math inline">\(E_\mathrm{a}\)</span> and <span class="math inline">\(A\)</span>, and apply the two-temperature formula (Eqn. <a href="temperature-effects-on-reaction-rates.html#eq:two-temperature">(10.3)</a>) to calculate <span class="math inline">\(E_\mathrm{a}\)</span> from rate constants at two temperatures or to predict a rate constant at a new temperature.</p>
 </div>
 </div>
-<div id="predicting-rate-constants-at-different-temperatures" class="section level2 hasAnchor" number="10.10">
-<h2><span class="header-section-number">10.10</span> Predicting Rate Constants at Different Temperatures<a href="temperature-effects-on-reaction-rates.html#predicting-rate-constants-at-different-temperatures" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>A practical application of the Arrhenius equation involves predicting rate constants at temperatures where direct measurements may be impractical. If the activation energy and rate constant are known at one temperature, the rate constant at another temperature can be estimated.</p>
-<p>Starting with the Arrhenius equation in logarithmic form:</p>
-<p><span class="math display">\[\ln k_1 = \ln A - \frac{E_\mathrm{a}}{RT_1}\]</span>
-<span class="math display">\[\ln k_2 = \ln A - \frac{E_\mathrm{a}}{RT_2}\]</span></p>
-<p>Subtracting the first equation from the second:</p>
-<p><span class="math display">\[\ln k_2 - \ln k_1 = \frac{E_\mathrm{a}}{R} \left( \frac{1}{T_1} - \frac{1}{T_2} \right)\]</span></p>
-<p>Rearranging:</p>
-<p><span class="math display">\[\ln \frac{k_2}{k_1} = \frac{E_\mathrm{a}}{R} \left( \frac{1}{T_1} - \frac{1}{T_2} \right)\]</span></p>
-<p>This equation enables estimation of how rate constants change between two temperatures without requiring knowledge of the pre-exponential factor <span class="math inline">\(A\)</span>. This approach assumes that <span class="math inline">\(E_\mathrm{a}\)</span> remains constant across the temperature range of interest—a reasonable approximation for many reactions within moderate temperature intervals.</p>
-<!-- ```{r temperature-prediction, fig.cap="Estimation of rate constants at different temperatures using the Arrhenius relationship. Known data points allow prediction of rate constants at new temperatures."}
-# Figure showing prediction of k at new temperatures
-``` -->
-<p>For reactions with positive activation energies, rate constants increase with temperature. A general guideline derived from typical activation energy values suggests that many reaction rates approximately double with every 10°C increase in temperature, though the exact factor depends on the specific activation energy of the reaction in question.</p>
 </div>
-<div id="summary-2" class="section level2 hasAnchor" number="10.11">
-<h2><span class="header-section-number">10.11</span> Summary<a href="temperature-effects-on-reaction-rates.html#summary-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>The Arrhenius equation provides a fundamental framework for understanding and quantifying how temperature affects reaction rates. The exponential relationship between temperature and rate constants explains the significant acceleration of most chemical reactions at elevated temperatures.</p>
-<p>The two Arrhenius parameters—the pre-exponential factor <span class="math inline">\(A\)</span> and the activation energy <span class="math inline">\(E_\mathrm{a}\)</span>—relate empirical kinetic behavior to a conceptual model of reactions requiring an energy threshold to proceed. The activation energy represents the energy barrier that reactant molecules must overcome, while the pre-exponential factor encompasses various factors affecting reaction probability independent of energy considerations.</p>
-<p>Experimental determination of these parameters through regression analysis allows for characterization of reactions and prediction of their behavior across different temperature ranges. The Arrhenius equation thus serves as a powerful tool linking macroscopic kinetic measurements to fundamental aspects of chemical reactivity.</p>
-<p>While the Arrhenius equation applies to a wide range of chemical processes, cases such as negative activation energies and non-Arrhenius behavior reveal the complexity of reaction mechanisms. These exceptions provide valuable insights into the intricate nature of chemical transformations and the limitations of simple kinetic models.</p>
+<div id="sec:non-arrhenius" class="section level2 hasAnchor" number="10.5">
+<h2><span class="header-section-number">10.5</span> Negative Activation Energies and Non-Arrhenius Behaviour<a href="temperature-effects-on-reaction-rates.html#sec:non-arrhenius" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="negative-activation-energies" class="section level3 hasAnchor" number="10.5.1">
+<h3><span class="header-section-number">10.5.1</span> Negative Activation Energies<a href="temperature-effects-on-reaction-rates.html#negative-activation-energies" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>For most reactions, <span class="math inline">\(E_\mathrm{a} &gt; 0\)</span> and the rate increases with temperature. But some reactions display the opposite behaviour — their rates <em>decrease</em> as temperature rises, corresponding to a negative apparent activation energy.</p>
+<p>We have already met an example: the oxidation of nitric oxide (Lecture 7):</p>
+<p><span class="math display">\[2\mathrm{NO} + \mathrm{O_2} \rightarrow 2\mathrm{NO_2}\]</span></p>
+<p>This reaction proceeds through a pre-equilibrium mechanism:</p>
+<p><span class="math display">\[\mathrm{NO} + \mathrm{NO} \underset{k_{-1}}{\stackrel{k_1}{\rightleftharpoons}} (\mathrm{NO})_2 \qquad (\mathrm{NO})_2 + \mathrm{O_2} \xrightarrow{k_2} 2\mathrm{NO_2}\]</span></p>
+<p>The observed rate constant is <span class="math inline">\(k_\mathrm{obs} = k_2 K = k_2 k_1/k_{-1}\)</span>. The dimerisation equilibrium is exothermic, so <span class="math inline">\(K\)</span> decreases with increasing temperature (Le Chatelier’s principle). Although <span class="math inline">\(k_2\)</span> increases with temperature (it has a positive activation energy), the decrease in <span class="math inline">\(K\)</span> is faster — so the overall effect is that <span class="math inline">\(k_\mathrm{obs}\)</span> decreases. The Arrhenius plot has a <em>positive</em> slope, corresponding to a negative apparent <span class="math inline">\(E_\mathrm{a}\)</span>.</p>
+<p>A negative activation energy does not mean there is no energy barrier for the individual elementary steps — each step has a positive <span class="math inline">\(E_\mathrm{a}\)</span>. Rather, the <em>observed</em> <span class="math inline">\(E_\mathrm{a}\)</span> for the overall reaction is a combination of the activation energies for the individual steps and the enthalpy change of the pre-equilibrium step.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:negative-ea"></span>
+<img src="lecture_11/figures/negative_ea.png" alt="Arrhenius plot for a reaction with negative apparent activation energy (positive slope), such as the oxidation of NO. The rate *decreases* with increasing temperature because the exothermic pre-equilibrium shifts to the left faster than the slow step accelerates." width="70%" />
+<p class="caption">
+Figure 10.4: Arrhenius plot for a reaction with negative apparent activation energy (positive slope), such as the oxidation of NO. The rate <em>decreases</em> with increasing temperature because the exothermic pre-equilibrium shifts to the left faster than the slow step accelerates.
+</p>
+</div>
+<div class="skill">
+<p><strong>You should be able to:</strong> Explain why the NO oxidation reaction has a negative apparent activation energy by connecting the temperature dependence of the pre-equilibrium constant to the overall rate.</p>
+</div>
+</div>
+<div id="non-arrhenius-behaviour" class="section level3 hasAnchor" number="10.5.2">
+<h3><span class="header-section-number">10.5.2</span> Non-Arrhenius Behaviour<a href="temperature-effects-on-reaction-rates.html#non-arrhenius-behaviour" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Several situations can produce curved Arrhenius plots — departures from the simple linear relationship between <span class="math inline">\(\ln k\)</span> and <span class="math inline">\(1/T\)</span>:</p>
+<p><strong>Competing reaction pathways.</strong> When two parallel pathways with different activation energies contribute to the overall rate, the observed rate constant is <span class="math inline">\(k_\mathrm{obs} = k_1 + k_2\)</span>. At low temperatures, the low-<span class="math inline">\(E_\mathrm{a}\)</span> pathway dominates; at high temperatures, the high-<span class="math inline">\(E_\mathrm{a}\)</span> pathway takes over. The Arrhenius plot shows two approximately linear regions with different slopes, connected by a curve.</p>
+<p><strong>Change in rate-determining step.</strong> For multi-step mechanisms, the rate-determining step can change with temperature if different steps have different activation energies.</p>
+<p><strong>Diffusion-limited reactions.</strong> When the reaction rate approaches the diffusion limit, the temperature dependence weakens because diffusion has a lower activation energy than most chemical steps.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:curved-arrhenius"></span>
+<img src="lecture_11/figures/curved_arrhenius.png" alt="Non-Arrhenius behaviour: a non-linear Arrhenius plot arising from two competing reaction pathways with different activation energies. The observed rate constant $k_\mathrm{obs} = k_1 + k_2$ shows two approximately linear regimes connected by a curve, as the dominant pathway changes with temperature." width="55%" />
+<p class="caption">
+Figure 10.5: Non-Arrhenius behaviour: a non-linear Arrhenius plot arising from two competing reaction pathways with different activation energies. The observed rate constant <span class="math inline">\(k_\mathrm{obs} = k_1 + k_2\)</span> shows two approximately linear regimes connected by a curve, as the dominant pathway changes with temperature.
+</p>
+</div>
+<div class="skill">
+<p><strong>You should be able to:</strong> Describe how competing reaction pathways with different activation energies can produce a curved Arrhenius plot.</p>
+</div>
+</div>
+</div>
+<div id="key-concepts-9" class="section level2 hasAnchor" number="10.6">
+<h2><span class="header-section-number">10.6</span> Key Concepts<a href="temperature-effects-on-reaction-rates.html#key-concepts-9" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li>The <strong>Arrhenius equation</strong>, <span class="math inline">\(k = A\,\mathrm{e}^{-E_\mathrm{a}/RT}\)</span>, describes how rate constants increase exponentially with temperature. It contains two parameters: the activation energy <span class="math inline">\(E_\mathrm{a}\)</span> (the energy barrier) and the pre-exponential factor <span class="math inline">\(A\)</span> (the collision frequency and orientation probability).</li>
+<li>An <strong>Arrhenius plot</strong> of <span class="math inline">\(\ln k\)</span> versus <span class="math inline">\(1/T\)</span> gives a straight line with slope <span class="math inline">\(-E_\mathrm{a}/R\)</span> and intercept <span class="math inline">\(\ln A\)</span>.</li>
+<li>The <strong>two-temperature formula</strong>, <span class="math inline">\(\ln(k_2/k_1) = (E_\mathrm{a}/R)(1/T_1 - 1/T_2)\)</span>, allows determination of <span class="math inline">\(E_\mathrm{a}\)</span> from measurements at two temperatures or prediction of <span class="math inline">\(k\)</span> at a new temperature.</li>
+<li><strong>Negative apparent activation energies</strong> arise in multi-step mechanisms where a pre-equilibrium step is exothermic — the equilibrium constant decreases with temperature faster than the rate constant of the slow step increases.</li>
+<li><strong>Non-Arrhenius behaviour</strong> (curved Arrhenius plots) can arise from competing pathways, changes in the rate-determining step, or diffusion limitations.</li>
+<li>The Arrhenius equation provides the bridge between macroscopic kinetic measurements (rate constants at different temperatures) and molecular-level understanding (energy barriers and collision dynamics).</li>
+</ul>
 
 </div>
 </div>
@@ -576,8 +441,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           </div>
         </div>
       </div>
-<a href="chain-reactions-and-reaction-feedback.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="mass-balance-in-chemical-kinetics.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="feedback-stability-and-explosions.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="appendix-two-reactants.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -608,7 +473,7 @@ gitbook.start({
     "size": 2
   },
   "edit": {
-    "link": "https://github.com/bjmorgan/CH12002/main/lecture_10/lecture_10.Rmd",
+    "link": "https://github.com/bjmorgan/CH12002/main/lecture_11/lecture_11.Rmd",
     "text": "Edit"
   },
   "history": {

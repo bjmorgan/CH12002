@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Lecture 1 Introduction to Chemical Kinetics | CH12002 Lecture Notes</title>
+  <title>Lecture 7 Binding and Catalysis | CH12002 Lecture Notes</title>
   <meta name="description" content="These are notes to accompany the 2025 CH12002 lecture course on Chemical Kinetics." />
   <meta name="generator" content="bookdown 0.46 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Lecture 1 Introduction to Chemical Kinetics | CH12002 Lecture Notes" />
+  <meta property="og:title" content="Lecture 7 Binding and Catalysis | CH12002 Lecture Notes" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="These are notes to accompany the 2025 CH12002 lecture course on Chemical Kinetics." />
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Lecture 1 Introduction to Chemical Kinetics | CH12002 Lecture Notes" />
+  <meta name="twitter:title" content="Lecture 7 Binding and Catalysis | CH12002 Lecture Notes" />
   
   <meta name="twitter:description" content="These are notes to accompany the 2025 CH12002 lecture course on Chemical Kinetics." />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="mathematical-foundations.html"/>
-<link rel="next" href="integrated-rate-laws.html"/>
+<link rel="prev" href="unimolecular-reactions-and-collision-dynamics.html"/>
+<link rel="next" href="chain-reactions.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -292,230 +292,196 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="introduction-to-chemical-kinetics" class="section level1 hasAnchor" number="1">
-<h1><span class="header-section-number">Lecture 1</span> Introduction to Chemical Kinetics<a href="introduction-to-chemical-kinetics.html#introduction-to-chemical-kinetics" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<div id="why-study-reaction-kinetics" class="section level2 hasAnchor" number="1.1">
-<h2><span class="header-section-number">1.1</span> Why Study Reaction Kinetics?<a href="introduction-to-chemical-kinetics.html#why-study-reaction-kinetics" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Chemistry is fundamentally concerned with change—the transformation of substances into new forms with different properties. When we mix reactants together, we want to know not just <em>whether</em> a reaction will occur, but <em>how rapidly</em> it will proceed. While thermodynamics provides powerful tools for determining whether a particular chemical change is favourable and what the final equilibrium composition will be, it tells us nothing about how quickly this equilibrium will be reached.</p>
-<p>A reaction may be thermodynamically favourable yet proceed so slowly that it appears not to happen at all. Consider the conversion of diamond to graphite—thermodynamically spontaneous at room temperature and pressure, yet the process occurs at such a negligible rate that diamonds remain stable for geological timescales. Conversely, some reactions reach equilibrium in fractions of a second.</p>
-<p>Chemical kinetics addresses these questions of reaction rates and mechanisms. Where thermodynamics concerns itself with the energy relationships that govern chemical equilibria, kinetics focuses on the rates of chemical processes and the molecular pathways by which they occur. Through kinetic analysis, we can determine how quickly reactants transform into products, what factors influence reaction speed, and what sequence of molecular events constitutes the reaction mechanism.</p>
-<p>The complementary nature of thermodynamics and kinetics provides a complete picture of chemical change:</p>
-<ul>
-<li><strong>Thermodynamics</strong> tells us whether a reaction <em>can</em> occur and what the equilibrium state will be</li>
-<li><strong>Kinetics</strong> tells us how <em>fast</em> we approach that equilibrium and by what molecular pathway</li>
-</ul>
-<p>Both perspectives are essential for understanding chemical processes—in laboratory settings, industrial applications, and natural systems.</p>
-</div>
-<div id="describing-how-concentrations-change-with-time" class="section level2 hasAnchor" number="1.2">
-<h2><span class="header-section-number">1.2</span> Describing How Concentrations Change with Time<a href="introduction-to-chemical-kinetics.html#describing-how-concentrations-change-with-time" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Let us examine a simple reaction: the conversion of a reactant A into a product B:</p>
-<p><span class="math display">\[\mathrm{A} \rightarrow \mathrm{B}\]</span></p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:fig-concentration-profile"></span>
-<img src="lecture_1/figures/concentration_profile.png" alt="Time evolution of concentrations for the reaction A → B. As the reaction proceeds, the concentration of reactant A decreases while the concentration of product B increases. At any time $t$, the sum of the two concentrations equals the initial concentration of A (assuming we start with pure A)." width="45%" />
+<div id="binding-and-catalysis" class="section level1 hasAnchor" number="7">
+<h1><span class="header-section-number">Lecture 7</span> Binding and Catalysis<a href="binding-and-catalysis.html#binding-and-catalysis" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>The Lindemann mechanism showed how the SSA can explain pressure-dependent kinetics for gas-phase reactions. In this chapter, we apply the same mathematical framework to a very different setting: the kinetics of <em>binding</em>. When a substrate binds to an enzyme, or a gas molecule adsorbs onto a surface, the resulting kinetics share a common mathematical structure — saturation kinetics — that arises from the competition between binding and reaction at a finite number of sites.</p>
+<div id="sec:enzyme-kinetics" class="section level2 hasAnchor" number="7.1">
+<h2><span class="header-section-number">7.1</span> Enzyme Kinetics<a href="binding-and-catalysis.html#sec:enzyme-kinetics" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Enzymes are biological catalysts — predominantly proteins — that dramatically accelerate reaction rates by lowering activation energies. Their three-dimensional structures create <strong>active sites</strong>: specific binding pockets where substrate molecules bind and undergo transformation into products. This specificity gives enzymes their remarkable selectivity, often catalysing just one reaction among many possibilities.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:enzyme-substrate"></span>
+<img src="lecture_8/figures/enzyme_substrate.png" alt="Schematic representation of enzyme-substrate binding. The enzyme's active site accommodates the substrate molecule, forming the enzyme-substrate complex ES, which then converts to product P and regenerates the free enzyme. [Draft figure from lecture slides.]" width="70%" />
 <p class="caption">
-Figure 1.1: Time evolution of concentrations for the reaction A → B. As the reaction proceeds, the concentration of reactant A decreases while the concentration of product B increases. At any time <span class="math inline">\(t\)</span>, the sum of the two concentrations equals the initial concentration of A (assuming we start with pure A).
+Figure 7.1: Schematic representation of enzyme-substrate binding. The enzyme’s active site accommodates the substrate molecule, forming the enzyme-substrate complex ES, which then converts to product P and regenerates the free enzyme. [Draft figure from lecture slides.]
 </p>
 </div>
-<p>As the reaction proceeds, the concentrations of both species change. We track the progress of the reaction by monitoring concentrations as functions of time. Using square brackets to denote concentration (in mol dm<span class="math inline">\(^{-3}\)</span>), we write these time-dependent concentrations as <span class="math inline">\([\mathrm{A}]_t\)</span> and <span class="math inline">\([\mathrm{B}]_t\)</span>.</p>
-<p>Starting from initial values at <span class="math inline">\(t = 0\)</span>, the system evolves toward its final state. The questions we might ask include:</p>
-<ul>
-<li>How much product B is present after time <span class="math inline">\(t\)</span>?</li>
-<li>How long will it take for a certain percentage of A to convert to B?</li>
-<li>If we change pressure, temperature, or initial concentration, how will the reaction speed be affected?</li>
-</ul>
-<p>Answering these questions requires us to understand how reaction rates relate to concentrations—and this is the central concern of chemical kinetics.</p>
+<div id="the-michaelismenten-mechanism" class="section level3 hasAnchor" number="7.1.1">
+<h3><span class="header-section-number">7.1.1</span> The Michaelis–Menten Mechanism<a href="binding-and-catalysis.html#the-michaelismenten-mechanism" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The basic kinetic model for enzyme catalysis was proposed by Victor Henri and refined by Leonor Michaelis and Maud Menten. The enzyme E binds reversibly to its substrate S, forming an enzyme–substrate complex ES, which then converts irreversibly to product P and regenerates the free enzyme:</p>
+<p><span class="math display">\[\mathrm{E} + \mathrm{S} \underset{k_{-1}}{\stackrel{k_1}{\rightleftharpoons}} \mathrm{ES} \xrightarrow{k_\mathrm{cat}} \mathrm{E} + \mathrm{P}\]</span></p>
+<p>This gives the rate equations:</p>
+<p><span class="math display">\[\begin{align*}
+\frac{\mathrm{d}[\mathrm{ES}]}{\mathrm{d}t} &amp;= k_1[\mathrm{E}][\mathrm{S}] - k_{-1}[\mathrm{ES}] - k_\mathrm{cat}[\mathrm{ES}] \\
+\frac{\mathrm{d}[\mathrm{P}]}{\mathrm{d}t} &amp;= k_\mathrm{cat}[\mathrm{ES}]
+\end{align*}\]</span></p>
+<p>The rate of product formation depends on <span class="math inline">\([\mathrm{ES}]\)</span>, which is difficult to measure directly. We need to express it in terms of experimentally accessible quantities.</p>
 </div>
-<div id="reaction-rates" class="section level2 hasAnchor" number="1.3">
-<h2><span class="header-section-number">1.3</span> Reaction Rates<a href="introduction-to-chemical-kinetics.html#reaction-rates" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>We quantify how quickly a reaction occurs in terms of the rate at which concentrations change with time. For our simple A → B reaction, the <strong>reaction rate</strong> can be expressed as either the rate of disappearance of A or the rate of appearance of B. If the rate were constant, calculating it would be straightforward—we would simply measure the change in concentration over a time interval:</p>
-<p><span class="math display">\[\text{change in [A] per unit time} = \frac{[\mathrm{A}]_{t_2} - [\mathrm{A}]_{t_1}}{t_2 - t_1} = \frac{\Delta[\mathrm{A}]}{\Delta t}\]</span></p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:fig-rate-slope"></span>
-<img src="lecture_1/figures/rate_slope.png" alt="The reaction rate at any instant equals the slope of the tangent to the concentration-time curve at that point. For a reaction where the rate decreases over time (as reactant is consumed), the slope becomes less steep as the reaction progresses." width="90%" />
-<p class="caption">
-Figure 1.2: The reaction rate at any instant equals the slope of the tangent to the concentration-time curve at that point. For a reaction where the rate decreases over time (as reactant is consumed), the slope becomes less steep as the reaction progresses.
-</p>
-</div>
-<p>In most cases, however, reaction rates are not constant—they change as the reaction progresses and reactant concentrations decrease. To capture the instantaneous rate at any moment, we use the derivative:</p>
-<p><span class="math display">\[\text{rate} = -\frac{\mathrm{d}[\mathrm{A}]}{\mathrm{d}t} = +\frac{\mathrm{d}[\mathrm{B}]}{\mathrm{d}t}\]</span></p>
-<p>The negative sign in the first expression ensures that the rate is a positive quantity, since <span class="math inline">\([\mathrm{A}]\)</span> decreases with time (giving a negative derivative). By convention, reaction rates are always expressed as positive values.</p>
-<p>For reactions with more complex stoichiometry, the relationship between concentration changes requires appropriate stoichiometric factors. Consider a reaction where one molecule of A combines with two molecules of B to form one molecule of C:</p>
-<p><span class="math display">\[\mathrm{A} + 2\mathrm{B} \rightarrow \mathrm{C}\]</span></p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:fig-stoich-profiles"></span>
-<img src="lecture_1/figures/stoichiometric_profiles.png" alt="Concentration profiles for the reaction A + 2B → C. Species B is consumed twice as fast as A, reflecting the 2:1 stoichiometric ratio. The rate of formation of C equals the rate of consumption of A." width="50%" />
-<p class="caption">
-Figure 1.3: Concentration profiles for the reaction A + 2B → C. Species B is consumed twice as fast as A, reflecting the 2:1 stoichiometric ratio. The rate of formation of C equals the rate of consumption of A.
-</p>
-</div>
-<p>Here, B is consumed twice as rapidly as A. To define a single, unambiguous reaction rate, we include stoichiometric factors:</p>
-<p><span class="math display">\[\text{rate} = -\frac{\mathrm{d}[\mathrm{A}]}{\mathrm{d}t} = -\frac{1}{2}\frac{\mathrm{d}[\mathrm{B}]}{\mathrm{d}t} = +\frac{\mathrm{d}[\mathrm{C}]}{\mathrm{d}t}\]</span></p>
-<p>In general, for a reaction with stoichiometry</p>
-<p><span class="math display">\[\nu_\mathrm{A}\mathrm{A} + \nu_\mathrm{B}\mathrm{B} + \ldots \rightarrow \nu_\mathrm{P}\mathrm{P} + \nu_\mathrm{Q}\mathrm{Q} + \ldots\]</span></p>
-<p>the rate is written as:</p>
-<p><span class="math display">\[\text{rate} = -\frac{1}{\nu_\mathrm{A}}\frac{\mathrm{d}[\mathrm{A}]}{\mathrm{d}t} = -\frac{1}{\nu_\mathrm{B}}\frac{\mathrm{d}[\mathrm{B}]}{\mathrm{d}t} = \ldots = +\frac{1}{\nu_\mathrm{P}}\frac{\mathrm{d}[\mathrm{P}]}{\mathrm{d}t} = +\frac{1}{\nu_\mathrm{Q}}\frac{\mathrm{d}[\mathrm{Q}]}{\mathrm{d}t} = \ldots\]</span></p>
-<p>But where do these stoichiometric factors come from? The answer lies in a fundamental principle: the conservation of mass.</p>
-</div>
-<div id="mass-balance" class="section level2 hasAnchor" number="1.4">
-<h2><span class="header-section-number">1.4</span> Mass Balance<a href="introduction-to-chemical-kinetics.html#mass-balance" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Chemical reactions cannot create or destroy mass—they merely rearrange atoms into new configurations. This principle of mass conservation provides the foundation for understanding how the rates of change of different species are connected.</p>
-<p>Consider our simple reaction A → B. If each molecule of A converts into exactly one molecule of B, then at any time <span class="math inline">\(t\)</span> the total number of molecules (and hence the total concentration) remains constant:</p>
-<p><span class="math display">\[[\mathrm{A}]_t + [\mathrm{B}]_t = [\mathrm{A}]_0 + [\mathrm{B}]_0\]</span></p>
-<p>If we start with pure A (so that <span class="math inline">\([\mathrm{B}]_0 = 0\)</span>), this simplifies to:</p>
-<p><span class="math display">\[[\mathrm{A}]_t + [\mathrm{B}]_t = [\mathrm{A}]_0\]</span></p>
-<p>Taking the derivative of both sides with respect to time:</p>
-<p><span class="math display">\[\frac{\mathrm{d}[\mathrm{A}]}{\mathrm{d}t} + \frac{\mathrm{d}[\mathrm{B}]}{\mathrm{d}t} = 0\]</span></p>
-<p>since the initial concentration <span class="math inline">\([\mathrm{A}]_0\)</span> is a constant. Rearranging:</p>
-<p><span class="math display">\[\frac{\mathrm{d}[\mathrm{B}]}{\mathrm{d}t} = -\frac{\mathrm{d}[\mathrm{A}]}{\mathrm{d}t}\]</span></p>
-<p>This tells us that for this simple reaction, the rate of formation of B exactly equals the rate of consumption of A.</p>
-<p>Now consider a reaction where one molecule of A produces two molecules of B:</p>
-<p><span class="math display">\[\mathrm{A} \rightarrow 2\mathrm{B}\]</span></p>
-<p>Here, conservation of <em>mass</em> does not imply conservation of <em>moles</em>—we gain one mole of molecules for every mole of A that reacts. To write a mass balance, we note that each A molecule that reacts produces two B molecules. If we define our “conserved quantity” in terms of B-equivalents, then one A is worth two B, giving:</p>
-<p><span class="math display">\[2[\mathrm{A}]_t + [\mathrm{B}]_t = 2[\mathrm{A}]_0\]</span></p>
-<p>Taking the derivative:</p>
-<p><span class="math display">\[2\frac{\mathrm{d}[\mathrm{A}]}{\mathrm{d}t} + \frac{\mathrm{d}[\mathrm{B}]}{\mathrm{d}t} = 0\]</span></p>
-<p>Rearranging:</p>
-<p><span class="math display">\[\frac{\mathrm{d}[\mathrm{B}]}{\mathrm{d}t} = -2\frac{\mathrm{d}[\mathrm{A}]}{\mathrm{d}t}\]</span></p>
-<p>This confirms that B is produced twice as fast as A is consumed—exactly what we expect from the stoichiometry. To define a single reaction rate that is independent of which species we monitor, we write:</p>
-<p><span class="math display">\[\nu = -\frac{\mathrm{d}[\mathrm{A}]}{\mathrm{d}t} = +\frac{1}{2}\frac{\mathrm{d}[\mathrm{B}]}{\mathrm{d}t}\]</span></p>
-<p>For any reaction, mass balance leads to the general expression:</p>
-<p><span class="math display" id="eq:rate-stoichiometric">\[\begin{equation}
-\nu = \frac{1}{n}\frac{\mathrm{d}[\mathrm{X}]}{\mathrm{d}t}
-\tag{1.1}
+<div id="deriving-the-michaelismenten-equation" class="section level3 hasAnchor" number="7.1.2">
+<h3><span class="header-section-number">7.1.2</span> Deriving the Michaelis–Menten Equation<a href="binding-and-catalysis.html#deriving-the-michaelismenten-equation" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Applying the SSA to the enzyme–substrate complex:</p>
+<p><span class="math display">\[\frac{\mathrm{d}[\mathrm{ES}]}{\mathrm{d}t} = k_1[\mathrm{E}][\mathrm{S}] - (k_{-1} + k_\mathrm{cat})[\mathrm{ES}] \approx 0\]</span></p>
+<p>Solving for <span class="math inline">\([\mathrm{ES}]\)</span>:</p>
+<p><span class="math display">\[[\mathrm{ES}] = \frac{k_1[\mathrm{E}][\mathrm{S}]}{k_{-1} + k_\mathrm{cat}}\]</span></p>
+<p>This still contains <span class="math inline">\([\mathrm{E}]\)</span>, the free enzyme concentration, which changes during the reaction. We replace it using the <strong>enzyme conservation</strong> condition — the total enzyme concentration <span class="math inline">\([\mathrm{E}]_0\)</span> is constant:</p>
+<p><span class="math display">\[[\mathrm{E}]_0 = [\mathrm{E}] + [\mathrm{ES}] \qquad \Rightarrow \qquad [\mathrm{E}] = [\mathrm{E}]_0 - [\mathrm{ES}]\]</span></p>
+<p>Substituting and solving (the algebra is straightforward but involves several steps):</p>
+<p><span class="math display">\[[\mathrm{ES}] = \frac{[\mathrm{E}]_0[\mathrm{S}]}{K_\mathrm{M} + [\mathrm{S}]}\]</span></p>
+<p>where we have defined the <strong>Michaelis constant</strong>:</p>
+<p><span class="math display" id="eq:michaelis-constant">\[\begin{equation}
+K_\mathrm{M} = \frac{k_{-1} + k_\mathrm{cat}}{k_1}
+\tag{7.1}
 \end{equation}\]</span></p>
-<p>where <span class="math inline">\(n\)</span> is the stoichiometric coefficient of species X (negative for reactants, positive for products). This relationship ensures that the reaction rate <span class="math inline">\(\nu\)</span> has the same numerical value regardless of which species we use to measure it.</p>
-<p>The units of reaction rate are concentration per unit time: mol dm<span class="math inline">\(^{-3}\)</span> s<span class="math inline">\(^{-1}\)</span>.</p>
+<p><span class="math inline">\(K_\mathrm{M}\)</span> has units of concentration and quantifies the affinity between enzyme and substrate. When <span class="math inline">\(k_\mathrm{cat} \ll k_{-1}\)</span>, the Michaelis constant reduces to <span class="math inline">\(K_\mathrm{M} \approx k_{-1}/k_1\)</span>, which is the dissociation constant of the ES complex — a low <span class="math inline">\(K_\mathrm{M}\)</span> then indicates strong binding (high affinity). In general, <span class="math inline">\(K_\mathrm{M}\)</span> also depends on how quickly ES converts to product, so its interpretation is slightly more nuanced, but the rule of thumb holds: a lower <span class="math inline">\(K_\mathrm{M}\)</span> means the enzyme binds its substrate more effectively.</p>
+<p>The rate of product formation is then:</p>
+<p><span class="math display" id="eq:michaelis-menten">\[\begin{equation}
+v = k_\mathrm{cat}[\mathrm{ES}] = \frac{k_\mathrm{cat}[\mathrm{E}]_0[\mathrm{S}]}{K_\mathrm{M} + [\mathrm{S}]} = \frac{v_\mathrm{max}[\mathrm{S}]}{K_\mathrm{M} + [\mathrm{S}]}
+\tag{7.2}
+\end{equation}\]</span></p>
+<p>where <span class="math inline">\(v_\mathrm{max} = k_\mathrm{cat}[\mathrm{E}]_0\)</span> is the <strong>maximum velocity</strong> — the rate when every enzyme molecule is bound to substrate.</p>
+<p>This is the <strong>Michaelis–Menten equation</strong>. It has the same mathematical form as the SSA rate laws in Lecture 5 — a quantity in the numerator divided by a sum of two terms in the denominator — and the same saturation behaviour emerges from the same competition.</p>
+</div>
+<div id="limiting-cases-2" class="section level3 hasAnchor" number="7.1.3">
+<h3><span class="header-section-number">7.1.3</span> Limiting Cases<a href="binding-and-catalysis.html#limiting-cases-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:michaelis-menten-curve"></span>
+<img src="lecture_8/figures/michaelis_menten_curve.png" alt="The Michaelis–Menten curve: reaction velocity $v$ as a function of substrate concentration $[\mathrm{S}]$. At low $[\mathrm{S}]$ the rate increases linearly. At high $[\mathrm{S}]$ the rate saturates at $v_\mathrm{max}$. The substrate concentration at which $v = v_\mathrm{max}/2$ equals $K_\mathrm{M}$. [Draft figure from lecture slides.]" width="70%" />
+<p class="caption">
+Figure 7.2: The Michaelis–Menten curve: reaction velocity <span class="math inline">\(v\)</span> as a function of substrate concentration <span class="math inline">\([\mathrm{S}]\)</span>. At low <span class="math inline">\([\mathrm{S}]\)</span> the rate increases linearly. At high <span class="math inline">\([\mathrm{S}]\)</span> the rate saturates at <span class="math inline">\(v_\mathrm{max}\)</span>. The substrate concentration at which <span class="math inline">\(v = v_\mathrm{max}/2\)</span> equals <span class="math inline">\(K_\mathrm{M}\)</span>. [Draft figure from lecture slides.]
+</p>
+</div>
+<p><strong>Low substrate (<span class="math inline">\([\mathrm{S}] \ll K_\mathrm{M}\)</span>):</strong></p>
+<p><span class="math display">\[v \approx \frac{v_\mathrm{max}}{K_\mathrm{M}}[\mathrm{S}]\]</span></p>
+<p>The rate is first order in <span class="math inline">\([\mathrm{S}]\)</span>. Most enzyme molecules are free, so doubling the substrate concentration doubles the rate of binding and hence the rate of product formation.</p>
+<p><strong>High substrate (<span class="math inline">\([\mathrm{S}] \gg K_\mathrm{M}\)</span>):</strong></p>
+<p><span class="math display">\[v \approx v_\mathrm{max}\]</span></p>
+<p>The rate is zero order in <span class="math inline">\([\mathrm{S}]\)</span> — the enzyme is <strong>saturated</strong>. Every enzyme molecule already has a substrate bound, so adding more substrate cannot increase the rate. This is the hallmark of saturation kinetics.</p>
+<p>At the crossover point where <span class="math inline">\([\mathrm{S}] = K_\mathrm{M}\)</span>, substituting into the Michaelis–Menten equation gives <span class="math inline">\(v = v_\mathrm{max}/2\)</span>. This provides a convenient graphical method for estimating <span class="math inline">\(K_\mathrm{M}\)</span>: it is the substrate concentration at which the rate is half-maximal.</p>
+</div>
+<div id="determining-michaelismenten-parameters" class="section level3 hasAnchor" number="7.1.4">
+<h3><span class="header-section-number">7.1.4</span> Determining Michaelis–Menten Parameters<a href="binding-and-catalysis.html#determining-michaelismenten-parameters" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><strong>Non-linear regression.</strong> The most reliable method is to fit the Michaelis–Menten equation directly to a plot of <span class="math inline">\(v\)</span> versus <span class="math inline">\([\mathrm{S}]\)</span> using computational least-squares fitting.</p>
+<p><strong>Lineweaver–Burk plot.</strong> Taking the reciprocal of both sides of Eqn. <a href="binding-and-catalysis.html#eq:michaelis-menten">(7.2)</a>:</p>
+<p><span class="math display" id="eq:lineweaver-burk">\[\begin{equation}
+\frac{1}{v} = \frac{K_\mathrm{M}}{v_\mathrm{max}} \cdot \frac{1}{[\mathrm{S}]} + \frac{1}{v_\mathrm{max}}
+\tag{7.3}
+\end{equation}\]</span></p>
+<p>A plot of <span class="math inline">\(1/v\)</span> versus <span class="math inline">\(1/[\mathrm{S}]\)</span> is linear, with slope <span class="math inline">\(K_\mathrm{M}/v_\mathrm{max}\)</span> and <span class="math inline">\(y\)</span>-intercept <span class="math inline">\(1/v_\mathrm{max}\)</span>. While historically important, the Lineweaver–Burk transformation magnifies errors at low <span class="math inline">\([\mathrm{S}]\)</span> (where <span class="math inline">\(1/[\mathrm{S}]\)</span> is large), so modern practice favours non-linear regression when computational tools are available.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:lineweaver-burk"></span>
+<img src="lecture_8/figures/lineweaver_burk.png" alt="Lineweaver–Burk (double-reciprocal) plot. A plot of $1/v$ versus $1/[\mathrm{S}]$ gives a straight line with $y$-intercept $1/v_\mathrm{max}$ and slope $K_\mathrm{M}/v_\mathrm{max}$. The $x$-intercept equals $-1/K_\mathrm{M}$. Note that data at low $[\mathrm{S}]$ (high $1/[\mathrm{S}]$) carry disproportionate influence on the fit. [Draft figure from lecture slides.]" width="70%" />
+<p class="caption">
+Figure 7.3: Lineweaver–Burk (double-reciprocal) plot. A plot of <span class="math inline">\(1/v\)</span> versus <span class="math inline">\(1/[\mathrm{S}]\)</span> gives a straight line with <span class="math inline">\(y\)</span>-intercept <span class="math inline">\(1/v_\mathrm{max}\)</span> and slope <span class="math inline">\(K_\mathrm{M}/v_\mathrm{max}\)</span>. The <span class="math inline">\(x\)</span>-intercept equals <span class="math inline">\(-1/K_\mathrm{M}\)</span>. Note that data at low <span class="math inline">\([\mathrm{S}]\)</span> (high <span class="math inline">\(1/[\mathrm{S}]\)</span>) carry disproportionate influence on the fit. [Draft figure from lecture slides.]
+</p>
+</div>
+</div>
+<div id="catalytic-efficiency" class="section level3 hasAnchor" number="7.1.5">
+<h3><span class="header-section-number">7.1.5</span> Catalytic Efficiency<a href="binding-and-catalysis.html#catalytic-efficiency" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The <strong>catalytic constant</strong> <span class="math inline">\(k_\mathrm{cat}\)</span> (also called the <strong>turnover number</strong>) gives the maximum number of substrate molecules converted to product per enzyme molecule per unit time:</p>
+<p><span class="math display">\[k_\mathrm{cat} = \frac{v_\mathrm{max}}{[\mathrm{E}]_0}\]</span></p>
+<p>A more complete measure of efficiency combines binding and catalysis. The <strong>specificity constant</strong> <span class="math inline">\(k_\mathrm{cat}/K_\mathrm{M}\)</span> is the effective second-order rate constant for the reaction of free enzyme with free substrate at low <span class="math inline">\([\mathrm{S}]\)</span>:</p>
+<p><span class="math display">\[v \approx \frac{k_\mathrm{cat}}{K_\mathrm{M}}[\mathrm{E}]_0[\mathrm{S}] \qquad \text{(when } [\mathrm{S}] \ll K_\mathrm{M}\text{)}\]</span></p>
+<p>The upper limit of <span class="math inline">\(k_\mathrm{cat}/K_\mathrm{M}\)</span> is set by the rate at which enzyme and substrate molecules encounter each other by diffusion — approximately <span class="math inline">\(10^{8}\)</span>–<span class="math inline">\(10^{9}\,\mathrm{dm}^3\,\mathrm{mol}^{-1}\,\mathrm{s}^{-1}\)</span>. Enzymes that approach this limit, such as catalase and carbonic anhydrase, are said to be <strong>diffusion-limited</strong>: every encounter leads to reaction.</p>
 <div class="skill">
-<p><strong>You should be able to:</strong> Given a balanced equation, write the reaction rate <span class="math inline">\(\nu\)</span> in terms of the rate of change of concentration of any species, including the correct stoichiometric factors.</p>
+<p><strong>You should be able to:</strong> Derive the Michaelis–Menten equation by applying the SSA to the enzyme–substrate complex and using the enzyme conservation condition. Identify the limiting behaviour at low and high <span class="math inline">\([\mathrm{S}]\)</span>, and explain the physical meaning of <span class="math inline">\(K_\mathrm{M}\)</span>, <span class="math inline">\(v_\mathrm{max}\)</span>, and <span class="math inline">\(k_\mathrm{cat}\)</span>.</p>
 </div>
 </div>
-<div id="rate-laws" class="section level2 hasAnchor" number="1.5">
-<h2><span class="header-section-number">1.5</span> Rate Laws<a href="introduction-to-chemical-kinetics.html#rate-laws" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>The rates of chemical reactions typically depend on the concentrations of the reactants. The mathematical relationship between concentrations and rate is called a <strong>rate law</strong>. Many reactions follow a simple rate law where the rate is proportional to the concentration of each reactant raised to some power:</p>
-<p><span class="math display" id="eq:rate-law-general">\[\begin{equation}
-\nu = k[\mathrm{A}]^a[\mathrm{B}]^b[\mathrm{C}]^c \ldots
-\tag{1.2}
+</div>
+<div id="sec:langmuir" class="section level2 hasAnchor" number="7.2">
+<h2><span class="header-section-number">7.2</span> The Langmuir Adsorption Isotherm<a href="binding-and-catalysis.html#sec:langmuir" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Enzyme kinetics describes binding at molecular active sites in solution. A closely related problem arises in surface chemistry: how does a gas adsorb onto a solid surface?</p>
+<p>Consider a surface with a fixed number of equivalent adsorption sites. Gas molecules A can bind to (adsorb on) empty sites, and adsorbed molecules can desorb back into the gas phase:</p>
+<p><span class="math display">\[\mathrm{A(g)} + \text{site} \underset{k_\mathrm{d}}{\stackrel{k_\mathrm{a}}{\rightleftharpoons}} \mathrm{A(ads)}\]</span></p>
+<p>We define the <strong>fractional surface coverage</strong> <span class="math inline">\(\theta\)</span> as the fraction of sites that are occupied (<span class="math inline">\(0 \leq \theta \leq 1\)</span>). The rate of adsorption is proportional to both the gas-phase pressure <span class="math inline">\(p\)</span> and the fraction of <em>empty</em> sites <span class="math inline">\((1 - \theta)\)</span>. The rate of desorption is proportional to the fraction of occupied sites <span class="math inline">\(\theta\)</span>:</p>
+<p><span class="math display">\[\begin{align*}
+\text{Rate of adsorption} &amp;= k_\mathrm{a}\,p\,(1 - \theta) \\
+\text{Rate of desorption} &amp;= k_\mathrm{d}\,\theta
+\end{align*}\]</span></p>
+<p>At equilibrium (or equivalently, applying the SSA to the surface coverage), these rates are equal:</p>
+<p><span class="math display">\[k_\mathrm{a}\,p\,(1 - \theta) = k_\mathrm{d}\,\theta\]</span></p>
+<p>Expanding and rearranging:</p>
+<p><span class="math display">\[k_\mathrm{a}\,p = \theta(k_\mathrm{d} + k_\mathrm{a}\,p)\]</span></p>
+<p><span class="math display" id="eq:langmuir">\[\begin{equation}
+\theta = \frac{K\,p}{1 + K\,p}
+\tag{7.4}
 \end{equation}\]</span></p>
-<p>This expression contains several important quantities. The proportionality factor <span class="math inline">\(k\)</span> is called the <strong>rate constant</strong>; it depends on temperature but not on concentration. The exponents <span class="math inline">\(a\)</span>, <span class="math inline">\(b\)</span>, <span class="math inline">\(c\)</span>, etc. are called the <strong>order</strong> of reaction with respect to reactants A, B, C, etc., and their sum <span class="math inline">\((a + b + c + \ldots)\)</span> is the <strong>overall reaction order</strong>. Note that orders need not be integers—they can be zero, fractional, or even negative.</p>
-<p>An important point: the orders in a rate law need not reflect the stoichiometry of the overall reaction equation. For example:</p>
-<p><span class="math display">\[\mathrm{H}_2 + \mathrm{I}_2 \rightarrow 2\mathrm{HI} \qquad \nu = k[\mathrm{H}_2][\mathrm{I}_2]\]</span></p>
-<p>Here the orders (both 1) happen to match the stoichiometric coefficients. But consider:</p>
-<p><span class="math display">\[3\mathrm{ClO}^- \rightarrow \mathrm{ClO}_3^- + 2\mathrm{Cl}^- \qquad \nu = k[\mathrm{ClO}^-]^2\]</span></p>
-<p>The stoichiometric coefficient of ClO<span class="math inline">\(^-\)</span> is 3, but the reaction is second order in ClO<span class="math inline">\(^-\)</span>.</p>
-<p>Some reactions exhibit rate laws that cannot be written in the simple power-law form at all. A classic example is the formation of hydrogen bromide:</p>
-<p><span class="math display">\[\mathrm{H}_2 + \mathrm{Br}_2 \rightarrow 2\mathrm{HBr} \qquad \nu = \frac{k[\mathrm{H}_2][\mathrm{Br}_2]^{1/2}}{1 + k&#39;[\mathrm{HBr}]/[\mathrm{Br}_2]}\]</span></p>
-<p>This reaction is first order with respect to H<sub>2</sub>, but the orders with respect to Br<sub>2</sub> and HBr are undefined in the usual sense. The appearance of the product HBr in the denominator indicates that the product actually <em>inhibits</em> the reaction—a phenomenon we will explore later in the course.</p>
-<p>A complex rate law always implies a multistep reaction mechanism.</p>
+<p>where <span class="math inline">\(K = k_\mathrm{a}/k_\mathrm{d}\)</span> is the <strong>Langmuir adsorption constant</strong> (the ratio of the adsorption and desorption rate constants, with units of inverse pressure).</p>
+<div id="limiting-cases-3" class="section level3 hasAnchor" number="7.2.1">
+<h3><span class="header-section-number">7.2.1</span> Limiting Cases<a href="binding-and-catalysis.html#limiting-cases-3" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><strong>Low pressure (<span class="math inline">\(K\,p \ll 1\)</span>):</strong></p>
+<p><span class="math display">\[\theta \approx K\,p\]</span></p>
+<p>The coverage increases linearly with pressure. Most sites are empty, so each additional gas molecule has many available sites to bind to.</p>
+<p><strong>High pressure (<span class="math inline">\(K\,p \gg 1\)</span>):</strong></p>
+<p><span class="math display">\[\theta \approx 1\]</span></p>
+<p>The surface is <strong>saturated</strong> — virtually every site is occupied. Increasing the pressure further has no effect on the coverage, because there are no more sites available.</p>
+<p>At <span class="math inline">\(p = 1/K\)</span>, the coverage is <span class="math inline">\(\theta = 1/2\)</span>. The Langmuir constant <span class="math inline">\(K\)</span> thus plays the same role as <span class="math inline">\(1/K_\mathrm{M}\)</span> in enzyme kinetics: it characterises the binding strength, and its reciprocal is the “half-saturation” value.</p>
+<div class="skill">
+<p><strong>You should be able to:</strong> Derive the Langmuir adsorption isotherm <span class="math inline">\(\theta = Kp/(1 + Kp)\)</span> by balancing the rates of adsorption and desorption, and describe the limiting behaviour at low and high pressure.</p>
 </div>
-<div id="elementary-processes" class="section level2 hasAnchor" number="1.6">
-<h2><span class="header-section-number">1.6</span> Elementary Processes<a href="introduction-to-chemical-kinetics.html#elementary-processes" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Any chemical reaction can be broken down into a sequence of simple molecular-level steps called <strong>elementary processes</strong> (or elementary reactions). An elementary process represents a single molecular event—a transformation that cannot be broken down further. The <strong>molecularity</strong> of an elementary process describes how many reactant molecules participate in that single step. A <strong>unimolecular</strong> process involves a single molecule undergoing transformation—for example, isomerisation or decomposition. A <strong>bimolecular</strong> process requires two molecules to collide and react. <strong>Termolecular</strong> processes, where three molecules must collide simultaneously, are rare.</p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:fig-molecularity"></span>
-<img src="lecture_1/figures/molecularity.png" alt="Schematic representation of elementary processes classified by molecularity. Unimolecular processes involve a single molecule (e.g., isomerisation or decomposition). Bimolecular processes involve collision between two molecules. Termolecular processes, involving simultaneous three-body collisions, are rare." width="70%" />
-<p class="caption">
-Figure 1.4: Schematic representation of elementary processes classified by molecularity. Unimolecular processes involve a single molecule (e.g., isomerisation or decomposition). Bimolecular processes involve collision between two molecules. Termolecular processes, involving simultaneous three-body collisions, are rare.
-</p>
 </div>
-<p>Termolecular processes are rare because the probability of three molecules colliding simultaneously with the correct orientation is very low. When apparent third-order kinetics are observed, the mechanism usually involves sequential bimolecular steps rather than a true termolecular collision.</p>
-<p>For elementary processes—and <em>only</em> for elementary processes—the rate law directly reflects the molecularity:</p>
+</div>
+<div id="sec:saturation-pattern" class="section level2 hasAnchor" number="7.3">
+<h2><span class="header-section-number">7.3</span> The Common Pattern: Saturation Kinetics<a href="binding-and-catalysis.html#sec:saturation-pattern" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The Michaelis–Menten equation and the Langmuir isotherm describe very different physical systems — enzymes in solution and gases on surfaces — yet they share the same mathematical form. This is not a coincidence. Both arise from the same underlying mechanism: <strong>reversible binding to a finite number of sites, followed by a process that competes with unbinding</strong>.</p>
 <table>
 <colgroup>
-<col width="42%" />
-<col width="27%" />
-<col width="30%" />
+<col width="33%" />
+<col width="33%" />
+<col width="33%" />
 </colgroup>
 <thead>
 <tr class="header">
-<th>Molecularity</th>
-<th>Example</th>
-<th>Rate Law</th>
+<th></th>
+<th>Michaelis–Menten</th>
+<th>Langmuir</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>Unimolecular</td>
-<td><span class="math inline">\(\mathrm{A} \rightarrow \mathrm{P}\)</span></td>
-<td><span class="math inline">\(\nu = k[\mathrm{A}]\)</span></td>
+<td><strong>Binding sites</strong></td>
+<td>Enzyme active sites</td>
+<td>Surface adsorption sites</td>
 </tr>
 <tr class="even">
-<td>Bimolecular</td>
-<td><span class="math inline">\(\mathrm{A} + \mathrm{B} \rightarrow \mathrm{P}\)</span></td>
-<td><span class="math inline">\(\nu = k[\mathrm{A}][\mathrm{B}]\)</span></td>
+<td><strong>Species that binds</strong></td>
+<td>Substrate S</td>
+<td>Gas molecule A</td>
 </tr>
 <tr class="odd">
-<td>Bimolecular</td>
-<td><span class="math inline">\(2\mathrm{A} \rightarrow \mathrm{P}\)</span></td>
-<td><span class="math inline">\(\nu = k[\mathrm{A}]^2\)</span></td>
+<td><strong>Key variable</strong></td>
+<td><span class="math inline">\(v/v_\mathrm{max} = [\mathrm{S}]/(K_\mathrm{M} + [\mathrm{S}])\)</span></td>
+<td><span class="math inline">\(\theta = Kp/(1 + Kp)\)</span></td>
 </tr>
 <tr class="even">
-<td>Termolecular</td>
-<td><span class="math inline">\(\mathrm{A} + \mathrm{B} + \mathrm{C} \rightarrow \mathrm{P}\)</span></td>
-<td><span class="math inline">\(\nu = k[\mathrm{A}][\mathrm{B}][\mathrm{C}]\)</span></td>
+<td><strong>Saturation</strong></td>
+<td>All enzyme bound (<span class="math inline">\(v = v_\mathrm{max}\)</span>)</td>
+<td>All sites occupied (<span class="math inline">\(\theta = 1\)</span>)</td>
+</tr>
+<tr class="odd">
+<td><strong>Half-saturation</strong></td>
+<td><span class="math inline">\([\mathrm{S}] = K_\mathrm{M}\)</span></td>
+<td><span class="math inline">\(p = 1/K\)</span></td>
+</tr>
+<tr class="even">
+<td><strong>Low-concentration limit</strong></td>
+<td>First order in <span class="math inline">\([\mathrm{S}]\)</span></td>
+<td><span class="math inline">\(\theta\)</span> proportional to <span class="math inline">\(p\)</span></td>
+</tr>
+<tr class="odd">
+<td><strong>High-concentration limit</strong></td>
+<td>Zero order in <span class="math inline">\([\mathrm{S}]\)</span></td>
+<td><span class="math inline">\(\theta\)</span> independent of <span class="math inline">\(p\)</span></td>
 </tr>
 </tbody>
 </table>
-<p>This direct correspondence between molecularity and reaction order holds because an elementary process represents an actual molecular event. The rate depends on how frequently the required molecular encounters occur. For a unimolecular process, the rate depends only on how many A molecules are present. For a bimolecular process, the rate depends on how often A and B molecules collide—which is proportional to both <span class="math inline">\([\mathrm{A}]\)</span> and <span class="math inline">\([\mathrm{B}]\)</span>.</p>
+<p>The general pattern is: when the number of sites is limited and binding is reversible, the response (rate or coverage) increases with the concentration of the binding species but eventually saturates. This behaviour appears across chemistry and biology — from enzyme kinetics and surface catalysis to receptor–ligand binding and ion-channel gating. In surface reactions where two species compete for the same sites, this competition can lead to the counterintuitive phenomenon of <em>negative reaction orders</em>, where increasing a reactant’s concentration actually slows the reaction (Appendix <a href="appendix-negative-orders.html#appendix-negative-orders">C</a>).</p>
 </div>
-<div id="complex-reactions" class="section level2 hasAnchor" number="1.7">
-<h2><span class="header-section-number">1.7</span> Complex Reactions<a href="introduction-to-chemical-kinetics.html#complex-reactions" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Most reactions we encounter are not elementary processes but rather sequences of elementary steps. The H<sub>2</sub> + Br<sub>2</sub> reaction, for example, proceeds through a mechanism involving four elementary steps:</p>
-<ol style="list-style-type: decimal">
-<li><span class="math inline">\(\mathrm{Br}_2 \rightarrow \mathrm{Br} + \mathrm{Br}\)</span> (unimolecular)</li>
-<li><span class="math inline">\(\mathrm{Br} + \mathrm{H}_2 \rightarrow \mathrm{H} + \mathrm{HBr}\)</span> (bimolecular)</li>
-<li><span class="math inline">\(\mathrm{H} + \mathrm{Br}_2 \rightarrow \mathrm{Br} + \mathrm{HBr}\)</span> (bimolecular)</li>
-<li><span class="math inline">\(\mathrm{Br} + \mathrm{Br} \rightarrow \mathrm{Br}_2\)</span> (bimolecular)</li>
-</ol>
-<p>Each elementary step follows a simple rate law determined by its molecularity. The <em>overall</em> rate law for the complex reaction emerges from how these steps combine—and this is why the overall rate law can be complicated.</p>
-<p>For complex reactions, we cannot deduce the rate law from the reaction stoichiometry alone. Rate laws for complex reactions must be determined empirically through analysis of experimental data. However, as we shall see, if we know (or hypothesise) the mechanism, we can predict the rate law—and comparing this prediction with experiment provides evidence for or against the proposed mechanism.</p>
-</div>
-<div id="units-of-the-rate-constant" class="section level2 hasAnchor" number="1.8">
-<h2><span class="header-section-number">1.8</span> Units of the Rate Constant<a href="introduction-to-chemical-kinetics.html#units-of-the-rate-constant" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>The units of a rate constant depend on the overall order of the reaction. Since both sides of a rate equation must have the same dimensions, we can deduce the units of <span class="math inline">\(k\)</span> from dimensional analysis. For a first-order reaction (<span class="math inline">\(\nu = k[\mathrm{A}]\)</span>):</p>
-<p><span class="math display">\[\underbrace{\mathrm{mol\,dm}^{-3}\mathrm{\,s}^{-1}}_{\text{rate}} = [k] \times \underbrace{\mathrm{mol\,dm}^{-3}}_{[\mathrm{A}]}\]</span></p>
-<p>so <span class="math inline">\([k] = \mathrm{s}^{-1}\)</span>. Repeating this analysis for other orders gives:</p>
-<table>
-<thead>
-<tr class="header">
-<th align="center">Overall order</th>
-<th align="left">Units of <span class="math inline">\(k\)</span></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="center">0</td>
-<td align="left"><span class="math inline">\(\mathrm{mol\,dm}^{-3}\,\mathrm{s}^{-1}\)</span></td>
-</tr>
-<tr class="even">
-<td align="center">1</td>
-<td align="left"><span class="math inline">\(\mathrm{s}^{-1}\)</span></td>
-</tr>
-<tr class="odd">
-<td align="center">2</td>
-<td align="left"><span class="math inline">\(\mathrm{mol}^{-1}\,\mathrm{dm}^{3}\,\mathrm{s}^{-1}\)</span></td>
-</tr>
-<tr class="even">
-<td align="center">3</td>
-<td align="left"><span class="math inline">\(\mathrm{mol}^{-2}\,\mathrm{dm}^{6}\,\mathrm{s}^{-1}\)</span></td>
-</tr>
-</tbody>
-</table>
-<p>The general pattern for overall order <span class="math inline">\(n\)</span> is:</p>
-<p><span class="math display">\[[k] = \mathrm{mol}^{1-n}\,\mathrm{dm}^{3(n-1)}\,\mathrm{s}^{-1}\]</span></p>
-<p>When comparing rate constants, always check that they refer to the same order of reaction—a rate constant of <span class="math inline">\(10^6\,\mathrm{s}^{-1}\)</span> for a first-order reaction cannot be directly compared with a rate constant of <span class="math inline">\(10^6\,\mathrm{mol}^{-1}\,\mathrm{dm}^{3}\,\mathrm{s}^{-1}\)</span> for a second-order reaction.</p>
-<div class="skill">
-<p><strong>You should be able to:</strong> Write the rate law for an elementary process given its molecularity, and determine the units of a rate constant given the overall reaction order.</p>
-</div>
-</div>
-<div id="key-concepts" class="section level2 hasAnchor" number="1.9">
-<h2><span class="header-section-number">1.9</span> Key Concepts<a href="introduction-to-chemical-kinetics.html#key-concepts" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="key-concepts-6" class="section level2 hasAnchor" number="7.4">
+<h2><span class="header-section-number">7.4</span> Key Concepts<a href="binding-and-catalysis.html#key-concepts-6" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ul>
-<li>Thermodynamics tells us whether a reaction <em>can</em> occur; kinetics tells us how <em>fast</em> it proceeds and by what molecular pathway.</li>
-<li>The reaction rate <span class="math inline">\(\nu\)</span> is defined as the rate of change of concentration, with stoichiometric factors ensuring a single unambiguous value regardless of which species we monitor.</li>
-<li>Mass balance (conservation of mass) provides the physical basis for the stoichiometric factors in rate expressions.</li>
-<li>A rate law describes how the rate depends on concentrations. The reaction orders need not match the stoichiometric coefficients.</li>
-<li>Elementary processes are single molecular events (unimolecular, bimolecular, or termolecular). Only for elementary processes do the orders directly reflect the molecularity.</li>
-<li>Complex reactions consist of sequences of elementary steps. Their rate laws must be determined experimentally.</li>
-<li>The units of a rate constant depend on the overall reaction order: for an <span class="math inline">\(n\)</span>th-order reaction, <span class="math inline">\([k] = \mathrm{mol}^{1-n}\,\mathrm{dm}^{3(n-1)}\,\mathrm{s}^{-1}\)</span>.</li>
+<li>The <strong>Michaelis–Menten equation</strong>, <span class="math inline">\(v = v_\mathrm{max}[\mathrm{S}]/(K_\mathrm{M} + [\mathrm{S}])\)</span>, is derived by applying the SSA to the enzyme–substrate complex and using the enzyme conservation condition <span class="math inline">\([\mathrm{E}]_0 = [\mathrm{E}] + [\mathrm{ES}]\)</span>.</li>
+<li><span class="math inline">\(K_\mathrm{M}\)</span> is the substrate concentration at which the rate is half-maximal. It quantifies enzyme–substrate affinity: lower <span class="math inline">\(K_\mathrm{M}\)</span> means stronger binding.</li>
+<li>At low <span class="math inline">\([\mathrm{S}]\)</span> the reaction is first order (most enzyme is free); at high <span class="math inline">\([\mathrm{S}]\)</span> it is zero order (enzyme is saturated).</li>
+<li>The <strong>Langmuir adsorption isotherm</strong>, <span class="math inline">\(\theta = Kp/(1 + Kp)\)</span>, describes the fractional coverage of a surface as a function of gas pressure. It is derived by balancing the rates of adsorption and desorption.</li>
+<li>Both equations share the same mathematical form because both describe <strong>reversible binding to a finite number of sites</strong> — the defining feature of saturation kinetics.</li>
+<li>The <strong>specificity constant</strong> <span class="math inline">\(k_\mathrm{cat}/K_\mathrm{M}\)</span> measures the overall catalytic efficiency of an enzyme, with an upper limit set by the diffusion-controlled encounter rate.</li>
 </ul>
-<p>In the next chapter, we will derive <em>integrated rate laws</em> that predict how concentrations evolve over time for reactions of different orders, and compare these predictions with experimental data.</p>
 
 </div>
 </div>
@@ -524,8 +490,8 @@ Figure 1.4: Schematic representation of elementary processes classified by molec
           </div>
         </div>
       </div>
-<a href="mathematical-foundations.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="integrated-rate-laws.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="unimolecular-reactions-and-collision-dynamics.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="chain-reactions.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -556,7 +522,7 @@ gitbook.start({
     "size": 2
   },
   "edit": {
-    "link": "https://github.com/bjmorgan/CH12002/main/lecture_1/lecture_01.Rmd",
+    "link": "https://github.com/bjmorgan/CH12002/main/lecture_8/lecture_08.Rmd",
     "text": "Edit"
   },
   "history": {

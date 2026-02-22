@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Lecture 1 Introduction to Chemical Kinetics | CH12002 Lecture Notes</title>
+  <title>B Why Don’t All Bimolecular Reactions Require a Third Body? | CH12002 Lecture Notes</title>
   <meta name="description" content="These are notes to accompany the 2025 CH12002 lecture course on Chemical Kinetics." />
   <meta name="generator" content="bookdown 0.46 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Lecture 1 Introduction to Chemical Kinetics | CH12002 Lecture Notes" />
+  <meta property="og:title" content="B Why Don’t All Bimolecular Reactions Require a Third Body? | CH12002 Lecture Notes" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="These are notes to accompany the 2025 CH12002 lecture course on Chemical Kinetics." />
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Lecture 1 Introduction to Chemical Kinetics | CH12002 Lecture Notes" />
+  <meta name="twitter:title" content="B Why Don’t All Bimolecular Reactions Require a Third Body? | CH12002 Lecture Notes" />
   
   <meta name="twitter:description" content="These are notes to accompany the 2025 CH12002 lecture course on Chemical Kinetics." />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="mathematical-foundations.html"/>
-<link rel="next" href="integrated-rate-laws.html"/>
+<link rel="prev" href="appendix-two-reactants.html"/>
+<link rel="next" href="appendix-negative-orders.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -292,230 +292,35 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="introduction-to-chemical-kinetics" class="section level1 hasAnchor" number="1">
-<h1><span class="header-section-number">Lecture 1</span> Introduction to Chemical Kinetics<a href="introduction-to-chemical-kinetics.html#introduction-to-chemical-kinetics" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<div id="why-study-reaction-kinetics" class="section level2 hasAnchor" number="1.1">
-<h2><span class="header-section-number">1.1</span> Why Study Reaction Kinetics?<a href="introduction-to-chemical-kinetics.html#why-study-reaction-kinetics" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Chemistry is fundamentally concerned with change—the transformation of substances into new forms with different properties. When we mix reactants together, we want to know not just <em>whether</em> a reaction will occur, but <em>how rapidly</em> it will proceed. While thermodynamics provides powerful tools for determining whether a particular chemical change is favourable and what the final equilibrium composition will be, it tells us nothing about how quickly this equilibrium will be reached.</p>
-<p>A reaction may be thermodynamically favourable yet proceed so slowly that it appears not to happen at all. Consider the conversion of diamond to graphite—thermodynamically spontaneous at room temperature and pressure, yet the process occurs at such a negligible rate that diamonds remain stable for geological timescales. Conversely, some reactions reach equilibrium in fractions of a second.</p>
-<p>Chemical kinetics addresses these questions of reaction rates and mechanisms. Where thermodynamics concerns itself with the energy relationships that govern chemical equilibria, kinetics focuses on the rates of chemical processes and the molecular pathways by which they occur. Through kinetic analysis, we can determine how quickly reactants transform into products, what factors influence reaction speed, and what sequence of molecular events constitutes the reaction mechanism.</p>
-<p>The complementary nature of thermodynamics and kinetics provides a complete picture of chemical change:</p>
+<div id="appendix-third-body" class="section level1 hasAnchor" number="12">
+<h1><span class="header-section-number">B</span> Why Don’t All Bimolecular Reactions Require a Third Body?<a href="appendix-third-body.html#appendix-third-body" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>In Lecture 7, we saw that ozone formation requires a third body to carry away the excess energy released when a new O–O bond forms (Section <a href="unimolecular-reactions-and-collision-dynamics.html#sec:third-order">6.2</a>). The argument rested on energy and momentum conservation — principles that apply to <em>all</em> molecular collisions. This raises a natural question: if these constraints prevent a simple O + O<sub>2</sub> reaction, why do we routinely observe second-order kinetics for other bimolecular reactions?</p>
+<p>This appendix explores the physical factors that determine whether a reaction can proceed without third-body assistance. The material is not examinable, but it deepens our understanding of why different reactions exhibit different kinetic behaviour.</p>
+<div id="the-problem-energy-disposal-after-bond-formation" class="section level2 hasAnchor" number="12.1">
+<h2><span class="header-section-number">B.1</span> The Problem: Energy Disposal After Bond Formation<a href="appendix-third-body.html#the-problem-energy-disposal-after-bond-formation" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>When two species collide and form a new bond, the bond energy is released as kinetic energy of the product molecule. Conservation of momentum constrains how this energy is distributed: much of it ends up as vibration along the newly formed bond. If this vibrational energy exceeds the bond dissociation energy, the product flies apart again before it can be observed — the reaction effectively has not occurred.</p>
+<p>For ozone, the situation is extreme. Formation of the O–O bond releases approximately <span class="math inline">\(107\,\mathrm{kJ\,mol}^{-1}\)</span>, and ozone — a triatomic molecule — has only three vibrational modes to absorb this energy. The newly formed bond is so vibrationally excited that dissociation is inevitable without a third body to carry away the excess.</p>
+</div>
+<div id="why-most-reactions-avoid-this-problem" class="section level2 hasAnchor" number="12.2">
+<h2><span class="header-section-number">B.2</span> Why Most Reactions Avoid This Problem<a href="appendix-third-body.html#why-most-reactions-avoid-this-problem" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Several factors, often acting in combination, allow most bimolecular reactions to manage the released energy without requiring third-body intervention.</p>
+<p><strong>Activation barriers redirect energy flow.</strong> Most reactions have an activation energy barrier, creating a transition state that the system must pass through. The descent from this saddle point on the potential energy surface distributes energy across multiple degrees of freedom — vibrational, rotational, and translational — rather than concentrating it in a single bond. Ozone formation is barrierless, so this redistribution mechanism is absent.</p>
+<p><strong>Larger molecules have more vibrational modes.</strong> A non-linear molecule with <span class="math inline">\(N\)</span> atoms has <span class="math inline">\(3N - 6\)</span> vibrational modes. For ozone (<span class="math inline">\(N = 3\)</span>), this gives only 3 modes; for a molecule with 10 atoms, it gives 24. The same amount of released energy spreads across many more modes, reducing the excitation in any single bond below the dissociation threshold.</p>
+<p><strong>Exchange reactions balance energy flow.</strong> Many bimolecular reactions involve simultaneous bond breaking and bond formation:</p>
+<p><span class="math display">\[\mathrm{A} + \mathrm{BC} \rightarrow \mathrm{AB} + \mathrm{C}\]</span></p>
+<p>The energy required to break the B–C bond partially offsets the energy released by forming the A–B bond. This reduces the net energy that the products must accommodate. Ozone formation, by contrast, is a pure association reaction with no offsetting bond breaking.</p>
+</div>
+<div id="a-spectrum-of-behaviour" class="section level2 hasAnchor" number="12.3">
+<h2><span class="header-section-number">B.3</span> A Spectrum of Behaviour<a href="appendix-third-body.html#a-spectrum-of-behaviour" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Rather than a sharp divide, reactions span a spectrum. The likelihood of requiring third-body stabilisation increases with:</p>
 <ul>
-<li><strong>Thermodynamics</strong> tells us whether a reaction <em>can</em> occur and what the equilibrium state will be</li>
-<li><strong>Kinetics</strong> tells us how <em>fast</em> we approach that equilibrium and by what molecular pathway</li>
+<li>Decreasing activation barrier height</li>
+<li>Increasing reaction exothermicity</li>
+<li>Decreasing molecular complexity (fewer vibrational modes)</li>
+<li>Pure association character (no bond breaking to offset energy release)</li>
 </ul>
-<p>Both perspectives are essential for understanding chemical processes—in laboratory settings, industrial applications, and natural systems.</p>
-</div>
-<div id="describing-how-concentrations-change-with-time" class="section level2 hasAnchor" number="1.2">
-<h2><span class="header-section-number">1.2</span> Describing How Concentrations Change with Time<a href="introduction-to-chemical-kinetics.html#describing-how-concentrations-change-with-time" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Let us examine a simple reaction: the conversion of a reactant A into a product B:</p>
-<p><span class="math display">\[\mathrm{A} \rightarrow \mathrm{B}\]</span></p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:fig-concentration-profile"></span>
-<img src="lecture_1/figures/concentration_profile.png" alt="Time evolution of concentrations for the reaction A → B. As the reaction proceeds, the concentration of reactant A decreases while the concentration of product B increases. At any time $t$, the sum of the two concentrations equals the initial concentration of A (assuming we start with pure A)." width="45%" />
-<p class="caption">
-Figure 1.1: Time evolution of concentrations for the reaction A → B. As the reaction proceeds, the concentration of reactant A decreases while the concentration of product B increases. At any time <span class="math inline">\(t\)</span>, the sum of the two concentrations equals the initial concentration of A (assuming we start with pure A).
-</p>
-</div>
-<p>As the reaction proceeds, the concentrations of both species change. We track the progress of the reaction by monitoring concentrations as functions of time. Using square brackets to denote concentration (in mol dm<span class="math inline">\(^{-3}\)</span>), we write these time-dependent concentrations as <span class="math inline">\([\mathrm{A}]_t\)</span> and <span class="math inline">\([\mathrm{B}]_t\)</span>.</p>
-<p>Starting from initial values at <span class="math inline">\(t = 0\)</span>, the system evolves toward its final state. The questions we might ask include:</p>
-<ul>
-<li>How much product B is present after time <span class="math inline">\(t\)</span>?</li>
-<li>How long will it take for a certain percentage of A to convert to B?</li>
-<li>If we change pressure, temperature, or initial concentration, how will the reaction speed be affected?</li>
-</ul>
-<p>Answering these questions requires us to understand how reaction rates relate to concentrations—and this is the central concern of chemical kinetics.</p>
-</div>
-<div id="reaction-rates" class="section level2 hasAnchor" number="1.3">
-<h2><span class="header-section-number">1.3</span> Reaction Rates<a href="introduction-to-chemical-kinetics.html#reaction-rates" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>We quantify how quickly a reaction occurs in terms of the rate at which concentrations change with time. For our simple A → B reaction, the <strong>reaction rate</strong> can be expressed as either the rate of disappearance of A or the rate of appearance of B. If the rate were constant, calculating it would be straightforward—we would simply measure the change in concentration over a time interval:</p>
-<p><span class="math display">\[\text{change in [A] per unit time} = \frac{[\mathrm{A}]_{t_2} - [\mathrm{A}]_{t_1}}{t_2 - t_1} = \frac{\Delta[\mathrm{A}]}{\Delta t}\]</span></p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:fig-rate-slope"></span>
-<img src="lecture_1/figures/rate_slope.png" alt="The reaction rate at any instant equals the slope of the tangent to the concentration-time curve at that point. For a reaction where the rate decreases over time (as reactant is consumed), the slope becomes less steep as the reaction progresses." width="90%" />
-<p class="caption">
-Figure 1.2: The reaction rate at any instant equals the slope of the tangent to the concentration-time curve at that point. For a reaction where the rate decreases over time (as reactant is consumed), the slope becomes less steep as the reaction progresses.
-</p>
-</div>
-<p>In most cases, however, reaction rates are not constant—they change as the reaction progresses and reactant concentrations decrease. To capture the instantaneous rate at any moment, we use the derivative:</p>
-<p><span class="math display">\[\text{rate} = -\frac{\mathrm{d}[\mathrm{A}]}{\mathrm{d}t} = +\frac{\mathrm{d}[\mathrm{B}]}{\mathrm{d}t}\]</span></p>
-<p>The negative sign in the first expression ensures that the rate is a positive quantity, since <span class="math inline">\([\mathrm{A}]\)</span> decreases with time (giving a negative derivative). By convention, reaction rates are always expressed as positive values.</p>
-<p>For reactions with more complex stoichiometry, the relationship between concentration changes requires appropriate stoichiometric factors. Consider a reaction where one molecule of A combines with two molecules of B to form one molecule of C:</p>
-<p><span class="math display">\[\mathrm{A} + 2\mathrm{B} \rightarrow \mathrm{C}\]</span></p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:fig-stoich-profiles"></span>
-<img src="lecture_1/figures/stoichiometric_profiles.png" alt="Concentration profiles for the reaction A + 2B → C. Species B is consumed twice as fast as A, reflecting the 2:1 stoichiometric ratio. The rate of formation of C equals the rate of consumption of A." width="50%" />
-<p class="caption">
-Figure 1.3: Concentration profiles for the reaction A + 2B → C. Species B is consumed twice as fast as A, reflecting the 2:1 stoichiometric ratio. The rate of formation of C equals the rate of consumption of A.
-</p>
-</div>
-<p>Here, B is consumed twice as rapidly as A. To define a single, unambiguous reaction rate, we include stoichiometric factors:</p>
-<p><span class="math display">\[\text{rate} = -\frac{\mathrm{d}[\mathrm{A}]}{\mathrm{d}t} = -\frac{1}{2}\frac{\mathrm{d}[\mathrm{B}]}{\mathrm{d}t} = +\frac{\mathrm{d}[\mathrm{C}]}{\mathrm{d}t}\]</span></p>
-<p>In general, for a reaction with stoichiometry</p>
-<p><span class="math display">\[\nu_\mathrm{A}\mathrm{A} + \nu_\mathrm{B}\mathrm{B} + \ldots \rightarrow \nu_\mathrm{P}\mathrm{P} + \nu_\mathrm{Q}\mathrm{Q} + \ldots\]</span></p>
-<p>the rate is written as:</p>
-<p><span class="math display">\[\text{rate} = -\frac{1}{\nu_\mathrm{A}}\frac{\mathrm{d}[\mathrm{A}]}{\mathrm{d}t} = -\frac{1}{\nu_\mathrm{B}}\frac{\mathrm{d}[\mathrm{B}]}{\mathrm{d}t} = \ldots = +\frac{1}{\nu_\mathrm{P}}\frac{\mathrm{d}[\mathrm{P}]}{\mathrm{d}t} = +\frac{1}{\nu_\mathrm{Q}}\frac{\mathrm{d}[\mathrm{Q}]}{\mathrm{d}t} = \ldots\]</span></p>
-<p>But where do these stoichiometric factors come from? The answer lies in a fundamental principle: the conservation of mass.</p>
-</div>
-<div id="mass-balance" class="section level2 hasAnchor" number="1.4">
-<h2><span class="header-section-number">1.4</span> Mass Balance<a href="introduction-to-chemical-kinetics.html#mass-balance" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Chemical reactions cannot create or destroy mass—they merely rearrange atoms into new configurations. This principle of mass conservation provides the foundation for understanding how the rates of change of different species are connected.</p>
-<p>Consider our simple reaction A → B. If each molecule of A converts into exactly one molecule of B, then at any time <span class="math inline">\(t\)</span> the total number of molecules (and hence the total concentration) remains constant:</p>
-<p><span class="math display">\[[\mathrm{A}]_t + [\mathrm{B}]_t = [\mathrm{A}]_0 + [\mathrm{B}]_0\]</span></p>
-<p>If we start with pure A (so that <span class="math inline">\([\mathrm{B}]_0 = 0\)</span>), this simplifies to:</p>
-<p><span class="math display">\[[\mathrm{A}]_t + [\mathrm{B}]_t = [\mathrm{A}]_0\]</span></p>
-<p>Taking the derivative of both sides with respect to time:</p>
-<p><span class="math display">\[\frac{\mathrm{d}[\mathrm{A}]}{\mathrm{d}t} + \frac{\mathrm{d}[\mathrm{B}]}{\mathrm{d}t} = 0\]</span></p>
-<p>since the initial concentration <span class="math inline">\([\mathrm{A}]_0\)</span> is a constant. Rearranging:</p>
-<p><span class="math display">\[\frac{\mathrm{d}[\mathrm{B}]}{\mathrm{d}t} = -\frac{\mathrm{d}[\mathrm{A}]}{\mathrm{d}t}\]</span></p>
-<p>This tells us that for this simple reaction, the rate of formation of B exactly equals the rate of consumption of A.</p>
-<p>Now consider a reaction where one molecule of A produces two molecules of B:</p>
-<p><span class="math display">\[\mathrm{A} \rightarrow 2\mathrm{B}\]</span></p>
-<p>Here, conservation of <em>mass</em> does not imply conservation of <em>moles</em>—we gain one mole of molecules for every mole of A that reacts. To write a mass balance, we note that each A molecule that reacts produces two B molecules. If we define our “conserved quantity” in terms of B-equivalents, then one A is worth two B, giving:</p>
-<p><span class="math display">\[2[\mathrm{A}]_t + [\mathrm{B}]_t = 2[\mathrm{A}]_0\]</span></p>
-<p>Taking the derivative:</p>
-<p><span class="math display">\[2\frac{\mathrm{d}[\mathrm{A}]}{\mathrm{d}t} + \frac{\mathrm{d}[\mathrm{B}]}{\mathrm{d}t} = 0\]</span></p>
-<p>Rearranging:</p>
-<p><span class="math display">\[\frac{\mathrm{d}[\mathrm{B}]}{\mathrm{d}t} = -2\frac{\mathrm{d}[\mathrm{A}]}{\mathrm{d}t}\]</span></p>
-<p>This confirms that B is produced twice as fast as A is consumed—exactly what we expect from the stoichiometry. To define a single reaction rate that is independent of which species we monitor, we write:</p>
-<p><span class="math display">\[\nu = -\frac{\mathrm{d}[\mathrm{A}]}{\mathrm{d}t} = +\frac{1}{2}\frac{\mathrm{d}[\mathrm{B}]}{\mathrm{d}t}\]</span></p>
-<p>For any reaction, mass balance leads to the general expression:</p>
-<p><span class="math display" id="eq:rate-stoichiometric">\[\begin{equation}
-\nu = \frac{1}{n}\frac{\mathrm{d}[\mathrm{X}]}{\mathrm{d}t}
-\tag{1.1}
-\end{equation}\]</span></p>
-<p>where <span class="math inline">\(n\)</span> is the stoichiometric coefficient of species X (negative for reactants, positive for products). This relationship ensures that the reaction rate <span class="math inline">\(\nu\)</span> has the same numerical value regardless of which species we use to measure it.</p>
-<p>The units of reaction rate are concentration per unit time: mol dm<span class="math inline">\(^{-3}\)</span> s<span class="math inline">\(^{-1}\)</span>.</p>
-<div class="skill">
-<p><strong>You should be able to:</strong> Given a balanced equation, write the reaction rate <span class="math inline">\(\nu\)</span> in terms of the rate of change of concentration of any species, including the correct stoichiometric factors.</p>
-</div>
-</div>
-<div id="rate-laws" class="section level2 hasAnchor" number="1.5">
-<h2><span class="header-section-number">1.5</span> Rate Laws<a href="introduction-to-chemical-kinetics.html#rate-laws" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>The rates of chemical reactions typically depend on the concentrations of the reactants. The mathematical relationship between concentrations and rate is called a <strong>rate law</strong>. Many reactions follow a simple rate law where the rate is proportional to the concentration of each reactant raised to some power:</p>
-<p><span class="math display" id="eq:rate-law-general">\[\begin{equation}
-\nu = k[\mathrm{A}]^a[\mathrm{B}]^b[\mathrm{C}]^c \ldots
-\tag{1.2}
-\end{equation}\]</span></p>
-<p>This expression contains several important quantities. The proportionality factor <span class="math inline">\(k\)</span> is called the <strong>rate constant</strong>; it depends on temperature but not on concentration. The exponents <span class="math inline">\(a\)</span>, <span class="math inline">\(b\)</span>, <span class="math inline">\(c\)</span>, etc. are called the <strong>order</strong> of reaction with respect to reactants A, B, C, etc., and their sum <span class="math inline">\((a + b + c + \ldots)\)</span> is the <strong>overall reaction order</strong>. Note that orders need not be integers—they can be zero, fractional, or even negative.</p>
-<p>An important point: the orders in a rate law need not reflect the stoichiometry of the overall reaction equation. For example:</p>
-<p><span class="math display">\[\mathrm{H}_2 + \mathrm{I}_2 \rightarrow 2\mathrm{HI} \qquad \nu = k[\mathrm{H}_2][\mathrm{I}_2]\]</span></p>
-<p>Here the orders (both 1) happen to match the stoichiometric coefficients. But consider:</p>
-<p><span class="math display">\[3\mathrm{ClO}^- \rightarrow \mathrm{ClO}_3^- + 2\mathrm{Cl}^- \qquad \nu = k[\mathrm{ClO}^-]^2\]</span></p>
-<p>The stoichiometric coefficient of ClO<span class="math inline">\(^-\)</span> is 3, but the reaction is second order in ClO<span class="math inline">\(^-\)</span>.</p>
-<p>Some reactions exhibit rate laws that cannot be written in the simple power-law form at all. A classic example is the formation of hydrogen bromide:</p>
-<p><span class="math display">\[\mathrm{H}_2 + \mathrm{Br}_2 \rightarrow 2\mathrm{HBr} \qquad \nu = \frac{k[\mathrm{H}_2][\mathrm{Br}_2]^{1/2}}{1 + k&#39;[\mathrm{HBr}]/[\mathrm{Br}_2]}\]</span></p>
-<p>This reaction is first order with respect to H<sub>2</sub>, but the orders with respect to Br<sub>2</sub> and HBr are undefined in the usual sense. The appearance of the product HBr in the denominator indicates that the product actually <em>inhibits</em> the reaction—a phenomenon we will explore later in the course.</p>
-<p>A complex rate law always implies a multistep reaction mechanism.</p>
-</div>
-<div id="elementary-processes" class="section level2 hasAnchor" number="1.6">
-<h2><span class="header-section-number">1.6</span> Elementary Processes<a href="introduction-to-chemical-kinetics.html#elementary-processes" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Any chemical reaction can be broken down into a sequence of simple molecular-level steps called <strong>elementary processes</strong> (or elementary reactions). An elementary process represents a single molecular event—a transformation that cannot be broken down further. The <strong>molecularity</strong> of an elementary process describes how many reactant molecules participate in that single step. A <strong>unimolecular</strong> process involves a single molecule undergoing transformation—for example, isomerisation or decomposition. A <strong>bimolecular</strong> process requires two molecules to collide and react. <strong>Termolecular</strong> processes, where three molecules must collide simultaneously, are rare.</p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:fig-molecularity"></span>
-<img src="lecture_1/figures/molecularity.png" alt="Schematic representation of elementary processes classified by molecularity. Unimolecular processes involve a single molecule (e.g., isomerisation or decomposition). Bimolecular processes involve collision between two molecules. Termolecular processes, involving simultaneous three-body collisions, are rare." width="70%" />
-<p class="caption">
-Figure 1.4: Schematic representation of elementary processes classified by molecularity. Unimolecular processes involve a single molecule (e.g., isomerisation or decomposition). Bimolecular processes involve collision between two molecules. Termolecular processes, involving simultaneous three-body collisions, are rare.
-</p>
-</div>
-<p>Termolecular processes are rare because the probability of three molecules colliding simultaneously with the correct orientation is very low. When apparent third-order kinetics are observed, the mechanism usually involves sequential bimolecular steps rather than a true termolecular collision.</p>
-<p>For elementary processes—and <em>only</em> for elementary processes—the rate law directly reflects the molecularity:</p>
-<table>
-<colgroup>
-<col width="42%" />
-<col width="27%" />
-<col width="30%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Molecularity</th>
-<th>Example</th>
-<th>Rate Law</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Unimolecular</td>
-<td><span class="math inline">\(\mathrm{A} \rightarrow \mathrm{P}\)</span></td>
-<td><span class="math inline">\(\nu = k[\mathrm{A}]\)</span></td>
-</tr>
-<tr class="even">
-<td>Bimolecular</td>
-<td><span class="math inline">\(\mathrm{A} + \mathrm{B} \rightarrow \mathrm{P}\)</span></td>
-<td><span class="math inline">\(\nu = k[\mathrm{A}][\mathrm{B}]\)</span></td>
-</tr>
-<tr class="odd">
-<td>Bimolecular</td>
-<td><span class="math inline">\(2\mathrm{A} \rightarrow \mathrm{P}\)</span></td>
-<td><span class="math inline">\(\nu = k[\mathrm{A}]^2\)</span></td>
-</tr>
-<tr class="even">
-<td>Termolecular</td>
-<td><span class="math inline">\(\mathrm{A} + \mathrm{B} + \mathrm{C} \rightarrow \mathrm{P}\)</span></td>
-<td><span class="math inline">\(\nu = k[\mathrm{A}][\mathrm{B}][\mathrm{C}]\)</span></td>
-</tr>
-</tbody>
-</table>
-<p>This direct correspondence between molecularity and reaction order holds because an elementary process represents an actual molecular event. The rate depends on how frequently the required molecular encounters occur. For a unimolecular process, the rate depends only on how many A molecules are present. For a bimolecular process, the rate depends on how often A and B molecules collide—which is proportional to both <span class="math inline">\([\mathrm{A}]\)</span> and <span class="math inline">\([\mathrm{B}]\)</span>.</p>
-</div>
-<div id="complex-reactions" class="section level2 hasAnchor" number="1.7">
-<h2><span class="header-section-number">1.7</span> Complex Reactions<a href="introduction-to-chemical-kinetics.html#complex-reactions" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Most reactions we encounter are not elementary processes but rather sequences of elementary steps. The H<sub>2</sub> + Br<sub>2</sub> reaction, for example, proceeds through a mechanism involving four elementary steps:</p>
-<ol style="list-style-type: decimal">
-<li><span class="math inline">\(\mathrm{Br}_2 \rightarrow \mathrm{Br} + \mathrm{Br}\)</span> (unimolecular)</li>
-<li><span class="math inline">\(\mathrm{Br} + \mathrm{H}_2 \rightarrow \mathrm{H} + \mathrm{HBr}\)</span> (bimolecular)</li>
-<li><span class="math inline">\(\mathrm{H} + \mathrm{Br}_2 \rightarrow \mathrm{Br} + \mathrm{HBr}\)</span> (bimolecular)</li>
-<li><span class="math inline">\(\mathrm{Br} + \mathrm{Br} \rightarrow \mathrm{Br}_2\)</span> (bimolecular)</li>
-</ol>
-<p>Each elementary step follows a simple rate law determined by its molecularity. The <em>overall</em> rate law for the complex reaction emerges from how these steps combine—and this is why the overall rate law can be complicated.</p>
-<p>For complex reactions, we cannot deduce the rate law from the reaction stoichiometry alone. Rate laws for complex reactions must be determined empirically through analysis of experimental data. However, as we shall see, if we know (or hypothesise) the mechanism, we can predict the rate law—and comparing this prediction with experiment provides evidence for or against the proposed mechanism.</p>
-</div>
-<div id="units-of-the-rate-constant" class="section level2 hasAnchor" number="1.8">
-<h2><span class="header-section-number">1.8</span> Units of the Rate Constant<a href="introduction-to-chemical-kinetics.html#units-of-the-rate-constant" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>The units of a rate constant depend on the overall order of the reaction. Since both sides of a rate equation must have the same dimensions, we can deduce the units of <span class="math inline">\(k\)</span> from dimensional analysis. For a first-order reaction (<span class="math inline">\(\nu = k[\mathrm{A}]\)</span>):</p>
-<p><span class="math display">\[\underbrace{\mathrm{mol\,dm}^{-3}\mathrm{\,s}^{-1}}_{\text{rate}} = [k] \times \underbrace{\mathrm{mol\,dm}^{-3}}_{[\mathrm{A}]}\]</span></p>
-<p>so <span class="math inline">\([k] = \mathrm{s}^{-1}\)</span>. Repeating this analysis for other orders gives:</p>
-<table>
-<thead>
-<tr class="header">
-<th align="center">Overall order</th>
-<th align="left">Units of <span class="math inline">\(k\)</span></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="center">0</td>
-<td align="left"><span class="math inline">\(\mathrm{mol\,dm}^{-3}\,\mathrm{s}^{-1}\)</span></td>
-</tr>
-<tr class="even">
-<td align="center">1</td>
-<td align="left"><span class="math inline">\(\mathrm{s}^{-1}\)</span></td>
-</tr>
-<tr class="odd">
-<td align="center">2</td>
-<td align="left"><span class="math inline">\(\mathrm{mol}^{-1}\,\mathrm{dm}^{3}\,\mathrm{s}^{-1}\)</span></td>
-</tr>
-<tr class="even">
-<td align="center">3</td>
-<td align="left"><span class="math inline">\(\mathrm{mol}^{-2}\,\mathrm{dm}^{6}\,\mathrm{s}^{-1}\)</span></td>
-</tr>
-</tbody>
-</table>
-<p>The general pattern for overall order <span class="math inline">\(n\)</span> is:</p>
-<p><span class="math display">\[[k] = \mathrm{mol}^{1-n}\,\mathrm{dm}^{3(n-1)}\,\mathrm{s}^{-1}\]</span></p>
-<p>When comparing rate constants, always check that they refer to the same order of reaction—a rate constant of <span class="math inline">\(10^6\,\mathrm{s}^{-1}\)</span> for a first-order reaction cannot be directly compared with a rate constant of <span class="math inline">\(10^6\,\mathrm{mol}^{-1}\,\mathrm{dm}^{3}\,\mathrm{s}^{-1}\)</span> for a second-order reaction.</p>
-<div class="skill">
-<p><strong>You should be able to:</strong> Write the rate law for an elementary process given its molecularity, and determine the units of a rate constant given the overall reaction order.</p>
-</div>
-</div>
-<div id="key-concepts" class="section level2 hasAnchor" number="1.9">
-<h2><span class="header-section-number">1.9</span> Key Concepts<a href="introduction-to-chemical-kinetics.html#key-concepts" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<ul>
-<li>Thermodynamics tells us whether a reaction <em>can</em> occur; kinetics tells us how <em>fast</em> it proceeds and by what molecular pathway.</li>
-<li>The reaction rate <span class="math inline">\(\nu\)</span> is defined as the rate of change of concentration, with stoichiometric factors ensuring a single unambiguous value regardless of which species we monitor.</li>
-<li>Mass balance (conservation of mass) provides the physical basis for the stoichiometric factors in rate expressions.</li>
-<li>A rate law describes how the rate depends on concentrations. The reaction orders need not match the stoichiometric coefficients.</li>
-<li>Elementary processes are single molecular events (unimolecular, bimolecular, or termolecular). Only for elementary processes do the orders directly reflect the molecularity.</li>
-<li>Complex reactions consist of sequences of elementary steps. Their rate laws must be determined experimentally.</li>
-<li>The units of a rate constant depend on the overall reaction order: for an <span class="math inline">\(n\)</span>th-order reaction, <span class="math inline">\([k] = \mathrm{mol}^{1-n}\,\mathrm{dm}^{3(n-1)}\,\mathrm{s}^{-1}\)</span>.</li>
-</ul>
-<p>In the next chapter, we will derive <em>integrated rate laws</em> that predict how concentrations evolve over time for reactions of different orders, and compare these predictions with experimental data.</p>
+<p>Ozone formation sits at the extreme end of this spectrum — highly exothermic, barrierless, forming a small molecule with few internal degrees of freedom. Most bimolecular reactions we encounter in this course have some combination of activation barriers, moderate energy release, and greater molecular complexity that allows them to proceed as straightforward second-order processes.</p>
+<p>This explains an observation from Lecture 1: termolecular processes are rare, and apparent third-order kinetics usually arise from sequential bimolecular steps (as in the NO oxidation mechanism discussed in Lecture 7) rather than genuine three-body collisions.</p>
 
 </div>
 </div>
@@ -524,8 +329,8 @@ Figure 1.4: Schematic representation of elementary processes classified by molec
           </div>
         </div>
       </div>
-<a href="mathematical-foundations.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="integrated-rate-laws.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="appendix-two-reactants.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="appendix-negative-orders.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -556,7 +361,7 @@ gitbook.start({
     "size": 2
   },
   "edit": {
-    "link": "https://github.com/bjmorgan/CH12002/main/lecture_1/lecture_01.Rmd",
+    "link": "https://github.com/bjmorgan/CH12002/main/appendices/third_order.Rmd",
     "text": "Edit"
   },
   "history": {

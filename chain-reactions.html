@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Lecture 1 Introduction to Chemical Kinetics | CH12002 Lecture Notes</title>
+  <title>Lecture 8 Chain Reactions | CH12002 Lecture Notes</title>
   <meta name="description" content="These are notes to accompany the 2025 CH12002 lecture course on Chemical Kinetics." />
   <meta name="generator" content="bookdown 0.46 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Lecture 1 Introduction to Chemical Kinetics | CH12002 Lecture Notes" />
+  <meta property="og:title" content="Lecture 8 Chain Reactions | CH12002 Lecture Notes" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="These are notes to accompany the 2025 CH12002 lecture course on Chemical Kinetics." />
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Lecture 1 Introduction to Chemical Kinetics | CH12002 Lecture Notes" />
+  <meta name="twitter:title" content="Lecture 8 Chain Reactions | CH12002 Lecture Notes" />
   
   <meta name="twitter:description" content="These are notes to accompany the 2025 CH12002 lecture course on Chemical Kinetics." />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="mathematical-foundations.html"/>
-<link rel="next" href="integrated-rate-laws.html"/>
+<link rel="prev" href="binding-and-catalysis.html"/>
+<link rel="next" href="feedback-stability-and-explosions.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -292,230 +292,108 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="introduction-to-chemical-kinetics" class="section level1 hasAnchor" number="1">
-<h1><span class="header-section-number">Lecture 1</span> Introduction to Chemical Kinetics<a href="introduction-to-chemical-kinetics.html#introduction-to-chemical-kinetics" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<div id="why-study-reaction-kinetics" class="section level2 hasAnchor" number="1.1">
-<h2><span class="header-section-number">1.1</span> Why Study Reaction Kinetics?<a href="introduction-to-chemical-kinetics.html#why-study-reaction-kinetics" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Chemistry is fundamentally concerned with change—the transformation of substances into new forms with different properties. When we mix reactants together, we want to know not just <em>whether</em> a reaction will occur, but <em>how rapidly</em> it will proceed. While thermodynamics provides powerful tools for determining whether a particular chemical change is favourable and what the final equilibrium composition will be, it tells us nothing about how quickly this equilibrium will be reached.</p>
-<p>A reaction may be thermodynamically favourable yet proceed so slowly that it appears not to happen at all. Consider the conversion of diamond to graphite—thermodynamically spontaneous at room temperature and pressure, yet the process occurs at such a negligible rate that diamonds remain stable for geological timescales. Conversely, some reactions reach equilibrium in fractions of a second.</p>
-<p>Chemical kinetics addresses these questions of reaction rates and mechanisms. Where thermodynamics concerns itself with the energy relationships that govern chemical equilibria, kinetics focuses on the rates of chemical processes and the molecular pathways by which they occur. Through kinetic analysis, we can determine how quickly reactants transform into products, what factors influence reaction speed, and what sequence of molecular events constitutes the reaction mechanism.</p>
-<p>The complementary nature of thermodynamics and kinetics provides a complete picture of chemical change:</p>
-<ul>
-<li><strong>Thermodynamics</strong> tells us whether a reaction <em>can</em> occur and what the equilibrium state will be</li>
-<li><strong>Kinetics</strong> tells us how <em>fast</em> we approach that equilibrium and by what molecular pathway</li>
-</ul>
-<p>Both perspectives are essential for understanding chemical processes—in laboratory settings, industrial applications, and natural systems.</p>
-</div>
-<div id="describing-how-concentrations-change-with-time" class="section level2 hasAnchor" number="1.2">
-<h2><span class="header-section-number">1.2</span> Describing How Concentrations Change with Time<a href="introduction-to-chemical-kinetics.html#describing-how-concentrations-change-with-time" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Let us examine a simple reaction: the conversion of a reactant A into a product B:</p>
-<p><span class="math display">\[\mathrm{A} \rightarrow \mathrm{B}\]</span></p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:fig-concentration-profile"></span>
-<img src="lecture_1/figures/concentration_profile.png" alt="Time evolution of concentrations for the reaction A → B. As the reaction proceeds, the concentration of reactant A decreases while the concentration of product B increases. At any time $t$, the sum of the two concentrations equals the initial concentration of A (assuming we start with pure A)." width="45%" />
-<p class="caption">
-Figure 1.1: Time evolution of concentrations for the reaction A → B. As the reaction proceeds, the concentration of reactant A decreases while the concentration of product B increases. At any time <span class="math inline">\(t\)</span>, the sum of the two concentrations equals the initial concentration of A (assuming we start with pure A).
-</p>
-</div>
-<p>As the reaction proceeds, the concentrations of both species change. We track the progress of the reaction by monitoring concentrations as functions of time. Using square brackets to denote concentration (in mol dm<span class="math inline">\(^{-3}\)</span>), we write these time-dependent concentrations as <span class="math inline">\([\mathrm{A}]_t\)</span> and <span class="math inline">\([\mathrm{B}]_t\)</span>.</p>
-<p>Starting from initial values at <span class="math inline">\(t = 0\)</span>, the system evolves toward its final state. The questions we might ask include:</p>
-<ul>
-<li>How much product B is present after time <span class="math inline">\(t\)</span>?</li>
-<li>How long will it take for a certain percentage of A to convert to B?</li>
-<li>If we change pressure, temperature, or initial concentration, how will the reaction speed be affected?</li>
-</ul>
-<p>Answering these questions requires us to understand how reaction rates relate to concentrations—and this is the central concern of chemical kinetics.</p>
-</div>
-<div id="reaction-rates" class="section level2 hasAnchor" number="1.3">
-<h2><span class="header-section-number">1.3</span> Reaction Rates<a href="introduction-to-chemical-kinetics.html#reaction-rates" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>We quantify how quickly a reaction occurs in terms of the rate at which concentrations change with time. For our simple A → B reaction, the <strong>reaction rate</strong> can be expressed as either the rate of disappearance of A or the rate of appearance of B. If the rate were constant, calculating it would be straightforward—we would simply measure the change in concentration over a time interval:</p>
-<p><span class="math display">\[\text{change in [A] per unit time} = \frac{[\mathrm{A}]_{t_2} - [\mathrm{A}]_{t_1}}{t_2 - t_1} = \frac{\Delta[\mathrm{A}]}{\Delta t}\]</span></p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:fig-rate-slope"></span>
-<img src="lecture_1/figures/rate_slope.png" alt="The reaction rate at any instant equals the slope of the tangent to the concentration-time curve at that point. For a reaction where the rate decreases over time (as reactant is consumed), the slope becomes less steep as the reaction progresses." width="90%" />
-<p class="caption">
-Figure 1.2: The reaction rate at any instant equals the slope of the tangent to the concentration-time curve at that point. For a reaction where the rate decreases over time (as reactant is consumed), the slope becomes less steep as the reaction progresses.
-</p>
-</div>
-<p>In most cases, however, reaction rates are not constant—they change as the reaction progresses and reactant concentrations decrease. To capture the instantaneous rate at any moment, we use the derivative:</p>
-<p><span class="math display">\[\text{rate} = -\frac{\mathrm{d}[\mathrm{A}]}{\mathrm{d}t} = +\frac{\mathrm{d}[\mathrm{B}]}{\mathrm{d}t}\]</span></p>
-<p>The negative sign in the first expression ensures that the rate is a positive quantity, since <span class="math inline">\([\mathrm{A}]\)</span> decreases with time (giving a negative derivative). By convention, reaction rates are always expressed as positive values.</p>
-<p>For reactions with more complex stoichiometry, the relationship between concentration changes requires appropriate stoichiometric factors. Consider a reaction where one molecule of A combines with two molecules of B to form one molecule of C:</p>
-<p><span class="math display">\[\mathrm{A} + 2\mathrm{B} \rightarrow \mathrm{C}\]</span></p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:fig-stoich-profiles"></span>
-<img src="lecture_1/figures/stoichiometric_profiles.png" alt="Concentration profiles for the reaction A + 2B → C. Species B is consumed twice as fast as A, reflecting the 2:1 stoichiometric ratio. The rate of formation of C equals the rate of consumption of A." width="50%" />
-<p class="caption">
-Figure 1.3: Concentration profiles for the reaction A + 2B → C. Species B is consumed twice as fast as A, reflecting the 2:1 stoichiometric ratio. The rate of formation of C equals the rate of consumption of A.
-</p>
-</div>
-<p>Here, B is consumed twice as rapidly as A. To define a single, unambiguous reaction rate, we include stoichiometric factors:</p>
-<p><span class="math display">\[\text{rate} = -\frac{\mathrm{d}[\mathrm{A}]}{\mathrm{d}t} = -\frac{1}{2}\frac{\mathrm{d}[\mathrm{B}]}{\mathrm{d}t} = +\frac{\mathrm{d}[\mathrm{C}]}{\mathrm{d}t}\]</span></p>
-<p>In general, for a reaction with stoichiometry</p>
-<p><span class="math display">\[\nu_\mathrm{A}\mathrm{A} + \nu_\mathrm{B}\mathrm{B} + \ldots \rightarrow \nu_\mathrm{P}\mathrm{P} + \nu_\mathrm{Q}\mathrm{Q} + \ldots\]</span></p>
-<p>the rate is written as:</p>
-<p><span class="math display">\[\text{rate} = -\frac{1}{\nu_\mathrm{A}}\frac{\mathrm{d}[\mathrm{A}]}{\mathrm{d}t} = -\frac{1}{\nu_\mathrm{B}}\frac{\mathrm{d}[\mathrm{B}]}{\mathrm{d}t} = \ldots = +\frac{1}{\nu_\mathrm{P}}\frac{\mathrm{d}[\mathrm{P}]}{\mathrm{d}t} = +\frac{1}{\nu_\mathrm{Q}}\frac{\mathrm{d}[\mathrm{Q}]}{\mathrm{d}t} = \ldots\]</span></p>
-<p>But where do these stoichiometric factors come from? The answer lies in a fundamental principle: the conservation of mass.</p>
-</div>
-<div id="mass-balance" class="section level2 hasAnchor" number="1.4">
-<h2><span class="header-section-number">1.4</span> Mass Balance<a href="introduction-to-chemical-kinetics.html#mass-balance" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Chemical reactions cannot create or destroy mass—they merely rearrange atoms into new configurations. This principle of mass conservation provides the foundation for understanding how the rates of change of different species are connected.</p>
-<p>Consider our simple reaction A → B. If each molecule of A converts into exactly one molecule of B, then at any time <span class="math inline">\(t\)</span> the total number of molecules (and hence the total concentration) remains constant:</p>
-<p><span class="math display">\[[\mathrm{A}]_t + [\mathrm{B}]_t = [\mathrm{A}]_0 + [\mathrm{B}]_0\]</span></p>
-<p>If we start with pure A (so that <span class="math inline">\([\mathrm{B}]_0 = 0\)</span>), this simplifies to:</p>
-<p><span class="math display">\[[\mathrm{A}]_t + [\mathrm{B}]_t = [\mathrm{A}]_0\]</span></p>
-<p>Taking the derivative of both sides with respect to time:</p>
-<p><span class="math display">\[\frac{\mathrm{d}[\mathrm{A}]}{\mathrm{d}t} + \frac{\mathrm{d}[\mathrm{B}]}{\mathrm{d}t} = 0\]</span></p>
-<p>since the initial concentration <span class="math inline">\([\mathrm{A}]_0\)</span> is a constant. Rearranging:</p>
-<p><span class="math display">\[\frac{\mathrm{d}[\mathrm{B}]}{\mathrm{d}t} = -\frac{\mathrm{d}[\mathrm{A}]}{\mathrm{d}t}\]</span></p>
-<p>This tells us that for this simple reaction, the rate of formation of B exactly equals the rate of consumption of A.</p>
-<p>Now consider a reaction where one molecule of A produces two molecules of B:</p>
-<p><span class="math display">\[\mathrm{A} \rightarrow 2\mathrm{B}\]</span></p>
-<p>Here, conservation of <em>mass</em> does not imply conservation of <em>moles</em>—we gain one mole of molecules for every mole of A that reacts. To write a mass balance, we note that each A molecule that reacts produces two B molecules. If we define our “conserved quantity” in terms of B-equivalents, then one A is worth two B, giving:</p>
-<p><span class="math display">\[2[\mathrm{A}]_t + [\mathrm{B}]_t = 2[\mathrm{A}]_0\]</span></p>
-<p>Taking the derivative:</p>
-<p><span class="math display">\[2\frac{\mathrm{d}[\mathrm{A}]}{\mathrm{d}t} + \frac{\mathrm{d}[\mathrm{B}]}{\mathrm{d}t} = 0\]</span></p>
-<p>Rearranging:</p>
-<p><span class="math display">\[\frac{\mathrm{d}[\mathrm{B}]}{\mathrm{d}t} = -2\frac{\mathrm{d}[\mathrm{A}]}{\mathrm{d}t}\]</span></p>
-<p>This confirms that B is produced twice as fast as A is consumed—exactly what we expect from the stoichiometry. To define a single reaction rate that is independent of which species we monitor, we write:</p>
-<p><span class="math display">\[\nu = -\frac{\mathrm{d}[\mathrm{A}]}{\mathrm{d}t} = +\frac{1}{2}\frac{\mathrm{d}[\mathrm{B}]}{\mathrm{d}t}\]</span></p>
-<p>For any reaction, mass balance leads to the general expression:</p>
-<p><span class="math display" id="eq:rate-stoichiometric">\[\begin{equation}
-\nu = \frac{1}{n}\frac{\mathrm{d}[\mathrm{X}]}{\mathrm{d}t}
-\tag{1.1}
+<div id="chain-reactions" class="section level1 hasAnchor" number="8">
+<h1><span class="header-section-number">Lecture 8</span> Chain Reactions<a href="chain-reactions.html#chain-reactions" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>So far, the mechanisms we have studied — consecutive reactions, pre-equilibria, enzyme catalysis — all lead to steady, predictable kinetics. But not all reactions behave so tamely. In a <strong>chain reaction</strong>, reactive intermediates are not merely consumed — they are <em>regenerated</em> by the very steps that form the products, creating a self-sustaining cycle. Understanding chain reactions requires the same SSA tools we have developed, but the results can be far more dramatic.</p>
+<div id="sec:hbr" class="section level2 hasAnchor" number="8.1">
+<h2><span class="header-section-number">8.1</span> The H<sub>2</sub> + Br<sub>2</sub> Reaction<a href="chain-reactions.html#sec:hbr" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The gas-phase reaction of hydrogen with bromine to form hydrogen bromide:</p>
+<p><span class="math display">\[\mathrm{H_2} + \mathrm{Br_2} \rightarrow 2\mathrm{HBr}\]</span></p>
+<p>appears simple, but its experimentally determined rate law is anything but:</p>
+<p><span class="math display" id="eq:hbr-experimental">\[\begin{equation}
+\nu = \frac{k[\mathrm{H_2}][\mathrm{Br_2}]^{1/2}}{1 + k&#39;[\mathrm{HBr}]/[\mathrm{Br_2}]}
+\tag{8.1}
 \end{equation}\]</span></p>
-<p>where <span class="math inline">\(n\)</span> is the stoichiometric coefficient of species X (negative for reactants, positive for products). This relationship ensures that the reaction rate <span class="math inline">\(\nu\)</span> has the same numerical value regardless of which species we use to measure it.</p>
-<p>The units of reaction rate are concentration per unit time: mol dm<span class="math inline">\(^{-3}\)</span> s<span class="math inline">\(^{-1}\)</span>.</p>
-<div class="skill">
-<p><strong>You should be able to:</strong> Given a balanced equation, write the reaction rate <span class="math inline">\(\nu\)</span> in terms of the rate of change of concentration of any species, including the correct stoichiometric factors.</p>
-</div>
-</div>
-<div id="rate-laws" class="section level2 hasAnchor" number="1.5">
-<h2><span class="header-section-number">1.5</span> Rate Laws<a href="introduction-to-chemical-kinetics.html#rate-laws" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>The rates of chemical reactions typically depend on the concentrations of the reactants. The mathematical relationship between concentrations and rate is called a <strong>rate law</strong>. Many reactions follow a simple rate law where the rate is proportional to the concentration of each reactant raised to some power:</p>
-<p><span class="math display" id="eq:rate-law-general">\[\begin{equation}
-\nu = k[\mathrm{A}]^a[\mathrm{B}]^b[\mathrm{C}]^c \ldots
-\tag{1.2}
-\end{equation}\]</span></p>
-<p>This expression contains several important quantities. The proportionality factor <span class="math inline">\(k\)</span> is called the <strong>rate constant</strong>; it depends on temperature but not on concentration. The exponents <span class="math inline">\(a\)</span>, <span class="math inline">\(b\)</span>, <span class="math inline">\(c\)</span>, etc. are called the <strong>order</strong> of reaction with respect to reactants A, B, C, etc., and their sum <span class="math inline">\((a + b + c + \ldots)\)</span> is the <strong>overall reaction order</strong>. Note that orders need not be integers—they can be zero, fractional, or even negative.</p>
-<p>An important point: the orders in a rate law need not reflect the stoichiometry of the overall reaction equation. For example:</p>
-<p><span class="math display">\[\mathrm{H}_2 + \mathrm{I}_2 \rightarrow 2\mathrm{HI} \qquad \nu = k[\mathrm{H}_2][\mathrm{I}_2]\]</span></p>
-<p>Here the orders (both 1) happen to match the stoichiometric coefficients. But consider:</p>
-<p><span class="math display">\[3\mathrm{ClO}^- \rightarrow \mathrm{ClO}_3^- + 2\mathrm{Cl}^- \qquad \nu = k[\mathrm{ClO}^-]^2\]</span></p>
-<p>The stoichiometric coefficient of ClO<span class="math inline">\(^-\)</span> is 3, but the reaction is second order in ClO<span class="math inline">\(^-\)</span>.</p>
-<p>Some reactions exhibit rate laws that cannot be written in the simple power-law form at all. A classic example is the formation of hydrogen bromide:</p>
-<p><span class="math display">\[\mathrm{H}_2 + \mathrm{Br}_2 \rightarrow 2\mathrm{HBr} \qquad \nu = \frac{k[\mathrm{H}_2][\mathrm{Br}_2]^{1/2}}{1 + k&#39;[\mathrm{HBr}]/[\mathrm{Br}_2]}\]</span></p>
-<p>This reaction is first order with respect to H<sub>2</sub>, but the orders with respect to Br<sub>2</sub> and HBr are undefined in the usual sense. The appearance of the product HBr in the denominator indicates that the product actually <em>inhibits</em> the reaction—a phenomenon we will explore later in the course.</p>
-<p>A complex rate law always implies a multistep reaction mechanism.</p>
-</div>
-<div id="elementary-processes" class="section level2 hasAnchor" number="1.6">
-<h2><span class="header-section-number">1.6</span> Elementary Processes<a href="introduction-to-chemical-kinetics.html#elementary-processes" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Any chemical reaction can be broken down into a sequence of simple molecular-level steps called <strong>elementary processes</strong> (or elementary reactions). An elementary process represents a single molecular event—a transformation that cannot be broken down further. The <strong>molecularity</strong> of an elementary process describes how many reactant molecules participate in that single step. A <strong>unimolecular</strong> process involves a single molecule undergoing transformation—for example, isomerisation or decomposition. A <strong>bimolecular</strong> process requires two molecules to collide and react. <strong>Termolecular</strong> processes, where three molecules must collide simultaneously, are rare.</p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:fig-molecularity"></span>
-<img src="lecture_1/figures/molecularity.png" alt="Schematic representation of elementary processes classified by molecularity. Unimolecular processes involve a single molecule (e.g., isomerisation or decomposition). Bimolecular processes involve collision between two molecules. Termolecular processes, involving simultaneous three-body collisions, are rare." width="70%" />
+<p>This rate law has two unusual features: a fractional order of <span class="math inline">\(\frac{1}{2}\)</span> in Br<sub>2</sub>, and a term in the denominator that involves the <em>product</em> HBr. Neither feature can be explained by a single elementary step. To understand where this rate law comes from, we need to consider the full chain mechanism.</p>
+<div id="the-mechanism-1" class="section level3 hasAnchor" number="8.1.1">
+<h3><span class="header-section-number">8.1.1</span> The Mechanism<a href="chain-reactions.html#the-mechanism-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The reaction proceeds through a sequence of elementary steps involving two reactive intermediates — bromine radicals (<span class="math inline">\(\mathrm{Br}^{\bullet}\)</span>) and hydrogen radicals (<span class="math inline">\(\mathrm{H}^{\bullet}\)</span>):</p>
+<p><strong>Initiation:</strong>
+<span class="math display">\[\mathrm{Br_2} + \mathrm{M} \xrightarrow{k_1} 2\mathrm{Br}^{\bullet} + \mathrm{M}\]</span></p>
+<p><strong>Propagation:</strong>
+<span class="math display">\[\begin{align*}
+\mathrm{Br}^{\bullet} + \mathrm{H_2} &amp;\xrightarrow{k_2} \mathrm{H}^{\bullet} + \mathrm{HBr} \\
+\mathrm{H}^{\bullet} + \mathrm{Br_2} &amp;\xrightarrow{k_3} \mathrm{Br}^{\bullet} + \mathrm{HBr}
+\end{align*}\]</span></p>
+<p><strong>Inhibition (reverse of first propagation step):</strong>
+<span class="math display">\[\mathrm{H}^{\bullet} + \mathrm{HBr} \xrightarrow{k_{-2}} \mathrm{Br}^{\bullet} + \mathrm{H_2}\]</span></p>
+<p><strong>Termination:</strong>
+<span class="math display">\[2\mathrm{Br}^{\bullet} + \mathrm{M} \xrightarrow{k_4} \mathrm{Br_2} + \mathrm{M}\]</span></p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:hbr-chain-cycle"></span>
+<img src="lecture_9/figures/hbr_chain_cycle.png" alt="The cyclic nature of the H$_2$ + Br$_2$ chain reaction. Bromine radicals are consumed in one propagation step and regenerated in the next, creating a self-sustaining cycle that produces two molecules of HBr per turn. The inhibition step diverts H$^\bullet$ back to Br$^\bullet$ without forming product. [Draft figure from lecture slides.]" width="70%" />
 <p class="caption">
-Figure 1.4: Schematic representation of elementary processes classified by molecularity. Unimolecular processes involve a single molecule (e.g., isomerisation or decomposition). Bimolecular processes involve collision between two molecules. Termolecular processes, involving simultaneous three-body collisions, are rare.
+Figure 8.1: The cyclic nature of the H<span class="math inline">\(_2\)</span> + Br<span class="math inline">\(_2\)</span> chain reaction. Bromine radicals are consumed in one propagation step and regenerated in the next, creating a self-sustaining cycle that produces two molecules of HBr per turn. The inhibition step diverts H<span class="math inline">\(^\bullet\)</span> back to Br<span class="math inline">\(^\bullet\)</span> without forming product. [Draft figure from lecture slides.]
 </p>
 </div>
-<p>Termolecular processes are rare because the probability of three molecules colliding simultaneously with the correct orientation is very low. When apparent third-order kinetics are observed, the mechanism usually involves sequential bimolecular steps rather than a true termolecular collision.</p>
-<p>For elementary processes—and <em>only</em> for elementary processes—the rate law directly reflects the molecularity:</p>
-<table>
-<colgroup>
-<col width="42%" />
-<col width="27%" />
-<col width="30%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Molecularity</th>
-<th>Example</th>
-<th>Rate Law</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Unimolecular</td>
-<td><span class="math inline">\(\mathrm{A} \rightarrow \mathrm{P}\)</span></td>
-<td><span class="math inline">\(\nu = k[\mathrm{A}]\)</span></td>
-</tr>
-<tr class="even">
-<td>Bimolecular</td>
-<td><span class="math inline">\(\mathrm{A} + \mathrm{B} \rightarrow \mathrm{P}\)</span></td>
-<td><span class="math inline">\(\nu = k[\mathrm{A}][\mathrm{B}]\)</span></td>
-</tr>
-<tr class="odd">
-<td>Bimolecular</td>
-<td><span class="math inline">\(2\mathrm{A} \rightarrow \mathrm{P}\)</span></td>
-<td><span class="math inline">\(\nu = k[\mathrm{A}]^2\)</span></td>
-</tr>
-<tr class="even">
-<td>Termolecular</td>
-<td><span class="math inline">\(\mathrm{A} + \mathrm{B} + \mathrm{C} \rightarrow \mathrm{P}\)</span></td>
-<td><span class="math inline">\(\nu = k[\mathrm{A}][\mathrm{B}][\mathrm{C}]\)</span></td>
-</tr>
-</tbody>
-</table>
-<p>This direct correspondence between molecularity and reaction order holds because an elementary process represents an actual molecular event. The rate depends on how frequently the required molecular encounters occur. For a unimolecular process, the rate depends only on how many A molecules are present. For a bimolecular process, the rate depends on how often A and B molecules collide—which is proportional to both <span class="math inline">\([\mathrm{A}]\)</span> and <span class="math inline">\([\mathrm{B}]\)</span>.</p>
+<p>Notice the <strong>cyclic</strong> structure of the propagation steps: <span class="math inline">\(\mathrm{Br}^{\bullet}\)</span> is consumed in the first propagation step and regenerated in the second. Each complete cycle of propagation produces two molecules of HBr and regenerates the radical that started the cycle. This is the defining feature of a chain reaction — the intermediates catalyse their own regeneration.</p>
 </div>
-<div id="complex-reactions" class="section level2 hasAnchor" number="1.7">
-<h2><span class="header-section-number">1.7</span> Complex Reactions<a href="introduction-to-chemical-kinetics.html#complex-reactions" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Most reactions we encounter are not elementary processes but rather sequences of elementary steps. The H<sub>2</sub> + Br<sub>2</sub> reaction, for example, proceeds through a mechanism involving four elementary steps:</p>
+<div id="deriving-the-rate-law-using-the-ssa" class="section level3 hasAnchor" number="8.1.2">
+<h3><span class="header-section-number">8.1.2</span> Deriving the Rate Law Using the SSA<a href="chain-reactions.html#deriving-the-rate-law-using-the-ssa" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>We apply the SSA to both radical intermediates. The key simplification comes from a physical observation: the propagation steps are much faster than initiation and termination. This means that in the SSA equation for <span class="math inline">\(\mathrm{Br}^{\bullet}\)</span>, the propagation terms nearly cancel (each <span class="math inline">\(\mathrm{Br}^{\bullet}\)</span> consumed in one propagation step is regenerated in the next). What remains is a balance between initiation and termination:</p>
+<p><span class="math display">\[2k_1[\mathrm{Br_2}][\mathrm{M}] = 2k_4[\mathrm{Br}^{\bullet}]^2[\mathrm{M}]\]</span></p>
+<p><span class="math display" id="eq:br-steady-state">\[\begin{equation}
+[\mathrm{Br}^{\bullet}]_\mathrm{ss} = \sqrt{\frac{k_1}{k_4}}\,[\mathrm{Br_2}]^{1/2}
+\tag{8.2}
+\end{equation}\]</span></p>
+<p>This result immediately explains the <span class="math inline">\([\mathrm{Br_2}]^{1/2}\)</span> dependence in the experimental rate law: it comes from the square root in the steady-state radical concentration, which in turn arises because termination is <em>second order</em> in <span class="math inline">\(\mathrm{Br}^{\bullet}\)</span> (two radicals must meet to recombine).</p>
+<p>Applying the SSA to <span class="math inline">\(\mathrm{H}^{\bullet}\)</span> and substituting <span class="math inline">\([\mathrm{Br}^{\bullet}]_\mathrm{ss}\)</span>, we can derive the full rate of HBr formation. The algebra is involved (and the details are not examinable), but the result is:</p>
+<p><span class="math display" id="eq:hbr-derived">\[\begin{equation}
+\nu = \frac{2k_2\sqrt{k_1/k_4}\,[\mathrm{H_2}][\mathrm{Br_2}]^{1/2}}{1 + (k_{-2}/k_3)[\mathrm{HBr}]/[\mathrm{Br_2}]}
+\tag{8.3}
+\end{equation}\]</span></p>
+<p>This matches the experimental rate law (Eqn. <a href="chain-reactions.html#eq:hbr-experimental">(8.1)</a>) exactly, with <span class="math inline">\(k = 2k_2\sqrt{k_1/k_4}\)</span> and <span class="math inline">\(k&#39; = k_{-2}/k_3\)</span>.</p>
+</div>
+<div id="physical-interpretation" class="section level3 hasAnchor" number="8.1.3">
+<h3><span class="header-section-number">8.1.3</span> Physical Interpretation<a href="chain-reactions.html#physical-interpretation" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The derived rate law tells us two things about the mechanism:</p>
 <ol style="list-style-type: decimal">
-<li><span class="math inline">\(\mathrm{Br}_2 \rightarrow \mathrm{Br} + \mathrm{Br}\)</span> (unimolecular)</li>
-<li><span class="math inline">\(\mathrm{Br} + \mathrm{H}_2 \rightarrow \mathrm{H} + \mathrm{HBr}\)</span> (bimolecular)</li>
-<li><span class="math inline">\(\mathrm{H} + \mathrm{Br}_2 \rightarrow \mathrm{Br} + \mathrm{HBr}\)</span> (bimolecular)</li>
-<li><span class="math inline">\(\mathrm{Br} + \mathrm{Br} \rightarrow \mathrm{Br}_2\)</span> (bimolecular)</li>
+<li><p><strong>The <span class="math inline">\([\mathrm{Br_2}]^{1/2}\)</span> dependence</strong> arises because the steady-state radical concentration depends on the square root of the Br<sub>2</sub> concentration (Eqn. <a href="chain-reactions.html#eq:br-steady-state">(8.2)</a>). This is a direct consequence of the bimolecular termination step.</p></li>
+<li><p><strong>The inhibition by HBr</strong> appears in the denominator. The inhibition step (<span class="math inline">\(\mathrm{H}^{\bullet} + \mathrm{HBr} \rightarrow \mathrm{Br}^{\bullet} + \mathrm{H_2}\)</span>) competes with the forward propagation step (<span class="math inline">\(\mathrm{H}^{\bullet} + \mathrm{Br_2} \rightarrow \mathrm{Br}^{\bullet} + \mathrm{HBr}\)</span>). Both consume <span class="math inline">\(\mathrm{H}^{\bullet}\)</span>, but only the forward step produces HBr. The ratio <span class="math inline">\([\mathrm{HBr}]/[\mathrm{Br_2}]\)</span> in the denominator captures this competition: as product accumulates relative to reactant, inhibition becomes increasingly important and the reaction slows down. This is an example of a <em>negative reaction order</em> — a phenomenon explored further in Appendix <a href="appendix-negative-orders.html#appendix-negative-orders">C</a>.</p></li>
 </ol>
-<p>Each elementary step follows a simple rate law determined by its molecularity. The <em>overall</em> rate law for the complex reaction emerges from how these steps combine—and this is why the overall rate law can be complicated.</p>
-<p>For complex reactions, we cannot deduce the rate law from the reaction stoichiometry alone. Rate laws for complex reactions must be determined empirically through analysis of experimental data. However, as we shall see, if we know (or hypothesise) the mechanism, we can predict the rate law—and comparing this prediction with experiment provides evidence for or against the proposed mechanism.</p>
-</div>
-<div id="units-of-the-rate-constant" class="section level2 hasAnchor" number="1.8">
-<h2><span class="header-section-number">1.8</span> Units of the Rate Constant<a href="introduction-to-chemical-kinetics.html#units-of-the-rate-constant" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>The units of a rate constant depend on the overall order of the reaction. Since both sides of a rate equation must have the same dimensions, we can deduce the units of <span class="math inline">\(k\)</span> from dimensional analysis. For a first-order reaction (<span class="math inline">\(\nu = k[\mathrm{A}]\)</span>):</p>
-<p><span class="math display">\[\underbrace{\mathrm{mol\,dm}^{-3}\mathrm{\,s}^{-1}}_{\text{rate}} = [k] \times \underbrace{\mathrm{mol\,dm}^{-3}}_{[\mathrm{A}]}\]</span></p>
-<p>so <span class="math inline">\([k] = \mathrm{s}^{-1}\)</span>. Repeating this analysis for other orders gives:</p>
-<table>
-<thead>
-<tr class="header">
-<th align="center">Overall order</th>
-<th align="left">Units of <span class="math inline">\(k\)</span></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="center">0</td>
-<td align="left"><span class="math inline">\(\mathrm{mol\,dm}^{-3}\,\mathrm{s}^{-1}\)</span></td>
-</tr>
-<tr class="even">
-<td align="center">1</td>
-<td align="left"><span class="math inline">\(\mathrm{s}^{-1}\)</span></td>
-</tr>
-<tr class="odd">
-<td align="center">2</td>
-<td align="left"><span class="math inline">\(\mathrm{mol}^{-1}\,\mathrm{dm}^{3}\,\mathrm{s}^{-1}\)</span></td>
-</tr>
-<tr class="even">
-<td align="center">3</td>
-<td align="left"><span class="math inline">\(\mathrm{mol}^{-2}\,\mathrm{dm}^{6}\,\mathrm{s}^{-1}\)</span></td>
-</tr>
-</tbody>
-</table>
-<p>The general pattern for overall order <span class="math inline">\(n\)</span> is:</p>
-<p><span class="math display">\[[k] = \mathrm{mol}^{1-n}\,\mathrm{dm}^{3(n-1)}\,\mathrm{s}^{-1}\]</span></p>
-<p>When comparing rate constants, always check that they refer to the same order of reaction—a rate constant of <span class="math inline">\(10^6\,\mathrm{s}^{-1}\)</span> for a first-order reaction cannot be directly compared with a rate constant of <span class="math inline">\(10^6\,\mathrm{mol}^{-1}\,\mathrm{dm}^{3}\,\mathrm{s}^{-1}\)</span> for a second-order reaction.</p>
 <div class="skill">
-<p><strong>You should be able to:</strong> Write the rate law for an elementary process given its molecularity, and determine the units of a rate constant given the overall reaction order.</p>
+<p><strong>You should be able to:</strong> Identify the initiation, propagation, termination, and inhibition steps in the H<sub>2</sub> + Br<sub>2</sub> mechanism, explain the physical origin of the <span class="math inline">\([\mathrm{Br_2}]^{1/2}\)</span> dependence and the inhibition term, and describe how the SSA is applied to derive the rate law.</p>
 </div>
 </div>
-<div id="key-concepts" class="section level2 hasAnchor" number="1.9">
-<h2><span class="header-section-number">1.9</span> Key Concepts<a href="introduction-to-chemical-kinetics.html#key-concepts" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+</div>
+<div id="sec:chain-anatomy" class="section level2 hasAnchor" number="8.2">
+<h2><span class="header-section-number">8.2</span> The Anatomy of a Chain Reaction<a href="chain-reactions.html#sec:chain-anatomy" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The H<sub>2</sub> + Br<sub>2</sub> reaction illustrates the general features shared by all chain reactions:</p>
+<p><strong>Initiation</strong> — A step that creates reactive intermediates (usually radicals) from stable molecules. This is often slow and may require an external energy source (heat, light, or a chemical initiator).</p>
+<p><strong>Propagation</strong> — A cyclic sequence of steps in which each step consumes one reactive intermediate and generates another. The cycle produces product molecules while regenerating the intermediates that sustain the chain.</p>
+<p><strong>Termination</strong> — Steps that remove reactive intermediates from the cycle, usually by radical recombination. These steps compete with propagation and ultimately limit the chain length.</p>
+<p><strong>Inhibition</strong> — Steps that consume intermediates unproductively (regenerating reactants rather than forming products). Not all chain reactions have inhibition steps, but when present they reduce the overall rate.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:chain-anatomy"></span>
+<img src="lecture_9/figures/chain_anatomy.png" alt="The general anatomy of a chain reaction: initiation creates reactive intermediates (R$_1$, R$_2$), propagation regenerates them in a cyclic sequence while producing products (P), and termination removes them. The competition between propagation and termination determines whether the chain is sustained. [Draft figure from lecture slides.]" width="70%" />
+<p class="caption">
+Figure 8.2: The general anatomy of a chain reaction: initiation creates reactive intermediates (R<span class="math inline">\(_1\)</span>, R<span class="math inline">\(_2\)</span>), propagation regenerates them in a cyclic sequence while producing products (P), and termination removes them. The competition between propagation and termination determines whether the chain is sustained. [Draft figure from lecture slides.]
+</p>
+</div>
+<div id="straight-chains-versus-branching-chains" class="section level3 hasAnchor" number="8.2.1">
+<h3><span class="header-section-number">8.2.1</span> Straight Chains versus Branching Chains<a href="chain-reactions.html#straight-chains-versus-branching-chains" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Chain reactions fall into two fundamentally different categories, depending on what happens to the number of reactive intermediates during propagation.</p>
+<p>In a <strong>straight chain</strong> reaction, each propagation step regenerates exactly one reactive intermediate for every one consumed. The H<sub>2</sub> + Br<sub>2</sub> reaction is an example: when <span class="math inline">\(\mathrm{Br}^{\bullet}\)</span> reacts, it produces one <span class="math inline">\(\mathrm{H}^{\bullet}\)</span>; when <span class="math inline">\(\mathrm{H}^{\bullet}\)</span> reacts, it produces one <span class="math inline">\(\mathrm{Br}^{\bullet}\)</span>. The total number of radicals is maintained by the propagation cycle and slowly depleted by termination. Straight chain reactions reach a steady state.</p>
+<p>In a <strong>branching chain</strong> reaction, one or more propagation steps produce <em>more</em> reactive intermediates than they consume. The combustion of hydrogen provides the classic example:</p>
+<p><span class="math display">\[\begin{align*}
+\mathrm{H}^{\bullet} + \mathrm{O_2} &amp;\rightarrow \mathrm{OH}^{\bullet} + \mathrm{O}^{\bullet\bullet} \\
+\mathrm{O}^{\bullet\bullet} + \mathrm{H_2} &amp;\rightarrow \mathrm{OH}^{\bullet} + \mathrm{H}^{\bullet} \\
+\mathrm{OH}^{\bullet} + \mathrm{H_2} &amp;\rightarrow \mathrm{H_2O} + \mathrm{H}^{\bullet}
+\end{align*}\]</span></p>
+<p>In the first step, one radical (<span class="math inline">\(\mathrm{H}^{\bullet}\)</span>) generates <em>two</em> new radicals (<span class="math inline">\(\mathrm{OH}^{\bullet}\)</span> and <span class="math inline">\(\mathrm{O}^{\bullet\bullet}\)</span>). This means the radical population can grow with each cycle. If this branching outpaces termination, the radical concentration increases exponentially — and the reaction accelerates towards an <strong>explosion</strong>.</p>
+<p>Whether a chain reaction reaches a steady state or runs away to explosion depends on the competition between branching (which multiplies intermediates) and termination (which removes them). In the next chapter, we develop this idea quantitatively using a general feedback model.</p>
+<div class="skill">
+<p><strong>You should be able to:</strong> Classify the steps in a chain reaction mechanism as initiation, propagation, termination, or inhibition, and distinguish between straight chain and branching chain reactions based on whether propagation steps conserve or multiply the number of reactive intermediates.</p>
+</div>
+</div>
+</div>
+<div id="key-concepts-7" class="section level2 hasAnchor" number="8.3">
+<h2><span class="header-section-number">8.3</span> Key Concepts<a href="chain-reactions.html#key-concepts-7" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ul>
-<li>Thermodynamics tells us whether a reaction <em>can</em> occur; kinetics tells us how <em>fast</em> it proceeds and by what molecular pathway.</li>
-<li>The reaction rate <span class="math inline">\(\nu\)</span> is defined as the rate of change of concentration, with stoichiometric factors ensuring a single unambiguous value regardless of which species we monitor.</li>
-<li>Mass balance (conservation of mass) provides the physical basis for the stoichiometric factors in rate expressions.</li>
-<li>A rate law describes how the rate depends on concentrations. The reaction orders need not match the stoichiometric coefficients.</li>
-<li>Elementary processes are single molecular events (unimolecular, bimolecular, or termolecular). Only for elementary processes do the orders directly reflect the molecularity.</li>
-<li>Complex reactions consist of sequences of elementary steps. Their rate laws must be determined experimentally.</li>
-<li>The units of a rate constant depend on the overall reaction order: for an <span class="math inline">\(n\)</span>th-order reaction, <span class="math inline">\([k] = \mathrm{mol}^{1-n}\,\mathrm{dm}^{3(n-1)}\,\mathrm{s}^{-1}\)</span>.</li>
+<li><strong>Chain reactions</strong> involve a cyclic propagation sequence in which reactive intermediates (usually radicals) are regenerated by the steps that produce the products.</li>
+<li>The H<sub>2</sub> + Br<sub>2</sub> rate law, <span class="math inline">\(\nu = k[\mathrm{H_2}][\mathrm{Br_2}]^{1/2}/(1 + k&#39;[\mathrm{HBr}]/[\mathrm{Br_2}])\)</span>, is derived by applying the SSA to both radical intermediates. The <span class="math inline">\([\mathrm{Br_2}]^{1/2}\)</span> dependence arises from bimolecular termination; the HBr inhibition term arises from a reverse propagation step.</li>
+<li>Every chain reaction has <strong>initiation</strong> (creating intermediates), <strong>propagation</strong> (regenerating them while forming products), and <strong>termination</strong> (removing them). Some also have <strong>inhibition</strong> steps.</li>
+<li>In a <strong>straight chain</strong>, each propagation cycle conserves the number of intermediates. In a <strong>branching chain</strong>, propagation <em>multiplies</em> the number of intermediates, potentially leading to exponential growth and explosion.</li>
+<li>The competition between branching and termination determines whether a chain reaction reaches a steady state or runs away — a question we analyse quantitatively in the next chapter.</li>
 </ul>
-<p>In the next chapter, we will derive <em>integrated rate laws</em> that predict how concentrations evolve over time for reactions of different orders, and compare these predictions with experimental data.</p>
 
 </div>
 </div>
@@ -524,8 +402,8 @@ Figure 1.4: Schematic representation of elementary processes classified by molec
           </div>
         </div>
       </div>
-<a href="mathematical-foundations.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="integrated-rate-laws.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="binding-and-catalysis.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="feedback-stability-and-explosions.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -556,7 +434,7 @@ gitbook.start({
     "size": 2
   },
   "edit": {
-    "link": "https://github.com/bjmorgan/CH12002/main/lecture_1/lecture_01.Rmd",
+    "link": "https://github.com/bjmorgan/CH12002/main/lecture_9/lecture_09.Rmd",
     "text": "Edit"
   },
   "history": {

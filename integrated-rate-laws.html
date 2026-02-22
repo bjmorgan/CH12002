@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Lecture 1 Introduction to Chemical Kinetics | CH12002 Lecture Notes</title>
+  <title>Lecture 2 Integrated Rate Laws | CH12002 Lecture Notes</title>
   <meta name="description" content="These are notes to accompany the 2025 CH12002 lecture course on Chemical Kinetics." />
   <meta name="generator" content="bookdown 0.46 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Lecture 1 Introduction to Chemical Kinetics | CH12002 Lecture Notes" />
+  <meta property="og:title" content="Lecture 2 Integrated Rate Laws | CH12002 Lecture Notes" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="These are notes to accompany the 2025 CH12002 lecture course on Chemical Kinetics." />
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Lecture 1 Introduction to Chemical Kinetics | CH12002 Lecture Notes" />
+  <meta name="twitter:title" content="Lecture 2 Integrated Rate Laws | CH12002 Lecture Notes" />
   
   <meta name="twitter:description" content="These are notes to accompany the 2025 CH12002 lecture course on Chemical Kinetics." />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="mathematical-foundations.html"/>
-<link rel="next" href="integrated-rate-laws.html"/>
+<link rel="prev" href="introduction-to-chemical-kinetics.html"/>
+<link rel="next" href="methods-for-determining-rate-laws-from-experimental-data.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -292,230 +292,206 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="introduction-to-chemical-kinetics" class="section level1 hasAnchor" number="1">
-<h1><span class="header-section-number">Lecture 1</span> Introduction to Chemical Kinetics<a href="introduction-to-chemical-kinetics.html#introduction-to-chemical-kinetics" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<div id="why-study-reaction-kinetics" class="section level2 hasAnchor" number="1.1">
-<h2><span class="header-section-number">1.1</span> Why Study Reaction Kinetics?<a href="introduction-to-chemical-kinetics.html#why-study-reaction-kinetics" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Chemistry is fundamentally concerned with change—the transformation of substances into new forms with different properties. When we mix reactants together, we want to know not just <em>whether</em> a reaction will occur, but <em>how rapidly</em> it will proceed. While thermodynamics provides powerful tools for determining whether a particular chemical change is favourable and what the final equilibrium composition will be, it tells us nothing about how quickly this equilibrium will be reached.</p>
-<p>A reaction may be thermodynamically favourable yet proceed so slowly that it appears not to happen at all. Consider the conversion of diamond to graphite—thermodynamically spontaneous at room temperature and pressure, yet the process occurs at such a negligible rate that diamonds remain stable for geological timescales. Conversely, some reactions reach equilibrium in fractions of a second.</p>
-<p>Chemical kinetics addresses these questions of reaction rates and mechanisms. Where thermodynamics concerns itself with the energy relationships that govern chemical equilibria, kinetics focuses on the rates of chemical processes and the molecular pathways by which they occur. Through kinetic analysis, we can determine how quickly reactants transform into products, what factors influence reaction speed, and what sequence of molecular events constitutes the reaction mechanism.</p>
-<p>The complementary nature of thermodynamics and kinetics provides a complete picture of chemical change:</p>
-<ul>
-<li><strong>Thermodynamics</strong> tells us whether a reaction <em>can</em> occur and what the equilibrium state will be</li>
-<li><strong>Kinetics</strong> tells us how <em>fast</em> we approach that equilibrium and by what molecular pathway</li>
-</ul>
-<p>Both perspectives are essential for understanding chemical processes—in laboratory settings, industrial applications, and natural systems.</p>
-</div>
-<div id="describing-how-concentrations-change-with-time" class="section level2 hasAnchor" number="1.2">
-<h2><span class="header-section-number">1.2</span> Describing How Concentrations Change with Time<a href="introduction-to-chemical-kinetics.html#describing-how-concentrations-change-with-time" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Let us examine a simple reaction: the conversion of a reactant A into a product B:</p>
-<p><span class="math display">\[\mathrm{A} \rightarrow \mathrm{B}\]</span></p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:fig-concentration-profile"></span>
-<img src="lecture_1/figures/concentration_profile.png" alt="Time evolution of concentrations for the reaction A → B. As the reaction proceeds, the concentration of reactant A decreases while the concentration of product B increases. At any time $t$, the sum of the two concentrations equals the initial concentration of A (assuming we start with pure A)." width="45%" />
+<div id="integrated-rate-laws" class="section level1 hasAnchor" number="2">
+<h1><span class="header-section-number">Lecture 2</span> Integrated Rate Laws<a href="integrated-rate-laws.html#integrated-rate-laws" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>In the previous chapter, we defined reaction rates, wrote differential rate laws for elementary processes, and saw that the rate of a reaction generally depends on the concentrations of the reactants. These differential rate laws tell us the instantaneous rate at any given set of concentrations—but experimentally, what we usually measure is concentration as a function of time. To connect our differential rate laws to experimental data, we need to <em>integrate</em> them: converting a relationship between rate and concentration into a relationship between concentration and time.</p>
+<div id="from-differential-to-integrated-rate-laws" class="section level2 hasAnchor" number="2.1">
+<h2><span class="header-section-number">2.1</span> From Differential to Integrated Rate Laws<a href="integrated-rate-laws.html#from-differential-to-integrated-rate-laws" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>To integrate a differential rate law, we separate variables and integrate both sides between appropriate limits (using the techniques from the <a href="mathematical-foundations.html#mathematical-foundations">Mathematical Foundations</a> chapter). This gives us the <strong>integrated rate law</strong>: an equation that tells us the concentration <span class="math inline">\([\mathrm{A}]_t\)</span> as a function of time. We then rearrange this into a <strong>linear form</strong>, suitable for graphical analysis, for reasons that will become clear once we have derived the results for several different reaction orders. Figure <a href="integrated-rate-laws.html#fig:integrated-rate-laws-overview">2.1</a> summarises the results we will derive in this chapter for zeroth-, first-, and second-order reactions.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:integrated-rate-laws-overview"></span>
+<img src="lecture_2/figures/integrated_rate_laws_summary.png" alt="Overview of the integrated rate laws derived in this chapter. For each reaction order, we start from the differential rate law, integrate to obtain the integrated rate law, and then rearrange into a linear form suitable for graphical analysis." width="90%" />
 <p class="caption">
-Figure 1.1: Time evolution of concentrations for the reaction A → B. As the reaction proceeds, the concentration of reactant A decreases while the concentration of product B increases. At any time <span class="math inline">\(t\)</span>, the sum of the two concentrations equals the initial concentration of A (assuming we start with pure A).
+Figure 2.1: Overview of the integrated rate laws derived in this chapter. For each reaction order, we start from the differential rate law, integrate to obtain the integrated rate law, and then rearrange into a linear form suitable for graphical analysis.
 </p>
 </div>
-<p>As the reaction proceeds, the concentrations of both species change. We track the progress of the reaction by monitoring concentrations as functions of time. Using square brackets to denote concentration (in mol dm<span class="math inline">\(^{-3}\)</span>), we write these time-dependent concentrations as <span class="math inline">\([\mathrm{A}]_t\)</span> and <span class="math inline">\([\mathrm{B}]_t\)</span>.</p>
-<p>Starting from initial values at <span class="math inline">\(t = 0\)</span>, the system evolves toward its final state. The questions we might ask include:</p>
-<ul>
-<li>How much product B is present after time <span class="math inline">\(t\)</span>?</li>
-<li>How long will it take for a certain percentage of A to convert to B?</li>
-<li>If we change pressure, temperature, or initial concentration, how will the reaction speed be affected?</li>
-</ul>
-<p>Answering these questions requires us to understand how reaction rates relate to concentrations—and this is the central concern of chemical kinetics.</p>
 </div>
-<div id="reaction-rates" class="section level2 hasAnchor" number="1.3">
-<h2><span class="header-section-number">1.3</span> Reaction Rates<a href="introduction-to-chemical-kinetics.html#reaction-rates" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>We quantify how quickly a reaction occurs in terms of the rate at which concentrations change with time. For our simple A → B reaction, the <strong>reaction rate</strong> can be expressed as either the rate of disappearance of A or the rate of appearance of B. If the rate were constant, calculating it would be straightforward—we would simply measure the change in concentration over a time interval:</p>
-<p><span class="math display">\[\text{change in [A] per unit time} = \frac{[\mathrm{A}]_{t_2} - [\mathrm{A}]_{t_1}}{t_2 - t_1} = \frac{\Delta[\mathrm{A}]}{\Delta t}\]</span></p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:fig-rate-slope"></span>
-<img src="lecture_1/figures/rate_slope.png" alt="The reaction rate at any instant equals the slope of the tangent to the concentration-time curve at that point. For a reaction where the rate decreases over time (as reactant is consumed), the slope becomes less steep as the reaction progresses." width="90%" />
+<div id="zeroth-order-reactions" class="section level2 hasAnchor" number="2.2">
+<h2><span class="header-section-number">2.2</span> Zeroth-Order Reactions<a href="integrated-rate-laws.html#zeroth-order-reactions" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>For a zeroth-order reaction, the rate is constant, independent of the concentration of the reactant:</p>
+<p><span class="math display">\[\frac{\mathrm{d}[\mathrm{A}]}{\mathrm{d}t} = -k\]</span></p>
+<p>Integrating both sides between <span class="math inline">\(t = 0\)</span> (when <span class="math inline">\([\mathrm{A}] = [\mathrm{A}]_0\)</span>) and time <span class="math inline">\(t\)</span> (when <span class="math inline">\([\mathrm{A}] = [\mathrm{A}]_t\)</span>):</p>
+<p><span class="math display">\[\int_{[\mathrm{A}]_0}^{[\mathrm{A}]_t} \mathrm{d}[\mathrm{A}] = \int_0^t -k\,\mathrm{d}t\]</span></p>
+<p><span class="math display">\[[\mathrm{A}]_t - [\mathrm{A}]_0 = -kt\]</span></p>
+<p>Rearranging gives the zeroth-order integrated rate law:</p>
+<p><span class="math display" id="eq:zeroth-order-integrated">\[\begin{equation}
+[\mathrm{A}]_t = [\mathrm{A}]_0 - kt
+\tag{2.1}
+\end{equation}\]</span></p>
+<p>This is already in linear form: a plot of <span class="math inline">\([\mathrm{A}]_t\)</span> against <span class="math inline">\(t\)</span> gives a straight line with slope <span class="math inline">\(-k\)</span> and intercept <span class="math inline">\([\mathrm{A}]_0\)</span>. Physically, a constant rate means the reaction proceeds at the same speed regardless of how much reactant remains—a situation that can arise, for example, when a reaction is limited by a saturated catalyst surface.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:zeroth-order-plot"></span>
+<img src="lecture_2/figures/zeroth_order_linear.png" alt="Zeroth-order kinetics: plotting $[\mathrm{A}]$ versus $t$ gives a straight line with slope $-k$ and intercept $[\mathrm{A}]_0$." width="45%" />
 <p class="caption">
-Figure 1.2: The reaction rate at any instant equals the slope of the tangent to the concentration-time curve at that point. For a reaction where the rate decreases over time (as reactant is consumed), the slope becomes less steep as the reaction progresses.
+Figure 2.2: Zeroth-order kinetics: plotting <span class="math inline">\([\mathrm{A}]\)</span> versus <span class="math inline">\(t\)</span> gives a straight line with slope <span class="math inline">\(-k\)</span> and intercept <span class="math inline">\([\mathrm{A}]_0\)</span>.
 </p>
 </div>
-<p>In most cases, however, reaction rates are not constant—they change as the reaction progresses and reactant concentrations decrease. To capture the instantaneous rate at any moment, we use the derivative:</p>
-<p><span class="math display">\[\text{rate} = -\frac{\mathrm{d}[\mathrm{A}]}{\mathrm{d}t} = +\frac{\mathrm{d}[\mathrm{B}]}{\mathrm{d}t}\]</span></p>
-<p>The negative sign in the first expression ensures that the rate is a positive quantity, since <span class="math inline">\([\mathrm{A}]\)</span> decreases with time (giving a negative derivative). By convention, reaction rates are always expressed as positive values.</p>
-<p>For reactions with more complex stoichiometry, the relationship between concentration changes requires appropriate stoichiometric factors. Consider a reaction where one molecule of A combines with two molecules of B to form one molecule of C:</p>
-<p><span class="math display">\[\mathrm{A} + 2\mathrm{B} \rightarrow \mathrm{C}\]</span></p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:fig-stoich-profiles"></span>
-<img src="lecture_1/figures/stoichiometric_profiles.png" alt="Concentration profiles for the reaction A + 2B → C. Species B is consumed twice as fast as A, reflecting the 2:1 stoichiometric ratio. The rate of formation of C equals the rate of consumption of A." width="50%" />
+</div>
+<div id="first-order-reactions" class="section level2 hasAnchor" number="2.3">
+<h2><span class="header-section-number">2.3</span> First-Order Reactions<a href="integrated-rate-laws.html#first-order-reactions" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>For a first-order reaction, the rate is proportional to the concentration of the reactant:</p>
+<p><span class="math display">\[\frac{\mathrm{d}[\mathrm{A}]}{\mathrm{d}t} = -k[\mathrm{A}]\]</span></p>
+<p>We separate variables and integrate:</p>
+<p><span class="math display">\[\frac{\mathrm{d}[\mathrm{A}]}{[\mathrm{A}]} = -k\,\mathrm{d}t\]</span></p>
+<p><span class="math display">\[\int_{[\mathrm{A}]_0}^{[\mathrm{A}]_t} \frac{\mathrm{d}[\mathrm{A}]}{[\mathrm{A}]} = \int_0^t -k\,\mathrm{d}t\]</span></p>
+<p><span class="math display">\[\ln[\mathrm{A}]_t - \ln[\mathrm{A}]_0 = -kt\]</span></p>
+<p>This gives the first-order integrated rate law in linear form:</p>
+<p><span class="math display" id="eq:first-order-integrated-linear">\[\begin{equation}
+\ln[\mathrm{A}]_t = \ln[\mathrm{A}]_0 - kt
+\tag{2.2}
+\end{equation}\]</span></p>
+<p>A plot of <span class="math inline">\(\ln[\mathrm{A}]_t\)</span> against <span class="math inline">\(t\)</span> gives a straight line with slope <span class="math inline">\(-k\)</span> and intercept <span class="math inline">\(\ln[\mathrm{A}]_0\)</span>. Taking the exponential of both sides gives the equivalent exponential form:</p>
+<p><span class="math display" id="eq:first-order-integrated-exp">\[\begin{equation}
+[\mathrm{A}]_t = [\mathrm{A}]_0\,\mathrm{e}^{-kt}
+\tag{2.3}
+\end{equation}\]</span></p>
+<p>This is the exponential decay we derived from general principles in the <a href="mathematical-foundations.html#mathematical-foundations">Mathematical Foundations</a> chapter: whenever a quantity changes at a rate proportional to its current value, the result is an exponential function. First-order kinetics means the concentration decreases by the same <em>fraction</em> in each successive time interval.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:first-order-plot"></span>
+<img src="lecture_2/figures/first_order_linear.png" alt="First-order kinetics: plotting $\ln[\mathrm{A}]$ versus $t$ gives a straight line with slope $-k$ and intercept $\ln[\mathrm{A}]_0$." width="45%" />
 <p class="caption">
-Figure 1.3: Concentration profiles for the reaction A + 2B → C. Species B is consumed twice as fast as A, reflecting the 2:1 stoichiometric ratio. The rate of formation of C equals the rate of consumption of A.
+Figure 2.3: First-order kinetics: plotting <span class="math inline">\(\ln[\mathrm{A}]\)</span> versus <span class="math inline">\(t\)</span> gives a straight line with slope <span class="math inline">\(-k\)</span> and intercept <span class="math inline">\(\ln[\mathrm{A}]_0\)</span>.
 </p>
 </div>
-<p>Here, B is consumed twice as rapidly as A. To define a single, unambiguous reaction rate, we include stoichiometric factors:</p>
-<p><span class="math display">\[\text{rate} = -\frac{\mathrm{d}[\mathrm{A}]}{\mathrm{d}t} = -\frac{1}{2}\frac{\mathrm{d}[\mathrm{B}]}{\mathrm{d}t} = +\frac{\mathrm{d}[\mathrm{C}]}{\mathrm{d}t}\]</span></p>
-<p>In general, for a reaction with stoichiometry</p>
-<p><span class="math display">\[\nu_\mathrm{A}\mathrm{A} + \nu_\mathrm{B}\mathrm{B} + \ldots \rightarrow \nu_\mathrm{P}\mathrm{P} + \nu_\mathrm{Q}\mathrm{Q} + \ldots\]</span></p>
-<p>the rate is written as:</p>
-<p><span class="math display">\[\text{rate} = -\frac{1}{\nu_\mathrm{A}}\frac{\mathrm{d}[\mathrm{A}]}{\mathrm{d}t} = -\frac{1}{\nu_\mathrm{B}}\frac{\mathrm{d}[\mathrm{B}]}{\mathrm{d}t} = \ldots = +\frac{1}{\nu_\mathrm{P}}\frac{\mathrm{d}[\mathrm{P}]}{\mathrm{d}t} = +\frac{1}{\nu_\mathrm{Q}}\frac{\mathrm{d}[\mathrm{Q}]}{\mathrm{d}t} = \ldots\]</span></p>
-<p>But where do these stoichiometric factors come from? The answer lies in a fundamental principle: the conservation of mass.</p>
 </div>
-<div id="mass-balance" class="section level2 hasAnchor" number="1.4">
-<h2><span class="header-section-number">1.4</span> Mass Balance<a href="introduction-to-chemical-kinetics.html#mass-balance" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Chemical reactions cannot create or destroy mass—they merely rearrange atoms into new configurations. This principle of mass conservation provides the foundation for understanding how the rates of change of different species are connected.</p>
-<p>Consider our simple reaction A → B. If each molecule of A converts into exactly one molecule of B, then at any time <span class="math inline">\(t\)</span> the total number of molecules (and hence the total concentration) remains constant:</p>
-<p><span class="math display">\[[\mathrm{A}]_t + [\mathrm{B}]_t = [\mathrm{A}]_0 + [\mathrm{B}]_0\]</span></p>
-<p>If we start with pure A (so that <span class="math inline">\([\mathrm{B}]_0 = 0\)</span>), this simplifies to:</p>
-<p><span class="math display">\[[\mathrm{A}]_t + [\mathrm{B}]_t = [\mathrm{A}]_0\]</span></p>
-<p>Taking the derivative of both sides with respect to time:</p>
-<p><span class="math display">\[\frac{\mathrm{d}[\mathrm{A}]}{\mathrm{d}t} + \frac{\mathrm{d}[\mathrm{B}]}{\mathrm{d}t} = 0\]</span></p>
-<p>since the initial concentration <span class="math inline">\([\mathrm{A}]_0\)</span> is a constant. Rearranging:</p>
-<p><span class="math display">\[\frac{\mathrm{d}[\mathrm{B}]}{\mathrm{d}t} = -\frac{\mathrm{d}[\mathrm{A}]}{\mathrm{d}t}\]</span></p>
-<p>This tells us that for this simple reaction, the rate of formation of B exactly equals the rate of consumption of A.</p>
-<p>Now consider a reaction where one molecule of A produces two molecules of B:</p>
-<p><span class="math display">\[\mathrm{A} \rightarrow 2\mathrm{B}\]</span></p>
-<p>Here, conservation of <em>mass</em> does not imply conservation of <em>moles</em>—we gain one mole of molecules for every mole of A that reacts. To write a mass balance, we note that each A molecule that reacts produces two B molecules. If we define our “conserved quantity” in terms of B-equivalents, then one A is worth two B, giving:</p>
-<p><span class="math display">\[2[\mathrm{A}]_t + [\mathrm{B}]_t = 2[\mathrm{A}]_0\]</span></p>
-<p>Taking the derivative:</p>
-<p><span class="math display">\[2\frac{\mathrm{d}[\mathrm{A}]}{\mathrm{d}t} + \frac{\mathrm{d}[\mathrm{B}]}{\mathrm{d}t} = 0\]</span></p>
+<div id="second-order-reactions" class="section level2 hasAnchor" number="2.4">
+<h2><span class="header-section-number">2.4</span> Second-Order Reactions<a href="integrated-rate-laws.html#second-order-reactions" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>For a second-order reaction in a single reactant (<span class="math inline">\(2\mathrm{A} \rightarrow \text{products}\)</span>):</p>
+<p><span class="math display">\[\frac{\mathrm{d}[\mathrm{A}]}{\mathrm{d}t} = -k[\mathrm{A}]^2\]</span></p>
+<p>Separating variables and integrating:</p>
+<p><span class="math display">\[\frac{\mathrm{d}[\mathrm{A}]}{[\mathrm{A}]^2} = -k\,\mathrm{d}t\]</span></p>
+<p><span class="math display">\[\int_{[\mathrm{A}]_0}^{[\mathrm{A}]_t} \frac{\mathrm{d}[\mathrm{A}]}{[\mathrm{A}]^2} = \int_0^t -k\,\mathrm{d}t\]</span></p>
+<p><span class="math display">\[-\frac{1}{[\mathrm{A}]_t} + \frac{1}{[\mathrm{A}]_0} = -kt\]</span></p>
 <p>Rearranging:</p>
-<p><span class="math display">\[\frac{\mathrm{d}[\mathrm{B}]}{\mathrm{d}t} = -2\frac{\mathrm{d}[\mathrm{A}]}{\mathrm{d}t}\]</span></p>
-<p>This confirms that B is produced twice as fast as A is consumed—exactly what we expect from the stoichiometry. To define a single reaction rate that is independent of which species we monitor, we write:</p>
-<p><span class="math display">\[\nu = -\frac{\mathrm{d}[\mathrm{A}]}{\mathrm{d}t} = +\frac{1}{2}\frac{\mathrm{d}[\mathrm{B}]}{\mathrm{d}t}\]</span></p>
-<p>For any reaction, mass balance leads to the general expression:</p>
-<p><span class="math display" id="eq:rate-stoichiometric">\[\begin{equation}
-\nu = \frac{1}{n}\frac{\mathrm{d}[\mathrm{X}]}{\mathrm{d}t}
-\tag{1.1}
+<p><span class="math display" id="eq:second-order-integrated">\[\begin{equation}
+\frac{1}{[\mathrm{A}]_t} = \frac{1}{[\mathrm{A}]_0} + kt
+\tag{2.4}
 \end{equation}\]</span></p>
-<p>where <span class="math inline">\(n\)</span> is the stoichiometric coefficient of species X (negative for reactants, positive for products). This relationship ensures that the reaction rate <span class="math inline">\(\nu\)</span> has the same numerical value regardless of which species we use to measure it.</p>
-<p>The units of reaction rate are concentration per unit time: mol dm<span class="math inline">\(^{-3}\)</span> s<span class="math inline">\(^{-1}\)</span>.</p>
-<div class="skill">
-<p><strong>You should be able to:</strong> Given a balanced equation, write the reaction rate <span class="math inline">\(\nu\)</span> in terms of the rate of change of concentration of any species, including the correct stoichiometric factors.</p>
-</div>
-</div>
-<div id="rate-laws" class="section level2 hasAnchor" number="1.5">
-<h2><span class="header-section-number">1.5</span> Rate Laws<a href="introduction-to-chemical-kinetics.html#rate-laws" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>The rates of chemical reactions typically depend on the concentrations of the reactants. The mathematical relationship between concentrations and rate is called a <strong>rate law</strong>. Many reactions follow a simple rate law where the rate is proportional to the concentration of each reactant raised to some power:</p>
-<p><span class="math display" id="eq:rate-law-general">\[\begin{equation}
-\nu = k[\mathrm{A}]^a[\mathrm{B}]^b[\mathrm{C}]^c \ldots
-\tag{1.2}
-\end{equation}\]</span></p>
-<p>This expression contains several important quantities. The proportionality factor <span class="math inline">\(k\)</span> is called the <strong>rate constant</strong>; it depends on temperature but not on concentration. The exponents <span class="math inline">\(a\)</span>, <span class="math inline">\(b\)</span>, <span class="math inline">\(c\)</span>, etc. are called the <strong>order</strong> of reaction with respect to reactants A, B, C, etc., and their sum <span class="math inline">\((a + b + c + \ldots)\)</span> is the <strong>overall reaction order</strong>. Note that orders need not be integers—they can be zero, fractional, or even negative.</p>
-<p>An important point: the orders in a rate law need not reflect the stoichiometry of the overall reaction equation. For example:</p>
-<p><span class="math display">\[\mathrm{H}_2 + \mathrm{I}_2 \rightarrow 2\mathrm{HI} \qquad \nu = k[\mathrm{H}_2][\mathrm{I}_2]\]</span></p>
-<p>Here the orders (both 1) happen to match the stoichiometric coefficients. But consider:</p>
-<p><span class="math display">\[3\mathrm{ClO}^- \rightarrow \mathrm{ClO}_3^- + 2\mathrm{Cl}^- \qquad \nu = k[\mathrm{ClO}^-]^2\]</span></p>
-<p>The stoichiometric coefficient of ClO<span class="math inline">\(^-\)</span> is 3, but the reaction is second order in ClO<span class="math inline">\(^-\)</span>.</p>
-<p>Some reactions exhibit rate laws that cannot be written in the simple power-law form at all. A classic example is the formation of hydrogen bromide:</p>
-<p><span class="math display">\[\mathrm{H}_2 + \mathrm{Br}_2 \rightarrow 2\mathrm{HBr} \qquad \nu = \frac{k[\mathrm{H}_2][\mathrm{Br}_2]^{1/2}}{1 + k&#39;[\mathrm{HBr}]/[\mathrm{Br}_2]}\]</span></p>
-<p>This reaction is first order with respect to H<sub>2</sub>, but the orders with respect to Br<sub>2</sub> and HBr are undefined in the usual sense. The appearance of the product HBr in the denominator indicates that the product actually <em>inhibits</em> the reaction—a phenomenon we will explore later in the course.</p>
-<p>A complex rate law always implies a multistep reaction mechanism.</p>
-</div>
-<div id="elementary-processes" class="section level2 hasAnchor" number="1.6">
-<h2><span class="header-section-number">1.6</span> Elementary Processes<a href="introduction-to-chemical-kinetics.html#elementary-processes" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Any chemical reaction can be broken down into a sequence of simple molecular-level steps called <strong>elementary processes</strong> (or elementary reactions). An elementary process represents a single molecular event—a transformation that cannot be broken down further. The <strong>molecularity</strong> of an elementary process describes how many reactant molecules participate in that single step. A <strong>unimolecular</strong> process involves a single molecule undergoing transformation—for example, isomerisation or decomposition. A <strong>bimolecular</strong> process requires two molecules to collide and react. <strong>Termolecular</strong> processes, where three molecules must collide simultaneously, are rare.</p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:fig-molecularity"></span>
-<img src="lecture_1/figures/molecularity.png" alt="Schematic representation of elementary processes classified by molecularity. Unimolecular processes involve a single molecule (e.g., isomerisation or decomposition). Bimolecular processes involve collision between two molecules. Termolecular processes, involving simultaneous three-body collisions, are rare." width="70%" />
+<p>A plot of <span class="math inline">\(1/[\mathrm{A}]_t\)</span> against <span class="math inline">\(t\)</span> gives a straight line with slope <span class="math inline">\(+k\)</span> and intercept <span class="math inline">\(1/[\mathrm{A}]_0\)</span>. Notice that the slope is positive here, unlike the zeroth- and first-order cases where it is negative.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:second-order-plot"></span>
+<img src="lecture_2/figures/second_order_linear.png" alt="Second-order kinetics: plotting $1/[\mathrm{A}]$ versus $t$ gives a straight line with slope $+k$ and intercept $1/[\mathrm{A}]_0$." width="45%" />
 <p class="caption">
-Figure 1.4: Schematic representation of elementary processes classified by molecularity. Unimolecular processes involve a single molecule (e.g., isomerisation or decomposition). Bimolecular processes involve collision between two molecules. Termolecular processes, involving simultaneous three-body collisions, are rare.
+Figure 2.4: Second-order kinetics: plotting <span class="math inline">\(1/[\mathrm{A}]\)</span> versus <span class="math inline">\(t\)</span> gives a straight line with slope <span class="math inline">\(+k\)</span> and intercept <span class="math inline">\(1/[\mathrm{A}]_0\)</span>.
 </p>
 </div>
-<p>Termolecular processes are rare because the probability of three molecules colliding simultaneously with the correct orientation is very low. When apparent third-order kinetics are observed, the mechanism usually involves sequential bimolecular steps rather than a true termolecular collision.</p>
-<p>For elementary processes—and <em>only</em> for elementary processes—the rate law directly reflects the molecularity:</p>
+<div class="skill">
+<p><strong>You should be able to:</strong> Derive the integrated rate law for a zeroth-, first-, or second-order reaction starting from the differential rate law, using separation of variables and integration.</p>
+</div>
+</div>
+<div id="summary-and-graphical-analysis" class="section level2 hasAnchor" number="2.5">
+<h2><span class="header-section-number">2.5</span> Summary and Graphical Analysis<a href="integrated-rate-laws.html#summary-and-graphical-analysis" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Now that we have worked through each derivation, the table below collects the key results previewed in Figure <a href="integrated-rate-laws.html#fig:integrated-rate-laws-overview">2.1</a>.</p>
 <table>
 <colgroup>
-<col width="42%" />
 <col width="27%" />
-<col width="30%" />
+<col width="22%" />
+<col width="22%" />
+<col width="27%" />
 </colgroup>
 <thead>
 <tr class="header">
-<th>Molecularity</th>
-<th>Example</th>
-<th>Rate Law</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Unimolecular</td>
-<td><span class="math inline">\(\mathrm{A} \rightarrow \mathrm{P}\)</span></td>
-<td><span class="math inline">\(\nu = k[\mathrm{A}]\)</span></td>
-</tr>
-<tr class="even">
-<td>Bimolecular</td>
-<td><span class="math inline">\(\mathrm{A} + \mathrm{B} \rightarrow \mathrm{P}\)</span></td>
-<td><span class="math inline">\(\nu = k[\mathrm{A}][\mathrm{B}]\)</span></td>
-</tr>
-<tr class="odd">
-<td>Bimolecular</td>
-<td><span class="math inline">\(2\mathrm{A} \rightarrow \mathrm{P}\)</span></td>
-<td><span class="math inline">\(\nu = k[\mathrm{A}]^2\)</span></td>
-</tr>
-<tr class="even">
-<td>Termolecular</td>
-<td><span class="math inline">\(\mathrm{A} + \mathrm{B} + \mathrm{C} \rightarrow \mathrm{P}\)</span></td>
-<td><span class="math inline">\(\nu = k[\mathrm{A}][\mathrm{B}][\mathrm{C}]\)</span></td>
-</tr>
-</tbody>
-</table>
-<p>This direct correspondence between molecularity and reaction order holds because an elementary process represents an actual molecular event. The rate depends on how frequently the required molecular encounters occur. For a unimolecular process, the rate depends only on how many A molecules are present. For a bimolecular process, the rate depends on how often A and B molecules collide—which is proportional to both <span class="math inline">\([\mathrm{A}]\)</span> and <span class="math inline">\([\mathrm{B}]\)</span>.</p>
-</div>
-<div id="complex-reactions" class="section level2 hasAnchor" number="1.7">
-<h2><span class="header-section-number">1.7</span> Complex Reactions<a href="introduction-to-chemical-kinetics.html#complex-reactions" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Most reactions we encounter are not elementary processes but rather sequences of elementary steps. The H<sub>2</sub> + Br<sub>2</sub> reaction, for example, proceeds through a mechanism involving four elementary steps:</p>
-<ol style="list-style-type: decimal">
-<li><span class="math inline">\(\mathrm{Br}_2 \rightarrow \mathrm{Br} + \mathrm{Br}\)</span> (unimolecular)</li>
-<li><span class="math inline">\(\mathrm{Br} + \mathrm{H}_2 \rightarrow \mathrm{H} + \mathrm{HBr}\)</span> (bimolecular)</li>
-<li><span class="math inline">\(\mathrm{H} + \mathrm{Br}_2 \rightarrow \mathrm{Br} + \mathrm{HBr}\)</span> (bimolecular)</li>
-<li><span class="math inline">\(\mathrm{Br} + \mathrm{Br} \rightarrow \mathrm{Br}_2\)</span> (bimolecular)</li>
-</ol>
-<p>Each elementary step follows a simple rate law determined by its molecularity. The <em>overall</em> rate law for the complex reaction emerges from how these steps combine—and this is why the overall rate law can be complicated.</p>
-<p>For complex reactions, we cannot deduce the rate law from the reaction stoichiometry alone. Rate laws for complex reactions must be determined empirically through analysis of experimental data. However, as we shall see, if we know (or hypothesise) the mechanism, we can predict the rate law—and comparing this prediction with experiment provides evidence for or against the proposed mechanism.</p>
-</div>
-<div id="units-of-the-rate-constant" class="section level2 hasAnchor" number="1.8">
-<h2><span class="header-section-number">1.8</span> Units of the Rate Constant<a href="introduction-to-chemical-kinetics.html#units-of-the-rate-constant" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>The units of a rate constant depend on the overall order of the reaction. Since both sides of a rate equation must have the same dimensions, we can deduce the units of <span class="math inline">\(k\)</span> from dimensional analysis. For a first-order reaction (<span class="math inline">\(\nu = k[\mathrm{A}]\)</span>):</p>
-<p><span class="math display">\[\underbrace{\mathrm{mol\,dm}^{-3}\mathrm{\,s}^{-1}}_{\text{rate}} = [k] \times \underbrace{\mathrm{mol\,dm}^{-3}}_{[\mathrm{A}]}\]</span></p>
-<p>so <span class="math inline">\([k] = \mathrm{s}^{-1}\)</span>. Repeating this analysis for other orders gives:</p>
-<table>
-<thead>
-<tr class="header">
-<th align="center">Overall order</th>
-<th align="left">Units of <span class="math inline">\(k\)</span></th>
+<th align="center">Order</th>
+<th align="left">Integrated form</th>
+<th align="left">Linear plot</th>
+<th align="center">Slope</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td align="center">0</td>
-<td align="left"><span class="math inline">\(\mathrm{mol\,dm}^{-3}\,\mathrm{s}^{-1}\)</span></td>
+<td align="left"><span class="math inline">\([\mathrm{A}]_t = [\mathrm{A}]_0 - kt\)</span></td>
+<td align="left"><span class="math inline">\([\mathrm{A}]\)</span> vs <span class="math inline">\(t\)</span></td>
+<td align="center"><span class="math inline">\(-k\)</span></td>
 </tr>
 <tr class="even">
 <td align="center">1</td>
-<td align="left"><span class="math inline">\(\mathrm{s}^{-1}\)</span></td>
+<td align="left"><span class="math inline">\([\mathrm{A}]_t = [\mathrm{A}]_0\,\mathrm{e}^{-kt}\)</span></td>
+<td align="left"><span class="math inline">\(\ln[\mathrm{A}]\)</span> vs <span class="math inline">\(t\)</span></td>
+<td align="center"><span class="math inline">\(-k\)</span></td>
 </tr>
 <tr class="odd">
 <td align="center">2</td>
-<td align="left"><span class="math inline">\(\mathrm{mol}^{-1}\,\mathrm{dm}^{3}\,\mathrm{s}^{-1}\)</span></td>
-</tr>
-<tr class="even">
-<td align="center">3</td>
-<td align="left"><span class="math inline">\(\mathrm{mol}^{-2}\,\mathrm{dm}^{6}\,\mathrm{s}^{-1}\)</span></td>
+<td align="left"><span class="math inline">\(\frac{1}{[\mathrm{A}]_t} = \frac{1}{[\mathrm{A}]_0} + kt\)</span></td>
+<td align="left"><span class="math inline">\(\frac{1}{[\mathrm{A}]}\)</span> vs <span class="math inline">\(t\)</span></td>
+<td align="center"><span class="math inline">\(+k\)</span></td>
 </tr>
 </tbody>
 </table>
-<p>The general pattern for overall order <span class="math inline">\(n\)</span> is:</p>
-<p><span class="math display">\[[k] = \mathrm{mol}^{1-n}\,\mathrm{dm}^{3(n-1)}\,\mathrm{s}^{-1}\]</span></p>
-<p>When comparing rate constants, always check that they refer to the same order of reaction—a rate constant of <span class="math inline">\(10^6\,\mathrm{s}^{-1}\)</span> for a first-order reaction cannot be directly compared with a rate constant of <span class="math inline">\(10^6\,\mathrm{mol}^{-1}\,\mathrm{dm}^{3}\,\mathrm{s}^{-1}\)</span> for a second-order reaction.</p>
+<p>Each reaction order predicts a different functional form for concentration as a function of time—a different curve shape. By rearranging each integrated rate law into a linear form, we can often distinguish consistent from inconsistent models by simple visual inspection: data that are consistent with a particular rate law will fall on a straight line in the corresponding plot, while data that are inconsistent will show a curve. We can therefore test candidate rate laws by plotting the same dataset in each of the three linear forms and seeing which (if any) gives a straight line. The slope of that line gives the rate constant (Figure <a href="integrated-rate-laws.html#fig:three-linear-forms">2.5</a>).</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:three-linear-forms"></span>
+<img src="lecture_2/figures/three_linear_forms.png" alt="The linear form of the integrated rate law for each reaction order. In each case, concentration--time data that obey the corresponding rate law fall on a straight line, with the slope giving the rate constant and the intercept giving the initial concentration." width="90%" />
+<p class="caption">
+Figure 2.5: The linear form of the integrated rate law for each reaction order. In each case, concentration–time data that obey the corresponding rate law fall on a straight line, with the slope giving the rate constant and the intercept giving the initial concentration.
+</p>
+</div>
+<p>Although we derived these integrated rate laws for elementary processes, the same graphical tests apply whenever a reaction follows a simple rate law of the form <span class="math inline">\(\nu = k[\mathrm{A}]^n\)</span>—regardless of whether the underlying mechanism involves a single step or multiple steps.</p>
+</div>
+<div id="worked-example-decomposition-of-azomethane" class="section level2 hasAnchor" number="2.6">
+<h2><span class="header-section-number">2.6</span> Worked Example: Decomposition of Azomethane<a href="integrated-rate-laws.html#worked-example-decomposition-of-azomethane" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Let us apply the graphical analysis to a real dataset. The thermal decomposition of azomethane (CH<sub>3</sub>N<sub>2</sub>CH<sub>3</sub>) was studied at <span class="math inline">\(2.18 \times 10^4\,\mathrm{Pa}\)</span> and <span class="math inline">\(576\,\mathrm{K}\)</span>, yielding the following concentration–time data:</p>
+<table>
+<colgroup>
+<col width="12%" />
+<col width="12%" />
+<col width="12%" />
+<col width="12%" />
+<col width="12%" />
+<col width="12%" />
+<col width="12%" />
+<col width="12%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><span class="math inline">\(t\)</span> / min</th>
+<th>0</th>
+<th>30</th>
+<th>60</th>
+<th>90</th>
+<th>120</th>
+<th>150</th>
+<th>180</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\([\text{azomethane}]\)</span> / <span class="math inline">\(10^{-3}\,\mathrm{mol\,dm}^{-3}\)</span></td>
+<td>8.70</td>
+<td>6.52</td>
+<td>4.89</td>
+<td>3.67</td>
+<td>2.75</td>
+<td>2.06</td>
+<td>1.55</td>
+</tr>
+</tbody>
+</table>
+<p>We can test each of the three integrated rate laws by plotting the data in the corresponding linear form (as illustrated in Figure <a href="integrated-rate-laws.html#fig:three-linear-forms">2.5</a>). Plotting <span class="math inline">\(\ln[\text{azomethane}]\)</span> against <span class="math inline">\(t\)</span> gives a straight line, consistent with first-order kinetics, with slope <span class="math inline">\(-k = -9.6 \times 10^{-3}\,\mathrm{min}^{-1}\)</span>. Plotting <span class="math inline">\([\text{azomethane}]\)</span> against <span class="math inline">\(t\)</span> or <span class="math inline">\(1/[\text{azomethane}]\)</span> against <span class="math inline">\(t\)</span> would give curves rather than straight lines, ruling out zeroth- and second-order rate laws.</p>
+<p>In the next chapter, we will explore several complementary methods for determining rate laws from experimental data, returning to this dataset along the way.</p>
 <div class="skill">
-<p><strong>You should be able to:</strong> Write the rate law for an elementary process given its molecularity, and determine the units of a rate constant given the overall reaction order.</p>
+<p><strong>You should be able to:</strong> Test whether concentration–time data are consistent with a given reaction order by plotting in the appropriate linear form, and extract the rate constant from the slope.</p>
 </div>
 </div>
-<div id="key-concepts" class="section level2 hasAnchor" number="1.9">
-<h2><span class="header-section-number">1.9</span> Key Concepts<a href="introduction-to-chemical-kinetics.html#key-concepts" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="reactions-with-two-different-reactants" class="section level2 hasAnchor" number="2.7">
+<h2><span class="header-section-number">2.7</span> Reactions with Two Different Reactants<a href="integrated-rate-laws.html#reactions-with-two-different-reactants" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The integrated rate laws above all involve a single reactant species. For a reaction between two different species, <span class="math inline">\(\mathrm{A} + \mathrm{B} \rightarrow \text{products}\)</span>, the differential rate law is:</p>
+<p><span class="math display">\[\frac{\mathrm{d}[\mathrm{A}]}{\mathrm{d}t} = -k[\mathrm{A}][\mathrm{B}]\]</span></p>
+<p>Integration is more complex here because the right-hand side contains two concentrations that both change with time. The problem can be solved analytically using mass balance (from Chapter 1) and partial fractions, giving the full integrated result:</p>
+<p><span class="math display" id="eq:second-order-two-reactants">\[\begin{equation}
+kt = \frac{1}{[\mathrm{B}]_0 - [\mathrm{A}]_0} \ln\!\left(\frac{[\mathrm{B}]_t / [\mathrm{B}]_0}{[\mathrm{A}]_t / [\mathrm{A}]_0}\right)
+\tag{2.5}
+\end{equation}\]</span></p>
+<p>The derivation of this result is given in Appendix <a href="appendix-two-reactants.html#appendix-two-reactants">A</a>. You are not expected to reproduce this derivation, but it is worth noting that the result requires <span class="math inline">\([\mathrm{A}]_0 \neq [\mathrm{B}]_0\)</span> (otherwise the denominator is zero). If the initial concentrations are equal, the problem reduces to the single-reactant second-order case (Eqn. <a href="integrated-rate-laws.html#eq:second-order-integrated">(2.4)</a>).</p>
+<p>A common and powerful simplification is to use one reactant in large excess. If <span class="math inline">\([\mathrm{B}]_0 \gg [\mathrm{A}]_0\)</span>, then <span class="math inline">\([\mathrm{B}]\)</span> remains effectively constant throughout the reaction, and the rate law simplifies to:</p>
+<p><span class="math display">\[\frac{\mathrm{d}[\mathrm{A}]}{\mathrm{d}t} \approx -k&#39;[\mathrm{A}] \quad \text{where } k&#39; = k[\mathrm{B}]_0\]</span></p>
+<p>This is called a <em>pseudo-first-order</em> rate law: the reaction is second-order overall, but behaves as first-order under these conditions. We will explore the isolation method and pseudo-first-order kinetics fully in the next chapter.</p>
+</div>
+<div id="key-concepts-1" class="section level2 hasAnchor" number="2.8">
+<h2><span class="header-section-number">2.8</span> Key Concepts<a href="integrated-rate-laws.html#key-concepts-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ul>
-<li>Thermodynamics tells us whether a reaction <em>can</em> occur; kinetics tells us how <em>fast</em> it proceeds and by what molecular pathway.</li>
-<li>The reaction rate <span class="math inline">\(\nu\)</span> is defined as the rate of change of concentration, with stoichiometric factors ensuring a single unambiguous value regardless of which species we monitor.</li>
-<li>Mass balance (conservation of mass) provides the physical basis for the stoichiometric factors in rate expressions.</li>
-<li>A rate law describes how the rate depends on concentrations. The reaction orders need not match the stoichiometric coefficients.</li>
-<li>Elementary processes are single molecular events (unimolecular, bimolecular, or termolecular). Only for elementary processes do the orders directly reflect the molecularity.</li>
-<li>Complex reactions consist of sequences of elementary steps. Their rate laws must be determined experimentally.</li>
-<li>The units of a rate constant depend on the overall reaction order: for an <span class="math inline">\(n\)</span>th-order reaction, <span class="math inline">\([k] = \mathrm{mol}^{1-n}\,\mathrm{dm}^{3(n-1)}\,\mathrm{s}^{-1}\)</span>.</li>
+<li>Integrated rate laws relate concentration to time, connecting differential rate laws to experimentally measurable quantities.</li>
+<li>Each reaction order gives a different integrated rate law with a characteristic linear form.</li>
+<li>Plotting data in the appropriate linear form tests whether a given rate law is consistent with the data. A straight line confirms the proposed order; the slope gives the rate constant.</li>
+<li>For zeroth-order: <span class="math inline">\([\mathrm{A}]\)</span> vs <span class="math inline">\(t\)</span> is linear (slope <span class="math inline">\(-k\)</span>). For first-order: <span class="math inline">\(\ln[\mathrm{A}]\)</span> vs <span class="math inline">\(t\)</span> is linear (slope <span class="math inline">\(-k\)</span>). For second-order: <span class="math inline">\(1/[\mathrm{A}]\)</span> vs <span class="math inline">\(t\)</span> is linear (slope <span class="math inline">\(+k\)</span>).</li>
+<li>First-order kinetics corresponds to exponential decay: <span class="math inline">\([\mathrm{A}]_t = [\mathrm{A}]_0\,\mathrm{e}^{-kt}\)</span>.</li>
+<li>Reactions between two different species can be simplified to pseudo-first-order kinetics by using one reactant in large excess.</li>
 </ul>
-<p>In the next chapter, we will derive <em>integrated rate laws</em> that predict how concentrations evolve over time for reactions of different orders, and compare these predictions with experimental data.</p>
 
 </div>
 </div>
@@ -524,8 +500,8 @@ Figure 1.4: Schematic representation of elementary processes classified by molec
           </div>
         </div>
       </div>
-<a href="mathematical-foundations.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="integrated-rate-laws.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="introduction-to-chemical-kinetics.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="methods-for-determining-rate-laws-from-experimental-data.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -556,7 +532,7 @@ gitbook.start({
     "size": 2
   },
   "edit": {
-    "link": "https://github.com/bjmorgan/CH12002/main/lecture_1/lecture_01.Rmd",
+    "link": "https://github.com/bjmorgan/CH12002/main/lecture_2/lecture_02.Rmd",
     "text": "Edit"
   },
   "history": {
