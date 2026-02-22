@@ -1,141 +1,166 @@
-# Rate Laws for Complex Reactions
+# The Steady-State Approximation
 
-## Introduction 
+In the previous chapter, we used the **pre-equilibrium approximation** to derive a rate law for the mechanism A + B $\rightleftharpoons$ C $\rightarrow$ D, under the condition that the first step equilibrates much faster than the second step proceeds ($k_{-1} \gg k_2$). But what if this condition is not met? What if the intermediate C is consumed so rapidly that it never has time to reach equilibrium with the reactants? We need a more general method — one that works regardless of the relative magnitudes of the rate constants. This is the **steady-state approximation** (SSA).
 
-Many chemical reactions proceed through multiple elementary steps rather than a single molecular collision or transformation. Understanding how these complex reaction mechanisms give rise to experimentally observed kinetic behavior requires careful analysis of each step and consideration of how these steps work together to control the overall reaction rate.
+## The Idea Behind the Steady-State Approximation
 
-## Consecutive Reactions
+A **reactive intermediate** is a species that is formed during a reaction and then consumed before the reaction is complete. It does not appear in the overall balanced equation. In many mechanisms, reactive intermediates are highly unstable: they are consumed almost as fast as they are produced, so their concentration remains small throughout the reaction.
 
-Consider the following reaction mechanism that consists of two elementary steps and proceeds through a single intermediate B:
+The steady-state approximation exploits this observation. If an intermediate I is produced and consumed at similar rates, then after a brief initial period its concentration will reach a nearly constant value — a **steady state**. Mathematically, we express this as:
 
-$$\mathrm{A} \xrightarrow{k_1} \mathrm{B} \xrightarrow{k_2} \mathrm{C}$$
+$$\frac{\mathrm{d}[\mathrm{I}]}{\mathrm{d}t} \approx 0$$
 
-This type of reaction sequence, where one product becomes the reactant for a subsequent step, is called a consecutive reaction. To analyze the kinetics, we need to write differential rate equations for each species:
+This does *not* mean that $[\mathrm{I}] = 0$. The intermediate is present — it must be, because the reaction proceeds through it — but its concentration changes so slowly compared to the other species that we can treat $\mathrm{d}[\mathrm{I}]/\mathrm{d}t$ as approximately zero. This single approximation converts a set of coupled differential equations into an algebraic problem that we can solve by hand.
 
-For reactant A:
-$$\frac{\mathrm{d}[\mathrm{A}]}{\mathrm{d}t} = -k_1[\mathrm{A}]$$
+The approximation is valid when the intermediate reaches its steady-state concentration quickly compared to the timescale of the overall reaction, and when the intermediate's concentration remains small compared to those of the reactants and products. In practice, this means the intermediate must be reactive — it must be consumed rapidly by one or more subsequent steps.
 
-For intermediate B:
-$$\frac{\mathrm{d}[\mathrm{B}]}{\mathrm{d}t} = +k_1[\mathrm{A}] - k_2[\mathrm{B}]$$
-
-For product C:
-$$\frac{\mathrm{d}[\mathrm{C}]}{\mathrm{d}t} = +k_2[\mathrm{B}]$$
-
-```{r consecutive-reactions, fig.cap="Concentration profiles for a consecutive reaction A → B → C showing the characteristic rise and fall of intermediate B."}
-# Plot showing [A], [B], and [C] versus time
+```{r ssa-concept, echo=FALSE, fig.cap="When $k_1 \\ll k_2$ in a consecutive reaction A → B → C, the intermediate B remains at a low, nearly constant concentration throughout — a steady state. The SSA approximates this by setting $\\mathrm{d}[\\mathrm{B}]/\\mathrm{d}t \\approx 0$. [Draft figure from lecture slides.]", out.width='70%', fig.align='center'}
+knitr::include_graphics("lecture_5/figures/ssa_concept.png")
 ```
 
-### Solving the Rate Equations
+## Worked Example: A + B ⇌ C → D {#sec:ssa-example-1}
 
-Starting with the initial conditions at $t = 0$:
-- $[\mathrm{A}] = [\mathrm{A}]_0$
-- $[\mathrm{B}] = 0$
-- $[\mathrm{C}] = 0$
-
-We can solve these equations step by step:
-
-1. First, the equation for A is a simple first-order decay:
-   $$\frac{\mathrm{d}[\mathrm{A}]}{\mathrm{d}t} = -k_1[\mathrm{A}]$$
-   
-   Which integrates to:
-   $$[\mathrm{A}]_t = [\mathrm{A}]_0e^{-k_1t}$$
-
-2. For B, we substitute this result:
-   $$\frac{\mathrm{d}[\mathrm{B}]}{\mathrm{d}t} + k_2[\mathrm{B}] = k_1[\mathrm{A}]_0e^{-k_1t}$$
-   
-   This is a linear first-order differential equation. Its solution is:
-   $$[\mathrm{B}]_t = \frac{k_1}{k_2-k_1}[\mathrm{A}]_0(e^{-k_1t} - e^{-k_2t})$$
-
-3. For C, we can use conservation of mass:
-   $$[\mathrm{C}]_t = [\mathrm{A}]_0 - [\mathrm{A}]_t - [\mathrm{B}]_t$$
-   
-   Substituting gives:
-   $$[\mathrm{C}]_t = [\mathrm{A}]_0\left(1 + \frac{k_1e^{-k_2t} - k_2e^{-k_1t}}{k_2-k_1}\right)$$
-
-### Rate-Determining Step
-
-In consecutive reactions, one step often proceeds much more slowly than the others, effectively controlling the overall reaction rate. This rate-determining step emerges naturally from the mathematical analysis of the reaction kinetics.
-
-When analyzing concentration profiles for consecutive reactions, two limiting cases arise depending on the relative magnitudes of $k_1$ and $k_2$:
-
-When $k_1 \gg k_2$:
-```{r fast-first-step, fig.cap="Concentration profiles when the first step is fast (k₁ ≫ k₂). Note the rapid buildup of intermediate B."}
-# Plot showing case where k1 >> k2
-```
-
-- B builds up quickly then decays slowly
-- The slow second step is rate-determining
-- $[\mathrm{C}]_t \approx [\mathrm{A}]_0(1-e^{-k_2t})$
-
-When $k_1 \ll k_2$:
-```{r fast-second-step, fig.cap="Concentration profiles when the second step is fast (k₁ ≪ k₂). Note the low steady-state concentration of intermediate B."}
-# Plot showing case where k1 << k2
-```
-
-- B remains at low concentration
-- The slow first step is rate-determining
-- $[\mathrm{C}]_t \approx [\mathrm{A}]_0(1-e^{-k_1t})$
-
-## Equilibrium Reactions
-
-Many reactions reach a dynamic equilibrium rather than proceeding to completion:
-
-$$\mathrm{A} \underset{k_{-1}}{\stackrel{k_1}{\rightleftharpoons}} \mathrm{B}$$
-
-The rate equations are:
-
-$$\frac{\mathrm{d}[\mathrm{A}]}{\mathrm{d}t} = -k_1[\mathrm{A}] + k_{-1}[\mathrm{B}]$$
-
-$$\frac{\mathrm{d}[\mathrm{B}]}{\mathrm{d}t} = +k_1[\mathrm{A}] - k_{-1}[\mathrm{B}]$$
-
-At equilibrium, concentrations no longer change, so the net rates become zero:
-
-$$\frac{\mathrm{d}[\mathrm{A}]}{\mathrm{d}t} = \frac{\mathrm{d}[\mathrm{B}]}{\mathrm{d}t} = 0$$
-
-This condition gives:
-$$k_1[\mathrm{A}] = k_{-1}[\mathrm{B}]$$
-
-Rearranging:
-$$\frac{k_1}{k_{-1}} = \frac{[\mathrm{B}]}{[\mathrm{A}]} = K_\mathrm{eq}$$
-
-This important result connects kinetics (rate constants) with thermodynamics (equilibrium constant).
-
-## Pre-equilibrium Mechanisms
-
-Some reactions establish a rapid equilibrium between reactants and an intermediate before slowly converting to products. A common example is acid-catalyzed ester hydrolysis:
-
-$\ce{CH3COOCH3 + H3O+ <=> CH3COOCH4+ + H2O}$ (fast equilibrium)
-$\ce{CH3COOCH4+ + H2O -> CH3COOH + CH3OH + H3O+}$ (slow)
-
-This behavior, called a pre-equilibrium mechanism, occurs when:
-- The forward and reverse rates of the first step are much faster than the second step
-- The first step reaches equilibrium before significant product formation
-- The overall rate depends on both the equilibrium constant and the rate of the second step
-
-In general terms, a pre-equilibrium mechanism has the form:
+Let us apply the SSA to a mechanism we have already met:
 
 $$\mathrm{A} + \mathrm{B} \underset{k_{-1}}{\stackrel{k_1}{\rightleftharpoons}} \mathrm{C} \xrightarrow{k_2} \mathrm{D}$$
 
-The rate equations are:
+In Lecture 4, we analysed this mechanism using the pre-equilibrium approximation, which required $k_{-1} \gg k_2$. The SSA makes no such assumption — it requires only that C is a short-lived intermediate whose concentration quickly reaches a steady state.
 
-$$\frac{\mathrm{d}[\mathrm{A}]}{\mathrm{d}t} = \frac{\mathrm{d}[\mathrm{B}]}{\mathrm{d}t} = -k_1[\mathrm{A}][\mathrm{B}] + k_{-1}[\mathrm{C}]$$
+### Setting Up the Rate Equations
 
-$$\frac{\mathrm{d}[\mathrm{C}]}{\mathrm{d}t} = k_1[\mathrm{A}][\mathrm{B}] - k_{-1}[\mathrm{C}] - k_2[\mathrm{C}]$$
+The rate equations for each species are:
 
-$$\frac{\mathrm{d}[\mathrm{D}]}{\mathrm{d}t} = k_2[\mathrm{C}]$$
+\begin{align*}
+\frac{\mathrm{d}[\mathrm{A}]}{\mathrm{d}t} = \frac{\mathrm{d}[\mathrm{B}]}{\mathrm{d}t} &= -k_1[\mathrm{A}][\mathrm{B}] + k_{-1}[\mathrm{C}] \\
+\frac{\mathrm{d}[\mathrm{C}]}{\mathrm{d}t} &= k_1[\mathrm{A}][\mathrm{B}] - k_{-1}[\mathrm{C}] - k_2[\mathrm{C}] \\
+\frac{\mathrm{d}[\mathrm{D}]}{\mathrm{d}t} &= k_2[\mathrm{C}]
+\end{align*}
 
-When $k_{-1} \gg k_2$, the first step rapidly reaches equilibrium:
+The intermediate C has two routes for consumption: it can revert to A + B (rate $k_{-1}[\mathrm{C}]$) or proceed to D (rate $k_2[\mathrm{C}]$). The competition between these two fates is what makes the general problem difficult — and what the SSA allows us to handle.
 
-$$\frac{[\mathrm{C}]}{[\mathrm{A}][\mathrm{B}]} = \frac{k_1}{k_{-1}} = K$$
+### Applying the SSA
 
-This gives:
-$$[\mathrm{C}] = K[\mathrm{A}][\mathrm{B}]$$
+We apply the steady-state approximation to C by setting $\mathrm{d}[\mathrm{C}]/\mathrm{d}t \approx 0$:
 
-The overall rate becomes:
-$$\frac{\mathrm{d}[\mathrm{D}]}{\mathrm{d}t} = k_2[\mathrm{C}] = k_2K[\mathrm{A}][\mathrm{B}] = \frac{k_2k_1}{k_{-1}}[\mathrm{A}][\mathrm{B}]$$
+$$k_1[\mathrm{A}][\mathrm{B}] - k_{-1}[\mathrm{C}] - k_2[\mathrm{C}] \approx 0$$
 
-```{r pre-equilibrium, fig.cap="Concentration profiles for a pre-equilibrium mechanism, showing rapid initial equilibration followed by slower product formation."}
-# Plot showing pre-equilibrium kinetics
+Rearranging to solve for the steady-state concentration of C:
+
+$$k_1[\mathrm{A}][\mathrm{B}] = (k_{-1} + k_2)[\mathrm{C}]$$
+
+$$[\mathrm{C}]_\mathrm{ss} = \frac{k_1[\mathrm{A}][\mathrm{B}]}{k_{-1} + k_2}$$
+
+The overall rate of product formation is then:
+
+\begin{equation}
+\nu = \frac{\mathrm{d}[\mathrm{D}]}{\mathrm{d}t} = k_2[\mathrm{C}]_\mathrm{ss} = \frac{k_1 k_2[\mathrm{A}][\mathrm{B}]}{k_{-1} + k_2}
+(\#eq:ssa-rate-law)
+\end{equation}
+
+This is the **general SSA rate law** for this mechanism. It is second order overall (first order in A, first order in B), with an effective rate constant $k_\mathrm{obs} = k_1 k_2/(k_{-1} + k_2)$.
+
+### Limiting Cases
+
+The power of Eqn. \@ref(eq:ssa-rate-law) is that it contains the pre-equilibrium result as a special case, while also describing the opposite extreme. The behaviour is controlled by the denominator $k_{-1} + k_2$ — specifically, by which term dominates.
+
+**Pre-equilibrium limit ($k_{-1} \gg k_2$):**
+
+When the reverse of the first step is much faster than the second step, $k_{-1}$ dominates in the denominator:
+
+$$\nu \approx \frac{k_1 k_2}{k_{-1}}[\mathrm{A}][\mathrm{B}]$$
+
+This is exactly the pre-equilibrium rate law we derived in Lecture 4 (Eqn. \@ref(eq:pre-equilibrium-rate)). Physically, C reverts to A + B many times before occasionally proceeding to D. The first step has time to reach equilibrium, and the slow second step controls the overall rate. The effective rate constant $k_\mathrm{obs} = k_1 k_2/k_{-1}$ depends on all three elementary rate constants.
+
+**Forward-committed limit ($k_2 \gg k_{-1}$):**
+
+When the second step is much faster than the reverse of the first step, $k_2$ dominates in the denominator:
+
+$$\nu \approx k_1[\mathrm{A}][\mathrm{B}]$$
+
+Now the overall rate depends only on $k_1$. Once C is formed, it proceeds to D so rapidly that reversion to A + B is negligible — C is effectively *committed* to going forward. The first step is rate-determining, and the rate law is simply the rate of the first elementary step.
+
+Notice that the two limits give the same functional form (both are second order in A and B) but different effective rate constants: $k_1 k_2/k_{-1}$ in the pre-equilibrium limit and $k_1$ in the forward-committed limit.
+
+```{r ssa-limiting-cases, echo=FALSE, fig.cap="Concentration profiles for A + B ⇌ C → D. Left: pre-equilibrium limit where C builds up to an appreciable steady-state concentration. Right: forward-committed limit where C remains at very low concentration. The dashed line shows the SSA prediction for [D], which closely matches the exact solution. [Draft figure from lecture slides.]", out.width='70%', fig.align='center'}
+knitr::include_graphics("lecture_5/figures/ssa_limiting_cases.png")
 ```
 
-This second-order rate law emerges from a more complex mechanism through the pre-equilibrium approximation. The overall rate constant $k_\mathrm{obs} = k_2k_1/k_{-1}$ combines the individual rate constants from each step in the mechanism.
+::: {.skill}
+**You should be able to:** Apply the steady-state approximation to the mechanism A + B ⇌ C → D by setting $\mathrm{d}[\mathrm{C}]/\mathrm{d}t = 0$, derive the general rate law $\nu = k_1 k_2[\mathrm{A}][\mathrm{B}]/(k_{-1} + k_2)$, and show that the pre-equilibrium result is recovered when $k_{-1} \gg k_2$.
+:::
+
+## A Second Example: A ⇌ B, B + C → D {#sec:ssa-example-2}
+
+To see how the SSA handles a different type of mechanism — and to illustrate how it can produce rate laws with no simple reaction order — consider:
+
+$$\mathrm{A} \underset{k_{-1}}{\stackrel{k_1}{\rightleftharpoons}} \mathrm{B} \qquad \mathrm{B} + \mathrm{C} \xrightarrow{k_2} \mathrm{D}$$
+
+Here, A isomerises reversibly to form a reactive intermediate B, which then reacts with a second species C to give the product D. The overall rate of product formation is $\nu = k_2[\mathrm{B}][\mathrm{C}]$, but since B is a reactive intermediate we cannot measure $[\mathrm{B}]$ directly. We need to express $\nu$ in terms of the stable, measurable species A and C.
+
+### Applying the SSA to B
+
+The rate equation for B is:
+
+$$\frac{\mathrm{d}[\mathrm{B}]}{\mathrm{d}t} = k_1[\mathrm{A}] - k_{-1}[\mathrm{B}] - k_2[\mathrm{B}][\mathrm{C}]$$
+
+Setting this to zero:
+
+$$k_1[\mathrm{A}] = [\mathrm{B}](k_{-1} + k_2[\mathrm{C}])$$
+
+$$[\mathrm{B}]_\mathrm{ss} = \frac{k_1[\mathrm{A}]}{k_{-1} + k_2[\mathrm{C}]}$$
+
+Substituting into the rate of product formation:
+
+\begin{equation}
+\nu = k_2[\mathrm{B}]_\mathrm{ss}[\mathrm{C}] = \frac{k_1 k_2[\mathrm{A}][\mathrm{C}]}{k_{-1} + k_2[\mathrm{C}]}
+(\#eq:ssa-example-2)
+\end{equation}
+
+This rate law has a striking feature: $[\mathrm{C}]$ appears in both the numerator and the denominator. As a result, the rate is *not* simply proportional to $[\mathrm{C}]$ — there is no well-defined order with respect to C. (The rate is, however, always first order in A.) This is a good example of a mechanism that gives rise to a rate law that cannot be expressed as a simple power law $\nu = k[\mathrm{A}]^m[\mathrm{C}]^n$.
+
+### Limiting Cases
+
+Once again, the denominator controls the behaviour, but now the comparison is between $k_{-1}$ and $k_2[\mathrm{C}]$ — and this depends on the *concentration* of C, not just on rate constants.
+
+**When $k_{-1} \gg k_2[\mathrm{C}]$ (pre-equilibrium limit):**
+
+$$\nu \approx \frac{k_1 k_2}{k_{-1}}[\mathrm{A}][\mathrm{C}]$$
+
+The reaction is first order in A, first order in C, and second order overall. Physically, B reverts to A many times before it encounters a molecule of C. The first step is at equilibrium, and the second step is rate-determining. The effective rate constant is $k_\mathrm{obs} = k_1 k_2/k_{-1} = Kk_2$, where $K = k_1/k_{-1}$ is the equilibrium constant for the first step.
+
+**When $k_2[\mathrm{C}] \gg k_{-1}$ (forward-committed limit):**
+
+$$\nu \approx k_1[\mathrm{A}]$$
+
+The reaction is first order in A and *zero order* in C — the rate does not depend on $[\mathrm{C}]$ at all. This may seem surprising, but the physical explanation is clear: when $[\mathrm{C}]$ is high, every molecule of B that forms reacts with C almost immediately. The bottleneck is the rate at which B is produced from A, so further increasing $[\mathrm{C}]$ has no effect. This is an example of **saturation kinetics**: the rate reaches a plateau at high $[\mathrm{C}]$ because the rate-determining step does not involve C.
+
+This transition from second-order to saturation behaviour — where the reaction order with respect to a species changes depending on its concentration — is characteristic of mechanisms with competing fates for a reactive intermediate. We will encounter the same pattern again in Lecture 7 (unimolecular reactions) and Lecture 8 (enzyme kinetics).
+
+```{r ssa-saturation, echo=FALSE, fig.cap="Saturation kinetics: at low concentrations the rate increases linearly (first-order behaviour), but at high concentrations the rate approaches a plateau (zero-order behaviour). This transition is characteristic of mechanisms where a reactive intermediate has competing fates. The same mathematical form appears in enzyme kinetics (Lecture 8). [Draft figure from lecture slides.]", out.width='70%', fig.align='center'}
+knitr::include_graphics("lecture_5/figures/saturation_kinetics.png")
+```
+
+::: {.skill}
+**You should be able to:** Apply the SSA to a mechanism with a reactive intermediate (such as A ⇌ B, B + C → D), derive the resulting rate law, and identify the limiting cases by examining which terms dominate in the denominator.
+:::
+
+## SSA versus Pre-Equilibrium
+
+We have now seen two methods for handling reactive intermediates: the pre-equilibrium approximation (Lecture 4) and the steady-state approximation. How do they compare?
+
+The **pre-equilibrium approximation** assumes that the first step genuinely reaches equilibrium before the slow step proceeds. This requires $k_{-1} \gg k_2$: the reverse reaction of the first step must be much faster than the forward reaction of the second step. It gives a simple derivation and a clear physical picture, but applies only in this specific limit.
+
+The **steady-state approximation** is more general. It assumes only that the intermediate's concentration reaches a quasi-steady value — which can happen whether or not the first step is at equilibrium. The SSA works across a broader range of conditions and *reduces to* the pre-equilibrium result when $k_{-1} \gg k_2$.
+
+In practice: if you are told (or can justify) that the first step is a fast equilibrium, the pre-equilibrium approach is quicker and gives the same answer. If no such information is given, or if you need a result that covers different limiting cases, use the SSA.
+
+In Lecture 7, we will put the SSA to work on a real chemical problem — the **Lindemann mechanism** for unimolecular reactions — where it provides a beautifully simple explanation of how a molecule in a gas can acquire enough energy to decompose.
+
+## Key Concepts
+
+- The **steady-state approximation** (SSA) sets $\mathrm{d}[\mathrm{I}]/\mathrm{d}t \approx 0$ for a reactive intermediate I. This does not mean $[\mathrm{I}] = 0$ — it means $[\mathrm{I}]$ is approximately constant after a brief initial transient.
+- Applying the SSA converts coupled differential equations into algebraic equations, allowing us to express the rate law in terms of stable, measurable species only.
+- For the mechanism A + B ⇌ C → D, the SSA gives $\nu = k_1 k_2[\mathrm{A}][\mathrm{B}]/(k_{-1} + k_2)$, which contains both the pre-equilibrium limit ($k_{-1} \gg k_2$) and the forward-committed limit ($k_2 \gg k_{-1}$) as special cases.
+- Some mechanisms produce rate laws where a species appears in both the numerator and denominator, giving no well-defined reaction order. The SSA naturally captures this behaviour.
+- **Saturation kinetics** — where the rate becomes independent of a reactant's concentration at high concentrations — arises when the rate-determining step does not involve that reactant.
+- The SSA is more general than the pre-equilibrium approximation and reduces to it as a special case. Use the SSA when the relative magnitudes of rate constants are unknown or when a general result is needed.

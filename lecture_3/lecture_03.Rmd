@@ -1,182 +1,164 @@
-# Simple Integrated Rate Laws
+# Methods for Determining Rate Laws from Experimental Data
 
-## From Mechanism to Mathematical Model
+In the previous chapter, we derived integrated rate laws for zeroth-, first-, and second-order reactions and saw that each gives a different functional form for concentration as a function of time. We also saw that by plotting data in the appropriate linear form, we can test whether a given rate law is consistent with our measurements. But how do we carry out this analysis systematically? And what do we do when a reaction involves more than one reactant? In this chapter, we develop four complementary methods for determining rate laws from experimental data.
 
-The relationship between reaction mechanisms and kinetic behavior requires systematic mathematical analysis. In our previous lecture, we examined unimolecular decomposition reactions, starting with experimental data that showed exponential decay in concentration. By proposing an exponential model and differentiating, we demonstrated consistency with first-order kinetics—a mathematical signature of unimolecular mechanisms.
+## The Integral Method
 
-While illuminating, this approach relied heavily on choosing the correct model function. Different functions with similar shapes would have yielded different rate laws upon differentiation, potentially inconsistent with the known unimolecular mechanism. This highlights a key limitation of working from data to mechanism.
+The integral method applies the graphical analysis we introduced in the previous chapter as a systematic procedure. Given concentration–time data for a reaction, we plot the data in each of the linear forms from the summary table (reproduced below for convenience) and look for the plot that gives a straight line. The order of that straight-line plot tells us the reaction order; the slope gives the rate constant.
 
-```{r mechanism-approach, fig.cap="Comparison of approaches to kinetic analysis. (a) Data-first approach: fitting and differentiation. (b) Mechanism-first approach: integration and comparison with data."}
-# Insert comparison diagram from slides
+| Order | Linear plot | Slope |
+|:---:|:---|:---:|
+| 0 | $[\mathrm{A}]$ vs $t$ | $-k$ |
+| 1 | $\ln[\mathrm{A}]$ vs $t$ | $-k$ |
+| 2 | $1/[\mathrm{A}]$ vs $t$ | $+k$ |
+
+### Worked Example: Azomethane Decomposition Revisited
+
+Returning to the azomethane decomposition data from the previous chapter, we now apply the integral method systematically. Recall the data:
+
+| $t$ / min | 0 | 30 | 60 | 90 | 120 | 150 | 180 |
+|---|---|---|---|---|---|---|---|
+| $[\text{azomethane}]$ / $10^{-3}\,\mathrm{mol\,dm}^{-3}$ | 8.70 | 6.52 | 4.89 | 3.67 | 2.75 | 2.06 | 1.55 |
+
+In the previous chapter, we plotted $\ln[\text{azomethane}]$ against $t$ and found a straight line with slope $-k = -9.6 \times 10^{-3}\,\mathrm{min}^{-1}$, consistent with first-order kinetics. But to be rigorous, we should also check that the data are *not* consistent with the other candidate rate laws. Plotting $1/[\text{azomethane}]$ against $t$ gives a curve, not a straight line—ruling out second-order kinetics.
+
+```{r azomethane-second-order-rejection, echo=FALSE, fig.cap="Testing the azomethane data against second-order kinetics. Plotting $1/[\\mathrm{azomethane}]$ versus time does not give a straight line, ruling out a second-order rate law.", out.width='45%', fig.align='center'}
+knitr::include_graphics("lecture_3/figures/azomethane_second_order_rejection.png")
 ```
 
-## Systematic Kinetic Analysis
+This is the essence of the integral method: we test each candidate rate law in turn and reject those that do not give a straight line. A linear plot both confirms the reaction order and provides the rate constant from the slope.
 
-In practice, kinetic analysis typically proceeds in the opposite direction:
+::: {.skill}
+**You should be able to:** Apply the integral method to concentration–time data: plot in the appropriate linear forms, identify which (if any) gives a straight line, and extract the rate constant from the slope.
+:::
 
-1. Propose a plausible reaction mechanism
-2. Write down the corresponding differential rate law
-3. Integrate this rate law to obtain an integrated rate law
-4. Compare this integrated rate law with experimental data
+#### Aside: Modern Analysis Methods {-}
 
-This systematic approach provides a rigorous test of mechanistic hypotheses. When experimental data match our derived integrated rate law, we have evidence supporting our proposed mechanism. Equally importantly, when they don't match, we can conclusively reject that mechanism and must consider alternatives.
+While we have focused on linear transformations, modern computational methods allow direct non-linear fitting of the integrated rate laws in their original (non-linearised) form. The linear analysis method remains the standard approach in most textbooks, however, and has the practical advantage that it can be applied with nothing more than graph paper and a ruler—or in an exam.
 
-## Simple Integrated Rate Laws
+## The Half-Life Method
 
-We focus here on simple integrated rate laws—those corresponding to single-step reaction mechanisms. For any such mechanism, our analysis follows these steps:
+The half-life method provides a way to test for first-order kinetics without plotting a graph. It exploits a unique property of exponential functions: first-order kinetics gives exponential decay, and for an exponential decay the concentration always decreases by the same *fraction* in equal time intervals. If the concentration drops to 75% of its value in the first 30 minutes, it drops to 75% again in the next 30 minutes, and the next, regardless of the actual concentration. No other functional form has this property.
 
-1. Propose a single-step mechanism
-2. Write the differential rate law
-3. Integrate to obtain the integrated rate law
-4. Rearrange into linear form
-5. Compare with experimental data
+### Deriving the Half-Life
 
-```{r analysis-steps, fig.cap="Flowchart showing the progression from mechanism proposal through mathematical analysis to experimental validation."}
-# Insert flowchart from slides
-```
+Recall from the previous chapter that for a first-order reaction:
 
-The linear form proves particularly useful because it allows straightforward graphical analysis: if experimental data plotted in this form give a straight line, the data are consistent with our proposed mechanism.
+$$[\mathrm{A}]_t = [\mathrm{A}]_0\,\mathrm{e}^{-kt}$$
 
-## Zeroth-Order Kinetics
+The **half-life** ($t_{1/2}$) is the time taken for the concentration to fall to half its initial value. Setting $[\mathrm{A}]_t = \frac{1}{2}[\mathrm{A}]_0$:
 
-For a zeroth-order mechanism, where rate is independent of concentration:
+$$\frac{1}{2}[\mathrm{A}]_0 = [\mathrm{A}]_0\,\mathrm{e}^{-kt_{1/2}}$$
 
-$$\frac{\mathrm{d}[\mathrm{A}]}{\mathrm{d}t} = -k$$
+$$\frac{1}{2} = \mathrm{e}^{-kt_{1/2}}$$
 
-To obtain the integrated rate law:
+Taking the natural logarithm of both sides:
 
-1. Rearrange into integral form:
+\begin{equation}
+t_{1/2} = \frac{\ln 2}{k}
+(\#eq:first-order-half-life)
+\end{equation}
 
-$$\int_{[\mathrm{A}]_0}^{[\mathrm{A}]_t} \mathrm{d}[\mathrm{A}] = \int_0^t -k\,\mathrm{d}t$$
+Notice that $t_{1/2}$ depends only on $k$, not on $[\mathrm{A}]_0$. The half-life is *constant*: it takes the same amount of time for the concentration to halve whether we start from $[\mathrm{A}]_0$ or from any later concentration. This is a defining characteristic of first-order kinetics.
 
-2. Integrate both sides:
+### Generalisation: Constant Proportional Change
 
-$$[[\mathrm{A}]]_{[\mathrm{A}]_0}^{[\mathrm{A}]_t} = [-kt]_0^t$$
+There is nothing special about the factor of one-half. For a first-order reaction, the time taken for the concentration to fall to any fixed fraction $1/n$ of its starting value is constant:
 
-3. Apply limits:
+\begin{equation}
+t_{1/n} = \frac{\ln n}{k}
+(\#eq:first-order-t1n)
+\end{equation}
 
-$$[\mathrm{A}]_t - [\mathrm{A}]_0 = -kt$$
+This follows because exponential decay means the concentration decreases by the same *proportion* in each successive time interval of equal length. If the concentration falls by a factor of 0.75 in the first 30 minutes, it falls by a factor of 0.75 in the next 30 minutes, and the next, and so on. Any constant proportional change over equal time intervals is diagnostic of first-order kinetics.
 
-4. Rearrange to obtain the integrated rate law:
+### Worked Example: Azomethane Revisited
 
-$$[\mathrm{A}]_t = [\mathrm{A}]_0 - kt$$
+We can use this as an independent check on the azomethane data. Looking at the ratio of successive concentrations, each measured at 30-minute intervals:
 
-This is already in linear form. 
+| Interval | $[\text{azomethane}]_\text{start}$ | $[\text{azomethane}]_\text{end}$ | Ratio |
+|---|---|---|---|
+| 0–30 min | 8.70 | 6.52 | 0.75 |
+| 30–60 min | 6.52 | 4.89 | 0.75 |
+| 60–90 min | 4.89 | 3.67 | 0.75 |
+| 90–120 min | 3.67 | 2.75 | 0.75 |
+| 120–150 min | 2.75 | 2.06 | 0.75 |
+| 150–180 min | 2.06 | 1.55 | 0.75 |
 
-This equation tells us that if our reaction follows zeroth-order kinetics, then a plot $[\mathrm{A}]_t$ versus $t$ should give a straight line with slope = $-k$ and intercept = $[\mathrm{A}]_0$.
+The constant ratio of 0.75 confirms first-order kinetics—without plotting a single graph. From Eqn. \@ref(eq:first-order-t1n) with $n = 1/0.75 = 4/3$ and $\Delta t = 30\,\mathrm{min}$:
 
-```{r zeroth-order-plot, fig.cap="Zeroth-order kinetics showing linear decrease in concentration with time. Slope equals the negative rate constant -k."}
-# Insert plot from slides
-```
+$$k = \frac{\ln(4/3)}{30\,\mathrm{min}} = 9.6 \times 10^{-3}\,\mathrm{min}^{-1}$$
 
-## First-Order Kinetics
+This agrees with the value obtained from the integral method, as it should — both methods assume first-order kinetics and extract $k$ from the same underlying exponential. The half-life method is less precise than the graphical method (it relies on reading individual data points rather than fitting a line through all the data), but it provides a quick and intuitive test that does not require plotting.
 
-For a unimolecular mechanism:
+::: {.skill}
+**You should be able to:** Derive the first-order half-life expression $t_{1/2} = \ln 2/k$, and use constant proportional change in concentration–time data to test for first-order kinetics.
+:::
 
-$$\frac{\mathrm{d}[\mathrm{A}]}{\mathrm{d}t} = -k[\mathrm{A}]$$
+## The Isolation Method
 
-1. Separate variables:
+The integral and half-life methods work well for reactions involving a single reactant, but many reactions involve two or more species. Consider a reaction $\mathrm{A} + \mathrm{B} \rightarrow \text{products}$ with rate law:
 
-$$\frac{\mathrm{d}[\mathrm{A}]}{[\mathrm{A}]} = -k\,\mathrm{d}t$$
+$$\nu = k[\mathrm{A}]^\alpha[\mathrm{B}]^\beta$$
 
-2. Set up integral equation:
+The rate depends on both $[\mathrm{A}]$ and $[\mathrm{B}]$, which both change with time. How can we determine the partial orders $\alpha$ and $\beta$ separately?
 
-$$\int_{[\mathrm{A}]_0}^{[\mathrm{A}]_t} \frac{\mathrm{d}[\mathrm{A}]}{[\mathrm{A}]} = \int_0^t -k\,\mathrm{d}t$$
+The **isolation method** simplifies the problem by making all but one reactant effectively constant. If we use B in large excess ($[\mathrm{B}]_0 \gg [\mathrm{A}]_0$), then B is consumed in negligible proportion during the reaction and $[\mathrm{B}]_t \approx [\mathrm{B}]_0$ throughout. The rate law becomes:
 
-3. Integrate both sides:
+$$\nu = k'[\mathrm{A}]^\alpha \quad \text{where } k' = k[\mathrm{B}]_0^\beta$$
 
-$$[\ln[\mathrm{A}]]_{[\mathrm{A}]_0}^{[\mathrm{A}]_t} = [-kt]_0^t$$
+The reaction now behaves as if it depends only on $[\mathrm{A}]$, with a pseudo-rate constant $k'$ that absorbs the (constant) concentration of B — a **pseudo-$\alpha$th-order** rate law. In the previous chapter, we saw the specific case where $\alpha = 1$, which gives pseudo-first-order kinetics. We can now apply the integral method or half-life method to determine $\alpha$.
 
-4. Apply limits:
+To find $\beta$, we repeat the experiment with A in large excess ($[\mathrm{A}]_0 \gg [\mathrm{B}]_0$). Now $[\mathrm{A}]_t \approx [\mathrm{A}]_0$ and:
 
-$$\ln[\mathrm{A}]_t - \ln[\mathrm{A}]_0 = -kt$$
+$$\nu = k''[\mathrm{B}]^\beta \quad \text{where } k'' = k[\mathrm{A}]_0^\alpha$$
 
-5. Express as the integrated rate law:
+Applying the integral method to this simplified rate law gives $\beta$.
 
-$$\ln[\mathrm{A}]_t = \ln[\mathrm{A}]_0 - kt$$
+### Extracting the True Rate Constant
 
-This linear form shows that plotting $\ln[\mathrm{A}]_t$ versus $t$ gives slope = $-k$ and intercept = $\ln[\mathrm{A}]_0$.
+The isolation method also provides a route to the true rate constant $k$. Taking logarithms of $k' = k[\mathrm{B}]_0^\beta$:
 
-```{r first-order-plot, fig.cap="First-order kinetics showing (a) exponential decay in concentration and (b) linearized plot of ln[A] versus time."}
-# Insert plots from slides
-```
+$$\ln k' = \ln k + \beta\ln[\mathrm{B}]_0$$
 
-## Second-Order Kinetics
+By repeating the experiment at several different values of $[\mathrm{B}]_0$ (each still in large excess over $[\mathrm{A}]_0$), we obtain a set of pseudo-rate constants $k'$. A plot of $\ln k'$ versus $\ln[\mathrm{B}]_0$ gives a straight line with slope $\beta$ and intercept $\ln k$.
 
-For a bimolecular mechanism with identical molecules:
+::: {.skill}
+**You should be able to:** Explain how the isolation method simplifies a multi-reactant rate law, and use the relationship $\ln k' = \ln k + \beta\ln[\mathrm{B}]_0$ to determine a partial order from pseudo-rate constants.
+:::
 
-$$\frac{\mathrm{d}[\mathrm{A}]}{\mathrm{d}t} = -k[\mathrm{A}]^2$$
+## The Differential Method (Initial Rates)
 
-1. Separate variables:
+The methods above all work with concentration–time data collected over the full course of a reaction. The **differential method** takes a different approach: it works directly with *rates* rather than concentrations. Starting from a general rate law:
 
-$$\frac{\mathrm{d}[\mathrm{A}]}{[\mathrm{A}]^2} = -k\,\mathrm{d}t$$
+$$\nu = k[\mathrm{A}]^\alpha[\mathrm{B}]^\beta$$
 
-2. Set up integral equation:
+taking logarithms gives:
 
-$$\int_{[\mathrm{A}]_0}^{[\mathrm{A}]_t} \frac{\mathrm{d}[\mathrm{A}]}{[\mathrm{A}]^2} = \int_0^t -k\,\mathrm{d}t$$
+$$\ln\nu = \ln k + \alpha\ln[\mathrm{A}] + \beta\ln[\mathrm{B}]$$
 
-3. Integrate both sides:
+If we could measure the rate $\nu$ at known concentrations of A and B, we could determine $\alpha$ and $\beta$ directly. But rate is an instantaneous quantity—how do we measure it?
 
-$$[-\frac{1}{[\mathrm{A}]}]_{[\mathrm{A}]_0}^{[\mathrm{A}]_t} = [-kt]_0^t$$
+The practical solution is to use **initial rates**. At $t = 0$, we know the concentrations exactly (they are just the starting concentrations we prepared), and we can estimate the initial rate $\nu_0$ from the initial slope of the concentration–time curve. This gives:
 
-4. Apply limits:
+$$\ln\nu_0 = \ln k + \alpha\ln[\mathrm{A}]_0 + \beta\ln[\mathrm{B}]_0$$
 
-$$-\frac{1}{[\mathrm{A}]_t} + \frac{1}{[\mathrm{A}]_0} = -kt$$
+If we hold $[\mathrm{B}]_0$ constant and vary $[\mathrm{A}]_0$ across a series of experiments, the $\beta\ln[\mathrm{B}]_0$ term is the same in every experiment, and we can write:
 
-5. Rearrange to give integrated rate law:
+$$\ln\nu_0 = (\ln k + \beta\ln[\mathrm{B}]_0) + \alpha\ln[\mathrm{A}]_0$$
 
-$$\frac{1}{[\mathrm{A}]_t} = \frac{1}{[\mathrm{A}]_0} + kt$$
+A plot of $\ln\nu_0$ versus $\ln[\mathrm{A}]_0$ gives a straight line with slope $\alpha$. Repeating with $[\mathrm{A}]_0$ held constant and $[\mathrm{B}]_0$ varied gives $\beta$ in the same way.
 
-This linear form shows that plotting $1/[\mathrm{A}]_t$ versus $t$ gives slope = $k$ and intercept = $1/[A]_0$.
+::: {.skill}
+**You should be able to:** Use the method of initial rates to determine reaction orders from a series of experiments with varying starting concentrations.
+:::
 
-```{r second-order-plot, fig.cap="Second-order kinetics showing (a) concentration decay and (b) linearized plot of 1/[A] versus time."}
-# Insert plots from slides
-```
+## Key Concepts
 
-## More Complex Second-Order Processes
+- The **integral method** tests candidate rate laws by plotting concentration–time data in different linear forms. A straight line confirms the proposed order; a curve rules it out. The slope gives the rate constant.
+- The **half-life** for a first-order reaction is $t_{1/2} = \ln 2/k$, independent of initial concentration. More generally, constant proportional change over equal time intervals is diagnostic of first-order kinetics.
+- The **isolation method** simplifies multi-reactant kinetics by using one reactant in large excess, reducing the rate law to a pseudo-order form in the remaining reactant.
+- Repeating isolation experiments at different excess concentrations and plotting $\ln k'$ versus $\ln[\mathrm{B}]_0$ determines both the partial order $\beta$ and the true rate constant $k$.
+- The **differential method** (initial rates) determines reaction orders by measuring $\nu_0$ at different starting concentrations. A plot of $\ln\nu_0$ versus $\ln[\mathrm{A}]_0$ (at constant $[\mathrm{B}]_0$) gives slope $\alpha$.
+- These four methods are complementary: the integral and half-life methods work best for single-reactant systems, while the isolation and differential methods handle multi-reactant systems.
 
-For reactions between different species (A + B → P):
-
-$$\frac{d[\mathrm{A}]}{dt} = -k[\mathrm{A}][\mathrm{B}]$$
-
-Integration is more complex due to the two-variable dependence:
-
-1. Use stoichiometric relationships:
-
-- If $[\mathrm{A}]_0 \neq [\mathrm{B}]_0$, then $[\mathrm{B}] - [\mathrm{A}] = [\mathrm{B}]_0 - [\mathrm{A}]_0$ = constant
-- Let $[\mathrm{B}] = [\mathrm{B}]_0 - ([\mathrm{A}]_0 - [\mathrm{A}])$
-
-2. Substitute and integrate to obtain:
-
-$$kt = \frac{1}{[\mathrm{B}]_0 - [\mathrm{A}]_0}\ln\left(\frac{[\mathrm{B}]/[\mathrm{B}]_0}{[\mathrm{A}]/[\mathrm{A}]_0}\right)$$
-
-```{r bimolecular-reaction, fig.cap="Schematic representation of a bimolecular reaction A + B → P showing the relationship between molecular collisions and rate law."}
-# Insert diagram from slides
-```
-
-### Pseudo-First-Order Conditions
-
-When one reactant is in large excess (e.g., $[\mathrm{A}] \gg [\mathrm{B}]$):
-
-1. $[\mathrm{A}]$ remains effectively constant
-2 . Define $k^\prime = k[\mathrm{A}]$
-3. Rate law simplifies to:
-
-$$\frac{\mathrm{d}[\mathrm{B}]}{\mathrm{d}t} = -k^\prime[\mathrm{B}]$$
-
-This transforms a complex second-order process into a simpler pseudo-first-order one with $k^\prime = k[A]$.
-
-## Graphical Analysis Applications
-
-When analyzing experimental data, we can determine reaction order by plotting the data in different ways:
-
-1. Plot $[\mathrm{A}]$ vs $t$ to test for zeroth-order (straight line)
-2. Plot $\ln[\mathrm{A}]$ vs $t$ to test for first-order (straight line)
-3. Plot $1/[\mathrm{A}]$ vs $t$ to test for second-order (straight line)
-
-(note somewhere that the same process can be applied to *any* simple rate law / also note that we can have a simple rate law even if we do not have a single-step reaction mechanism / so we can have, e.g., non-integer or even negative order reactions)
-```{r order-determination, fig.cap="Comparison of concentration data plotted in different linear forms for determining reaction order."}
-# Insert comparative plots from slides
-```
-
-The plot that gives a straight line indicates the reaction order, with the slope providing the rate constant (with appropriate sign) and the intercept confirming the initial concentration $[\mathrm{A}]_0$.

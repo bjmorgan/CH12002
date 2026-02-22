@@ -1,0 +1,108 @@
+# Methods for Determining Rate Laws from Experimental Data
+
+## Introduction
+
+In physical chemistry, the determination of rate laws from experimental data represents a fundamental challenge. While theoretical understanding of reaction mechanisms can suggest potential rate laws, ultimately we must determine these laws empirically through careful analysis of kinetic data. In this chapter, we explore four complementary methods for extracting rate law information from concentration-time measurements.
+
+## The Integral Method
+
+### Theoretical Background
+
+As we saw in Lecture 3, different rate laws lead to different integrated rate laws, each predicting distinct functional forms for the time evolution of reactant concentrations. This provides a powerful method for determining rate laws: we can compare experimental concentration-time data against these predicted functional forms.
+
+The standard method involves transforming the integrated rate laws into linear form. The key relationships are summarised below:
+
+| Order | Rate Law | Integrated Rate Law | Linear Form |
+|-------|----------|---------------------|-------------|
+| 0 | $\nu = \color{660099}{k}$ | $[\mathrm{A}]_t = [\mathrm{A}]_0 - kt$ | $[\mathrm{A}]_t = [\mathrm{A}]_0 - kt$ |
+| 1 | $\nu = k[\mathrm{A}]$ | $[\mathrm{A}]_t = [\mathrm{A}]_0e^{-kt}$ | $\ln[\mathrm{A}]_t = \ln[\mathrm{A}]_0 - kt$ |
+| 2 | $\nu = k[\mathrm{A}]^2$ | $[\mathrm{A}]_t = \frac{[\mathrm{A}]_0}{1 + kt[\mathrm{A}]_0}$ | $\frac{1}{[\mathrm{A}]_t} = \frac{1}{[\mathrm{A}]_0} + kt$ |
+
+By plotting experimental data in these linear forms, we can readily identify which rate law best describes our reaction.
+
+### Example: Testing for Second-Order Kinetics
+
+Consider experimental data showing the decay of reactant A. To test whether these data are consistent with second-order kinetics, we plot $\frac{1}{[\mathrm{A}]_t}$ versus $t$. A straight line would indicate consistency with second-order kinetics, with slope $k$ and intercept $\frac{1}{[\mathrm{A}]_0}$.
+
+### Example: Decomposition of Azomethane
+
+The decomposition of azomethane was studied at a pressure of $2.18 \times 10^4$ Pa and temperature of 576 K, yielding the following concentration-time data:
+
+| $t$ / minutes | 0 | 30 | 60 | 90 | 120 | 150 | 180 |
+|---------------|---|----|----|----|----|-----|-----|
+| $[\text{azomethane}]$ / $10^{-3}$ mol dm$^{-3}$ | 8.70 | 6.52 | 4.89 | 3.67 | 2.75 | 2.06 | 1.55 |
+
+To test for first-order kinetics, we plot $\ln[\text{azomethane}]$ versus $t$. The resulting linear plot (with slope $-k = -9.6 \times 10^{-3}$ min$^{-1}$) confirms first-order behaviour.
+
+### A Note on Modern Analysis Methods
+
+While we have focused on analysing concentration-time data using linear transformations, this is not the only approach. Modern computational methods allow direct non-linear fitting of the integrated rate laws in their original form. However, the linear analysis method presented here remains valuable both for understanding the mathematical relationships involved and for providing a straightforward way to identify compatible rate laws from experimental data.
+
+## The Half-Life Method
+
+### Characteristic Exponential Decay
+
+First-order kinetics corresponds to characteristic exponential decay, where the concentration decreases by the same proportion in any fixed time interval. This leads to a key diagnostic: if we examine the time taken for the concentration to fall to $\frac{1}{n}$ of its initial value (where $n$ is any number), this time interval remains constant throughout the reaction.
+
+The "half-life" ($t_{1/2}$) represents the special case where $n = 2$, but there is nothing unique about this choice. For a first-order reaction:
+
+$$t_{1/n} = \frac{\ln(n)}{k}$$
+
+### Example: Azomethane Decomposition Revisited
+
+Returning to our azomethane data, we can verify first-order kinetics by showing that successive time intervals required for the concentration to halve remain constant. From the data:
+
+| Time interval | Initial [A] | Final [A] | Δt |
+|--------------|-------------|------------|-----|
+| First half-life | 8.70 | 4.35 | 72.3 |
+| Second half-life | 4.35 | 2.18 | 72.3 |
+
+The constant half-life provides independent confirmation of first-order kinetics.
+
+## The Isolation Method
+
+For reactions involving multiple reactants, the isolation method allows us to determine partial reaction orders by artificially simplifying the kinetics. By using a large excess of all but one reactant, their concentrations remain effectively constant throughout the reaction.
+
+Consider our bimolecular reaction:
+
+$$\nu = k[\mathrm{A}]^\alpha[\mathrm{B}]^\beta$$
+
+If $[\mathrm{B}]_0 \gg [\mathrm{A}]_0$ then $[\mathrm{B}]_t \approx [\mathrm{B}]_0$ and:
+
+$$\nu = k^\prime[\mathrm{A}]^\alpha$$
+
+where $k^\prime = k[\mathrm{B}]_0^\beta$ is a pseudo-rate constant.
+
+To determine $\beta$, we can repeat the experiment with different initial concentrations of B:
+
+$$\ln k^\prime = \ln k + \beta\ln[\mathrm{B}]_0$$
+
+A plot of $\ln k^\prime$ versus $\ln[\mathrm{B}]_0$ gives slope $\beta$.
+
+## The Differential Method
+
+The differential method works directly with reaction rates rather than integrated concentration profiles. Taking logarithms of the rate law:
+
+$$\ln\nu = \ln k + \alpha\ln[\mathrm{A}] + \beta\ln[\mathrm{B}]$$
+
+Using initial rates with varying starting concentrations:
+
+$$\ln\nu_0 = \ln k + \alpha\ln[\mathrm{A}]_0 + \beta\ln[\mathrm{B}]_0$$
+
+When $[\mathrm{B}]_0$ is held constant:
+
+$$\ln\nu_0 = (\ln k + \beta\ln[\mathrm{B}]_0) + \alpha\ln[\mathrm{A}]_0$$
+
+A plot of $\ln\nu_0$ versus $\ln[\mathrm{A}]_0$ gives slope $\alpha$.
+
+## Summary
+
+These four methods provide complementary approaches to rate law determination:
+
+1. The integral method compares experimental data against predicted concentration-time profiles
+2. The half-life method identifies first-order behaviour through time interval analysis
+3. The isolation method simplifies complex kinetics to determine partial orders
+4. The differential method uses initial rates to directly determine reaction orders
+
+Each method has particular strengths and limitations. The choice of method often depends on the specific reaction system and available experimental data.
+

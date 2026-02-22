@@ -1,108 +1,161 @@
-# Methods for Determining Rate Laws from Experimental Data
+# Complex Reaction Mechanisms
 
-## Introduction
+So far, we have focused on reactions that can be described by a single rate law involving a single reactant. But most chemical reactions proceed through multiple elementary steps, often involving intermediate species that are formed and then consumed during the reaction. In this chapter, we develop the tools for analysing these more complex mechanisms: consecutive reactions, equilibrium reactions, and pre-equilibrium mechanisms.
 
-In physical chemistry, the determination of rate laws from experimental data represents a fundamental challenge. While theoretical understanding of reaction mechanisms can suggest potential rate laws, ultimately we must determine these laws empirically through careful analysis of kinetic data. In this chapter, we explore four complementary methods for extracting rate law information from concentration-time measurements.
+## Consecutive Reactions
 
-## The Integral Method
+Consider a reaction in which A is converted to a final product C, but not directly — instead, it proceeds through an intermediate B:
 
-### Theoretical Background
+$$\mathrm{A} \xrightarrow{k_1} \mathrm{B} \xrightarrow{k_2} \mathrm{C}$$
 
-As we saw in Lecture 3, different rate laws lead to different integrated rate laws, each predicting distinct functional forms for the time evolution of reactant concentrations. This provides a powerful method for determining rate laws: we can compare experimental concentration-time data against these predicted functional forms.
+This is a **consecutive reaction** (or sequential reaction): the product of the first step becomes the reactant for the second. The overall mechanism consists of two elementary processes, each with its own rate constant.
 
-The standard method involves transforming the integrated rate laws into linear form. The key relationships are summarised below:
+To analyse the kinetics, we write a differential rate equation for each species. The intermediate B participates in both steps — it is produced by the first and consumed by the second — so its rate equation has two terms:
 
-| Order | Rate Law | Integrated Rate Law | Linear Form |
-|-------|----------|---------------------|-------------|
-| 0 | $\nu = \color{660099}{k}$ | $[\mathrm{A}]_t = [\mathrm{A}]_0 - kt$ | $[\mathrm{A}]_t = [\mathrm{A}]_0 - kt$ |
-| 1 | $\nu = k[\mathrm{A}]$ | $[\mathrm{A}]_t = [\mathrm{A}]_0e^{-kt}$ | $\ln[\mathrm{A}]_t = \ln[\mathrm{A}]_0 - kt$ |
-| 2 | $\nu = k[\mathrm{A}]^2$ | $[\mathrm{A}]_t = \frac{[\mathrm{A}]_0}{1 + kt[\mathrm{A}]_0}$ | $\frac{1}{[\mathrm{A}]_t} = \frac{1}{[\mathrm{A}]_0} + kt$ |
+$$\frac{\mathrm{d}[\mathrm{A}]}{\mathrm{d}t} = -k_1[\mathrm{A}]$$
 
-By plotting experimental data in these linear forms, we can readily identify which rate law best describes our reaction.
+$$\frac{\mathrm{d}[\mathrm{B}]}{\mathrm{d}t} = +k_1[\mathrm{A}] - k_2[\mathrm{B}]$$
 
-### Example: Testing for Second-Order Kinetics
+$$\frac{\mathrm{d}[\mathrm{C}]}{\mathrm{d}t} = +k_2[\mathrm{B}]$$
 
-Consider experimental data showing the decay of reactant A. To test whether these data are consistent with second-order kinetics, we plot $\frac{1}{[\mathrm{A}]_t}$ versus $t$. A straight line would indicate consistency with second-order kinetics, with slope $k$ and intercept $\frac{1}{[\mathrm{A}]_0}$.
+The first equation is just first-order decay of A — we already know how to solve this. The equation for B is more involved: it depends on both $[\mathrm{A}]$ and $[\mathrm{B}]$. But since we can solve the first equation independently, we can substitute the result into the second.
 
-### Example: Decomposition of Azomethane
+### Solving the Rate Equations
 
-The decomposition of azomethane was studied at a pressure of $2.18 \times 10^4$ Pa and temperature of 576 K, yielding the following concentration-time data:
+Starting with the initial conditions $[\mathrm{A}]_0 = [\mathrm{A}]_0$, $[\mathrm{B}]_0 = 0$, $[\mathrm{C}]_0 = 0$:
 
-| $t$ / minutes | 0 | 30 | 60 | 90 | 120 | 150 | 180 |
-|---------------|---|----|----|----|----|-----|-----|
-| $[\text{azomethane}]$ / $10^{-3}$ mol dm$^{-3}$ | 8.70 | 6.52 | 4.89 | 3.67 | 2.75 | 2.06 | 1.55 |
+The equation for A is a simple first-order decay, giving:
 
-To test for first-order kinetics, we plot $\ln[\text{azomethane}]$ versus $t$. The resulting linear plot (with slope $-k = -9.6 \times 10^{-3}$ min$^{-1}$) confirms first-order behaviour.
+$$[\mathrm{A}]_t = [\mathrm{A}]_0\,\mathrm{e}^{-k_1t}$$
 
-### A Note on Modern Analysis Methods
+Substituting this into the equation for B gives a linear first-order differential equation whose solution is:
 
-While we have focused on analysing concentration-time data using linear transformations, this is not the only approach. Modern computational methods allow direct non-linear fitting of the integrated rate laws in their original form. However, the linear analysis method presented here remains valuable both for understanding the mathematical relationships involved and for providing a straightforward way to identify compatible rate laws from experimental data.
+\begin{equation}
+[\mathrm{B}]_t = \frac{k_1}{k_2 - k_1}[\mathrm{A}]_0\left(\mathrm{e}^{-k_1t} - \mathrm{e}^{-k_2t}\right)
+(\#eq:consecutive-B)
+\end{equation}
 
-## The Half-Life Method
+The derivation of this result requires techniques beyond this course and is not examinable — what matters is understanding the form of the solution and its physical meaning. The concentration of B is a *difference* of two exponentials: one representing its formation from A and the other its consumption to form C. This means $[\mathrm{B}]$ starts at zero, rises to a maximum, and then falls back to zero as B is consumed — the characteristic rise-and-fall profile of a reactive intermediate.
 
-### Characteristic Exponential Decay
+For C, we use mass balance: since every molecule of A must end up as either A, B, or C, we have $[\mathrm{C}]_t = [\mathrm{A}]_0 - [\mathrm{A}]_t - [\mathrm{B}]_t$, which gives:
 
-First-order kinetics corresponds to characteristic exponential decay, where the concentration decreases by the same proportion in any fixed time interval. This leads to a key diagnostic: if we examine the time taken for the concentration to fall to $\frac{1}{n}$ of its initial value (where $n$ is any number), this time interval remains constant throughout the reaction.
+$$[\mathrm{C}]_t = [\mathrm{A}]_0\left(1 + \frac{k_1\mathrm{e}^{-k_2t} - k_2\mathrm{e}^{-k_1t}}{k_2 - k_1}\right)$$
 
-The "half-life" ($t_{1/2}$) represents the special case where $n = 2$, but there is nothing unique about this choice. For a first-order reaction:
+```{r consecutive-concentration-profiles, echo=FALSE, fig.cap="Concentration profiles for the consecutive reaction A → B → C. The reactant A decays exponentially. The intermediate B rises to a maximum then falls. The product C increases monotonically towards $[\\mathrm{A}]_0$.", out.width='45%', fig.align='center'}
+knitr::include_graphics("lecture_4/figures/consecutive_profiles.png")
+```
 
-$$t_{1/n} = \frac{\ln(n)}{k}$$
+### The Rate-Determining Step
 
-### Example: Azomethane Decomposition Revisited
+The behaviour of a consecutive reaction depends critically on the relative magnitudes of $k_1$ and $k_2$. Two limiting cases emerge, each with a clear physical interpretation.
 
-Returning to our azomethane data, we can verify first-order kinetics by showing that successive time intervals required for the concentration to halve remain constant. From the data:
+**When $k_1 \gg k_2$ (fast first step, slow second step):**
 
-| Time interval | Initial [A] | Final [A] | Δt |
-|--------------|-------------|------------|-----|
-| First half-life | 8.70 | 4.35 | 72.3 |
-| Second half-life | 4.35 | 2.18 | 72.3 |
+A is consumed rapidly and B builds up to a high concentration before slowly converting to C. The overall rate of product formation is controlled by the slow second step — the first step "waits" for the second to catch up. In this limit, the expression for $[\mathrm{C}]_t$ simplifies to:
 
-The constant half-life provides independent confirmation of first-order kinetics.
+$$[\mathrm{C}]_t \approx [\mathrm{A}]_0\left(1 - \mathrm{e}^{-k_2t}\right)$$
 
-## The Isolation Method
+The rate depends on $k_2$ but not on $k_1$: making the first step even faster does not speed up the overall reaction.
 
-For reactions involving multiple reactants, the isolation method allows us to determine partial reaction orders by artificially simplifying the kinetics. By using a large excess of all but one reactant, their concentrations remain effectively constant throughout the reaction.
+```{r consecutive-fast-first-step, echo=FALSE, fig.cap="Concentration profiles when $k_1 \\gg k_2$. The intermediate B builds up rapidly and then decays slowly. The second step is rate-determining: the overall rate depends on $k_2$ but not on $k_1$.", out.width='45%', fig.align='center'}
+knitr::include_graphics("lecture_4/figures/consecutive_fast_first_step.png")
+```
 
-Consider our bimolecular reaction:
+**When $k_1 \ll k_2$ (slow first step, fast second step):**
 
-$$\nu = k[\mathrm{A}]^\alpha[\mathrm{B}]^\beta$$
+A is consumed slowly, and B is converted to C almost as soon as it forms — so B never accumulates to a significant concentration. The overall rate is controlled by the slow first step. In this limit:
 
-If $[\mathrm{B}]_0 \gg [\mathrm{A}]_0$ then $[\mathrm{B}]_t \approx [\mathrm{B}]_0$ and:
+$$[\mathrm{C}]_t \approx [\mathrm{A}]_0\left(1 - \mathrm{e}^{-k_1t}\right)$$
 
-$$\nu = k^\prime[\mathrm{A}]^\alpha$$
+Now the rate depends on $k_1$ but not on $k_2$: making the second step even faster does not help.
 
-where $k^\prime = k[\mathrm{B}]_0^\beta$ is a pseudo-rate constant.
+```{r consecutive-fast-second-step, echo=FALSE, fig.cap="Concentration profiles when $k_1 \\ll k_2$. The intermediate B remains at low concentration throughout because it is consumed almost as fast as it forms. The first step is rate-determining.", out.width='45%', fig.align='center'}
+knitr::include_graphics("lecture_4/figures/consecutive_fast_second_step.png")
+```
 
-To determine $\beta$, we can repeat the experiment with different initial concentrations of B:
+In both cases, the overall rate is governed by the *slower* step. This is the **rate-determining step** (or rate-limiting step): the slowest step in a multi-step mechanism, which acts as a bottleneck controlling the overall rate of reaction. You can identify it from the concentration profiles: it is the step whose rate constant appears in the simplified expression for $[\mathrm{C}]_t$.
 
-$$\ln k^\prime = \ln k + \beta\ln[\mathrm{B}]_0$$
+::: {.skill}
+**You should be able to:** Write differential rate equations for each species in a consecutive reaction A → B → C, describe qualitatively how the concentrations of reactant, intermediate, and product evolve with time, and identify the rate-determining step from the relative magnitudes of $k_1$ and $k_2$.
+:::
 
-A plot of $\ln k^\prime$ versus $\ln[\mathrm{B}]_0$ gives slope $\beta$.
+## Equilibrium Reactions
 
-## The Differential Method
+Not all reactions go to completion. Many reach a **dynamic equilibrium** in which the forward and reverse reactions occur at equal rates, so the concentrations no longer change with time. Consider the simplest case:
 
-The differential method works directly with reaction rates rather than integrated concentration profiles. Taking logarithms of the rate law:
+$$\mathrm{A} \underset{k_{-1}}{\stackrel{k_1}{\rightleftharpoons}} \mathrm{B}$$
 
-$$\ln\nu = \ln k + \alpha\ln[\mathrm{A}] + \beta\ln[\mathrm{B}]$$
+The rate equations now include both the forward and reverse processes:
 
-Using initial rates with varying starting concentrations:
+$$\frac{\mathrm{d}[\mathrm{A}]}{\mathrm{d}t} = -k_1[\mathrm{A}] + k_{-1}[\mathrm{B}]$$
 
-$$\ln\nu_0 = \ln k + \alpha\ln[\mathrm{A}]_0 + \beta\ln[\mathrm{B}]_0$$
+$$\frac{\mathrm{d}[\mathrm{B}]}{\mathrm{d}t} = +k_1[\mathrm{A}] - k_{-1}[\mathrm{B}]$$
 
-When $[\mathrm{B}]_0$ is held constant:
+At equilibrium, the concentrations stop changing: $\mathrm{d}[\mathrm{A}]/\mathrm{d}t = \mathrm{d}[\mathrm{B}]/\mathrm{d}t = 0$. Setting the rate equation for A equal to zero:
 
-$$\ln\nu_0 = (\ln k + \beta\ln[\mathrm{B}]_0) + \alpha\ln[\mathrm{A}]_0$$
+$$k_1[\mathrm{A}]_\mathrm{eq} = k_{-1}[\mathrm{B}]_\mathrm{eq}$$
 
-A plot of $\ln\nu_0$ versus $\ln[\mathrm{A}]_0$ gives slope $\alpha$.
+Rearranging:
 
-## Summary
+\begin{equation}
+\frac{[\mathrm{B}]_\mathrm{eq}}{[\mathrm{A}]_\mathrm{eq}} = \frac{k_1}{k_{-1}} = K_\mathrm{eq}
+(\#eq:kinetic-equilibrium)
+\end{equation}
 
-These four methods provide complementary approaches to rate law determination:
+This is a remarkable result. The equilibrium constant $K_\mathrm{eq}$ — which you will have met in thermodynamics as a ratio of concentrations at equilibrium — is here shown to equal the ratio of the forward and reverse rate constants. This connects **kinetics** (how fast reactions go) with **thermodynamics** (where the equilibrium lies). A large $K_\mathrm{eq}$ means the forward rate constant is much larger than the reverse: equilibrium lies to the right, favouring products. A small $K_\mathrm{eq}$ means the reverse reaction dominates: equilibrium lies to the left, favouring reactants.
 
-1. The integral method compares experimental data against predicted concentration-time profiles
-2. The half-life method identifies first-order behaviour through time interval analysis
-3. The isolation method simplifies complex kinetics to determine partial orders
-4. The differential method uses initial rates to directly determine reaction orders
+This relationship is general: for any elementary equilibrium, the equilibrium constant equals the ratio of the forward and reverse rate constants. It tells us that thermodynamic equilibrium is not a static state — it is a dynamic balance between opposing kinetic processes.
 
-Each method has particular strengths and limitations. The choice of method often depends on the specific reaction system and available experimental data.
+::: {.skill}
+**You should be able to:** Write rate equations for a reversible reaction, derive the relationship $K_\mathrm{eq} = k_1/k_{-1}$ by setting the net rate to zero, and explain the connection between kinetics and thermodynamics.
+:::
 
+## Pre-Equilibrium Mechanisms
+
+We now combine the ideas of consecutive and equilibrium reactions. Consider a mechanism in which a fast, reversible first step establishes an equilibrium involving an intermediate C, which then slowly converts to products:
+
+$$\mathrm{A} + \mathrm{B} \underset{k_{-1}}{\stackrel{k_1}{\rightleftharpoons}} \mathrm{C} \xrightarrow{k_2} \mathrm{D}$$
+
+The rate equations for this mechanism are:
+
+$$\frac{\mathrm{d}[\mathrm{C}]}{\mathrm{d}t} = k_1[\mathrm{A}][\mathrm{B}] - k_{-1}[\mathrm{C}] - k_2[\mathrm{C}]$$
+
+$$\frac{\mathrm{d}[\mathrm{D}]}{\mathrm{d}t} = k_2[\mathrm{C}]$$
+
+In general, these equations cannot be solved analytically — they require numerical integration. But a powerful simplification is possible when $k_{-1} \gg k_2$: the reverse reaction of the first step is much faster than the forward reaction of the second step. Under these conditions, the first step reaches equilibrium long before a significant amount of D has been formed. The intermediate C is in equilibrium with A and B, even as it is slowly drained away by the second step. This is a **pre-equilibrium**.
+
+```{r pre-equilibrium-profiles, echo=FALSE, fig.cap="Concentration profiles for the pre-equilibrium mechanism A + B ⇌ C → D. The intermediate C rapidly reaches a quasi-equilibrium concentration, then slowly depletes as product D forms.", out.width='45%', fig.align='center'}
+knitr::include_graphics("lecture_4/figures/pre_equilibrium_profiles.png")
+```
+
+Since the first step is effectively at equilibrium, we can write:
+
+$$\frac{[\mathrm{C}]}{[\mathrm{A}][\mathrm{B}]} = \frac{k_1}{k_{-1}} = K$$
+
+which gives:
+
+$$[\mathrm{C}] = K[\mathrm{A}][\mathrm{B}]$$
+
+The overall rate of product formation is then:
+
+\begin{equation}
+\nu = \frac{\mathrm{d}[\mathrm{D}]}{\mathrm{d}t} = k_2[\mathrm{C}] = k_2K[\mathrm{A}][\mathrm{B}] = \frac{k_1 k_2}{k_{-1}}[\mathrm{A}][\mathrm{B}]
+(\#eq:pre-equilibrium-rate)
+\end{equation}
+
+The result is a second-order rate law, even though the mechanism involves three elementary steps. The observed rate constant $k_\mathrm{obs} = k_1k_2/k_{-1}$ combines the individual rate constants from all three steps. This is a common outcome of pre-equilibrium mechanisms: the rate law looks simple, but the effective rate constant encodes information about the underlying multi-step mechanism.
+
+The pre-equilibrium approximation applies whenever the first step equilibrates much faster than the second step proceeds — that is, when $k_{-1} \gg k_2$. If this condition is not met, we need a different approach. In the next chapter, we introduce the **steady-state approximation**, which provides a more general method for handling reactive intermediates and which reduces to the pre-equilibrium result as a special case.
+
+::: {.skill}
+**You should be able to:** Identify when a pre-equilibrium approximation is appropriate, apply it to derive an overall rate law, and explain why the observed rate constant $k_\mathrm{obs} = k_1k_2/k_{-1}$ depends on the rate constants of all three elementary steps.
+:::
+
+## Key Concepts
+
+- **Consecutive reactions** (A → B → C) involve intermediate species whose concentration rises then falls. Writing rate equations for each species requires tracking which steps produce and consume each species.
+- The **rate-determining step** is the slowest step in a multi-step mechanism. It acts as a bottleneck: the overall rate depends on the rate constant of this step, not the faster steps.
+- For **equilibrium reactions**, setting the net rate to zero gives $K_\mathrm{eq} = k_1/k_{-1}$, connecting kinetics (rate constants) to thermodynamics (the equilibrium constant).
+- A **pre-equilibrium mechanism** arises when a fast reversible step establishes equilibrium before a slower step forms products. The approximation requires $k_{-1} \gg k_2$.
+- The pre-equilibrium approximation gives a simple overall rate law whose observed rate constant $k_\mathrm{obs} = k_1k_2/k_{-1}$ encodes information about all the elementary steps.
+- These methods provide the foundation for the **steady-state approximation** (next chapter), which generalises the treatment of reactive intermediates.

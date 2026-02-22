@@ -1,0 +1,145 @@
+# Temperature Effects on Reaction Rates
+
+Throughout the course so far, we have studied how reaction rates depend on *concentrations* — through rate laws, integrated rate equations, and the SSA. But concentration is only half the story. Every chemist knows that reactions go faster when you heat them up. In this chapter, we put this observation on a quantitative footing with the **Arrhenius equation**, which connects the rate constant to temperature and reveals the energetic requirements for a reaction to proceed.
+
+## The Arrhenius Equation {#sec:arrhenius}
+
+In the late 19th century, Svante Arrhenius observed that for many reactions, the rate constant $k$ increases exponentially with temperature according to:
+
+\begin{equation}
+k = A\,\mathrm{e}^{-E_\mathrm{a}/RT}
+(\#eq:arrhenius)
+\end{equation}
+
+where:
+
+- $A$ is the **pre-exponential factor** (same units as $k$)
+- $E_\mathrm{a}$ is the **activation energy** ($\mathrm{kJ\,mol}^{-1}$)
+- $R$ is the gas constant ($8.314\,\mathrm{J\,K}^{-1}\,\mathrm{mol}^{-1}$)
+- $T$ is the absolute temperature (K)
+
+The exponential factor $\mathrm{e}^{-E_\mathrm{a}/RT}$ represents the fraction of molecules with enough energy to react. As $T$ increases, this fraction grows rapidly — explaining why even modest temperature increases can produce large rate enhancements.
+
+```{r arrhenius-k-vs-T, echo=FALSE, fig.cap="Rate constant $k$ as a function of temperature. The exponential relationship means that $k$ increases steeply with $T$, with higher $E_\\mathrm{a}$ giving a steeper temperature dependence.", out.width='70%', fig.align='center'}
+knitr::include_graphics("lecture_11/figures/arrhenius_k_vs_T.png")
+```
+
+## The Linearised Arrhenius Equation {#sec:arrhenius-linear}
+
+Taking the natural logarithm of Eqn. \@ref(eq:arrhenius):
+
+\begin{equation}
+\ln k = \ln A - \frac{E_\mathrm{a}}{R} \cdot \frac{1}{T}
+(\#eq:arrhenius-linear)
+\end{equation}
+
+This is the equation of a straight line with $\ln k$ on the $y$-axis and $1/T$ on the $x$-axis:
+
+- Slope $= -E_\mathrm{a}/R$
+- $y$-intercept $= \ln A$
+
+An **Arrhenius plot** of $\ln k$ versus $1/T$ is therefore the standard graphical method for determining activation energies. A steeper (more negative) slope indicates a larger activation energy — the reaction is more sensitive to temperature.
+
+```{r arrhenius-plot, echo=FALSE, fig.cap="Arrhenius plot: $\\ln k$ versus $1/T$. The slope gives $-E_\\mathrm{a}/R$ and the $y$-intercept gives $\\ln A$. A steeper slope corresponds to a higher activation energy. The line of best fit is used to extract $E_\\mathrm{a}$ and $A$ from experimental data.", out.width='70%', fig.align='center'}
+knitr::include_graphics("lecture_11/figures/arrhenius_plot.png")
+```
+
+## Physical Meaning of the Arrhenius Parameters {#sec:arrhenius-meaning}
+
+### The Activation Energy ($E_\mathrm{a}$)
+
+The activation energy represents an energy threshold that must be exceeded for reactants to transform into products. We can visualise this using a **reaction coordinate diagram**:
+
+```{r reaction-coordinate, echo=FALSE, fig.cap="Reaction coordinate diagram showing the energy profile along the reaction pathway. The activation energy $E_\\mathrm{a}$ is the height of the energy barrier separating reactants from products. The transition state sits at the top of the barrier. The energy difference $\\Delta E_\\mathrm{r}$ between reactants and products determines the thermodynamics; $E_\\mathrm{a}$ determines the kinetics.", out.width='55%', fig.align='center'}
+knitr::include_graphics("lecture_11/figures/reaction_coordinate.png")
+```
+
+At temperature $T$, molecules have a distribution of kinetic energies. Only those with energy exceeding $E_\mathrm{a}$ can surmount the barrier and react. The Boltzmann factor $\mathrm{e}^{-E_\mathrm{a}/RT}$ gives the fraction of molecules that meet this criterion. As $T$ increases, the energy distribution broadens and a larger fraction of molecules can react — which is why the rate increases.
+
+### The Pre-Exponential Factor ($A$)
+
+The pre-exponential factor represents the rate constant that would be observed if the energy barrier were absent ($E_\mathrm{a} = 0$). It encapsulates all the non-energetic factors that affect the reaction rate:
+
+- The frequency of molecular collisions
+- The probability that colliding molecules have the correct orientation
+- Other geometric and steric factors
+
+For bimolecular reactions, $A$ is typically in the range $10^{9}$–$10^{11}\,\mathrm{dm}^3\,\mathrm{mol}^{-1}\,\mathrm{s}^{-1}$, reflecting the collision frequency modified by steric requirements.
+
+## Determining Arrhenius Parameters {#sec:arrhenius-determination}
+
+### From an Arrhenius Plot
+
+The most common approach is to measure $k$ at several temperatures, plot $\ln k$ versus $1/T$, and determine $E_\mathrm{a}$ from the slope and $A$ from the intercept. In practice, the $y$-intercept ($\ln A$) corresponds to $1/T = 0$ (infinite temperature), which lies far outside the experimental data range. A more reliable method is to use the slope together with a point on the fitted line to calculate $A$ without extrapolation.
+
+### The Two-Temperature Formula
+
+When rate constants are known at just two temperatures, the activation energy can be determined directly. Subtracting the Arrhenius equation at $T_1$ from that at $T_2$:
+
+\begin{equation}
+\ln\frac{k_2}{k_1} = \frac{E_\mathrm{a}}{R}\left(\frac{1}{T_1} - \frac{1}{T_2}\right)
+(\#eq:two-temperature)
+\end{equation}
+
+This is a very practical result: given $k$ at two temperatures, we can find $E_\mathrm{a}$ without knowing $A$. Rearranging:
+
+$$E_\mathrm{a} = \frac{R\ln(k_2/k_1)}{1/T_1 - 1/T_2}$$
+
+The same equation can be used in reverse: given $E_\mathrm{a}$ and $k$ at one temperature, we can predict $k$ at another temperature. A rough rule of thumb for reactions with typical activation energies ($\sim 50\,\mathrm{kJ\,mol}^{-1}$) is that the rate approximately doubles for every $10\,\mathrm{K}$ increase in temperature near room temperature — though the exact factor depends on $E_\mathrm{a}$.
+
+::: {.skill}
+**You should be able to:** Use the Arrhenius equation to construct an Arrhenius plot and extract $E_\mathrm{a}$ and $A$, and apply the two-temperature formula (Eqn. \@ref(eq:two-temperature)) to calculate $E_\mathrm{a}$ from rate constants at two temperatures or to predict a rate constant at a new temperature.
+:::
+
+## Negative Activation Energies and Non-Arrhenius Behaviour {#sec:non-arrhenius}
+
+### Negative Activation Energies
+
+For most reactions, $E_\mathrm{a} > 0$ and the rate increases with temperature. But some reactions display the opposite behaviour — their rates *decrease* as temperature rises, corresponding to a negative apparent activation energy.
+
+We have already met an example: the oxidation of nitric oxide (Lecture 7):
+
+$$2\mathrm{NO} + \mathrm{O_2} \rightarrow 2\mathrm{NO_2}$$
+
+This reaction proceeds through a pre-equilibrium mechanism:
+
+$$\mathrm{NO} + \mathrm{NO} \underset{k_{-1}}{\stackrel{k_1}{\rightleftharpoons}} (\mathrm{NO})_2 \qquad (\mathrm{NO})_2 + \mathrm{O_2} \xrightarrow{k_2} 2\mathrm{NO_2}$$
+
+The observed rate constant is $k_\mathrm{obs} = k_2 K = k_2 k_1/k_{-1}$. The dimerisation equilibrium is exothermic, so $K$ decreases with increasing temperature (Le Chatelier's principle). Although $k_2$ increases with temperature (it has a positive activation energy), the decrease in $K$ is faster — so the overall effect is that $k_\mathrm{obs}$ decreases. The Arrhenius plot has a *positive* slope, corresponding to a negative apparent $E_\mathrm{a}$.
+
+A negative activation energy does not mean there is no energy barrier for the individual elementary steps — each step has a positive $E_\mathrm{a}$. Rather, the *observed* $E_\mathrm{a}$ for the overall reaction is a combination of the activation energies for the individual steps and the enthalpy change of the pre-equilibrium step.
+
+```{r negative-ea, echo=FALSE, fig.cap="Arrhenius plot for a reaction with negative apparent activation energy (positive slope), such as the oxidation of NO. The rate *decreases* with increasing temperature because the exothermic pre-equilibrium shifts to the left faster than the slow step accelerates.", out.width='70%', fig.align='center'}
+knitr::include_graphics("lecture_11/figures/negative_ea.png")
+```
+
+::: {.skill}
+**You should be able to:** Explain why the NO oxidation reaction has a negative apparent activation energy by connecting the temperature dependence of the pre-equilibrium constant to the overall rate.
+:::
+
+### Non-Arrhenius Behaviour
+
+Several situations can produce curved Arrhenius plots — departures from the simple linear relationship between $\ln k$ and $1/T$:
+
+**Competing reaction pathways.** When two parallel pathways with different activation energies contribute to the overall rate, the observed rate constant is $k_\mathrm{obs} = k_1 + k_2$. At low temperatures, the low-$E_\mathrm{a}$ pathway dominates; at high temperatures, the high-$E_\mathrm{a}$ pathway takes over. The Arrhenius plot shows two approximately linear regions with different slopes, connected by a curve.
+
+**Change in rate-determining step.** For multi-step mechanisms, the rate-determining step can change with temperature if different steps have different activation energies.
+
+**Diffusion-limited reactions.** When the reaction rate approaches the diffusion limit, the temperature dependence weakens because diffusion has a lower activation energy than most chemical steps.
+
+```{r curved-arrhenius, echo=FALSE, fig.cap="Non-Arrhenius behaviour: a non-linear Arrhenius plot arising from two competing reaction pathways with different activation energies. The observed rate constant $k_\\mathrm{obs} = k_1 + k_2$ shows two approximately linear regimes connected by a curve, as the dominant pathway changes with temperature.", out.width='55%', fig.align='center'}
+knitr::include_graphics("lecture_11/figures/curved_arrhenius.png")
+```
+
+::: {.skill}
+**You should be able to:** Describe how competing reaction pathways with different activation energies can produce a curved Arrhenius plot.
+:::
+
+## Key Concepts
+
+- The **Arrhenius equation**, $k = A\,\mathrm{e}^{-E_\mathrm{a}/RT}$, describes how rate constants increase exponentially with temperature. It contains two parameters: the activation energy $E_\mathrm{a}$ (the energy barrier) and the pre-exponential factor $A$ (the collision frequency and orientation probability).
+- An **Arrhenius plot** of $\ln k$ versus $1/T$ gives a straight line with slope $-E_\mathrm{a}/R$ and intercept $\ln A$.
+- The **two-temperature formula**, $\ln(k_2/k_1) = (E_\mathrm{a}/R)(1/T_1 - 1/T_2)$, allows determination of $E_\mathrm{a}$ from measurements at two temperatures or prediction of $k$ at a new temperature.
+- **Negative apparent activation energies** arise in multi-step mechanisms where a pre-equilibrium step is exothermic — the equilibrium constant decreases with temperature faster than the rate constant of the slow step increases.
+- **Non-Arrhenius behaviour** (curved Arrhenius plots) can arise from competing pathways, changes in the rate-determining step, or diffusion limitations.
+- The Arrhenius equation provides the bridge between macroscopic kinetic measurements (rate constants at different temperatures) and molecular-level understanding (energy barriers and collision dynamics).

@@ -1,0 +1,191 @@
+# Mathematical Foundations {-}
+
+Chemical kinetics is about how fast or slow reactions are—that is, the rates at which reactants are consumed and products are formed. Describing rates of change is exactly what calculus does, so differentiation and integration are central tools throughout this course. We also make heavy use of exponentials and logarithms, both because exponential functions arise naturally from the underlying mathematics and because logarithms let us convert curved data into straight-line plots for analysis.
+
+You will have met all of this material in CH12004. This chapter collects the key results and techniques in one place for easy reference. If any of it feels unfamiliar, consult your CH12004 notes or the resources listed at the end of this chapter, and revisit this preface as needed during the course.
+
+## Working with Exponentials and Logarithms
+
+Exponential functions and logarithms appear throughout chemical kinetics. This section collects the key identities and techniques you will need.
+
+### Exponential Functions
+
+The exponential function $\mathrm{e}^x$ (also written $\exp(x)$) has a special mathematical property: it is the only function whose derivative equals itself. This means that whenever a quantity changes at a rate proportional to its current value, the solution involves an exponential—a situation we will encounter repeatedly.
+
+The following identities are useful for manipulating exponential expressions:
+
+$$\mathrm{e}^{a+b} = \mathrm{e}^a \mathrm{e}^b$$
+
+$$\mathrm{e}^{-a} = \frac{1}{\mathrm{e}^a}$$
+
+$$(\mathrm{e}^a)^n = \mathrm{e}^{na}$$
+
+$$\mathrm{e}^0 = 1$$
+
+### Logarithmic Functions
+
+The natural logarithm $\ln x$ is the inverse of the exponential function: if $y = \mathrm{e}^x$, then $x = \ln y$.
+
+The following identities are useful for manipulating logarithmic expressions:
+
+$$\ln(ab) = \ln a + \ln b$$
+
+$$\ln\left(\frac{a}{b}\right) = \ln a - \ln b$$
+
+$$\ln(a^n) = n \ln a$$
+
+$$\ln 1 = 0$$
+
+$$\ln \mathrm{e} = 1$$
+
+A particularly useful rearrangement combines two of these:
+
+$$\ln\left(\frac{a}{b}\right) = -\ln\left(\frac{b}{a}\right)$$
+
+### Converting Between Exponential and Logarithmic Forms
+
+The relationship between exponentials and logarithms can be written as:
+
+$$y = \mathrm{e}^x \iff x = \ln y$$
+
+This equivalence is essential when rearranging equations. For example, if we have an equation of the form:
+
+$$y = A \mathrm{e}^{bx}$$
+
+we can take the natural logarithm of both sides to obtain:
+
+$$\ln y = \ln\left(A \mathrm{e}^{bx}\right) = \ln A + \ln\left(\mathrm{e}^{bx}\right) = \ln A + bx$$
+
+Each step uses one of the logarithm identities listed above. Make sure you can follow—and reproduce—this chain of reasoning.
+
+## Linearising Exponential Equations
+
+A common task in experimental science is converting a curved relationship into a straight line suitable for graphical analysis. If we have data that we believe follow an exponential relationship, plotting the raw data gives a curve. By taking logarithms, we can transform this into a straight line, making it easier to test our hypothesis and extract parameters.
+
+### General Approach
+
+For an equation of the form:
+
+$$y = A\mathrm{e}^{bx}$$
+
+where $A$ and $b$ are constants, we take the natural logarithm of both sides:
+
+$$\ln y = \ln A + bx$$
+
+This has the form of a straight line ($y' = c + mx'$):
+
+$$\underbrace{\ln y}_{y'} = \underbrace{\ln A}_{c} + \underbrace{b}_{m}\underbrace{x}_{x'}$$
+
+So plotting $\ln y$ against $x$ gives a straight line with:
+
+- Slope $= b$
+- Intercept $= \ln A$ (and hence $A = \mathrm{e}^{\text{intercept}}$)
+
+### Example
+
+Suppose we measure a quantity $y$ at several values of $x$ and suspect that $y = 5\mathrm{e}^{-0.3x}$. Plotting $y$ against $x$ gives a curve, but plotting $\ln y$ against $x$ gives a straight line with slope $-0.3$ and intercept $\ln 5 \approx 1.61$. If the data fall on a straight line in this transformed plot, our hypothesis is confirmed, and we can read off the parameters from the slope and intercept.
+
+This technique—plotting a transformed variable to produce a straight line—will be one of our most important analytical tools.
+
+## Differentiation
+
+The derivative of a function tells us its rate of change. If $y$ depends on $x$, then $\frac{\mathrm{d}y}{\mathrm{d}x}$ tells us how rapidly $y$ changes when $x$ changes by a small amount. Graphically, the derivative at any point equals the slope of the tangent to the curve at that point.
+
+In this course, our functions typically describe how concentrations change with time, so the derivative $\frac{\mathrm{d}[\mathrm{A}]}{\mathrm{d}t}$ tells us how rapidly the concentration of a species is changing at a given moment.
+
+### Key Results
+
+The derivatives we use most frequently are:
+
+| Function $f(x)$ | Derivative $\frac{\mathrm{d}f}{\mathrm{d}x}$ |
+|-----------------|---------------------------------------------|
+| $x^n$ | $nx^{n-1}$ |
+| $\mathrm{e}^{x}$ | $\mathrm{e}^{x}$ |
+| $\mathrm{e}^{ax}$ | $a\mathrm{e}^{ax}$ |
+| $\ln x$ | $\frac{1}{x}$ |
+| constant | $0$ |
+
+For a function multiplied by a constant:
+
+$$\frac{\mathrm{d}}{\mathrm{d}x}\left(Af(x)\right) = A\frac{\mathrm{d}f}{\mathrm{d}x}$$
+
+### The Special Property of Exponentials
+
+The exponential function is unique in that its derivative is proportional to itself:
+
+$$\frac{\mathrm{d}}{\mathrm{d}x}\left(A\mathrm{e}^{bx}\right) = Ab\mathrm{e}^{bx} = b \times \left(A\mathrm{e}^{bx}\right)$$
+
+This means that whenever the rate of change of a quantity is proportional to the quantity itself, the solution is an exponential function.
+
+### Example
+
+If $y = 3\mathrm{e}^{-2t}$, then:
+
+$$\frac{\mathrm{d}y}{\mathrm{d}t} = 3 \times (-2) \times \mathrm{e}^{-2t} = -6\mathrm{e}^{-2t}$$
+
+Notice that $\frac{\mathrm{d}y}{\mathrm{d}t} = -2y$. The rate of change of $y$ is proportional to $y$ itself.
+
+## Integration
+
+Integration is the reverse of differentiation. If differentiation tells us the rate of change of a function, integration lets us reconstruct the function from its rate of change. In this course, we will often know how rapidly a concentration is changing (from a rate equation) and need to work out how the concentration itself evolves over time.
+
+### Key Results
+
+The integrals we use most frequently are:
+
+| Function $f(x)$ | Integral $\int f(x)\,\mathrm{d}x$ |
+|-----------------|----------------------------------|
+| $x^n$ (for $n \neq -1$) | $\frac{x^{n+1}}{n+1} + c$ |
+| $\frac{1}{x}$ | $\ln x + c$ |
+| $\frac{1}{x^2}$ | $-\frac{1}{x} + c$ |
+| $\mathrm{e}^{ax}$ | $\frac{1}{a}\mathrm{e}^{ax} + c$ |
+
+The constant $c$ is the "constant of integration"—it disappears when we use definite integrals with limits.
+
+### Definite Integrals
+
+When we integrate between specific limits:
+
+$$\int_a^b f(x)\,\mathrm{d}x = \left[F(x)\right]_a^b = F(b) - F(a)$$
+
+where $F(x)$ is the antiderivative (indefinite integral) of $f(x)$.
+
+### Example: Solving a Differential Equation by Separation of Variables
+
+A technique we will use repeatedly in this course is **separation of variables**. The idea is straightforward: if we have an equation relating $\frac{\mathrm{d}y}{\mathrm{d}x}$ to $y$ and $x$, we rearrange so that everything involving $y$ is on one side and everything involving $x$ is on the other, then integrate both sides.
+
+For example, suppose:
+
+$$\frac{\mathrm{d}y}{\mathrm{d}t} = -ky$$
+
+where $k$ is a constant. We rearrange to separate the variables $y$ and $t$:
+
+$$\frac{\mathrm{d}y}{y} = -k\,\mathrm{d}t$$
+
+Now we integrate both sides. On the left, we integrate with respect to $y$ from the initial value $y_0$ (at $t = 0$) to the value at time $t$, which we call $y_t$. On the right, we integrate with respect to $t$ from $0$ to $t$:
+
+$$\int_{y_0}^{y_t} \frac{\mathrm{d}y}{y} = \int_0^t -k\,\mathrm{d}t$$
+
+The left-hand side is an integral of $1/y$, which gives $\ln y$. The right-hand side is an integral of a constant:
+
+$$\left[\ln y\right]_{y_0}^{y_t} = \left[-kt\right]_0^t$$
+
+Applying the limits:
+
+$$\ln y_t - \ln y_0 = -kt$$
+
+$$\ln y_t = \ln y_0 - kt$$
+
+Taking the exponential of both sides:
+
+$$y_t = y_0 \mathrm{e}^{-kt}$$
+
+We have solved the differential equation: if something decreases at a rate proportional to its current value, it decays exponentially. This result will appear in the very first lecture on reaction kinetics.
+
+## Additional Resources
+
+- **Your CH12004 notes** — review the sections on differentiation and integration
+- **MASH (Mathematics Resources Centre)** — offers drop-in support and online resources: [https://www.bath.ac.uk/professional-services/mathematics-resources-centre-mash/](https://www.bath.ac.uk/professional-services/mathematics-resources-centre-mash/)
+- **Textbooks:**
+  - *Introduction to Contextual Maths in Chemistry* (Dickinson & McKinley)
+  - *Foundations of Science Mathematics* (Sivia, Rhodes & Rawlings)

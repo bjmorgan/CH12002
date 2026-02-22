@@ -1,102 +1,54 @@
-# Negative Reaction Orders
+# Negative Reaction Orders {#appendix-negative-orders}
 
-## What Are Negative Reaction Orders?
+In Lecture 1, we defined the order of a reaction with respect to a given species as the exponent in the rate law. For the reactions we encounter in the main lectures, these exponents are positive integers or zero: increasing a reactant's concentration either speeds up the reaction or has no effect. In some reactions, however, increasing the concentration of a particular species *slows down* the reaction. This unusual behaviour corresponds to a negative reaction order.
 
-In most cases, increasing the concentration of a reactant increases the reaction rate; this corresponds to positive reaction orders. In some reactions, however, increasing the concentration of a particular species *slows down* the reaction. This unusual behaviour manifests as a negative reaction order.
+This appendix explores how negative orders arise from underlying mechanisms. The material is not examinable, but it illustrates an important theme of the course: macroscopic rate laws encode information about microscopic mechanisms.
 
-Mathematically, when a species X appears with a negative order $n$ in a rate law:
+## What Does a Negative Order Mean?
 
-$$\nu = k[\mathrm{A}]^a[\mathrm{B}]^b[\mathrm{X}]^{-n}$$
-
-or equivalently:
+When a species X appears with a negative order $n$ in a rate law:
 
 $$\nu = \frac{k[\mathrm{A}]^a[\mathrm{B}]^b}{[\mathrm{X}]^n}$$
 
-increasing $[\mathrm{X}]$ decreases the reaction rate. The species X effectively acts as an *inhibitor* rather than a promoter of the reaction.
+increasing $[\mathrm{X}]$ decreases the reaction rate. The species X effectively acts as an *inhibitor* rather than a promoter of the reaction. Negative orders cannot arise from a single elementary step — they always signal a complex, multi-step mechanism in which the species interferes with one or more productive reaction pathways.
 
-## Physical Origins of Negative Orders
+## Example 1: Product Inhibition in H~2~ + Br~2~ $\rightarrow$ 2HBr
 
-Negative reaction orders always signal the presence of a complex, multi-step mechanism. They cannot arise from simple, elementary processes but instead emerge from:
-
-1. **Competitive inhibition** - where a species competes with productive reaction pathways
-2. **Product inhibition** - where reaction products interfere with the forward mechanism  
-3. **Site blocking** - in surface reactions and enzyme systems where species compete for limited active sites
-4. **Reverse reactions** - where a species promotes the backward reaction
-
-The key insight is that these species participate in the overall mechanism but in ways that *hinder* rather than *help* the net forward reaction.
-
-## Example 1: Chain Reaction Inhibition in H~2~ + Br~2~ → 2HBr
-
-The formation of hydrogen bromide demonstrates product inhibition leading to negative orders. The empirical rate law for this reaction is:
+The formation of hydrogen bromide — a chain reaction discussed in detail in Lecture 9 — provides a classic example of product inhibition. The empirical rate law is:
 
 $$\nu = \frac{k[\mathrm{H_2}][\mathrm{Br_2}]^{1/2}}{1 + k'[\mathrm{HBr}]/[\mathrm{Br_2}]}$$
 
-At high concentrations of HBr, this simplifies to show negative dependence on the product:
+At high concentrations of HBr (specifically when $k'[\mathrm{HBr}]/[\mathrm{Br_2}] \gg 1$), this simplifies to:
 
 $$\nu \approx \frac{k[\mathrm{H_2}][\mathrm{Br_2}]^{3/2}}{k'[\mathrm{HBr}]}$$
 
-Here, HBr has an effective order of &minus;1. The very product we are trying to make actually inhibits its own formation!
+Here, HBr has an effective order of $-1$. The very product we are trying to make inhibits its own formation.
 
-### Why Does This Happen?
+The origin lies in the chain mechanism. The key propagation steps produce HBr via reactive H$^{\bullet}$ radicals (Lecture 9), but HBr can also react with these same radicals:
 
-The H~2~ + Br~2~ reaction proceeds through a chain mechanism involving reactive radical intermediates. The key steps include:
+$$\mathrm{H}^{\bullet} + \mathrm{HBr} \rightarrow \mathrm{Br}^{\bullet} + \mathrm{H_2}$$
 
-- **Chain propagation**: $\mathrm{Br}^{\bullet} + \mathrm{H_2} \rightarrow \mathrm{H}^{\bullet} + \mathrm{HBr}$
-- **Chain propagation**: $\mathrm{H}^{\bullet} + \mathrm{Br_2} \rightarrow \mathrm{Br}^{\bullet} + \mathrm{HBr}$
-- **Chain inhibition**: $\mathrm{H}^{\bullet} + \mathrm{HBr} \rightarrow \mathrm{Br}^{\bullet} + \mathrm{H_2}$
-
-The crucial point is the final step: HBr can react with the reactive H$^{\bullet}$ radicals that drive the chain reaction forward. This consumes the very intermediates needed for product formation. The more HBr present in the system, the more this reverse reaction competes with productive chain propagation, effectively slowing down the net rate of HBr formation.
-
-This illustrates a general principle: in chain reactions, anything that consumes or deactivates the chain-carrying intermediates will show negative kinetic behaviour.
+This *chain inhibition* step consumes the very intermediates needed for product formation. The more HBr present, the more this reverse reaction competes with productive chain propagation, slowing the net rate. This is a general principle in chain kinetics: anything that consumes or deactivates chain-carrying intermediates produces negative kinetic behaviour.
 
 ## Example 2: Competitive Adsorption in Surface Reactions
 
-Surface-catalysed reactions provide another important class of systems that show negative orders. Consider a reaction A + B → products occurring on a catalyst surface.
+Surface-catalysed reactions provide another important class of systems with negative orders, closely related to the Langmuir adsorption model discussed in Lecture 8.
 
-Unlike homogeneous reactions, surface processes require that reactants first *adsorb* onto the catalyst before they can react. The catalyst surface has a limited number of active sites, creating the potential for competition between different species.
+Unlike homogeneous reactions, surface processes require that reactants first *adsorb* onto the catalyst before they can react. The catalyst surface has a limited number of active sites, creating the potential for competition. For a typical surface reaction following the Langmuir–Hinshelwood mechanism:
 
-For a typical surface reaction following the Langmuir-Hinshelwood mechanism:
+1. $\mathrm{A}_{(\mathrm{g})} + {*} \rightleftharpoons \mathrm{A}{*}$ (A adsorbs on an empty site ${*}$)
+2. $\mathrm{B}_{(\mathrm{g})} + {*} \rightleftharpoons \mathrm{B}{*}$ (B adsorbs on an empty site ${*}$)
+3. $\mathrm{A}{*} + \mathrm{B}{*} \rightarrow \text{products} + 2{*}$ (reaction between adsorbed species)
 
-1. $\mathrm{A}_{(\mathrm{g})} + * \rightleftharpoons \mathrm{A}*$ (A adsorbs on empty site *)
-2. $\mathrm{B}_{(\mathrm{g})} + * \rightleftharpoons \mathrm{B}*$ (B adsorbs on empty site *)  
-3. $\mathrm{A}* + \mathrm{B}* \rightarrow \text{products} + 2*$ (reaction between adsorbed species)
+The rate depends on having both A and B adsorbed on adjacent sites. If one species (say B) adsorbs much more strongly, or is present at very high pressure, it can monopolise the surface sites. Increasing the pressure of B then actually *decreases* the reaction rate, because B blocks the sites that A needs. This leads to a negative apparent order in B at high pressures, despite B being an essential reactant.
 
-The rate depends on having both A and B adsorbed on adjacent sites. However, if one species (say B) adsorbs much more strongly than the other, or if its gas-phase pressure becomes very high, it can *monopolise* the surface sites.
-
-### The Site-Blocking Effect
-
-When B saturates the surface, there are fewer sites available for A to adsorb, even though we need both species present for the reaction to occur. Under these conditions, increasing the pressure of B actually *decreases* the reaction rate because:
-
-- B blocks sites that A needs
-- The surface coverage of A decreases  
-- Fewer A-B pairs can form on adjacent sites
-- The overall reaction rate falls
-
-This leads to negative apparent orders in B at high pressures, despite B being an essential reactant.
-
-This behaviour is commonly observed in industrial catalysis. For example:
-
-- In ammonia synthesis, high hydrogen pressures can inhibit the reaction by preventing nitrogen adsorption
-- In CO oxidation, excess CO can poison the catalyst by blocking oxygen adsorption sites
-- In hydrogenation reactions, too much hydrogen can prevent the organic substrate from accessing the catalyst surface
+This site-blocking effect is commonly observed in industrial catalysis. For example, in CO oxidation on platinum, excess CO can poison the catalyst by blocking oxygen adsorption sites. The mathematical framework from Lecture 8 — where the Langmuir isotherm describes surface coverage as a function of pressure — provides the quantitative basis for understanding these effects.
 
 ## Recognising Negative Orders
 
 Negative orders often appear in disguised forms within rate expressions:
 
-1. **Denominator terms**: Any concentration appearing in the denominator has a negative effective order, whether directly (e.g., $k[\mathrm{A}]/[\mathrm{X}]$) or within inhibition factors (e.g., $k[\mathrm{A}]/(1 + k'[\mathrm{X}])$)
-2. **Inhibition factors**: Terms like $(1 + k[\mathrm{X}])$ in the denominator indicate negative effects
-3. **Saturation behaviour**: Rates that plateau or decrease with increasing concentration suggest competitive effects
+- **Denominator terms**: Any concentration appearing in the denominator has a negative effective order, whether directly (e.g., $k[\mathrm{A}]/[\mathrm{X}]$) or within inhibition factors (e.g., $k[\mathrm{A}]/(1 + K[\mathrm{X}])$).
+- **Saturation behaviour**: Rates that plateau or decrease with increasing concentration suggest competitive effects leading to negative orders in the high-concentration limit.
 
-## Practical Implications
-
-Understanding negative orders has important practical consequences:
-
-**Process Optimisation**: Simply increasing all reactant concentrations won't necessarily speed up a reaction. There may be optimal concentration ratios that maximise the rate.
-
-**Catalyst Design**: Recognising competitive adsorption helps in designing catalysts with appropriate site distributions or selectivities.
-
-**Product Removal**: For reactions showing product inhibition, continuously removing products can maintain higher reaction rates.
-
-**Industrial Control**: Many industrial processes must carefully control reactant ratios to avoid operating in negative-order regimes where increasing a reactant concentration actually decreases productivity.
-
+The common thread is that negative orders arise when a species participates in the overall mechanism in ways that *hinder* rather than help the net forward reaction — whether by consuming reactive intermediates, blocking active sites, or driving reverse reactions.

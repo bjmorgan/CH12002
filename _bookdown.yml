@@ -5,17 +5,18 @@ language:
 
 rmd_files: [
   "index.Rmd",
+  "00_mathematical_foundations/mathematical_foundations.Rmd",
   "lecture_1/lecture_01.Rmd",
   "lecture_2/lecture_02.Rmd",
   "lecture_3/lecture_03.Rmd",
-  "lecture_4/lecture_04.Rmd", 
+  "lecture_4/lecture_04.Rmd",
   "lecture_5/lecture_05.Rmd",
-  "lecture_6/lecture_06.Rmd",
   "lecture_7/lecture_07.Rmd",
   "lecture_8/lecture_08.Rmd",
   "lecture_9/lecture_09.Rmd",
   "lecture_10/lecture_10.Rmd",
-  "appendices/mass_balance.Rmd",
+  "lecture_11/lecture_11.Rmd",
+  "appendices/two_reactant_second_order.Rmd",
   "appendices/third_order.Rmd",
   "appendices/negative_orders.Rmd"
 ]

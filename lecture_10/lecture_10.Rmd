@@ -1,230 +1,136 @@
-# Temperature Effects on Reaction Rates
+# Feedback, Stability, and Explosions
 
-## Introduction
+In the previous chapter, we saw that chain reactions can be classified as straight or branching depending on whether propagation conserves or multiplies the number of reactive intermediates. We now ask the quantitative question: *what determines whether a chain reaction reaches a steady state or explodes?* The answer lies in a simple differential equation whose behaviour is controlled by a single parameter — the **feedback parameter** $\phi$.
 
-The effect of temperature on reaction rates is readily observable in numerous chemical processes. Food preservation through refrigeration, the acceleration of cooking at higher temperatures, and the use of heat to speed up laboratory reactions all demonstrate the significant influence of temperature on chemical kinetics. These observations reflect a fundamental principle: most chemical reactions proceed more rapidly as temperature increases.
+## The General Feedback Equation {#sec:feedback-equation}
 
-In previous chapters, we examined how reaction rates depend on reactant concentrations, establishing methods for determining rate laws and exploring the relationship between mechanisms and observed kinetics. This chapter addresses the second major factor affecting reaction rates: temperature. Understanding the temperature dependence of reaction rates is essential for predicting reaction behavior under various conditions and provides insight into the energetic requirements of chemical transformations.
+Consider a reactive intermediate I that is produced by initiation and whose concentration changes through two competing effects:
 
-## The Arrhenius Equation
+1. **Initiation** creates new intermediates at a constant rate $\nu_f = k_\mathrm{init}[\mathrm{M}]$, independent of $[\mathrm{I}]$.
+2. **Propagation and termination** together cause $[\mathrm{I}]$ to grow or decay at a rate proportional to $[\mathrm{I}]$ itself.
 
-In the late 19th century, Swedish chemist Svante Arrhenius observed that for many reactions, the rate constant varies with temperature according to a simple mathematical relationship. This relationship, now known as the Arrhenius equation, expresses the rate constant as:
+The rate equation for I is:
 
-$$k = A \exp \left( \frac{-E_\mathrm{a}}{RT} \right)$$
+\begin{equation}
+\frac{\mathrm{d}[\mathrm{I}]}{\mathrm{d}t} = \nu_f + \phi[\mathrm{I}]
+(\#eq:feedback-equation)
+\end{equation}
 
-where:
-- $k$ is the rate constant
-- $A$ is the pre-exponential factor (with the same units as $k$)
-- $E_\mathrm{a}$ is the activation energy (typically in kJ mol$^{-1}$)
-- $R$ is the gas constant (8.314 J K$^{-1}$ mol$^{-1}$)
-- $T$ is the absolute temperature (in Kelvin)
+where $\phi$ is the **feedback parameter** that captures the net effect of all processes that depend on the intermediate concentration. The sign of $\phi$ determines everything.
 
-The Arrhenius equation has proven remarkably effective in describing the temperature dependence of rate constants across diverse chemical systems. It establishes that rate constants increase exponentially with temperature, which explains the substantial acceleration of reactions observed when temperature is raised.
+### What Determines $\phi$?
 
-<!-- ```{r arrhenius-equation, fig.cap="Temperature dependence of rate constants according to the Arrhenius equation. The plot shows how rate constants increase exponentially with temperature, with higher activation energies leading to stronger temperature dependence."}
-# Figure showing k vs T curves for different activation energies
-``` -->
+The feedback parameter $\phi$ reflects the competition between processes that *create* intermediates and processes that *remove* them:
 
-## Linearised Form of the Arrhenius Equation
+**For a straight chain reaction** (e.g. H~2~ + Br~2~), the propagation steps conserve the number of intermediates — every radical consumed produces exactly one new radical. The net effect on $[\mathrm{I}]$ comes only from termination, which removes intermediates:
 
-For experimental analysis, the Arrhenius equation is often recast in logarithmic form. Taking the natural logarithm of both sides yields:
+$$\phi = -k_\mathrm{term}$$
 
-$$\ln k = \ln A - \frac{E_\mathrm{a}}{RT}$$
+Since $k_\mathrm{term} > 0$, the feedback parameter is *negative*. Termination acts as a brake: the faster the intermediates build up, the faster they are removed by recombination.
 
-This transformation produces a linear relationship between $\ln k$ and $\frac{1}{T}$, with:
+**For a branching chain reaction** (e.g. H~2~/O~2~ combustion), the propagation steps multiply intermediates. Each propagation cycle creates new radicals at a rate proportional to $[\mathrm{I}]$, competing with termination:
 
-- Slope = $-\frac{E_\mathrm{a}}{R}$
-- y-intercept = $\ln A$
+$$\phi = k_\mathrm{branch} - k_\mathrm{term}$$
 
-<!-- ```{r arrhenius-plot, fig.cap="Linearised Arrhenius plot showing the determination of activation energy from the slope and pre-exponential factor from the y-intercept."}
-# Figure showing linearized Arrhenius plot with slope and intercept indicated
-``` -->
+Now the sign of $\phi$ depends on which process wins. If termination dominates ($k_\mathrm{term} > k_\mathrm{branch}$), then $\phi < 0$ and the system behaves like a straight chain — it reaches a steady state. If branching dominates ($k_\mathrm{branch} > k_\mathrm{term}$), then $\phi > 0$ and the intermediate concentration grows without bound.
 
-This linear form facilitates the experimental determination of Arrhenius parameters from rate constant measurements at different temperatures.
+```{r branching-tree, echo=FALSE, fig.cap="A branching chain reaction: each propagation step produces two intermediates from one, leading to exponential growth in the radical population. If branching outpaces termination ($\\phi > 0$), the number of intermediates doubles with each cycle. [Draft figure from lecture slides.]", out.width='70%', fig.align='center'}
+knitr::include_graphics("lecture_10/figures/branching_tree.png")
+```
 
-## General Expression for Activation Energy
+## Solving the Feedback Equation {#sec:feedback-solution}
 
-The activation energy can be defined more generally through the temperature dependence of the rate constant:
+Eqn. \@ref(eq:feedback-equation) is a first-order linear ODE that we can solve by separation of variables. With the initial condition $[\mathrm{I}]_0 = 0$:
 
-$$E_\mathrm{a}(T) = -R \frac{d \ln k}{d(1/T)}$$
+$$\frac{\mathrm{d}[\mathrm{I}]}{\nu_f + \phi[\mathrm{I}]} = \mathrm{d}t$$
 
-For reactions that strictly follow the Arrhenius equation, $E_\mathrm{a}$ is independent of temperature. However, many real systems show some temperature variation in $E_\mathrm{a}$, requiring more complex models.
+Integrating both sides:
 
-## Alternative Forms of the Arrhenius Equation
-
-The Arrhenius equation can also be expressed in terms of the Boltzmann distribution factor:
-
-$$k = A e^{-E_\mathrm{a}/RT}$$
-
-This formulation emphasizes that the rate constant comprises two distinct components: the pre-exponential factor $A$ and the exponential term that contains both temperature and activation energy.
-
-## Physical Meaning of Arrhenius Parameters
-
-The Arrhenius equation incorporates two parameters that characterize how a reaction responds to temperature changes. While these parameters were initially derived empirically, they possess physical interpretations that enhance our understanding of reaction kinetics.
-
-### The Activation Energy ($E_\mathrm{a}$)
-
-The activation energy represents an energy threshold that must be exceeded for a chemical reaction to occur. This concept provides insight into the temperature dependence of reaction rates:
-
-- $E_\mathrm{a}$ corresponds approximately to the minimum energy required for reactants to transform into products
-- At higher temperatures, a larger fraction of molecules possess sufficient energy to surpass this threshold
-- The exponential term in the Arrhenius equation ($e^{-E_\mathrm{a}/RT}$) quantifies the proportion of molecules with energy exceeding the required minimum
-
-### The Pre-exponential Factor ($A$)
-
-The pre-exponential factor $A$ represents the theoretical maximum rate constant—the value that would be observed if either the activation energy barrier were absent ($E_\mathrm{a} = 0$) or the temperature were infinite.
-
-From a physical perspective, $A$ encompasses several factors:
-- The frequency of molecular collisions
-- Geometric requirements for successful reaction (such as molecular orientation)
-- Other factors that influence reaction probability independent of energy considerations
-
-The pre-exponential factor has the same units as the rate constant $k$ and is specific to each reaction.
-
-## Reaction Energy Profiles
-
-A valuable conceptual tool for understanding activation energy is the reaction energy profile, also known as a reaction coordinate diagram:
-
-<!-- ```{r reaction-coordinate, fig.cap="Reaction coordinate diagram showing the energy profile of a chemical reaction. The activation energy represents the energy barrier between reactants and products."}
-# Figure showing potential energy surface with activation barrier
-``` -->
-
-This diagram illustrates the energy changes that occur as reactants transform into products. The activation energy $E_\mathrm{a}$ corresponds to the height of the energy barrier that separates reactants from products. This representation provides an intuitive framework for understanding why energy input (often in the form of heat) facilitates chemical reactions.
-
-More sophisticated treatments of reaction kinetics will provide additional refinements to this conceptual model, but the essential framework remains valid—reactions require energy to overcome a barrier, and the Arrhenius equation quantifies how temperature affects this process.
-
-## Determining Arrhenius Parameters from Experimental Data
-
-Several methodologies exist for extracting Arrhenius parameters from experimental measurements of rate constants at different temperatures.
-
-### Linear Regression Analysis
-
-The most common approach involves measuring rate constants at multiple temperatures and plotting $\ln k$ versus $\frac{1}{T}$. Linear regression analysis of this plot provides:
-
-- Slope = $-\frac{E_\mathrm{a}}{R}$, from which $E_\mathrm{a}$ is calculated
-- y-intercept = $\ln A$, from which $A$ is determined
-
-<!-- ```{r linear-regression, fig.cap="Arrhenius plot with experimental data points and fitted line. The slope equals -E_a/R, allowing direct determination of the activation energy."}
-# Figure showing Arrhenius plot with data points and best-fit line
-``` -->
-
-While conceptually straightforward, this approach has certain limitations. The logarithmic transformation can distort experimental errors, particularly at extreme temperatures. Additionally, extrapolation to determine the y-intercept ($\frac{1}{T} = 0$, corresponding to infinite temperature) introduces substantial uncertainties in the estimation of $A$.
-
-### Non-linear Regression
-
-Contemporary computational methods permit direct non-linear fitting of the Arrhenius equation in its original exponential form:
-
-$$k = A \exp \left( \frac{-E_\mathrm{a}}{RT} \right)$$
-
-This approach avoids the error distortion that occurs with logarithmic transformation and typically yields more reliable parameter estimates, especially when data span a limited temperature range.
-
-<!-- ```{r nonlinear-fit, fig.cap="Non-linear regression fit of the Arrhenius equation to rate constant data. This approach avoids the potential error distortion that can occur with linearised methods."}
-# Figure showing non-linear fit to k vs T data
-``` -->
-
-### Two-Point Estimation
-
-When data are available at only two temperatures, the activation energy can still be estimated. For temperatures $T_1$ and $T_2$ with corresponding rate constants $k_1$ and $k_2$:
-
-$$\ln k_1 = \ln A - \frac{E_\mathrm{a}}{RT_1}$$
-$$\ln k_2 = \ln A - \frac{E_\mathrm{a}}{RT_2}$$
-
-Subtracting the first equation from the second eliminates $\ln A$:
-
-$$\ln k_2 - \ln k_1 = \frac{E_\mathrm{a}}{R} \left( \frac{1}{T_1} - \frac{1}{T_2} \right)$$
-
-Rearranging to solve for $E_\mathrm{a}$:
-
-$$E_\mathrm{a} = \frac{R \ln(k_2/k_1)}{\frac{1}{T_1} - \frac{1}{T_2}}$$
-
-This approach provides a first approximation but cannot account for deviations from Arrhenius behavior across broader temperature ranges.
-
-### Estimating $A$ from Graphical Data
-
-When working with Arrhenius plots ($\ln k$ versus $\frac{1}{T}$), the pre-exponential factor $A$ corresponds to the y-intercept ($\ln A$). Direct extrapolation to $\frac{1}{T} = 0$ introduces large uncertainties because this point lies far from the experimental data range.
-
-A more reliable method uses the slope and a point on the fitted line:
-
-1. Determine the slope $m = -\frac{E_\mathrm{a}}{R}$ from the linear fit
-2. Select a point $(x_0, y_0)$ on the line, preferably within the data range
-3. Calculate the intercept $c = y_0 - mx_0$
-4. Compute the pre-exponential factor as $A = e^c$
-
-<!-- ```{r intercept-estimation, fig.cap="Estimation of the pre-exponential factor from an Arrhenius plot without direct extrapolation to 1/T = 0. Using a data point and the slope provides more reliable estimates."}
-# Figure showing improved method for estimating A
-``` -->
-
-This method circumvents the uncertainties associated with extreme extrapolation while providing a reliable estimate of $A$.
-
-## Special Cases and Deviations from Arrhenius Behavior
-
-While the Arrhenius equation successfully describes many reactions, several important cases exhibit more complex temperature dependence.
-
-### Negative Activation Energies
-
-For most reactions, the activation energy is positive, and rates increase with temperature. However, certain reactions display the opposite behavior—their rates decrease as temperature rises, corresponding to a negative activation energy.
-
-This counterintuitive behavior typically indicates a complex reaction mechanism rather than a true "downhill" elementary process. For example, the oxidation of nitric oxide:
-
-$$2\mathrm{NO} + \mathrm{O}_2 \rightarrow 2\mathrm{NO}_2$$
-
-exhibits a negative temperature dependence with empirical rate law:
-
-$$\frac{d[\mathrm{NO}_2]}{dt} = k[\mathrm{NO}]^2[\mathrm{O}_2]$$
-
-<!-- ```{r negative-ea, fig.cap="Arrhenius plot for a reaction with negative activation energy. The positive slope indicates that the rate constant decreases with increasing temperature."}
-# Figure showing Arrhenius plot with positive slope
-``` -->
-
-Such behavior typically arises in multi-step reaction mechanisms. In the case of NO oxidation, a reversible first step becomes less favorable at higher temperatures, leading to the observed decrease in overall reaction rate.
-
-### Non-Arrhenius Behavior
-
-Several situations can lead to deviations from simple Arrhenius behavior:
-
-1. **Multiple reaction pathways**: When parallel reaction paths with different activation energies contribute to the overall process, the apparent activation energy may vary with temperature. This occurs because the relative contribution of each pathway changes with temperature—lower-$E_\mathrm{a}$ paths dominate at lower temperatures, while higher-$E_\mathrm{a}$ paths become increasingly important at higher temperatures.
-
-<!-- ```{r multiple-pathways, fig.cap="Curved Arrhenius plot resulting from multiple reaction pathways with different activation energies. The effective activation energy changes with temperature range."}
-# Figure showing curved Arrhenius plot
-``` -->
-
-2. **Change in rate-determining step**: For reactions with sequential steps in a mechanism, changes in temperature can shift which step limits the overall rate. This phenomenon occurs because steps with different activation energies respond differently to temperature changes, potentially altering which step is rate-determining as temperature varies.
-
-3. **Diffusion-limited reactions**: When reaction rates approach the limit set by diffusion processes, the temperature dependence weakens. This occurs because diffusion typically has a lower activation energy than chemical transformation steps.
-
-4. **Quantum tunneling effects**: At very low temperatures, quantum tunneling can allow reactions to proceed despite insufficient thermal energy to overcome the classical barrier, causing deviations from Arrhenius behavior.
-
-## Predicting Rate Constants at Different Temperatures
-
-A practical application of the Arrhenius equation involves predicting rate constants at temperatures where direct measurements may be impractical. If the activation energy and rate constant are known at one temperature, the rate constant at another temperature can be estimated.
-
-Starting with the Arrhenius equation in logarithmic form:
-
-$$\ln k_1 = \ln A - \frac{E_\mathrm{a}}{RT_1}$$
-$$\ln k_2 = \ln A - \frac{E_\mathrm{a}}{RT_2}$$
-
-Subtracting the first equation from the second:
-
-$$\ln k_2 - \ln k_1 = \frac{E_\mathrm{a}}{R} \left( \frac{1}{T_1} - \frac{1}{T_2} \right)$$
+$$\frac{1}{\phi}\ln\left(\frac{\nu_f + \phi[\mathrm{I}]_t}{\nu_f}\right) = t$$
 
 Rearranging:
 
-$$\ln \frac{k_2}{k_1} = \frac{E_\mathrm{a}}{R} \left( \frac{1}{T_1} - \frac{1}{T_2} \right)$$
+\begin{equation}
+[\mathrm{I}]_t = \frac{\nu_f}{\phi}\left(\mathrm{e}^{\phi t} - 1\right)
+(\#eq:feedback-solution)
+\end{equation}
 
-This equation enables estimation of how rate constants change between two temperatures without requiring knowledge of the pre-exponential factor $A$. This approach assumes that $E_\mathrm{a}$ remains constant across the temperature range of interest—a reasonable approximation for many reactions within moderate temperature intervals.
+This single equation describes both stable and explosive behaviour, depending entirely on the sign of $\phi$.
 
-<!-- ```{r temperature-prediction, fig.cap="Estimation of rate constants at different temperatures using the Arrhenius relationship. Known data points allow prediction of rate constants at new temperatures."}
-# Figure showing prediction of k at new temperatures
-``` -->
+### Negative Feedback ($\phi < 0$): Steady State
 
-For reactions with positive activation energies, rate constants increase with temperature. A general guideline derived from typical activation energy values suggests that many reaction rates approximately double with every 10°C increase in temperature, though the exact factor depends on the specific activation energy of the reaction in question.
+When $\phi < 0$, the exponential term $\mathrm{e}^{\phi t}$ decays to zero as $t \rightarrow \infty$. The intermediate concentration approaches a constant value:
 
-## Summary
+$$[\mathrm{I}]_\infty = \frac{\nu_f}{|\phi|}$$
 
-The Arrhenius equation provides a fundamental framework for understanding and quantifying how temperature affects reaction rates. The exponential relationship between temperature and rate constants explains the significant acceleration of most chemical reactions at elevated temperatures.
+This is a **steady state**: the rate of initiation is exactly balanced by the rate of termination. The system is self-regulating — if $[\mathrm{I}]$ rises above the steady-state value, the increased termination rate pulls it back down. This is the scenario that underpins the steady-state approximation we have used throughout the course.
 
-The two Arrhenius parameters&mdash;the pre-exponential factor $A$ and the activation energy $E_\mathrm{a}$&mdash;relate empirical kinetic behavior to a conceptual model of reactions requiring an energy threshold to proceed. The activation energy represents the energy barrier that reactant molecules must overcome, while the pre-exponential factor encompasses various factors affecting reaction probability independent of energy considerations.
+The time to reach the steady state is characterised by $\tau = 1/|\phi|$. If $|\phi|$ is large (fast termination), the steady state is reached quickly and persists for most of the reaction — exactly the conditions under which the SSA is valid.
 
-Experimental determination of these parameters through regression analysis allows for characterization of reactions and prediction of their behavior across different temperature ranges. The Arrhenius equation thus serves as a powerful tool linking macroscopic kinetic measurements to fundamental aspects of chemical reactivity.
+### Positive Feedback ($\phi > 0$): Explosion
 
-While the Arrhenius equation applies to a wide range of chemical processes, cases such as negative activation energies and non-Arrhenius behavior reveal the complexity of reaction mechanisms. These exceptions provide valuable insights into the intricate nature of chemical transformations and the limitations of simple kinetic models.
+When $\phi > 0$, the exponential term $\mathrm{e}^{\phi t}$ grows without bound. The intermediate concentration increases exponentially:
+
+$$[\mathrm{I}]_t \approx \frac{\nu_f}{\phi}\,\mathrm{e}^{\phi t} \qquad \text{(for large } t\text{)}$$
+
+Branching creates intermediates faster than termination can remove them. Each new radical generates more than one replacement, leading to a cascade. The radical population — and hence the reaction rate — increases exponentially. This is a **chain-branching explosion**: the reaction accelerates catastrophically until limited by reactant depletion or physical containment.
+
+```{r feedback-profiles, echo=FALSE, fig.cap="Solutions to the feedback equation for negative and positive feedback. When $\\phi < 0$, $[\\mathrm{I}]$ rises to a steady state $\\nu_f/|\\phi|$ (lower curve). When $\\phi > 0$, $[\\mathrm{I}]$ grows exponentially — the signature of a chain-branching explosion (upper curve). [Draft figure from lecture slides.]", out.width='70%', fig.align='center'}
+knitr::include_graphics("lecture_10/figures/feedback_profiles.png")
+```
+
+::: {.skill}
+**You should be able to:** Write the general feedback equation $\mathrm{d}[\mathrm{I}]/\mathrm{d}t = \nu_f + \phi[\mathrm{I}]$, explain the physical meaning of the feedback parameter $\phi$, and predict whether a chain reaction will reach a steady state ($\phi < 0$) or explode ($\phi > 0$) from the relative rates of branching and termination.
+:::
+
+## From Mechanism to Stability {#sec:mechanism-to-stability}
+
+We can now connect the abstract feedback parameter $\phi$ to the elementary steps of a specific mechanism. Consider a general chain reaction with initiation, propagation, branching, and termination:
+
+**Initiation:** $\mathrm{M} \xrightarrow{k_\mathrm{init}} \mathrm{I}$ (rate $= k_\mathrm{init}[\mathrm{M}] = \nu_f$)
+
+**Propagation (straight):** $\mathrm{I} + \mathrm{A} \xrightarrow{k_\mathrm{prop}} \mathrm{I} + \text{products}$ (no net change in [I])
+
+**Branching:** $\mathrm{I} + \mathrm{A} \xrightarrow{k_\mathrm{branch}} 2\mathrm{I} + \text{products}$ (net gain of one I)
+
+**Termination:** $\mathrm{I} \xrightarrow{k_\mathrm{term}} \text{inactive products}$ (net loss of one I)
+
+The rate equation for I is:
+
+$$\frac{\mathrm{d}[\mathrm{I}]}{\mathrm{d}t} = \underbrace{\nu_f}_{\text{initiation}} + \underbrace{k_\mathrm{branch}[\mathrm{A}]}_{\text{branching}} \cdot [\mathrm{I}] - \underbrace{k_\mathrm{term}}_{\text{termination}} \cdot [\mathrm{I}]$$
+
+This has the form of Eqn. \@ref(eq:feedback-equation) with:
+
+\begin{equation}
+\phi = k_\mathrm{branch}[\mathrm{A}] - k_\mathrm{term}
+(\#eq:phi-general)
+\end{equation}
+
+This expression reveals why conditions matter:
+
+- **Concentration dependence.** If the branching step involves a reactant A, then $\phi$ depends on $[\mathrm{A}]$. A dilute mixture may have $\phi < 0$ (safe), while a concentrated mixture has $\phi > 0$ (explosive). This is why fuel–air mixtures explode only above a certain concentration.
+
+- **Pressure dependence.** In gas-phase reactions, termination often occurs at surfaces (vessel walls), while branching occurs in the gas phase. Changing the pressure alters the balance: at low pressure, molecules reach the walls easily and $k_\mathrm{term}$ is large (safe); at intermediate pressures, gas-phase branching may dominate (explosive); at very high pressures, three-body termination in the gas phase becomes important and the system may become safe again.
+
+- **Temperature dependence.** The rate constants $k_\mathrm{branch}$ and $k_\mathrm{term}$ have different activation energies. Raising the temperature may push $\phi$ from negative to positive, triggering an explosion.
+
+These considerations explain why hydrogen–oxygen mixtures have complex **explosion limits** — boundaries in pressure–temperature space that separate explosive from non-explosive conditions. The limits correspond to the condition $\phi = 0$, where branching and termination are exactly balanced.
+
+```{r explosion-limits, echo=FALSE, eval=FALSE, fig.cap="Schematic explosion limits for the H$_2$/O$_2$ system in pressure--temperature space. The boundaries correspond to $\\phi = 0$, where branching and termination rates are balanced. The system is explosive in the shaded region and reaches a steady state outside it."}
+# TODO: No matching slide available — explosion limit P-T diagram is new content for 2026.
+# Need to create a new figure showing the three explosion limits.
+knitr::include_graphics("lecture_10/figures/explosion_limits.png")
+```
+
+::: {.skill}
+**You should be able to:** Given a chain reaction mechanism with initiation, branching, and termination steps, write the feedback equation for the reactive intermediate, identify the feedback parameter $\phi$, and predict the conditions (concentration, pressure, temperature) under which the reaction will reach a steady state or become explosive.
+:::
+
+## Key Concepts
+
+- The **feedback equation** $\mathrm{d}[\mathrm{I}]/\mathrm{d}t = \nu_f + \phi[\mathrm{I}]$ describes the evolution of reactive intermediates in chain reactions. The initiation rate $\nu_f$ creates intermediates; the feedback parameter $\phi$ determines whether they accumulate or are controlled.
+- For **straight chains**, $\phi = -k_\mathrm{term} < 0$: termination provides negative feedback and the system reaches a steady state.
+- For **branching chains**, $\phi = k_\mathrm{branch}[\mathrm{A}] - k_\mathrm{term}$: the sign depends on the competition between branching (which multiplies intermediates) and termination (which removes them).
+- The general solution $[\mathrm{I}]_t = (\nu_f/\phi)(\mathrm{e}^{\phi t} - 1)$ describes both steady-state behaviour ($\phi < 0$) and explosive runaway ($\phi > 0$) within a single equation.
+- **Explosion limits** correspond to the condition $\phi = 0$. They depend on concentration, pressure, and temperature because these variables affect the rates of branching and termination differently.
+- The SSA is valid precisely when $\phi < 0$ and $|\phi|$ is large — the intermediate reaches its steady state quickly and stays there. Positive feedback ($\phi > 0$) represents the breakdown of the SSA.

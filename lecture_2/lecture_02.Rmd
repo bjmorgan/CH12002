@@ -1,170 +1,165 @@
-# Chemical Kinetics and Reaction Mechanisms
+# Integrated Rate Laws
 
-## Kinetic Data as a Window into Reaction Mechanisms
+In the previous chapter, we defined reaction rates, wrote differential rate laws for elementary processes, and saw that the rate of a reaction generally depends on the concentrations of the reactants. These differential rate laws tell us the instantaneous rate at any given set of concentrations—but experimentally, what we usually measure is concentration as a function of time. To connect our differential rate laws to experimental data, we need to *integrate* them: converting a relationship between rate and concentration into a relationship between concentration and time.
 
-Understanding how chemical reactions proceed at a molecular level presents a fundamental challenge in physical chemistry. While we cannot directly observe individual molecular collisions and transformations, careful analysis of reaction kinetics provides powerful insights into these microscopic processes.
+## From Differential to Integrated Rate Laws
 
-<!--
-Figure 1: Time evolution plot showing reactant [A](t) and product [B](t) concentrations versus time.
-     - Green curve shows exponential decay of reactant A
-     - Orange curve shows complementary rise in product B
-     - Axes: x = time, y = concentration [X]
-     - Caption: Concentration profiles for a simple A → B reaction showing complementary behavior of reactant and product species.
--->
+To integrate a differential rate law, we separate variables and integrate both sides between appropriate limits (using the techniques from the [Mathematical Foundations](#mathematical-foundations) chapter). This gives us the **integrated rate law**: an equation that tells us the concentration $[\mathrm{A}]_t$ as a function of time. We then rearrange this into a **linear form**, suitable for graphical analysis, for reasons that will become clear once we have derived the results for several different reaction orders. Figure \@ref(fig:integrated-rate-laws-overview) summarises the results we will derive in this chapter for zeroth-, first-, and second-order reactions.
 
-When we measure reactant and product concentrations over time, we observe characteristic concentration profiles like those shown in Figure 1. For a simple decomposition reaction A → B, the reactant concentration decreases exponentially while the product concentration rises in a complementary fashion. The instantaneous reaction rate at any point equals the gradient of the tangent to these concentration curves, providing our best linear estimate of the rate at that specific moment:
+```{r integrated-rate-laws-overview, echo=FALSE, fig.cap="Overview of the integrated rate laws derived in this chapter. For each reaction order, we start from the differential rate law, integrate to obtain the integrated rate law, and then rearrange into a linear form suitable for graphical analysis.", out.width='90%', fig.align='center'}
+knitr::include_graphics("lecture_2/figures/integrated_rate_laws_summary.png")
+```
 
-$$\text{rate} = -\frac{\mathrm{d}[\text{A}]}{\mathrm{d}t}$$
+## Zeroth-Order Reactions
 
-## Elementary Processes and Rate Laws
+For a zeroth-order reaction, the rate is constant, independent of the concentration of the reactant:
 
-For elementary processes (single-step reactions), rate laws directly reflect reaction molecularity. Consider these common examples:
+$$\frac{\mathrm{d}[\mathrm{A}]}{\mathrm{d}t} = -k$$
 
-1. Unimolecular decomposition:
-   $$\text{A} \rightarrow \text{P} \quad \nu = k[\text{A}]$$
+Integrating both sides between $t = 0$ (when $[\mathrm{A}] = [\mathrm{A}]_0$) and time $t$ (when $[\mathrm{A}] = [\mathrm{A}]_t$):
 
-2. Bimolecular reaction:
-   $$\text{A} + \text{B} \rightarrow \text{P} \quad \nu = k[\text{A}][\text{B}]$$
+$$\int_{[\mathrm{A}]_0}^{[\mathrm{A}]_t} \mathrm{d}[\mathrm{A}] = \int_0^t -k\,\mathrm{d}t$$
 
-3. Bimolecular reaction (identical reactants):
-   $$2\text{A} \rightarrow \text{P} \quad \nu = k[\text{A}]^2$$
+$$[\mathrm{A}]_t - [\mathrm{A}]_0 = -kt$$
 
-<!--
-Figure 2: Schematic diagrams showing elementary reaction steps
-     - Panel A: Unimolecular decomposition (single molecule breaking apart)
-     - Panel B: Bimolecular reaction (two different molecules colliding)
-     - Panel C: Bimolecular reaction with identical reactants
-     - Caption: Molecular-level representations of elementary reaction steps and their corresponding rate laws.
--->
+Rearranging gives the zeroth-order integrated rate law:
 
-## Building and Testing Kinetic Models
+\begin{equation}
+[\mathrm{A}]_t = [\mathrm{A}]_0 - kt
+(\#eq:zeroth-order-integrated)
+\end{equation}
 
-Consider a unimolecular decomposition reaction where each molecule has a constant probability of reaction per unit time:
+This is already in linear form: a plot of $[\mathrm{A}]_t$ against $t$ gives a straight line with slope $-k$ and intercept $[\mathrm{A}]_0$. Physically, a constant rate means the reaction proceeds at the same speed regardless of how much reactant remains—a situation that can arise, for example, when a reaction is limited by a saturated catalyst surface.
 
-$$P(\text{A} \rightarrow \text{B}) = c$$
+```{r zeroth-order-plot, echo=FALSE, fig.cap="Zeroth-order kinetics: plotting $[\\mathrm{A}]$ versus $t$ gives a straight line with slope $-k$ and intercept $[\\mathrm{A}]_0$.", out.width='45%', fig.align='center'}
+knitr::include_graphics("lecture_2/figures/zeroth_order_linear.png")
+```
 
-<!--
-Figure 3: Time-series visualization of simulated molecular conversion
-     - Grid of circles showing molecule states at different time points
-     - Yellow circles: reactant A molecules
-     - Blue circles: product B molecules
-     - Time progression from left to right
-     - Caption: Simulation snapshots showing the probabilistic conversion of reactant molecules (yellow) to products (blue) over time.
--->
+## First-Order Reactions
 
-This molecular picture suggests an exponential decay model:
+For a first-order reaction, the rate is proportional to the concentration of the reactant:
 
-$$[\text{A}] = [\text{A}]_0e^{-\lambda t}$$
+$$\frac{\mathrm{d}[\mathrm{A}]}{\mathrm{d}t} = -k[\mathrm{A}]$$
 
-Taking the natural logarithm transforms this into a linear relationship:
+We separate variables and integrate:
 
-$$\ln[\text{A}] = \ln[\text{A}]_0 - \lambda t$$
+$$\frac{\mathrm{d}[\mathrm{A}]}{[\mathrm{A}]} = -k\,\mathrm{d}t$$
 
-<!--
-Figure 4: Plot of linearized kinetic data
-     - x-axis: time
-     - y-axis: ln[A]
-     - Data points showing linear trend
-     - Fitted line with slope -k
-     - Caption: Linearized plot of concentration data confirming first-order kinetics. The negative slope equals the rate constant k.
--->
+$$\int_{[\mathrm{A}]_0}^{[\mathrm{A}]_t} \frac{\mathrm{d}[\mathrm{A}]}{[\mathrm{A}]} = \int_0^t -k\,\mathrm{d}t$$
 
-The linear fit in Figure 4 confirms our first-order kinetic model. Differentiating our concentration expression reveals the underlying rate law:
+$$\ln[\mathrm{A}]_t - \ln[\mathrm{A}]_0 = -kt$$
 
-$$\begin{align*}
-\nu &= -\frac{d[\text{A}]}{dt} \\
-&= \lambda[\text{A}]_0e^{-\lambda t} \\
-&= \lambda[\text{A}]
-\end{align*}$$
+This gives the first-order integrated rate law in linear form:
 
-This analysis demonstrates that:
+\begin{equation}
+\ln[\mathrm{A}]_t = \ln[\mathrm{A}]_0 - kt
+(\#eq:first-order-integrated-linear)
+\end{equation}
 
-1. The reaction follows first-order kinetics
-2. The decay constant $\lambda$ equals the rate constant $k$
-3. $k$ quantifies the molecular-scale reaction probability
+A plot of $\ln[\mathrm{A}]_t$ against $t$ gives a straight line with slope $-k$ and intercept $\ln[\mathrm{A}]_0$. Taking the exponential of both sides gives the equivalent exponential form:
 
-## Connecting Mechanisms to Observable Kinetics
+\begin{equation}
+[\mathrm{A}]_t = [\mathrm{A}]_0\,\mathrm{e}^{-kt}
+(\#eq:first-order-integrated-exp)
+\end{equation}
 
-More complex reaction mechanisms generate distinct kinetic signatures. Consider a two-step process:
+This is the exponential decay we derived from general principles in the [Mathematical Foundations](#mathematical-foundations) chapter: whenever a quantity changes at a rate proportional to its current value, the result is an exponential function. First-order kinetics means the concentration decreases by the same *fraction* in each successive time interval.
 
-$$\begin{align*}
-\text{A} + \text{B} &\rightarrow \text{C} \\
-\text{C} + \text{D} &\rightarrow \text{P}
-\end{align*}$$
+```{r first-order-plot, echo=FALSE, fig.cap="First-order kinetics: plotting $\\ln[\\mathrm{A}]$ versus $t$ gives a straight line with slope $-k$ and intercept $\\ln[\\mathrm{A}]_0$.", out.width='45%', fig.align='center'}
+knitr::include_graphics("lecture_2/figures/first_order_linear.png")
+```
 
-<!--
-Figure 5: Mechanism scheme showing two-step reaction
-     - Molecular diagrams showing reactants, intermediate, and products
-     - Arrows indicating reaction steps
-     - Corresponding rate equations
-     - Caption: Schematic representation of a two-step reaction mechanism and its kinetic implications.
--->
+## Second-Order Reactions
 
-Different mechanisms predict distinct concentration profiles and rate laws. By carefully analyzing kinetic data, we can:
+For a second-order reaction in a single reactant ($2\mathrm{A} \rightarrow \text{products}$):
 
-1. Validate proposed mechanisms
-2. Determine reaction orders
-3. Extract rate constants
-4. Predict reaction progress
+$$\frac{\mathrm{d}[\mathrm{A}]}{\mathrm{d}t} = -k[\mathrm{A}]^2$$
 
-## Kinetic Data as a Window into Reaction Mechanisms
+Separating variables and integrating:
 
-Understanding how chemical reactions proceed at a molecular level presents a fundamental challenge in physical chemistry. While we cannot directly observe individual molecular collisions and transformations, careful analysis of reaction kinetics provides powerful insights into these microscopic processes. By measuring how reactant and product concentrations change over time, we can test hypothetical reaction mechanisms and build deeper understanding of chemical reactivity.
+$$\frac{\mathrm{d}[\mathrm{A}]}{[\mathrm{A}]^2} = -k\,\mathrm{d}t$$
 
-## Principles of Rate Law Analysis
+$$\int_{[\mathrm{A}]_0}^{[\mathrm{A}]_t} \frac{\mathrm{d}[\mathrm{A}]}{[\mathrm{A}]^2} = \int_0^t -k\,\mathrm{d}t$$
 
-When analyzing reaction kinetics, we typically begin with time-resolved measurements of reactant and product concentrations. For a simple decomposition reaction A → B, these data reveal characteristic concentration profiles: an exponential decay of reactant A matched by a complementary rise in product B. The mathematical relationship between these profiles and the underlying molecular processes forms the foundation of chemical kinetics.
+$$-\frac{1}{[\mathrm{A}]_t} + \frac{1}{[\mathrm{A}]_0} = -kt$$
 
-Consider a hypothetical unimolecular decomposition reaction. At the molecular level, each molecule of A has some probability of converting to B in any given time interval. This microscopic behavior manifests in measurable changes in bulk concentration. The connection between these molecular events and macroscopic observations lies at the heart of kinetic analysis.
+Rearranging:
 
-## Building a Kinetic Model
+\begin{equation}
+\frac{1}{[\mathrm{A}]_t} = \frac{1}{[\mathrm{A}]_0} + kt
+(\#eq:second-order-integrated)
+\end{equation}
 
-To understand this connection quantitatively, we can construct a molecular simulation that captures the essential physics of unimolecular decomposition:
+A plot of $1/[\mathrm{A}]_t$ against $t$ gives a straight line with slope $+k$ and intercept $1/[\mathrm{A}]_0$. Notice that the slope is positive here, unlike the zeroth- and first-order cases where it is negative.
 
-$$P(\text{A} \rightarrow \text{B}) = c \quad \text{per molecule per unit time}$$
+```{r second-order-plot, echo=FALSE, fig.cap="Second-order kinetics: plotting $1/[\\mathrm{A}]$ versus $t$ gives a straight line with slope $+k$ and intercept $1/[\\mathrm{A}]_0$.", out.width='45%', fig.align='center'}
+knitr::include_graphics("lecture_2/figures/second_order_linear.png")
+```
 
-This simple probability rule generates concentration profiles that closely match experimental observations. From these profiles, we can extract key kinetic parameters that characterize the reaction.
+::: {.skill}
+**You should be able to:** Derive the integrated rate law for a zeroth-, first-, or second-order reaction starting from the differential rate law, using separation of variables and integration.
+:::
 
-The mathematical framework for analyzing these data begins with a proposed kinetic model:
+## Summary and Graphical Analysis
 
-$$[\text{A}] = [\text{A}]_0e^{-\lambda t}$$
+Now that we have worked through each derivation, the table below collects the key results previewed in Figure \@ref(fig:integrated-rate-laws-overview).
 
-where $\lambda$ represents a decay constant characteristic of the reaction. Taking the natural logarithm transforms this exponential relationship into a linear form:
+| Order | Integrated form | Linear plot | Slope |
+|:---:|:---|:---|:---:|
+| 0 | $[\mathrm{A}]_t = [\mathrm{A}]_0 - kt$ | $[\mathrm{A}]$ vs $t$ | $-k$ |
+| 1 | $[\mathrm{A}]_t = [\mathrm{A}]_0\,\mathrm{e}^{-kt}$ | $\ln[\mathrm{A}]$ vs $t$ | $-k$ |
+| 2 | $\frac{1}{[\mathrm{A}]_t} = \frac{1}{[\mathrm{A}]_0} + kt$ | $\frac{1}{[\mathrm{A}]}$ vs $t$ | $+k$ |
 
-$$\ln[\text{A}] = \ln[\text{A}]_0 - \lambda t$$
+Each reaction order predicts a different functional form for concentration as a function of time—a different curve shape. By rearranging each integrated rate law into a linear form, we can often distinguish consistent from inconsistent models by simple visual inspection: data that are consistent with a particular rate law will fall on a straight line in the corresponding plot, while data that are inconsistent will show a curve. We can therefore test candidate rate laws by plotting the same dataset in each of the three linear forms and seeing which (if any) gives a straight line. The slope of that line gives the rate constant (Figure \@ref(fig:three-linear-forms)).
 
-This transformation provides a straightforward method for testing the model against experimental data &mdash; a linear relationship between $\ln[\mathrm{A}]$ and $t$ supports first-order kinetics.
+```{r three-linear-forms, echo=FALSE, fig.cap="The linear form of the integrated rate law for each reaction order. In each case, concentration--time data that obey the corresponding rate law fall on a straight line, with the slope giving the rate constant and the intercept giving the initial concentration.", out.width='90%', fig.align='center'}
+knitr::include_graphics("lecture_2/figures/three_linear_forms.png")
+```
 
-## From Model to Mechanism
+Although we derived these integrated rate laws for elementary processes, the same graphical tests apply whenever a reaction follows a simple rate law of the form $\nu = k[\mathrm{A}]^n$—regardless of whether the underlying mechanism involves a single step or multiple steps.
 
-The proposed kinetic model implies a specific rate law, which we can derive through differentiation:
+## Worked Example: Decomposition of Azomethane
 
-$$\nu = -\frac{d[\text{A}]}{dt} = \lambda[\text{A}]_0e^{-\lambda t} = \lambda[\text{A}]$$
+Let us apply the graphical analysis to a real dataset. The thermal decomposition of azomethane (CH~3~N~2~CH~3~) was studied at $2.18 \times 10^4\,\mathrm{Pa}$ and $576\,\mathrm{K}$, yielding the following concentration–time data:
 
-This result reveals three important insights:
+| $t$ / min | 0 | 30 | 60 | 90 | 120 | 150 | 180 |
+|---|---|---|---|---|---|---|---|
+| $[\text{azomethane}]$ / $10^{-3}\,\mathrm{mol\,dm}^{-3}$ | 8.70 | 6.52 | 4.89 | 3.67 | 2.75 | 2.06 | 1.55 |
 
-1. The reaction rate depends linearly on reactant concentration
-2. The decay constant $\lambda$ corresponds to the rate constant $k$
-3. The reaction follows first-order kinetics
+We can test each of the three integrated rate laws by plotting the data in the corresponding linear form (as illustrated in Figure \@ref(fig:three-linear-forms)). Plotting $\ln[\text{azomethane}]$ against $t$ gives a straight line, consistent with first-order kinetics, with slope $-k = -9.6 \times 10^{-3}\,\mathrm{min}^{-1}$. Plotting $[\text{azomethane}]$ against $t$ or $1/[\text{azomethane}]$ against $t$ would give curves rather than straight lines, ruling out zeroth- and second-order rate laws.
 
-These findings align perfectly with our molecular picture of unimolecular decomposition, where each molecule reacts independently with constant probability. The rate constant $k$, typically measured in s^-1^, quantifies this probability.
+In the next chapter, we will explore several complementary methods for determining rate laws from experimental data, returning to this dataset along the way.
 
-## The Role of Integrated Rate Laws
+::: {.skill}
+**You should be able to:** Test whether concentration–time data are consistent with a given reaction order by plotting in the appropriate linear form, and extract the rate constant from the slope.
+:::
 
-The expression we derived for $[\mathrm{A}](t)$ represents an integrated rate law &mdash; the mathematical solution to our differential rate equation. This relationship between concentration and time provides a crucial bridge between experimental measurements and molecular mechanisms. Through careful analysis of kinetic data, we can:
+## Reactions with Two Different Reactants
 
-1. Validate proposed reaction mechanisms
-2. Determine reaction orders
-3. Extract rate constants
-4. Predict reaction progress
+The integrated rate laws above all involve a single reactant species. For a reaction between two different species, $\mathrm{A} + \mathrm{B} \rightarrow \text{products}$, the differential rate law is:
 
-## Beyond First-Order Kinetics
+$$\frac{\mathrm{d}[\mathrm{A}]}{\mathrm{d}t} = -k[\mathrm{A}][\mathrm{B}]$$
 
-While unimolecular decomposition provides a straightforward example of kinetic analysis, many reactions follow more complex rate laws. In the next chapter, we'll explore systematic methods for:
+Integration is more complex here because the right-hand side contains two concentrations that both change with time. The problem can be solved analytically using mass balance (from Chapter 1) and partial fractions, giving the full integrated result:
 
-1. Deriving integrated rate laws from proposed mechanisms
-2. Testing kinetic models against experimental data
-3. Building evidence for reaction mechanisms
+\begin{equation}
+kt = \frac{1}{[\mathrm{B}]_0 - [\mathrm{A}]_0} \ln\!\left(\frac{[\mathrm{B}]_t / [\mathrm{B}]_0}{[\mathrm{A}]_t / [\mathrm{A}]_0}\right)
+(\#eq:second-order-two-reactants)
+\end{equation}
 
-These tools form an essential framework for understanding chemical reactivity across a broad range of systems.
+The derivation of this result is given in Appendix \@ref(appendix-two-reactants). You are not expected to reproduce this derivation, but it is worth noting that the result requires $[\mathrm{A}]_0 \neq [\mathrm{B}]_0$ (otherwise the denominator is zero). If the initial concentrations are equal, the problem reduces to the single-reactant second-order case (Eqn. \@ref(eq:second-order-integrated)).
 
+A common and powerful simplification is to use one reactant in large excess. If $[\mathrm{B}]_0 \gg [\mathrm{A}]_0$, then $[\mathrm{B}]$ remains effectively constant throughout the reaction, and the rate law simplifies to:
+
+$$\frac{\mathrm{d}[\mathrm{A}]}{\mathrm{d}t} \approx -k'[\mathrm{A}] \quad \text{where } k' = k[\mathrm{B}]_0$$
+
+This is called a *pseudo-first-order* rate law: the reaction is second-order overall, but behaves as first-order under these conditions. We will explore the isolation method and pseudo-first-order kinetics fully in the next chapter.
+
+## Key Concepts
+
+- Integrated rate laws relate concentration to time, connecting differential rate laws to experimentally measurable quantities.
+- Each reaction order gives a different integrated rate law with a characteristic linear form.
+- Plotting data in the appropriate linear form tests whether a given rate law is consistent with the data. A straight line confirms the proposed order; the slope gives the rate constant.
+- For zeroth-order: $[\mathrm{A}]$ vs $t$ is linear (slope $-k$). For first-order: $\ln[\mathrm{A}]$ vs $t$ is linear (slope $-k$). For second-order: $1/[\mathrm{A}]$ vs $t$ is linear (slope $+k$).
+- First-order kinetics corresponds to exponential decay: $[\mathrm{A}]_t = [\mathrm{A}]_0\,\mathrm{e}^{-kt}$.
+- Reactions between two different species can be simplified to pseudo-first-order kinetics by using one reactant in large excess.

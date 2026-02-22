@@ -1,0 +1,43 @@
+# (APPENDIX) Appendices {-}
+
+# Integrated Rate Law for Two Different Reactants {#appendix-two-reactants}
+
+In Lecture 2, we stated without proof the integrated rate law for a reaction between two different species, $\mathrm{A} + \mathrm{B} \rightarrow \text{products}$, with rate law $\nu = k[\mathrm{A}][\mathrm{B}]$. Here we derive that result.
+
+## Setting Up the Problem
+
+Both concentrations change with time, so the differential rate law
+
+$$\frac{\mathrm{d}[\mathrm{A}]}{\mathrm{d}t} = -k[\mathrm{A}][\mathrm{B}]$$
+
+contains two unknowns. To integrate, we need to express $[\mathrm{B}]$ in terms of $[\mathrm{A}]$. For 1:1 stoichiometry, mass balance (Lecture 1) tells us that A and B are consumed in equal amounts, so at any time $t$:
+
+$$[\mathrm{A}]_0 - [\mathrm{A}]_t = [\mathrm{B}]_0 - [\mathrm{B}]_t$$
+
+Rearranging gives $[\mathrm{B}]_t = [\mathrm{B}]_0 - [\mathrm{A}]_0 + [\mathrm{A}]_t$. Writing $\Delta = [\mathrm{B}]_0 - [\mathrm{A}]_0$ for the difference in initial concentrations, the differential equation becomes:
+
+$$\frac{\mathrm{d}[\mathrm{A}]}{[\mathrm{A}]([\mathrm{A}] + \Delta)} = -k\,\mathrm{d}t$$
+
+## Solving by Partial Fractions
+
+The left-hand side can be decomposed using partial fractions:
+
+$$\frac{1}{[\mathrm{A}]([\mathrm{A}] + \Delta)} = \frac{1}{\Delta}\!\left(\frac{1}{[\mathrm{A}]} - \frac{1}{[\mathrm{A}] + \Delta}\right)$$
+
+Integrating both sides between $t = 0$ and $t$:
+
+\begin{align*}
+\frac{1}{\Delta}\left[\ln[\mathrm{A}] - \ln([\mathrm{A}] + \Delta)\right]_{[\mathrm{A}]_0}^{[\mathrm{A}]_t} &= -kt \\[6pt]
+\frac{1}{\Delta}\left(\ln\frac{[\mathrm{A}]_t}{[\mathrm{A}]_0} - \ln\frac{[\mathrm{B}]_t}{[\mathrm{B}]_0}\right) &= -kt
+\end{align*}
+
+where in the second line we have used $[\mathrm{A}]_t + \Delta = [\mathrm{B}]_t$ and $[\mathrm{A}]_0 + \Delta = [\mathrm{B}]_0$. Rearranging gives the final result:
+
+\begin{equation}
+kt = \frac{1}{[\mathrm{B}]_0 - [\mathrm{A}]_0}\ln\!\left(\frac{[\mathrm{B}]_t / [\mathrm{B}]_0}{[\mathrm{A}]_t / [\mathrm{A}]_0}\right)
+(\#eq:appendix-second-order-two-reactants)
+\end{equation}
+
+## The Equal-Concentration Limit
+
+This result requires $[\mathrm{A}]_0 \neq [\mathrm{B}]_0$ (i.e. $\Delta \neq 0$); otherwise the partial fraction decomposition breaks down (we cannot divide by zero). If the initial concentrations are equal, then by mass balance $[\mathrm{A}]_t = [\mathrm{B}]_t$ at all times, so the rate law becomes $\mathrm{d}[\mathrm{A}]/\mathrm{d}t = -k[\mathrm{A}]^2$. This is exactly the single-reactant second-order case already solved in Lecture 2 (Eqn. \@ref(eq:second-order-integrated)).
