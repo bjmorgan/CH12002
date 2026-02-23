@@ -1,14 +1,20 @@
 # Integrated Rate Laws
 
-In the previous chapter, we defined reaction rates, wrote differential rate laws for elementary processes, and saw that the rate of a reaction generally depends on the concentrations of the reactants. These differential rate laws tell us the instantaneous rate at any given set of concentrations—but experimentally, what we usually measure is concentration as a function of time. To connect our differential rate laws to experimental data, we need to *integrate* them: converting a relationship between rate and concentration into a relationship between concentration and time.
+In the previous chapter, we saw that rate laws provide a window into how reactions work at the molecular level. A simple bimolecular reaction such as $\mathrm{A} + \mathrm{B} \rightarrow \mathrm{P}$ has the straightforward rate law $\nu = k[\mathrm{A}][\mathrm{B}]$, but the formation of HBr—despite its simple stoichiometry—follows a complex rate law that reflects a multi-step chain mechanism. Different mechanisms produce different rate laws. To use rate laws as a tool for understanding mechanisms, however, we first need to be able to extract them from experimental data.
+
+The challenge is that our rate laws are written in terms of rates—derivatives such as $\mathrm{d}[\mathrm{A}]/\mathrm{d}t$—whereas what we typically measure in the laboratory is concentration as a function of time. Consider, for example, the thermal decomposition of azomethane (CH~3~N~2~CH~3~), studied at $2.18 \times 10^4\,\mathrm{Pa}$ and $576\,\mathrm{K}$:
+
+| $t$ / min | 0 | 30 | 60 | 90 | 120 | 150 | 180 |
+|---|---|---|---|---|---|---|---|
+| $[\text{azomethane}]$ / $10^{-3}\,\mathrm{mol\,dm}^{-3}$ | 8.70 | 6.52 | 4.89 | 3.67 | 2.75 | 2.06 | 1.55 |
+
+What is the rate law for this reaction? What is the rate constant? We cannot answer these questions just by inspecting the raw data—we need a strategy for connecting our differential rate laws to concentration–time measurements.
+
+The approach is straightforward: *propose* a rate law, *integrate* it to predict how $[\mathrm{A}]_t$ should depend on time, and then *compare* that prediction with the experimental data. If the prediction fits, we have our rate law and rate constant; if not, we try a different order. In the sections that follow, we carry out this procedure for zeroth-, first-, and second-order reactions, and then return to the azomethane data to see which model fits.
 
 ## From Differential to Integrated Rate Laws
 
-To integrate a differential rate law, we separate variables and integrate both sides between appropriate limits (using the techniques from the [Mathematical Foundations](#mathematical-foundations) chapter). This gives us the **integrated rate law**: an equation that tells us the concentration $[\mathrm{A}]_t$ as a function of time. We then rearrange this into a **linear form**, suitable for graphical analysis, for reasons that will become clear once we have derived the results for several different reaction orders. Figure \@ref(fig:integrated-rate-laws-overview) summarises the results we will derive in this chapter for zeroth-, first-, and second-order reactions.
-
-```{r integrated-rate-laws-overview, echo=FALSE, fig.cap="Overview of the integrated rate laws derived in this chapter. For each reaction order, we start from the differential rate law, integrate to obtain the integrated rate law, and then rearrange into a linear form suitable for graphical analysis.", out.width='90%', fig.align='center'}
-knitr::include_graphics("lecture_2/figures/integrated_rate_laws_summary.png")
-```
+To integrate a differential rate law, we separate variables and integrate both sides between appropriate limits (using the techniques from the [Mathematical Foundations](#mathematical-foundations) chapter). This gives us the **integrated rate law**: an equation that tells us the concentration $[\mathrm{A}]_t$ as a function of time. We then rearrange this into a **linear form**, suitable for graphical analysis, for reasons that will become clear once we have derived the results for several different reaction orders.
 
 ## Zeroth-Order Reactions
 
@@ -102,7 +108,7 @@ knitr::include_graphics("lecture_2/figures/second_order_linear.png")
 
 ## Summary and Graphical Analysis
 
-Now that we have worked through each derivation, the table below collects the key results previewed in Figure \@ref(fig:integrated-rate-laws-overview).
+Now that we have worked through each case, the table below collects the key results.
 
 | Order | Integrated form | Linear plot | Slope |
 |:---:|:---|:---|:---:|
@@ -110,7 +116,11 @@ Now that we have worked through each derivation, the table below collects the ke
 | 1 | $[\mathrm{A}]_t = [\mathrm{A}]_0\,\mathrm{e}^{-kt}$ | $\ln[\mathrm{A}]$ vs $t$ | $-k$ |
 | 2 | $\frac{1}{[\mathrm{A}]_t} = \frac{1}{[\mathrm{A}]_0} + kt$ | $\frac{1}{[\mathrm{A}]}$ vs $t$ | $+k$ |
 
-Each reaction order predicts a different functional form for concentration as a function of time—a different curve shape. By rearranging each integrated rate law into a linear form, we can often distinguish consistent from inconsistent models by simple visual inspection: data that are consistent with a particular rate law will fall on a straight line in the corresponding plot, while data that are inconsistent will show a curve. We can therefore test candidate rate laws by plotting the same dataset in each of the three linear forms and seeing which (if any) gives a straight line. The slope of that line gives the rate constant (Figure \@ref(fig:three-linear-forms)).
+```{r integrated-rate-laws-overview, echo=FALSE, fig.cap="Summary of the integrated rate laws for zeroth-, first-, and second-order reactions. For each reaction order, the differential rate law is integrated to give an expression for $[\\mathrm{A}]_t$, which is then rearranged into a linear form suitable for graphical analysis.", out.width='90%', fig.align='center'}
+knitr::include_graphics("lecture_2/figures/integrated_rate_laws_summary.png")
+```
+
+Each reaction order predicts a different functional form for concentration as a function of time—a different curve shape. By rearranging each integrated rate law into a linear form, we can distinguish consistent from inconsistent models by simple visual inspection: data that are consistent with a particular rate law will fall on a straight line in the corresponding plot, while data that are inconsistent will show a curve. We can therefore test candidate rate laws by plotting the same dataset in each of the three linear forms and seeing which (if any) gives a straight line. The slope of that line gives the rate constant (Figure \@ref(fig:three-linear-forms)).
 
 ```{r three-linear-forms, echo=FALSE, fig.cap="The linear form of the integrated rate law for each reaction order. In each case, concentration--time data that obey the corresponding rate law fall on a straight line, with the slope giving the rate constant and the intercept giving the initial concentration.", out.width='90%', fig.align='center'}
 knitr::include_graphics("lecture_2/figures/three_linear_forms.png")
@@ -120,15 +130,15 @@ Although we derived these integrated rate laws for elementary processes, the sam
 
 ## Worked Example: Decomposition of Azomethane
 
-Let us apply the graphical analysis to a real dataset. The thermal decomposition of azomethane (CH~3~N~2~CH~3~) was studied at $2.18 \times 10^4\,\mathrm{Pa}$ and $576\,\mathrm{K}$, yielding the following concentration–time data:
+Let us return to the azomethane data from the start of this chapter and put our new tools to work. Recall the concentration–time data for the thermal decomposition of azomethane at $576\,\mathrm{K}$:
 
 | $t$ / min | 0 | 30 | 60 | 90 | 120 | 150 | 180 |
 |---|---|---|---|---|---|---|---|
 | $[\text{azomethane}]$ / $10^{-3}\,\mathrm{mol\,dm}^{-3}$ | 8.70 | 6.52 | 4.89 | 3.67 | 2.75 | 2.06 | 1.55 |
 
-We can test each of the three integrated rate laws by plotting the data in the corresponding linear form (as illustrated in Figure \@ref(fig:three-linear-forms)). Plotting $\ln[\text{azomethane}]$ against $t$ gives a straight line, consistent with first-order kinetics, with slope $-k = -9.6 \times 10^{-3}\,\mathrm{min}^{-1}$. Plotting $[\text{azomethane}]$ against $t$ or $1/[\text{azomethane}]$ against $t$ would give curves rather than straight lines, ruling out zeroth- and second-order rate laws.
+We test each of the three integrated rate laws by plotting the data in the corresponding linear form (as illustrated in Figure \@ref(fig:three-linear-forms)). Plotting $\ln[\text{azomethane}]$ against $t$ gives a straight line, consistent with first-order kinetics, with slope $-k = -9.6 \times 10^{-3}\,\mathrm{min}^{-1}$. Plotting $[\text{azomethane}]$ against $t$ or $1/[\text{azomethane}]$ against $t$ gives curves rather than straight lines, ruling out zeroth- and second-order rate laws.
 
-In the next chapter, we will explore several complementary methods for determining rate laws from experimental data, returning to this dataset along the way.
+We now have our answer to the question posed at the start of this chapter: the decomposition of azomethane follows first-order kinetics, with a rate constant of $k = 9.6 \times 10^{-3}\,\mathrm{min}^{-1}$.
 
 ::: {.skill}
 **You should be able to:** Test whether concentration–time data are consistent with a given reaction order by plotting in the appropriate linear form, and extract the rate constant from the slope.
@@ -153,11 +163,13 @@ A common and powerful simplification is to use one reactant in large excess. If 
 
 $$\frac{\mathrm{d}[\mathrm{A}]}{\mathrm{d}t} \approx -k'[\mathrm{A}] \quad \text{where } k' = k[\mathrm{B}]_0$$
 
-This is called a *pseudo-first-order* rate law: the reaction is second-order overall, but behaves as first-order under these conditions. We will explore the isolation method and pseudo-first-order kinetics fully in the next chapter.
+This is called a *pseudo-first-order* rate law: the reaction is second-order overall, but behaves as first-order under these conditions. The problem reduces to the first-order integrated rate law we have already derived—all of the graphical analysis from this chapter applies directly. We will explore the isolation method and pseudo-first-order kinetics fully in the next chapter.
 
 ## Key Concepts
 
+- The rate law tells us about the reaction mechanism, so extracting rate laws from experimental data is a central goal of chemical kinetics.
 - Integrated rate laws relate concentration to time, connecting differential rate laws to experimentally measurable quantities.
+- The strategy is: propose a rate law, integrate to predict $[\mathrm{A}]_t$, and compare with data.
 - Each reaction order gives a different integrated rate law with a characteristic linear form.
 - Plotting data in the appropriate linear form tests whether a given rate law is consistent with the data. A straight line confirms the proposed order; the slope gives the rate constant.
 - For zeroth-order: $[\mathrm{A}]$ vs $t$ is linear (slope $-k$). For first-order: $\ln[\mathrm{A}]$ vs $t$ is linear (slope $-k$). For second-order: $1/[\mathrm{A}]$ vs $t$ is linear (slope $+k$).

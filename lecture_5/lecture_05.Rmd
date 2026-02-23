@@ -14,7 +14,7 @@ This does *not* mean that $[\mathrm{I}] = 0$. The intermediate is present — it
 
 The approximation is valid when the intermediate reaches its steady-state concentration quickly compared to the timescale of the overall reaction, and when the intermediate's concentration remains small compared to those of the reactants and products. In practice, this means the intermediate must be reactive — it must be consumed rapidly by one or more subsequent steps.
 
-```{r ssa-concept, echo=FALSE, fig.cap="When $k_1 \\ll k_2$ in a consecutive reaction A → B → C, the intermediate B remains at a low, nearly constant concentration throughout — a steady state. The SSA approximates this by setting $\\mathrm{d}[\\mathrm{B}]/\\mathrm{d}t \\approx 0$. [Draft figure from lecture slides.]", out.width='70%', fig.align='center'}
+```{r ssa-concept, echo=FALSE, fig.cap="When $k_1 \\ll k_2$ in a consecutive reaction A → B → C, the intermediate B remains at a low, nearly constant concentration throughout — a steady state. The SSA approximates this by setting $\\mathrm{d}[\\mathrm{B}]/\\mathrm{d}t \\approx 0$. [Draft figure from lecture slides.]", out.width='50%', fig.align='center'}
 knitr::include_graphics("lecture_5/figures/ssa_concept.png")
 ```
 
@@ -71,18 +71,18 @@ $$\nu \approx \frac{k_1 k_2}{k_{-1}}[\mathrm{A}][\mathrm{B}]$$
 
 This is exactly the pre-equilibrium rate law we derived in Lecture 4 (Eqn. \@ref(eq:pre-equilibrium-rate)). Physically, C reverts to A + B many times before occasionally proceeding to D. The first step has time to reach equilibrium, and the slow second step controls the overall rate. The effective rate constant $k_\mathrm{obs} = k_1 k_2/k_{-1}$ depends on all three elementary rate constants.
 
-**Forward-committed limit ($k_2 \gg k_{-1}$):**
+**Irreversible limit ($k_2 \gg k_{-1}$):**
 
 When the second step is much faster than the reverse of the first step, $k_2$ dominates in the denominator:
 
 $$\nu \approx k_1[\mathrm{A}][\mathrm{B}]$$
 
-Now the overall rate depends only on $k_1$. Once C is formed, it proceeds to D so rapidly that reversion to A + B is negligible — C is effectively *committed* to going forward. The first step is rate-determining, and the rate law is simply the rate of the first elementary step.
+Now the overall rate depends only on $k_1$. Once C is formed, it proceeds to D so rapidly that reversion to A + B is negligible. We call this the **irreversible limit** — not because the first step is intrinsically irreversible (it still has a reverse rate constant $k_{-1}$), but because the fast second step ($k_2 \gg k_{-1}$) captures C before it has a chance to revert. The first step is *made* irreversible by the competition from the second step. The first step is therefore rate-determining, and the rate law is simply the rate of the first elementary step.
 
-Notice that the two limits give the same functional form (both are second order in A and B) but different effective rate constants: $k_1 k_2/k_{-1}$ in the pre-equilibrium limit and $k_1$ in the forward-committed limit.
+Notice that the two limits give the same functional form (both are second order in A and B) but different effective rate constants: $k_1 k_2/k_{-1}$ in the pre-equilibrium limit and $k_1$ in the irreversible limit.
 
-```{r ssa-limiting-cases, echo=FALSE, fig.cap="Concentration profiles for A + B ⇌ C → D. Left: pre-equilibrium limit where C builds up to an appreciable steady-state concentration. Right: forward-committed limit where C remains at very low concentration. The dashed line shows the SSA prediction for [D], which closely matches the exact solution. [Draft figure from lecture slides.]", out.width='70%', fig.align='center'}
-knitr::include_graphics("lecture_5/figures/ssa_limiting_cases.png")
+```{r ssa-limiting-cases, echo=FALSE, fig.cap="Exact concentration profiles for the mechanism A + B ⇌ C → D (solid lines), together with the SSA prediction for [D] (dashed line). The intermediate C remains at low concentration throughout, consistent with the steady-state assumption. The SSA prediction closely matches the exact solution except at short times, where the intermediate has not yet reached its steady-state concentration and the approximation is least valid.", out.width='70%', fig.align='center'}
+knitr::include_graphics("lecture_5/figures/ssa_exact_vs_approximate.png")
 ```
 
 ::: {.skill}
@@ -128,7 +128,7 @@ $$\nu \approx \frac{k_1 k_2}{k_{-1}}[\mathrm{A}][\mathrm{C}]$$
 
 The reaction is first order in A, first order in C, and second order overall. Physically, B reverts to A many times before it encounters a molecule of C. The first step is at equilibrium, and the second step is rate-determining. The effective rate constant is $k_\mathrm{obs} = k_1 k_2/k_{-1} = Kk_2$, where $K = k_1/k_{-1}$ is the equilibrium constant for the first step.
 
-**When $k_2[\mathrm{C}] \gg k_{-1}$ (forward-committed limit):**
+**When $k_2[\mathrm{C}] \gg k_{-1}$ (irreversible limit):**
 
 $$\nu \approx k_1[\mathrm{A}]$$
 
@@ -160,7 +160,7 @@ In Lecture 7, we will put the SSA to work on a real chemical problem — the **L
 
 - The **steady-state approximation** (SSA) sets $\mathrm{d}[\mathrm{I}]/\mathrm{d}t \approx 0$ for a reactive intermediate I. This does not mean $[\mathrm{I}] = 0$ — it means $[\mathrm{I}]$ is approximately constant after a brief initial transient.
 - Applying the SSA converts coupled differential equations into algebraic equations, allowing us to express the rate law in terms of stable, measurable species only.
-- For the mechanism A + B ⇌ C → D, the SSA gives $\nu = k_1 k_2[\mathrm{A}][\mathrm{B}]/(k_{-1} + k_2)$, which contains both the pre-equilibrium limit ($k_{-1} \gg k_2$) and the forward-committed limit ($k_2 \gg k_{-1}$) as special cases.
+- For the mechanism A + B ⇌ C → D, the SSA gives $\nu = k_1 k_2[\mathrm{A}][\mathrm{B}]/(k_{-1} + k_2)$, which contains both the pre-equilibrium limit ($k_{-1} \gg k_2$) and the irreversible limit ($k_2 \gg k_{-1}$) as special cases.
 - Some mechanisms produce rate laws where a species appears in both the numerator and denominator, giving no well-defined reaction order. The SSA naturally captures this behaviour.
 - **Saturation kinetics** — where the rate becomes independent of a reactant's concentration at high concentrations — arises when the rate-determining step does not involve that reactant.
 - The SSA is more general than the pre-equilibrium approximation and reduces to it as a special case. Use the SSA when the relative magnitudes of rate constants are unknown or when a general result is needed.
