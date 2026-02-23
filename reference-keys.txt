@@ -4,7 +4,6 @@ fig:fig-stoich-profiles
 eq:rate-stoichiometric
 eq:rate-law-general
 fig:fig-molecularity
-fig:integrated-rate-laws-overview
 eq:zeroth-order-integrated
 fig:zeroth-order-plot
 eq:first-order-integrated-linear
@@ -12,6 +11,7 @@ eq:first-order-integrated-exp
 fig:first-order-plot
 eq:second-order-integrated
 fig:second-order-plot
+fig:integrated-rate-laws-overview
 fig:three-linear-forms
 eq:second-order-two-reactants
 fig:azomethane-second-order-rejection

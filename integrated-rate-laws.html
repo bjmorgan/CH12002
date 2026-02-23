@@ -23,7 +23,7 @@
 <meta name="author" content="Benjamin J. Morgan" />
 
 
-<meta name="date" content="2026-02-22" />
+<meta name="date" content="2026-02-23" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -294,138 +294,8 @@
             <section class="normal" id="section-">
 <div id="integrated-rate-laws" class="section level1 hasAnchor" number="2">
 <h1><span class="header-section-number">Lecture 2</span> Integrated Rate Laws<a href="integrated-rate-laws.html#integrated-rate-laws" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>In the previous chapter, we defined reaction rates, wrote differential rate laws for elementary processes, and saw that the rate of a reaction generally depends on the concentrations of the reactants. These differential rate laws tell us the instantaneous rate at any given set of concentrations—but experimentally, what we usually measure is concentration as a function of time. To connect our differential rate laws to experimental data, we need to <em>integrate</em> them: converting a relationship between rate and concentration into a relationship between concentration and time.</p>
-<div id="from-differential-to-integrated-rate-laws" class="section level2 hasAnchor" number="2.1">
-<h2><span class="header-section-number">2.1</span> From Differential to Integrated Rate Laws<a href="integrated-rate-laws.html#from-differential-to-integrated-rate-laws" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>To integrate a differential rate law, we separate variables and integrate both sides between appropriate limits (using the techniques from the <a href="mathematical-foundations.html#mathematical-foundations">Mathematical Foundations</a> chapter). This gives us the <strong>integrated rate law</strong>: an equation that tells us the concentration <span class="math inline">\([\mathrm{A}]_t\)</span> as a function of time. We then rearrange this into a <strong>linear form</strong>, suitable for graphical analysis, for reasons that will become clear once we have derived the results for several different reaction orders. Figure <a href="integrated-rate-laws.html#fig:integrated-rate-laws-overview">2.1</a> summarises the results we will derive in this chapter for zeroth-, first-, and second-order reactions.</p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:integrated-rate-laws-overview"></span>
-<img src="lecture_2/figures/integrated_rate_laws_summary.png" alt="Overview of the integrated rate laws derived in this chapter. For each reaction order, we start from the differential rate law, integrate to obtain the integrated rate law, and then rearrange into a linear form suitable for graphical analysis." width="90%" />
-<p class="caption">
-Figure 2.1: Overview of the integrated rate laws derived in this chapter. For each reaction order, we start from the differential rate law, integrate to obtain the integrated rate law, and then rearrange into a linear form suitable for graphical analysis.
-</p>
-</div>
-</div>
-<div id="zeroth-order-reactions" class="section level2 hasAnchor" number="2.2">
-<h2><span class="header-section-number">2.2</span> Zeroth-Order Reactions<a href="integrated-rate-laws.html#zeroth-order-reactions" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>For a zeroth-order reaction, the rate is constant, independent of the concentration of the reactant:</p>
-<p><span class="math display">\[\frac{\mathrm{d}[\mathrm{A}]}{\mathrm{d}t} = -k\]</span></p>
-<p>Integrating both sides between <span class="math inline">\(t = 0\)</span> (when <span class="math inline">\([\mathrm{A}] = [\mathrm{A}]_0\)</span>) and time <span class="math inline">\(t\)</span> (when <span class="math inline">\([\mathrm{A}] = [\mathrm{A}]_t\)</span>):</p>
-<p><span class="math display">\[\int_{[\mathrm{A}]_0}^{[\mathrm{A}]_t} \mathrm{d}[\mathrm{A}] = \int_0^t -k\,\mathrm{d}t\]</span></p>
-<p><span class="math display">\[[\mathrm{A}]_t - [\mathrm{A}]_0 = -kt\]</span></p>
-<p>Rearranging gives the zeroth-order integrated rate law:</p>
-<p><span class="math display" id="eq:zeroth-order-integrated">\[\begin{equation}
-[\mathrm{A}]_t = [\mathrm{A}]_0 - kt
-\tag{2.1}
-\end{equation}\]</span></p>
-<p>This is already in linear form: a plot of <span class="math inline">\([\mathrm{A}]_t\)</span> against <span class="math inline">\(t\)</span> gives a straight line with slope <span class="math inline">\(-k\)</span> and intercept <span class="math inline">\([\mathrm{A}]_0\)</span>. Physically, a constant rate means the reaction proceeds at the same speed regardless of how much reactant remains—a situation that can arise, for example, when a reaction is limited by a saturated catalyst surface.</p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:zeroth-order-plot"></span>
-<img src="lecture_2/figures/zeroth_order_linear.png" alt="Zeroth-order kinetics: plotting $[\mathrm{A}]$ versus $t$ gives a straight line with slope $-k$ and intercept $[\mathrm{A}]_0$." width="45%" />
-<p class="caption">
-Figure 2.2: Zeroth-order kinetics: plotting <span class="math inline">\([\mathrm{A}]\)</span> versus <span class="math inline">\(t\)</span> gives a straight line with slope <span class="math inline">\(-k\)</span> and intercept <span class="math inline">\([\mathrm{A}]_0\)</span>.
-</p>
-</div>
-</div>
-<div id="first-order-reactions" class="section level2 hasAnchor" number="2.3">
-<h2><span class="header-section-number">2.3</span> First-Order Reactions<a href="integrated-rate-laws.html#first-order-reactions" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>For a first-order reaction, the rate is proportional to the concentration of the reactant:</p>
-<p><span class="math display">\[\frac{\mathrm{d}[\mathrm{A}]}{\mathrm{d}t} = -k[\mathrm{A}]\]</span></p>
-<p>We separate variables and integrate:</p>
-<p><span class="math display">\[\frac{\mathrm{d}[\mathrm{A}]}{[\mathrm{A}]} = -k\,\mathrm{d}t\]</span></p>
-<p><span class="math display">\[\int_{[\mathrm{A}]_0}^{[\mathrm{A}]_t} \frac{\mathrm{d}[\mathrm{A}]}{[\mathrm{A}]} = \int_0^t -k\,\mathrm{d}t\]</span></p>
-<p><span class="math display">\[\ln[\mathrm{A}]_t - \ln[\mathrm{A}]_0 = -kt\]</span></p>
-<p>This gives the first-order integrated rate law in linear form:</p>
-<p><span class="math display" id="eq:first-order-integrated-linear">\[\begin{equation}
-\ln[\mathrm{A}]_t = \ln[\mathrm{A}]_0 - kt
-\tag{2.2}
-\end{equation}\]</span></p>
-<p>A plot of <span class="math inline">\(\ln[\mathrm{A}]_t\)</span> against <span class="math inline">\(t\)</span> gives a straight line with slope <span class="math inline">\(-k\)</span> and intercept <span class="math inline">\(\ln[\mathrm{A}]_0\)</span>. Taking the exponential of both sides gives the equivalent exponential form:</p>
-<p><span class="math display" id="eq:first-order-integrated-exp">\[\begin{equation}
-[\mathrm{A}]_t = [\mathrm{A}]_0\,\mathrm{e}^{-kt}
-\tag{2.3}
-\end{equation}\]</span></p>
-<p>This is the exponential decay we derived from general principles in the <a href="mathematical-foundations.html#mathematical-foundations">Mathematical Foundations</a> chapter: whenever a quantity changes at a rate proportional to its current value, the result is an exponential function. First-order kinetics means the concentration decreases by the same <em>fraction</em> in each successive time interval.</p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:first-order-plot"></span>
-<img src="lecture_2/figures/first_order_linear.png" alt="First-order kinetics: plotting $\ln[\mathrm{A}]$ versus $t$ gives a straight line with slope $-k$ and intercept $\ln[\mathrm{A}]_0$." width="45%" />
-<p class="caption">
-Figure 2.3: First-order kinetics: plotting <span class="math inline">\(\ln[\mathrm{A}]\)</span> versus <span class="math inline">\(t\)</span> gives a straight line with slope <span class="math inline">\(-k\)</span> and intercept <span class="math inline">\(\ln[\mathrm{A}]_0\)</span>.
-</p>
-</div>
-</div>
-<div id="second-order-reactions" class="section level2 hasAnchor" number="2.4">
-<h2><span class="header-section-number">2.4</span> Second-Order Reactions<a href="integrated-rate-laws.html#second-order-reactions" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>For a second-order reaction in a single reactant (<span class="math inline">\(2\mathrm{A} \rightarrow \text{products}\)</span>):</p>
-<p><span class="math display">\[\frac{\mathrm{d}[\mathrm{A}]}{\mathrm{d}t} = -k[\mathrm{A}]^2\]</span></p>
-<p>Separating variables and integrating:</p>
-<p><span class="math display">\[\frac{\mathrm{d}[\mathrm{A}]}{[\mathrm{A}]^2} = -k\,\mathrm{d}t\]</span></p>
-<p><span class="math display">\[\int_{[\mathrm{A}]_0}^{[\mathrm{A}]_t} \frac{\mathrm{d}[\mathrm{A}]}{[\mathrm{A}]^2} = \int_0^t -k\,\mathrm{d}t\]</span></p>
-<p><span class="math display">\[-\frac{1}{[\mathrm{A}]_t} + \frac{1}{[\mathrm{A}]_0} = -kt\]</span></p>
-<p>Rearranging:</p>
-<p><span class="math display" id="eq:second-order-integrated">\[\begin{equation}
-\frac{1}{[\mathrm{A}]_t} = \frac{1}{[\mathrm{A}]_0} + kt
-\tag{2.4}
-\end{equation}\]</span></p>
-<p>A plot of <span class="math inline">\(1/[\mathrm{A}]_t\)</span> against <span class="math inline">\(t\)</span> gives a straight line with slope <span class="math inline">\(+k\)</span> and intercept <span class="math inline">\(1/[\mathrm{A}]_0\)</span>. Notice that the slope is positive here, unlike the zeroth- and first-order cases where it is negative.</p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:second-order-plot"></span>
-<img src="lecture_2/figures/second_order_linear.png" alt="Second-order kinetics: plotting $1/[\mathrm{A}]$ versus $t$ gives a straight line with slope $+k$ and intercept $1/[\mathrm{A}]_0$." width="45%" />
-<p class="caption">
-Figure 2.4: Second-order kinetics: plotting <span class="math inline">\(1/[\mathrm{A}]\)</span> versus <span class="math inline">\(t\)</span> gives a straight line with slope <span class="math inline">\(+k\)</span> and intercept <span class="math inline">\(1/[\mathrm{A}]_0\)</span>.
-</p>
-</div>
-<div class="skill">
-<p><strong>You should be able to:</strong> Derive the integrated rate law for a zeroth-, first-, or second-order reaction starting from the differential rate law, using separation of variables and integration.</p>
-</div>
-</div>
-<div id="summary-and-graphical-analysis" class="section level2 hasAnchor" number="2.5">
-<h2><span class="header-section-number">2.5</span> Summary and Graphical Analysis<a href="integrated-rate-laws.html#summary-and-graphical-analysis" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Now that we have worked through each derivation, the table below collects the key results previewed in Figure <a href="integrated-rate-laws.html#fig:integrated-rate-laws-overview">2.1</a>.</p>
-<table>
-<colgroup>
-<col width="27%" />
-<col width="22%" />
-<col width="22%" />
-<col width="27%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th align="center">Order</th>
-<th align="left">Integrated form</th>
-<th align="left">Linear plot</th>
-<th align="center">Slope</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="center">0</td>
-<td align="left"><span class="math inline">\([\mathrm{A}]_t = [\mathrm{A}]_0 - kt\)</span></td>
-<td align="left"><span class="math inline">\([\mathrm{A}]\)</span> vs <span class="math inline">\(t\)</span></td>
-<td align="center"><span class="math inline">\(-k\)</span></td>
-</tr>
-<tr class="even">
-<td align="center">1</td>
-<td align="left"><span class="math inline">\([\mathrm{A}]_t = [\mathrm{A}]_0\,\mathrm{e}^{-kt}\)</span></td>
-<td align="left"><span class="math inline">\(\ln[\mathrm{A}]\)</span> vs <span class="math inline">\(t\)</span></td>
-<td align="center"><span class="math inline">\(-k\)</span></td>
-</tr>
-<tr class="odd">
-<td align="center">2</td>
-<td align="left"><span class="math inline">\(\frac{1}{[\mathrm{A}]_t} = \frac{1}{[\mathrm{A}]_0} + kt\)</span></td>
-<td align="left"><span class="math inline">\(\frac{1}{[\mathrm{A}]}\)</span> vs <span class="math inline">\(t\)</span></td>
-<td align="center"><span class="math inline">\(+k\)</span></td>
-</tr>
-</tbody>
-</table>
-<p>Each reaction order predicts a different functional form for concentration as a function of time—a different curve shape. By rearranging each integrated rate law into a linear form, we can often distinguish consistent from inconsistent models by simple visual inspection: data that are consistent with a particular rate law will fall on a straight line in the corresponding plot, while data that are inconsistent will show a curve. We can therefore test candidate rate laws by plotting the same dataset in each of the three linear forms and seeing which (if any) gives a straight line. The slope of that line gives the rate constant (Figure <a href="integrated-rate-laws.html#fig:three-linear-forms">2.5</a>).</p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:three-linear-forms"></span>
-<img src="lecture_2/figures/three_linear_forms.png" alt="The linear form of the integrated rate law for each reaction order. In each case, concentration--time data that obey the corresponding rate law fall on a straight line, with the slope giving the rate constant and the intercept giving the initial concentration." width="90%" />
-<p class="caption">
-Figure 2.5: The linear form of the integrated rate law for each reaction order. In each case, concentration–time data that obey the corresponding rate law fall on a straight line, with the slope giving the rate constant and the intercept giving the initial concentration.
-</p>
-</div>
-<p>Although we derived these integrated rate laws for elementary processes, the same graphical tests apply whenever a reaction follows a simple rate law of the form <span class="math inline">\(\nu = k[\mathrm{A}]^n\)</span>—regardless of whether the underlying mechanism involves a single step or multiple steps.</p>
-</div>
-<div id="worked-example-decomposition-of-azomethane" class="section level2 hasAnchor" number="2.6">
-<h2><span class="header-section-number">2.6</span> Worked Example: Decomposition of Azomethane<a href="integrated-rate-laws.html#worked-example-decomposition-of-azomethane" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Let us apply the graphical analysis to a real dataset. The thermal decomposition of azomethane (CH<sub>3</sub>N<sub>2</sub>CH<sub>3</sub>) was studied at <span class="math inline">\(2.18 \times 10^4\,\mathrm{Pa}\)</span> and <span class="math inline">\(576\,\mathrm{K}\)</span>, yielding the following concentration–time data:</p>
+<p>In the previous chapter, we saw that rate laws provide a window into how reactions work at the molecular level. A simple bimolecular reaction such as <span class="math inline">\(\mathrm{A} + \mathrm{B} \rightarrow \mathrm{P}\)</span> has the straightforward rate law <span class="math inline">\(\nu = k[\mathrm{A}][\mathrm{B}]\)</span>, but the formation of HBr—despite its simple stoichiometry—follows a complex rate law that reflects a multi-step chain mechanism. Different mechanisms produce different rate laws. To use rate laws as a tool for understanding mechanisms, however, we first need to be able to extract them from experimental data.</p>
+<p>The challenge is that our rate laws are written in terms of rates—derivatives such as <span class="math inline">\(\mathrm{d}[\mathrm{A}]/\mathrm{d}t\)</span>—whereas what we typically measure in the laboratory is concentration as a function of time. Consider, for example, the thermal decomposition of azomethane (CH<sub>3</sub>N<sub>2</sub>CH<sub>3</sub>), studied at <span class="math inline">\(2.18 \times 10^4\,\mathrm{Pa}\)</span> and <span class="math inline">\(576\,\mathrm{K}\)</span>:</p>
 <table>
 <colgroup>
 <col width="12%" />
@@ -462,8 +332,177 @@ Figure 2.5: The linear form of the integrated rate law for each reaction order. 
 </tr>
 </tbody>
 </table>
-<p>We can test each of the three integrated rate laws by plotting the data in the corresponding linear form (as illustrated in Figure <a href="integrated-rate-laws.html#fig:three-linear-forms">2.5</a>). Plotting <span class="math inline">\(\ln[\text{azomethane}]\)</span> against <span class="math inline">\(t\)</span> gives a straight line, consistent with first-order kinetics, with slope <span class="math inline">\(-k = -9.6 \times 10^{-3}\,\mathrm{min}^{-1}\)</span>. Plotting <span class="math inline">\([\text{azomethane}]\)</span> against <span class="math inline">\(t\)</span> or <span class="math inline">\(1/[\text{azomethane}]\)</span> against <span class="math inline">\(t\)</span> would give curves rather than straight lines, ruling out zeroth- and second-order rate laws.</p>
-<p>In the next chapter, we will explore several complementary methods for determining rate laws from experimental data, returning to this dataset along the way.</p>
+<p>What is the rate law for this reaction? What is the rate constant? We cannot answer these questions just by inspecting the raw data—we need a strategy for connecting our differential rate laws to concentration–time measurements.</p>
+<p>The approach is straightforward: <em>propose</em> a rate law, <em>integrate</em> it to predict how <span class="math inline">\([\mathrm{A}]_t\)</span> should depend on time, and then <em>compare</em> that prediction with the experimental data. If the prediction fits, we have our rate law and rate constant; if not, we try a different order. In the sections that follow, we carry out this procedure for zeroth-, first-, and second-order reactions, and then return to the azomethane data to see which model fits.</p>
+<div id="from-differential-to-integrated-rate-laws" class="section level2 hasAnchor" number="2.1">
+<h2><span class="header-section-number">2.1</span> From Differential to Integrated Rate Laws<a href="integrated-rate-laws.html#from-differential-to-integrated-rate-laws" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>To integrate a differential rate law, we separate variables and integrate both sides between appropriate limits (using the techniques from the <a href="mathematical-foundations.html#mathematical-foundations">Mathematical Foundations</a> chapter). This gives us the <strong>integrated rate law</strong>: an equation that tells us the concentration <span class="math inline">\([\mathrm{A}]_t\)</span> as a function of time. We then rearrange this into a <strong>linear form</strong>, suitable for graphical analysis, for reasons that will become clear once we have derived the results for several different reaction orders.</p>
+</div>
+<div id="zeroth-order-reactions" class="section level2 hasAnchor" number="2.2">
+<h2><span class="header-section-number">2.2</span> Zeroth-Order Reactions<a href="integrated-rate-laws.html#zeroth-order-reactions" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>For a zeroth-order reaction, the rate is constant, independent of the concentration of the reactant:</p>
+<p><span class="math display">\[\frac{\mathrm{d}[\mathrm{A}]}{\mathrm{d}t} = -k\]</span></p>
+<p>Integrating both sides between <span class="math inline">\(t = 0\)</span> (when <span class="math inline">\([\mathrm{A}] = [\mathrm{A}]_0\)</span>) and time <span class="math inline">\(t\)</span> (when <span class="math inline">\([\mathrm{A}] = [\mathrm{A}]_t\)</span>):</p>
+<p><span class="math display">\[\int_{[\mathrm{A}]_0}^{[\mathrm{A}]_t} \mathrm{d}[\mathrm{A}] = \int_0^t -k\,\mathrm{d}t\]</span></p>
+<p><span class="math display">\[[\mathrm{A}]_t - [\mathrm{A}]_0 = -kt\]</span></p>
+<p>Rearranging gives the zeroth-order integrated rate law:</p>
+<p><span class="math display" id="eq:zeroth-order-integrated">\[\begin{equation}
+[\mathrm{A}]_t = [\mathrm{A}]_0 - kt
+\tag{2.1}
+\end{equation}\]</span></p>
+<p>This is already in linear form: a plot of <span class="math inline">\([\mathrm{A}]_t\)</span> against <span class="math inline">\(t\)</span> gives a straight line with slope <span class="math inline">\(-k\)</span> and intercept <span class="math inline">\([\mathrm{A}]_0\)</span>. Physically, a constant rate means the reaction proceeds at the same speed regardless of how much reactant remains—a situation that can arise, for example, when a reaction is limited by a saturated catalyst surface.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:zeroth-order-plot"></span>
+<img src="lecture_2/figures/zeroth_order_linear.png" alt="Zeroth-order kinetics: plotting $[\mathrm{A}]$ versus $t$ gives a straight line with slope $-k$ and intercept $[\mathrm{A}]_0$." width="45%" />
+<p class="caption">
+Figure 2.1: Zeroth-order kinetics: plotting <span class="math inline">\([\mathrm{A}]\)</span> versus <span class="math inline">\(t\)</span> gives a straight line with slope <span class="math inline">\(-k\)</span> and intercept <span class="math inline">\([\mathrm{A}]_0\)</span>.
+</p>
+</div>
+</div>
+<div id="first-order-reactions" class="section level2 hasAnchor" number="2.3">
+<h2><span class="header-section-number">2.3</span> First-Order Reactions<a href="integrated-rate-laws.html#first-order-reactions" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>For a first-order reaction, the rate is proportional to the concentration of the reactant:</p>
+<p><span class="math display">\[\frac{\mathrm{d}[\mathrm{A}]}{\mathrm{d}t} = -k[\mathrm{A}]\]</span></p>
+<p>We separate variables and integrate:</p>
+<p><span class="math display">\[\frac{\mathrm{d}[\mathrm{A}]}{[\mathrm{A}]} = -k\,\mathrm{d}t\]</span></p>
+<p><span class="math display">\[\int_{[\mathrm{A}]_0}^{[\mathrm{A}]_t} \frac{\mathrm{d}[\mathrm{A}]}{[\mathrm{A}]} = \int_0^t -k\,\mathrm{d}t\]</span></p>
+<p><span class="math display">\[\ln[\mathrm{A}]_t - \ln[\mathrm{A}]_0 = -kt\]</span></p>
+<p>This gives the first-order integrated rate law in linear form:</p>
+<p><span class="math display" id="eq:first-order-integrated-linear">\[\begin{equation}
+\ln[\mathrm{A}]_t = \ln[\mathrm{A}]_0 - kt
+\tag{2.2}
+\end{equation}\]</span></p>
+<p>A plot of <span class="math inline">\(\ln[\mathrm{A}]_t\)</span> against <span class="math inline">\(t\)</span> gives a straight line with slope <span class="math inline">\(-k\)</span> and intercept <span class="math inline">\(\ln[\mathrm{A}]_0\)</span>. Taking the exponential of both sides gives the equivalent exponential form:</p>
+<p><span class="math display" id="eq:first-order-integrated-exp">\[\begin{equation}
+[\mathrm{A}]_t = [\mathrm{A}]_0\,\mathrm{e}^{-kt}
+\tag{2.3}
+\end{equation}\]</span></p>
+<p>This is the exponential decay we derived from general principles in the <a href="mathematical-foundations.html#mathematical-foundations">Mathematical Foundations</a> chapter: whenever a quantity changes at a rate proportional to its current value, the result is an exponential function. First-order kinetics means the concentration decreases by the same <em>fraction</em> in each successive time interval.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:first-order-plot"></span>
+<img src="lecture_2/figures/first_order_linear.png" alt="First-order kinetics: plotting $\ln[\mathrm{A}]$ versus $t$ gives a straight line with slope $-k$ and intercept $\ln[\mathrm{A}]_0$." width="45%" />
+<p class="caption">
+Figure 2.2: First-order kinetics: plotting <span class="math inline">\(\ln[\mathrm{A}]\)</span> versus <span class="math inline">\(t\)</span> gives a straight line with slope <span class="math inline">\(-k\)</span> and intercept <span class="math inline">\(\ln[\mathrm{A}]_0\)</span>.
+</p>
+</div>
+</div>
+<div id="second-order-reactions" class="section level2 hasAnchor" number="2.4">
+<h2><span class="header-section-number">2.4</span> Second-Order Reactions<a href="integrated-rate-laws.html#second-order-reactions" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>For a second-order reaction in a single reactant (<span class="math inline">\(2\mathrm{A} \rightarrow \text{products}\)</span>):</p>
+<p><span class="math display">\[\frac{\mathrm{d}[\mathrm{A}]}{\mathrm{d}t} = -k[\mathrm{A}]^2\]</span></p>
+<p>Separating variables and integrating:</p>
+<p><span class="math display">\[\frac{\mathrm{d}[\mathrm{A}]}{[\mathrm{A}]^2} = -k\,\mathrm{d}t\]</span></p>
+<p><span class="math display">\[\int_{[\mathrm{A}]_0}^{[\mathrm{A}]_t} \frac{\mathrm{d}[\mathrm{A}]}{[\mathrm{A}]^2} = \int_0^t -k\,\mathrm{d}t\]</span></p>
+<p><span class="math display">\[-\frac{1}{[\mathrm{A}]_t} + \frac{1}{[\mathrm{A}]_0} = -kt\]</span></p>
+<p>Rearranging:</p>
+<p><span class="math display" id="eq:second-order-integrated">\[\begin{equation}
+\frac{1}{[\mathrm{A}]_t} = \frac{1}{[\mathrm{A}]_0} + kt
+\tag{2.4}
+\end{equation}\]</span></p>
+<p>A plot of <span class="math inline">\(1/[\mathrm{A}]_t\)</span> against <span class="math inline">\(t\)</span> gives a straight line with slope <span class="math inline">\(+k\)</span> and intercept <span class="math inline">\(1/[\mathrm{A}]_0\)</span>. Notice that the slope is positive here, unlike the zeroth- and first-order cases where it is negative.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:second-order-plot"></span>
+<img src="lecture_2/figures/second_order_linear.png" alt="Second-order kinetics: plotting $1/[\mathrm{A}]$ versus $t$ gives a straight line with slope $+k$ and intercept $1/[\mathrm{A}]_0$." width="45%" />
+<p class="caption">
+Figure 2.3: Second-order kinetics: plotting <span class="math inline">\(1/[\mathrm{A}]\)</span> versus <span class="math inline">\(t\)</span> gives a straight line with slope <span class="math inline">\(+k\)</span> and intercept <span class="math inline">\(1/[\mathrm{A}]_0\)</span>.
+</p>
+</div>
+<div class="skill">
+<p><strong>You should be able to:</strong> Derive the integrated rate law for a zeroth-, first-, or second-order reaction starting from the differential rate law, using separation of variables and integration.</p>
+</div>
+</div>
+<div id="summary-and-graphical-analysis" class="section level2 hasAnchor" number="2.5">
+<h2><span class="header-section-number">2.5</span> Summary and Graphical Analysis<a href="integrated-rate-laws.html#summary-and-graphical-analysis" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Now that we have worked through each case, the table below collects the key results.</p>
+<table>
+<colgroup>
+<col width="27%" />
+<col width="22%" />
+<col width="22%" />
+<col width="27%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="center">Order</th>
+<th align="left">Integrated form</th>
+<th align="left">Linear plot</th>
+<th align="center">Slope</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">0</td>
+<td align="left"><span class="math inline">\([\mathrm{A}]_t = [\mathrm{A}]_0 - kt\)</span></td>
+<td align="left"><span class="math inline">\([\mathrm{A}]\)</span> vs <span class="math inline">\(t\)</span></td>
+<td align="center"><span class="math inline">\(-k\)</span></td>
+</tr>
+<tr class="even">
+<td align="center">1</td>
+<td align="left"><span class="math inline">\([\mathrm{A}]_t = [\mathrm{A}]_0\,\mathrm{e}^{-kt}\)</span></td>
+<td align="left"><span class="math inline">\(\ln[\mathrm{A}]\)</span> vs <span class="math inline">\(t\)</span></td>
+<td align="center"><span class="math inline">\(-k\)</span></td>
+</tr>
+<tr class="odd">
+<td align="center">2</td>
+<td align="left"><span class="math inline">\(\frac{1}{[\mathrm{A}]_t} = \frac{1}{[\mathrm{A}]_0} + kt\)</span></td>
+<td align="left"><span class="math inline">\(\frac{1}{[\mathrm{A}]}\)</span> vs <span class="math inline">\(t\)</span></td>
+<td align="center"><span class="math inline">\(+k\)</span></td>
+</tr>
+</tbody>
+</table>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:integrated-rate-laws-overview"></span>
+<img src="lecture_2/figures/integrated_rate_laws_summary.png" alt="Summary of the integrated rate laws for zeroth-, first-, and second-order reactions. For each reaction order, the differential rate law is integrated to give an expression for $[\mathrm{A}]_t$, which is then rearranged into a linear form suitable for graphical analysis." width="90%" />
+<p class="caption">
+Figure 2.4: Summary of the integrated rate laws for zeroth-, first-, and second-order reactions. For each reaction order, the differential rate law is integrated to give an expression for <span class="math inline">\([\mathrm{A}]_t\)</span>, which is then rearranged into a linear form suitable for graphical analysis.
+</p>
+</div>
+<p>Each reaction order predicts a different functional form for concentration as a function of time—a different curve shape. By rearranging each integrated rate law into a linear form, we can distinguish consistent from inconsistent models by simple visual inspection: data that are consistent with a particular rate law will fall on a straight line in the corresponding plot, while data that are inconsistent will show a curve. We can therefore test candidate rate laws by plotting the same dataset in each of the three linear forms and seeing which (if any) gives a straight line. The slope of that line gives the rate constant (Figure <a href="integrated-rate-laws.html#fig:three-linear-forms">2.5</a>).</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:three-linear-forms"></span>
+<img src="lecture_2/figures/three_linear_forms.png" alt="The linear form of the integrated rate law for each reaction order. In each case, concentration--time data that obey the corresponding rate law fall on a straight line, with the slope giving the rate constant and the intercept giving the initial concentration." width="90%" />
+<p class="caption">
+Figure 2.5: The linear form of the integrated rate law for each reaction order. In each case, concentration–time data that obey the corresponding rate law fall on a straight line, with the slope giving the rate constant and the intercept giving the initial concentration.
+</p>
+</div>
+<p>Although we derived these integrated rate laws for elementary processes, the same graphical tests apply whenever a reaction follows a simple rate law of the form <span class="math inline">\(\nu = k[\mathrm{A}]^n\)</span>—regardless of whether the underlying mechanism involves a single step or multiple steps.</p>
+</div>
+<div id="worked-example-decomposition-of-azomethane" class="section level2 hasAnchor" number="2.6">
+<h2><span class="header-section-number">2.6</span> Worked Example: Decomposition of Azomethane<a href="integrated-rate-laws.html#worked-example-decomposition-of-azomethane" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Let us return to the azomethane data from the start of this chapter and put our new tools to work. Recall the concentration–time data for the thermal decomposition of azomethane at <span class="math inline">\(576\,\mathrm{K}\)</span>:</p>
+<table>
+<colgroup>
+<col width="12%" />
+<col width="12%" />
+<col width="12%" />
+<col width="12%" />
+<col width="12%" />
+<col width="12%" />
+<col width="12%" />
+<col width="12%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><span class="math inline">\(t\)</span> / min</th>
+<th>0</th>
+<th>30</th>
+<th>60</th>
+<th>90</th>
+<th>120</th>
+<th>150</th>
+<th>180</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\([\text{azomethane}]\)</span> / <span class="math inline">\(10^{-3}\,\mathrm{mol\,dm}^{-3}\)</span></td>
+<td>8.70</td>
+<td>6.52</td>
+<td>4.89</td>
+<td>3.67</td>
+<td>2.75</td>
+<td>2.06</td>
+<td>1.55</td>
+</tr>
+</tbody>
+</table>
+<p>We test each of the three integrated rate laws by plotting the data in the corresponding linear form (as illustrated in Figure <a href="integrated-rate-laws.html#fig:three-linear-forms">2.5</a>). Plotting <span class="math inline">\(\ln[\text{azomethane}]\)</span> against <span class="math inline">\(t\)</span> gives a straight line, consistent with first-order kinetics, with slope <span class="math inline">\(-k = -9.6 \times 10^{-3}\,\mathrm{min}^{-1}\)</span>. Plotting <span class="math inline">\([\text{azomethane}]\)</span> against <span class="math inline">\(t\)</span> or <span class="math inline">\(1/[\text{azomethane}]\)</span> against <span class="math inline">\(t\)</span> gives curves rather than straight lines, ruling out zeroth- and second-order rate laws.</p>
+<p>We now have our answer to the question posed at the start of this chapter: the decomposition of azomethane follows first-order kinetics, with a rate constant of <span class="math inline">\(k = 9.6 \times 10^{-3}\,\mathrm{min}^{-1}\)</span>.</p>
 <div class="skill">
 <p><strong>You should be able to:</strong> Test whether concentration–time data are consistent with a given reaction order by plotting in the appropriate linear form, and extract the rate constant from the slope.</p>
 </div>
@@ -480,12 +519,14 @@ kt = \frac{1}{[\mathrm{B}]_0 - [\mathrm{A}]_0} \ln\!\left(\frac{[\mathrm{B}]_t /
 <p>The derivation of this result is given in Appendix <a href="appendix-two-reactants.html#appendix-two-reactants">A</a>. You are not expected to reproduce this derivation, but it is worth noting that the result requires <span class="math inline">\([\mathrm{A}]_0 \neq [\mathrm{B}]_0\)</span> (otherwise the denominator is zero). If the initial concentrations are equal, the problem reduces to the single-reactant second-order case (Eqn. <a href="integrated-rate-laws.html#eq:second-order-integrated">(2.4)</a>).</p>
 <p>A common and powerful simplification is to use one reactant in large excess. If <span class="math inline">\([\mathrm{B}]_0 \gg [\mathrm{A}]_0\)</span>, then <span class="math inline">\([\mathrm{B}]\)</span> remains effectively constant throughout the reaction, and the rate law simplifies to:</p>
 <p><span class="math display">\[\frac{\mathrm{d}[\mathrm{A}]}{\mathrm{d}t} \approx -k&#39;[\mathrm{A}] \quad \text{where } k&#39; = k[\mathrm{B}]_0\]</span></p>
-<p>This is called a <em>pseudo-first-order</em> rate law: the reaction is second-order overall, but behaves as first-order under these conditions. We will explore the isolation method and pseudo-first-order kinetics fully in the next chapter.</p>
+<p>This is called a <em>pseudo-first-order</em> rate law: the reaction is second-order overall, but behaves as first-order under these conditions. The problem reduces to the first-order integrated rate law we have already derived—all of the graphical analysis from this chapter applies directly. We will explore the isolation method and pseudo-first-order kinetics fully in the next chapter.</p>
 </div>
 <div id="key-concepts-1" class="section level2 hasAnchor" number="2.8">
 <h2><span class="header-section-number">2.8</span> Key Concepts<a href="integrated-rate-laws.html#key-concepts-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ul>
+<li>The rate law tells us about the reaction mechanism, so extracting rate laws from experimental data is a central goal of chemical kinetics.</li>
 <li>Integrated rate laws relate concentration to time, connecting differential rate laws to experimentally measurable quantities.</li>
+<li>The strategy is: propose a rate law, integrate to predict <span class="math inline">\([\mathrm{A}]_t\)</span>, and compare with data.</li>
 <li>Each reaction order gives a different integrated rate law with a characteristic linear form.</li>
 <li>Plotting data in the appropriate linear form tests whether a given rate law is consistent with the data. A straight line confirms the proposed order; the slope gives the rate constant.</li>
 <li>For zeroth-order: <span class="math inline">\([\mathrm{A}]\)</span> vs <span class="math inline">\(t\)</span> is linear (slope <span class="math inline">\(-k\)</span>). For first-order: <span class="math inline">\(\ln[\mathrm{A}]\)</span> vs <span class="math inline">\(t\)</span> is linear (slope <span class="math inline">\(-k\)</span>). For second-order: <span class="math inline">\(1/[\mathrm{A}]\)</span> vs <span class="math inline">\(t\)</span> is linear (slope <span class="math inline">\(+k\)</span>).</li>
