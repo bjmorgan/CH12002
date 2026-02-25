@@ -38,13 +38,21 @@ While we have focused on linear transformations, modern computational methods al
 
 ## The Half-Life Method
 
-The half-life method provides a way to test for first-order kinetics without plotting a graph. It exploits a unique property of exponential functions: first-order kinetics gives exponential decay, and for an exponential decay the concentration always decreases by the same *fraction* in equal time intervals. If the concentration drops to 75% of its value in the first 30 minutes, it drops to 75% again in the next 30 minutes, and the next, regardless of the actual concentration. No other functional form has this property.
+The half-life method provides a way to test for first-order kinetics without plotting a graph. It exploits a unique property of exponential functions that is worth understanding before we define the half-life itself.
 
-### Deriving the Half-Life
+### A Special Property of Exponential Decay
 
 Recall from the previous chapter that for a first-order reaction:
 
 $$[\mathrm{A}]_t = [\mathrm{A}]_0\,\mathrm{e}^{-kt}$$
+
+What does this exponential decay actually look like? Consider the ratio of the concentration at two times separated by a fixed interval $\Delta t$:
+
+$$\frac{[\mathrm{A}]_{t+\Delta t}}{[\mathrm{A}]_t} = \frac{[\mathrm{A}]_0\,\mathrm{e}^{-k(t+\Delta t)}}{[\mathrm{A}]_0\,\mathrm{e}^{-kt}} = \mathrm{e}^{-k\Delta t}$$
+
+The initial concentration $[\mathrm{A}]_0$ cancels, and so does $t$ itself. The ratio depends only on $k$ and $\Delta t$ — not on when we start measuring or how much reactant remains. This means that in every time interval of the same length, the concentration decreases by the same *fraction*. If the concentration halves in the first 10 seconds, it halves again in the next 10 seconds, and the next, regardless of the actual concentration. No other functional form has this property — constant proportional change over equal time intervals is the signature of an exponential, and therefore of first-order kinetics.
+
+### Deriving the Half-Life
 
 The **half-life** ($t_{1/2}$) is the time taken for the concentration to fall to half its initial value. Setting $[\mathrm{A}]_t = \frac{1}{2}[\mathrm{A}]_0$:
 
@@ -103,7 +111,9 @@ $$\nu = k[\mathrm{A}]^\alpha[\mathrm{B}]^\beta$$
 
 The rate depends on both $[\mathrm{A}]$ and $[\mathrm{B}]$, which both change with time. How can we determine the partial orders $\alpha$ and $\beta$ separately?
 
-The **isolation method** simplifies the problem by making all but one reactant effectively constant. If we use B in large excess ($[\mathrm{B}]_0 \gg [\mathrm{A}]_0$), then B is consumed in negligible proportion during the reaction and $[\mathrm{B}]_t \approx [\mathrm{B}]_0$ throughout. The rate law becomes:
+We cannot simply apply the integral method here. For a single-reactant system, we could write a differential equation in one variable and integrate it. With two reactants, both concentrations change simultaneously, and the resulting differential equation generally cannot be solved analytically. Even in the special cases where an analytical solution exists, we do not know $\alpha$ and $\beta$ in advance — so we would not know which solution to try. We need a different approach.
+
+The **isolation method** sidesteps the problem by turning a two-variable system back into a one-variable system. The idea is to make all but one reactant effectively constant. If we use B in large excess — say $[\mathrm{B}]_0 = 1.000\,\mathrm{mol\,dm}^{-3}$ and $[\mathrm{A}]_0 = 0.010\,\mathrm{mol\,dm}^{-3}$ — then even after A is completely consumed, B has only dropped from $1.000$ to $0.990\,\mathrm{mol\,dm}^{-3}$: a change of just 1%. For all practical purposes, $[\mathrm{B}]$ has not changed. We can therefore write $[\mathrm{B}]_t \approx [\mathrm{B}]_0$ throughout the reaction, and the rate law becomes:
 
 $$\nu = k'[\mathrm{A}]^\alpha \quad \text{where } k' = k[\mathrm{B}]_0^\beta$$
 
@@ -149,16 +159,41 @@ $$\ln\nu_0 = (\ln k + \beta\ln[\mathrm{B}]_0) + \alpha\ln[\mathrm{A}]_0$$
 
 A plot of $\ln\nu_0$ versus $\ln[\mathrm{A}]_0$ gives a straight line with slope $\alpha$. Repeating with $[\mathrm{A}]_0$ held constant and $[\mathrm{B}]_0$ varied gives $\beta$ in the same way.
 
+### Worked Example: Determining Orders by Comparing Experiments
+
+In practice, when starting concentrations are chosen as simple multiples, we can often determine orders by direct comparison rather than plotting. Consider the following data for $\mathrm{A} + \mathrm{B} \rightarrow \text{products}$:
+
+| Experiment | $[\mathrm{A}]_0\,/\,\mathrm{mol\,dm}^{-3}$ | $[\mathrm{B}]_0\,/\,\mathrm{mol\,dm}^{-3}$ | $\nu_0\,/\,\mathrm{mol\,dm}^{-3}\,\mathrm{s}^{-1}$ |
+|:---:|:---:|:---:|:---:|
+| 1 | 0.10 | 0.10 | $1.2 \times 10^{-3}$ |
+| 2 | 0.20 | 0.10 | $2.4 \times 10^{-3}$ |
+| 3 | 0.10 | 0.20 | $4.8 \times 10^{-3}$ |
+
+**Finding $\alpha$:** Comparing experiments 1 and 2, $[\mathrm{B}]_0$ is the same, so the $[\mathrm{B}]_0^\beta$ terms cancel when we take the ratio of rates:
+
+$$\frac{\nu_{0,2}}{\nu_{0,1}} = \frac{k[\mathrm{A}]_{0,2}^\alpha[\mathrm{B}]_{0,2}^\beta}{k[\mathrm{A}]_{0,1}^\alpha[\mathrm{B}]_{0,1}^\beta} = \left(\frac{[\mathrm{A}]_{0,2}}{[\mathrm{A}]_{0,1}}\right)^\alpha = \left(\frac{0.20}{0.10}\right)^\alpha = 2^\alpha$$
+
+The measured ratio is $\nu_{0,2}/\nu_{0,1} = 2.4 \times 10^{-3}/1.2 \times 10^{-3} = 2$. So $2^\alpha = 2$, giving $\alpha = 1$: first order in A.
+
+**Finding $\beta$:** Comparing experiments 1 and 3, $[\mathrm{A}]_0$ is the same:
+
+$$\frac{\nu_{0,3}}{\nu_{0,1}} = \left(\frac{[\mathrm{B}]_{0,3}}{[\mathrm{B}]_{0,1}}\right)^\beta = \left(\frac{0.20}{0.10}\right)^\beta = 2^\beta$$
+
+The measured ratio is $4.8 \times 10^{-3}/1.2 \times 10^{-3} = 4$. So $2^\beta = 4$, giving $\beta = 2$: second order in B.
+
+The rate law is therefore $\nu = k[\mathrm{A}][\mathrm{B}]^2$. The underlying logic is the same as for the graphical method — we are changing one concentration at a time and seeing how the rate responds — but the comparison is immediate and does not require plotting. Notice that this is the same principle behind the isolation method: **control one variable, change the other, and see what happens**. In the isolation method we achieve this by flooding the system with excess of one reactant; here we achieve it by experimental design, choosing starting concentrations that differ in only one component.
+
 ::: {.skill}
-**You should be able to:** Use the method of initial rates to determine reaction orders from a series of experiments with varying starting concentrations.
+**You should be able to:** Use the method of initial rates to determine reaction orders, either by comparing pairs of experiments (the ratio method) or by plotting $\ln\nu_0$ versus $\ln[\mathrm{A}]_0$.
 :::
 
 ## Key Concepts
 
 - The **integral method** tests candidate rate laws by plotting concentration–time data in different linear forms. A straight line confirms the proposed order; a curve rules it out. The slope gives the rate constant.
-- The **half-life** for a first-order reaction is $t_{1/2} = \ln 2/k$, independent of initial concentration. More generally, constant proportional change over equal time intervals is diagnostic of first-order kinetics.
-- The **isolation method** simplifies multi-reactant kinetics by using one reactant in large excess, reducing the rate law to a pseudo-order form in the remaining reactant.
+- **Exponential decay** (first-order kinetics) has a unique signature: the concentration decreases by the same fraction in equal time intervals. This follows because the ratio $[\mathrm{A}]_{t+\Delta t}/[\mathrm{A}]_t = \mathrm{e}^{-k\Delta t}$ depends only on $k$ and $\Delta t$, not on the concentration itself.
+- The **half-life** for a first-order reaction is $t_{1/2} = \ln 2/k$, independent of initial concentration. Constant proportional change over equal time intervals is diagnostic of first-order kinetics.
+- The **isolation method** simplifies multi-reactant kinetics by using one reactant in large excess, reducing the rate law to a pseudo-order form in the remaining reactant. This works because the excess reactant is consumed in negligible proportion during the reaction.
 - Repeating isolation experiments at different excess concentrations and plotting $\ln k'$ versus $\ln[\mathrm{B}]_0$ determines both the partial order $\beta$ and the true rate constant $k$.
-- The **differential method** (initial rates) determines reaction orders by measuring $\nu_0$ at different starting concentrations. A plot of $\ln\nu_0$ versus $\ln[\mathrm{A}]_0$ (at constant $[\mathrm{B}]_0$) gives slope $\alpha$.
-- These four methods are complementary: the integral and half-life methods work best for single-reactant systems, while the isolation and differential methods handle multi-reactant systems.
+- The **method of initial rates** determines reaction orders by measuring $\nu_0$ at different starting concentrations. Orders can be found by comparing pairs of experiments (the ratio method) or by plotting $\ln\nu_0$ versus $\ln[\mathrm{A}]_0$ (at constant $[\mathrm{B}]_0$) and reading the slope.
+- All four methods rest on the same principle: **change one variable at a time**. The integral and half-life methods apply to single-reactant systems. For multi-reactant systems, the isolation method achieves single-variable behaviour by flooding with excess, while the method of initial rates achieves it by experimental design.
 
