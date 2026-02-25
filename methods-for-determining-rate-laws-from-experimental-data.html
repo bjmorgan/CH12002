@@ -23,7 +23,7 @@
 <meta name="author" content="Benjamin J. Morgan" />
 
 
-<meta name="date" content="2026-02-23" />
+<meta name="date" content="2026-02-25" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -135,15 +135,19 @@
 </ul></li>
 <li class="chapter" data-level="3.2" data-path="methods-for-determining-rate-laws-from-experimental-data.html"><a href="methods-for-determining-rate-laws-from-experimental-data.html#the-half-life-method"><i class="fa fa-check"></i><b>3.2</b> The Half-Life Method</a>
 <ul>
-<li class="chapter" data-level="3.2.1" data-path="methods-for-determining-rate-laws-from-experimental-data.html"><a href="methods-for-determining-rate-laws-from-experimental-data.html#deriving-the-half-life"><i class="fa fa-check"></i><b>3.2.1</b> Deriving the Half-Life</a></li>
-<li class="chapter" data-level="3.2.2" data-path="methods-for-determining-rate-laws-from-experimental-data.html"><a href="methods-for-determining-rate-laws-from-experimental-data.html#generalisation-constant-proportional-change"><i class="fa fa-check"></i><b>3.2.2</b> Generalisation: Constant Proportional Change</a></li>
-<li class="chapter" data-level="3.2.3" data-path="methods-for-determining-rate-laws-from-experimental-data.html"><a href="methods-for-determining-rate-laws-from-experimental-data.html#worked-example-azomethane-revisited"><i class="fa fa-check"></i><b>3.2.3</b> Worked Example: Azomethane Revisited</a></li>
+<li class="chapter" data-level="3.2.1" data-path="methods-for-determining-rate-laws-from-experimental-data.html"><a href="methods-for-determining-rate-laws-from-experimental-data.html#a-special-property-of-exponential-decay"><i class="fa fa-check"></i><b>3.2.1</b> A Special Property of Exponential Decay</a></li>
+<li class="chapter" data-level="3.2.2" data-path="methods-for-determining-rate-laws-from-experimental-data.html"><a href="methods-for-determining-rate-laws-from-experimental-data.html#deriving-the-half-life"><i class="fa fa-check"></i><b>3.2.2</b> Deriving the Half-Life</a></li>
+<li class="chapter" data-level="3.2.3" data-path="methods-for-determining-rate-laws-from-experimental-data.html"><a href="methods-for-determining-rate-laws-from-experimental-data.html#generalisation-constant-proportional-change"><i class="fa fa-check"></i><b>3.2.3</b> Generalisation: Constant Proportional Change</a></li>
+<li class="chapter" data-level="3.2.4" data-path="methods-for-determining-rate-laws-from-experimental-data.html"><a href="methods-for-determining-rate-laws-from-experimental-data.html#worked-example-azomethane-revisited"><i class="fa fa-check"></i><b>3.2.4</b> Worked Example: Azomethane Revisited</a></li>
 </ul></li>
 <li class="chapter" data-level="3.3" data-path="methods-for-determining-rate-laws-from-experimental-data.html"><a href="methods-for-determining-rate-laws-from-experimental-data.html#the-isolation-method"><i class="fa fa-check"></i><b>3.3</b> The Isolation Method</a>
 <ul>
 <li class="chapter" data-level="3.3.1" data-path="methods-for-determining-rate-laws-from-experimental-data.html"><a href="methods-for-determining-rate-laws-from-experimental-data.html#extracting-the-true-rate-constant"><i class="fa fa-check"></i><b>3.3.1</b> Extracting the True Rate Constant</a></li>
 </ul></li>
-<li class="chapter" data-level="3.4" data-path="methods-for-determining-rate-laws-from-experimental-data.html"><a href="methods-for-determining-rate-laws-from-experimental-data.html#the-differential-method-initial-rates"><i class="fa fa-check"></i><b>3.4</b> The Differential Method (Initial Rates)</a></li>
+<li class="chapter" data-level="3.4" data-path="methods-for-determining-rate-laws-from-experimental-data.html"><a href="methods-for-determining-rate-laws-from-experimental-data.html#the-differential-method-initial-rates"><i class="fa fa-check"></i><b>3.4</b> The Differential Method (Initial Rates)</a>
+<ul>
+<li class="chapter" data-level="3.4.1" data-path="methods-for-determining-rate-laws-from-experimental-data.html"><a href="methods-for-determining-rate-laws-from-experimental-data.html#worked-example-determining-orders-by-comparing-experiments"><i class="fa fa-check"></i><b>3.4.1</b> Worked Example: Determining Orders by Comparing Experiments</a></li>
+</ul></li>
 <li class="chapter" data-level="3.5" data-path="methods-for-determining-rate-laws-from-experimental-data.html"><a href="methods-for-determining-rate-laws-from-experimental-data.html#key-concepts-2"><i class="fa fa-check"></i><b>3.5</b> Key Concepts</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="complex-reaction-mechanisms.html"><a href="complex-reaction-mechanisms.html"><i class="fa fa-check"></i><b>4</b> Complex Reaction Mechanisms</a>
@@ -382,11 +386,17 @@ Figure 3.1: Testing the azomethane data against second-order kinetics. Plotting 
 </div>
 <div id="the-half-life-method" class="section level2 hasAnchor" number="3.2">
 <h2><span class="header-section-number">3.2</span> The Half-Life Method<a href="methods-for-determining-rate-laws-from-experimental-data.html#the-half-life-method" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>The half-life method provides a way to test for first-order kinetics without plotting a graph. It exploits a unique property of exponential functions: first-order kinetics gives exponential decay, and for an exponential decay the concentration always decreases by the same <em>fraction</em> in equal time intervals. If the concentration drops to 75% of its value in the first 30 minutes, it drops to 75% again in the next 30 minutes, and the next, regardless of the actual concentration. No other functional form has this property.</p>
-<div id="deriving-the-half-life" class="section level3 hasAnchor" number="3.2.1">
-<h3><span class="header-section-number">3.2.1</span> Deriving the Half-Life<a href="methods-for-determining-rate-laws-from-experimental-data.html#deriving-the-half-life" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The half-life method provides a way to test for first-order kinetics without plotting a graph. It exploits a unique property of exponential functions that is worth understanding before we define the half-life itself.</p>
+<div id="a-special-property-of-exponential-decay" class="section level3 hasAnchor" number="3.2.1">
+<h3><span class="header-section-number">3.2.1</span> A Special Property of Exponential Decay<a href="methods-for-determining-rate-laws-from-experimental-data.html#a-special-property-of-exponential-decay" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Recall from the previous chapter that for a first-order reaction:</p>
 <p><span class="math display">\[[\mathrm{A}]_t = [\mathrm{A}]_0\,\mathrm{e}^{-kt}\]</span></p>
+<p>What does this exponential decay actually look like? Consider the ratio of the concentration at two times separated by a fixed interval <span class="math inline">\(\Delta t\)</span>:</p>
+<p><span class="math display">\[\frac{[\mathrm{A}]_{t+\Delta t}}{[\mathrm{A}]_t} = \frac{[\mathrm{A}]_0\,\mathrm{e}^{-k(t+\Delta t)}}{[\mathrm{A}]_0\,\mathrm{e}^{-kt}} = \mathrm{e}^{-k\Delta t}\]</span></p>
+<p>The initial concentration <span class="math inline">\([\mathrm{A}]_0\)</span> cancels, and so does <span class="math inline">\(t\)</span> itself. The ratio depends only on <span class="math inline">\(k\)</span> and <span class="math inline">\(\Delta t\)</span> — not on when we start measuring or how much reactant remains. This means that in every time interval of the same length, the concentration decreases by the same <em>fraction</em>. If the concentration halves in the first 10 seconds, it halves again in the next 10 seconds, and the next, regardless of the actual concentration. No other functional form has this property — constant proportional change over equal time intervals is the signature of an exponential, and therefore of first-order kinetics.</p>
+</div>
+<div id="deriving-the-half-life" class="section level3 hasAnchor" number="3.2.2">
+<h3><span class="header-section-number">3.2.2</span> Deriving the Half-Life<a href="methods-for-determining-rate-laws-from-experimental-data.html#deriving-the-half-life" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The <strong>half-life</strong> (<span class="math inline">\(t_{1/2}\)</span>) is the time taken for the concentration to fall to half its initial value. Setting <span class="math inline">\([\mathrm{A}]_t = \frac{1}{2}[\mathrm{A}]_0\)</span>:</p>
 <p><span class="math display">\[\frac{1}{2}[\mathrm{A}]_0 = [\mathrm{A}]_0\,\mathrm{e}^{-kt_{1/2}}\]</span></p>
 <p><span class="math display">\[\frac{1}{2} = \mathrm{e}^{-kt_{1/2}}\]</span></p>
@@ -397,8 +407,8 @@ t_{1/2} = \frac{\ln 2}{k}
 \end{equation}\]</span></p>
 <p>Notice that <span class="math inline">\(t_{1/2}\)</span> depends only on <span class="math inline">\(k\)</span>, not on <span class="math inline">\([\mathrm{A}]_0\)</span>. The half-life is <em>constant</em>: it takes the same amount of time for the concentration to halve whether we start from <span class="math inline">\([\mathrm{A}]_0\)</span> or from any later concentration. This is a defining characteristic of first-order kinetics.</p>
 </div>
-<div id="generalisation-constant-proportional-change" class="section level3 hasAnchor" number="3.2.2">
-<h3><span class="header-section-number">3.2.2</span> Generalisation: Constant Proportional Change<a href="methods-for-determining-rate-laws-from-experimental-data.html#generalisation-constant-proportional-change" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="generalisation-constant-proportional-change" class="section level3 hasAnchor" number="3.2.3">
+<h3><span class="header-section-number">3.2.3</span> Generalisation: Constant Proportional Change<a href="methods-for-determining-rate-laws-from-experimental-data.html#generalisation-constant-proportional-change" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>There is nothing special about the factor of one-half. For a first-order reaction, the time taken for the concentration to fall to any fixed fraction <span class="math inline">\(1/n\)</span> of its starting value is constant:</p>
 <p><span class="math display" id="eq:first-order-t1n">\[\begin{equation}
 t_{1/n} = \frac{\ln n}{k}
@@ -406,8 +416,8 @@ t_{1/n} = \frac{\ln n}{k}
 \end{equation}\]</span></p>
 <p>This follows because exponential decay means the concentration decreases by the same <em>proportion</em> in each successive time interval of equal length. If the concentration falls by a factor of 0.75 in the first 30 minutes, it falls by a factor of 0.75 in the next 30 minutes, and the next, and so on. Any constant proportional change over equal time intervals is diagnostic of first-order kinetics.</p>
 </div>
-<div id="worked-example-azomethane-revisited" class="section level3 hasAnchor" number="3.2.3">
-<h3><span class="header-section-number">3.2.3</span> Worked Example: Azomethane Revisited<a href="methods-for-determining-rate-laws-from-experimental-data.html#worked-example-azomethane-revisited" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="worked-example-azomethane-revisited" class="section level3 hasAnchor" number="3.2.4">
+<h3><span class="header-section-number">3.2.4</span> Worked Example: Azomethane Revisited<a href="methods-for-determining-rate-laws-from-experimental-data.html#worked-example-azomethane-revisited" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>We can use this as an independent check on the azomethane data. Looking at the ratio of successive concentrations, each measured at 30-minute intervals:</p>
 <table>
 <colgroup>
@@ -476,7 +486,8 @@ t_{1/n} = \frac{\ln n}{k}
 <p>The integral and half-life methods work well for reactions involving a single reactant, but many reactions involve two or more species. Consider a reaction <span class="math inline">\(\mathrm{A} + \mathrm{B} \rightarrow \text{products}\)</span> with rate law:</p>
 <p><span class="math display">\[\nu = k[\mathrm{A}]^\alpha[\mathrm{B}]^\beta\]</span></p>
 <p>The rate depends on both <span class="math inline">\([\mathrm{A}]\)</span> and <span class="math inline">\([\mathrm{B}]\)</span>, which both change with time. How can we determine the partial orders <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\beta\)</span> separately?</p>
-<p>The <strong>isolation method</strong> simplifies the problem by making all but one reactant effectively constant. If we use B in large excess (<span class="math inline">\([\mathrm{B}]_0 \gg [\mathrm{A}]_0\)</span>), then B is consumed in negligible proportion during the reaction and <span class="math inline">\([\mathrm{B}]_t \approx [\mathrm{B}]_0\)</span> throughout. The rate law becomes:</p>
+<p>We cannot simply apply the integral method here. For a single-reactant system, we could write a differential equation in one variable and integrate it. With two reactants, both concentrations change simultaneously, and the resulting differential equation generally cannot be solved analytically. Even in the special cases where an analytical solution exists, we do not know <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\beta\)</span> in advance — so we would not know which solution to try. We need a different approach.</p>
+<p>The <strong>isolation method</strong> sidesteps the problem by turning a two-variable system back into a one-variable system. The idea is to make all but one reactant effectively constant. If we use B in large excess — say <span class="math inline">\([\mathrm{B}]_0 = 1.000\,\mathrm{mol\,dm}^{-3}\)</span> and <span class="math inline">\([\mathrm{A}]_0 = 0.010\,\mathrm{mol\,dm}^{-3}\)</span> — then even after A is completely consumed, B has only dropped from <span class="math inline">\(1.000\)</span> to <span class="math inline">\(0.990\,\mathrm{mol\,dm}^{-3}\)</span>: a change of just 1%. For all practical purposes, <span class="math inline">\([\mathrm{B}]\)</span> has not changed. We can therefore write <span class="math inline">\([\mathrm{B}]_t \approx [\mathrm{B}]_0\)</span> throughout the reaction, and the rate law becomes:</p>
 <p><span class="math display">\[\nu = k&#39;[\mathrm{A}]^\alpha \quad \text{where } k&#39; = k[\mathrm{B}]_0^\beta\]</span></p>
 <p>The reaction now behaves as if it depends only on <span class="math inline">\([\mathrm{A}]\)</span>, with a pseudo-rate constant <span class="math inline">\(k&#39;\)</span> that absorbs the (constant) concentration of B — a <strong>pseudo-<span class="math inline">\(\alpha\)</span>th-order</strong> rate law. In the previous chapter, we saw the specific case where <span class="math inline">\(\alpha = 1\)</span>, which gives pseudo-first-order kinetics. We can now apply the integral method or half-life method to determine <span class="math inline">\(\alpha\)</span>.</p>
 <p>To find <span class="math inline">\(\beta\)</span>, we repeat the experiment with A in large excess (<span class="math inline">\([\mathrm{A}]_0 \gg [\mathrm{B}]_0\)</span>). Now <span class="math inline">\([\mathrm{A}]_t \approx [\mathrm{A}]_0\)</span> and:</p>
@@ -504,19 +515,67 @@ t_{1/n} = \frac{\ln n}{k}
 <p>If we hold <span class="math inline">\([\mathrm{B}]_0\)</span> constant and vary <span class="math inline">\([\mathrm{A}]_0\)</span> across a series of experiments, the <span class="math inline">\(\beta\ln[\mathrm{B}]_0\)</span> term is the same in every experiment, and we can write:</p>
 <p><span class="math display">\[\ln\nu_0 = (\ln k + \beta\ln[\mathrm{B}]_0) + \alpha\ln[\mathrm{A}]_0\]</span></p>
 <p>A plot of <span class="math inline">\(\ln\nu_0\)</span> versus <span class="math inline">\(\ln[\mathrm{A}]_0\)</span> gives a straight line with slope <span class="math inline">\(\alpha\)</span>. Repeating with <span class="math inline">\([\mathrm{A}]_0\)</span> held constant and <span class="math inline">\([\mathrm{B}]_0\)</span> varied gives <span class="math inline">\(\beta\)</span> in the same way.</p>
+<div id="worked-example-determining-orders-by-comparing-experiments" class="section level3 hasAnchor" number="3.4.1">
+<h3><span class="header-section-number">3.4.1</span> Worked Example: Determining Orders by Comparing Experiments<a href="methods-for-determining-rate-laws-from-experimental-data.html#worked-example-determining-orders-by-comparing-experiments" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>In practice, when starting concentrations are chosen as simple multiples, we can often determine orders by direct comparison rather than plotting. Consider the following data for <span class="math inline">\(\mathrm{A} + \mathrm{B} \rightarrow \text{products}\)</span>:</p>
+<table>
+<colgroup>
+<col width="25%" />
+<col width="25%" />
+<col width="25%" />
+<col width="25%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="center">Experiment</th>
+<th align="center"><span class="math inline">\([\mathrm{A}]_0\,/\,\mathrm{mol\,dm}^{-3}\)</span></th>
+<th align="center"><span class="math inline">\([\mathrm{B}]_0\,/\,\mathrm{mol\,dm}^{-3}\)</span></th>
+<th align="center"><span class="math inline">\(\nu_0\,/\,\mathrm{mol\,dm}^{-3}\,\mathrm{s}^{-1}\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">1</td>
+<td align="center">0.10</td>
+<td align="center">0.10</td>
+<td align="center"><span class="math inline">\(1.2 \times 10^{-3}\)</span></td>
+</tr>
+<tr class="even">
+<td align="center">2</td>
+<td align="center">0.20</td>
+<td align="center">0.10</td>
+<td align="center"><span class="math inline">\(2.4 \times 10^{-3}\)</span></td>
+</tr>
+<tr class="odd">
+<td align="center">3</td>
+<td align="center">0.10</td>
+<td align="center">0.20</td>
+<td align="center"><span class="math inline">\(4.8 \times 10^{-3}\)</span></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Finding <span class="math inline">\(\alpha\)</span>:</strong> Comparing experiments 1 and 2, <span class="math inline">\([\mathrm{B}]_0\)</span> is the same, so the <span class="math inline">\([\mathrm{B}]_0^\beta\)</span> terms cancel when we take the ratio of rates:</p>
+<p><span class="math display">\[\frac{\nu_{0,2}}{\nu_{0,1}} = \frac{k[\mathrm{A}]_{0,2}^\alpha[\mathrm{B}]_{0,2}^\beta}{k[\mathrm{A}]_{0,1}^\alpha[\mathrm{B}]_{0,1}^\beta} = \left(\frac{[\mathrm{A}]_{0,2}}{[\mathrm{A}]_{0,1}}\right)^\alpha = \left(\frac{0.20}{0.10}\right)^\alpha = 2^\alpha\]</span></p>
+<p>The measured ratio is <span class="math inline">\(\nu_{0,2}/\nu_{0,1} = 2.4 \times 10^{-3}/1.2 \times 10^{-3} = 2\)</span>. So <span class="math inline">\(2^\alpha = 2\)</span>, giving <span class="math inline">\(\alpha = 1\)</span>: first order in A.</p>
+<p><strong>Finding <span class="math inline">\(\beta\)</span>:</strong> Comparing experiments 1 and 3, <span class="math inline">\([\mathrm{A}]_0\)</span> is the same:</p>
+<p><span class="math display">\[\frac{\nu_{0,3}}{\nu_{0,1}} = \left(\frac{[\mathrm{B}]_{0,3}}{[\mathrm{B}]_{0,1}}\right)^\beta = \left(\frac{0.20}{0.10}\right)^\beta = 2^\beta\]</span></p>
+<p>The measured ratio is <span class="math inline">\(4.8 \times 10^{-3}/1.2 \times 10^{-3} = 4\)</span>. So <span class="math inline">\(2^\beta = 4\)</span>, giving <span class="math inline">\(\beta = 2\)</span>: second order in B.</p>
+<p>The rate law is therefore <span class="math inline">\(\nu = k[\mathrm{A}][\mathrm{B}]^2\)</span>. The underlying logic is the same as for the graphical method — we are changing one concentration at a time and seeing how the rate responds — but the comparison is immediate and does not require plotting. Notice that this is the same principle behind the isolation method: <strong>control one variable, change the other, and see what happens</strong>. In the isolation method we achieve this by flooding the system with excess of one reactant; here we achieve it by experimental design, choosing starting concentrations that differ in only one component.</p>
 <div class="skill">
-<p><strong>You should be able to:</strong> Use the method of initial rates to determine reaction orders from a series of experiments with varying starting concentrations.</p>
+<p><strong>You should be able to:</strong> Use the method of initial rates to determine reaction orders, either by comparing pairs of experiments (the ratio method) or by plotting <span class="math inline">\(\ln\nu_0\)</span> versus <span class="math inline">\(\ln[\mathrm{A}]_0\)</span>.</p>
+</div>
 </div>
 </div>
 <div id="key-concepts-2" class="section level2 hasAnchor" number="3.5">
 <h2><span class="header-section-number">3.5</span> Key Concepts<a href="methods-for-determining-rate-laws-from-experimental-data.html#key-concepts-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ul>
 <li>The <strong>integral method</strong> tests candidate rate laws by plotting concentration–time data in different linear forms. A straight line confirms the proposed order; a curve rules it out. The slope gives the rate constant.</li>
-<li>The <strong>half-life</strong> for a first-order reaction is <span class="math inline">\(t_{1/2} = \ln 2/k\)</span>, independent of initial concentration. More generally, constant proportional change over equal time intervals is diagnostic of first-order kinetics.</li>
-<li>The <strong>isolation method</strong> simplifies multi-reactant kinetics by using one reactant in large excess, reducing the rate law to a pseudo-order form in the remaining reactant.</li>
+<li><strong>Exponential decay</strong> (first-order kinetics) has a unique signature: the concentration decreases by the same fraction in equal time intervals. This follows because the ratio <span class="math inline">\([\mathrm{A}]_{t+\Delta t}/[\mathrm{A}]_t = \mathrm{e}^{-k\Delta t}\)</span> depends only on <span class="math inline">\(k\)</span> and <span class="math inline">\(\Delta t\)</span>, not on the concentration itself.</li>
+<li>The <strong>half-life</strong> for a first-order reaction is <span class="math inline">\(t_{1/2} = \ln 2/k\)</span>, independent of initial concentration. Constant proportional change over equal time intervals is diagnostic of first-order kinetics.</li>
+<li>The <strong>isolation method</strong> simplifies multi-reactant kinetics by using one reactant in large excess, reducing the rate law to a pseudo-order form in the remaining reactant. This works because the excess reactant is consumed in negligible proportion during the reaction.</li>
 <li>Repeating isolation experiments at different excess concentrations and plotting <span class="math inline">\(\ln k&#39;\)</span> versus <span class="math inline">\(\ln[\mathrm{B}]_0\)</span> determines both the partial order <span class="math inline">\(\beta\)</span> and the true rate constant <span class="math inline">\(k\)</span>.</li>
-<li>The <strong>differential method</strong> (initial rates) determines reaction orders by measuring <span class="math inline">\(\nu_0\)</span> at different starting concentrations. A plot of <span class="math inline">\(\ln\nu_0\)</span> versus <span class="math inline">\(\ln[\mathrm{A}]_0\)</span> (at constant <span class="math inline">\([\mathrm{B}]_0\)</span>) gives slope <span class="math inline">\(\alpha\)</span>.</li>
-<li>These four methods are complementary: the integral and half-life methods work best for single-reactant systems, while the isolation and differential methods handle multi-reactant systems.</li>
+<li>The <strong>method of initial rates</strong> determines reaction orders by measuring <span class="math inline">\(\nu_0\)</span> at different starting concentrations. Orders can be found by comparing pairs of experiments (the ratio method) or by plotting <span class="math inline">\(\ln\nu_0\)</span> versus <span class="math inline">\(\ln[\mathrm{A}]_0\)</span> (at constant <span class="math inline">\([\mathrm{B}]_0\)</span>) and reading the slope.</li>
+<li>All four methods rest on the same principle: <strong>change one variable at a time</strong>. The integral and half-life methods apply to single-reactant systems. For multi-reactant systems, the isolation method achieves single-variable behaviour by flooding with excess, while the method of initial rates achieves it by experimental design.</li>
 </ul>
 
 </div>

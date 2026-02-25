@@ -103,12 +103,14 @@ methods-for-determining-rate-laws-from-experimental-data
 the-integral-method
 worked-example-azomethane-decomposition-revisited
 the-half-life-method
+a-special-property-of-exponential-decay
 deriving-the-half-life
 generalisation-constant-proportional-change
 worked-example-azomethane-revisited
 the-isolation-method
 extracting-the-true-rate-constant
 the-differential-method-initial-rates
+worked-example-determining-orders-by-comparing-experiments
 key-concepts-2
 complex-reaction-mechanisms
 consecutive-reactions
