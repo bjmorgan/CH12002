@@ -112,14 +112,14 @@ extracting-the-true-rate-constant
 the-differential-method-initial-rates
 worked-example-determining-orders-by-comparing-experiments
 key-concepts-2
-sec:complex-mechanisms
+complex-mechanisms
 consecutive-reactions
 solving-the-rate-equations
 the-rate-determining-step
 equilibrium-reactions
 pre-equilibrium-mechanisms
 key-concepts-3
-sec:ssa
+ssa
 the-idea-behind-the-steady-state-approximation
 sec:ssa-example-1
 limiting-cases
