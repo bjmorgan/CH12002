@@ -1,4 +1,4 @@
-# The Steady-State Approximation {#sec:ssa}
+# The Steady-State Approximation {#ssa}
 
 In the previous chapter, we saw that for the mechanism A + B $\rightleftharpoons$ C $\rightarrow$ D, we can write down the differential rate equations for every species, but we cannot derive an exact analytical expression for the overall rate of reaction in terms of the reactant concentrations alone. To make progress, we applied the **pre-equilibrium approximation**: we assumed $k_{-1} \gg k_2$, so that the first step has time to equilibrate before significant product forms. This gave us a tractable rate law — but one that is valid only in that specific limit.
 

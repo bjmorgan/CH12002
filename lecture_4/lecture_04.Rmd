@@ -1,4 +1,4 @@
-# Complex Reaction Mechanisms {#sec:complex-mechanisms}
+# Complex Reaction Mechanisms {#complex-mechanisms}
 
 So far, we have focused on reactions that can be described by a single rate law involving a single reactant. But most chemical reactions proceed through multiple elementary steps, often involving intermediate species that are formed and then consumed during the reaction. In this chapter, we develop the tools for analysing these more complex mechanisms: consecutive reactions, equilibrium reactions, and pre-equilibrium mechanisms.
 
