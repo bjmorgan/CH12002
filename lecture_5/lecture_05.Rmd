@@ -91,7 +91,7 @@ Notice that the two limits give the same functional form (both are second order 
 
 Figure \@ref(fig:ssa-limiting-cases) compares the SSA prediction with the exact numerical solution for this mechanism.
 
-```{r ssa-limiting-cases, echo=FALSE, fig.cap="Exact concentration profiles for the mechanism A + B ⇌ C → D (solid lines), together with the SSA prediction for [D] (dashed line). The intermediate C remains at low concentration throughout, consistent with the steady-state assumption. The SSA prediction closely matches the exact solution except at short times, where the intermediate has not yet reached its steady-state concentration and the approximation is least valid.", out.width='70%', fig.align='center'}
+```{r ssa-limiting-cases, echo=FALSE, fig.cap="Exact concentration profiles for the mechanism A + B ⇌ C → D (solid lines), together with the SSA prediction for [D] (dashed line). The intermediate C remains at low concentration throughout, consistent with the steady-state assumption. The SSA prediction closely matches the exact solution except at short times, where the intermediate has not yet reached its steady-state concentration and the approximation is least valid.", out.width='50%', fig.align='center'}
 knitr::include_graphics("lecture_5/figures/ssa_exact_vs_approximate.png")
 ```
 
