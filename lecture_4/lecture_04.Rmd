@@ -1,4 +1,4 @@
-# Complex Reaction Mechanisms
+# Complex Reaction Mechanisms {#sec:complex-mechanisms}
 
 So far, we have focused on reactions that can be described by a single rate law involving a single reactant. But most chemical reactions proceed through multiple elementary steps, often involving intermediate species that are formed and then consumed during the reaction. In this chapter, we develop the tools for analysing these more complex mechanisms: consecutive reactions, equilibrium reactions, and pre-equilibrium mechanisms.
 
@@ -22,24 +22,29 @@ The first equation is just first-order decay of A — we already know how to sol
 
 ### Solving the Rate Equations
 
-Starting with the initial conditions $[\mathrm{A}]_0 = [\mathrm{A}]_0$, $[\mathrm{B}]_0 = 0$, $[\mathrm{C}]_0 = 0$:
+Starting with only A present initially ($[\mathrm{B}]_0 = 0$, $[\mathrm{C}]_0 = 0$):
 
 The equation for A is a simple first-order decay, giving:
 
 $$[\mathrm{A}]_t = [\mathrm{A}]_0\,\mathrm{e}^{-k_1t}$$
 
-Substituting this into the equation for B gives a linear first-order differential equation whose solution is:
+Substituting this into the equation for B and solving gives:
 
 \begin{equation}
 [\mathrm{B}]_t = \frac{k_1}{k_2 - k_1}[\mathrm{A}]_0\left(\mathrm{e}^{-k_1t} - \mathrm{e}^{-k_2t}\right)
 (\#eq:consecutive-B)
 \end{equation}
 
-The derivation of this result requires techniques beyond this course and is not examinable — what matters is understanding the form of the solution and its physical meaning. The concentration of B is a *difference* of two exponentials: one representing its formation from A and the other its consumption to form C. This means $[\mathrm{B}]$ starts at zero, rises to a maximum, and then falls back to zero as B is consumed — the characteristic rise-and-fall profile of a reactive intermediate.
+We will walk through the first part of this derivation in the lecture. The key step is substituting the known solution for $[\mathrm{A}]_t$ into the equation for B, which gives a linear first-order differential equation that can be solved using an integrating factor. The final integral involved is beyond this course and is not examinable. What matters is understanding the form of the solution and its physical meaning. The concentration of B is a *difference* of two exponentials: one representing its formation from A and the other its consumption to form C. This means $[\mathrm{B}]$ starts at zero, rises to a maximum, and then falls back to zero as B is consumed — the characteristic rise-and-fall profile of a reactive intermediate (Figure \@ref(fig:consecutive-concentration-profiles)).
 
 For C, we use mass balance: since every molecule of A must end up as either A, B, or C, we have $[\mathrm{C}]_t = [\mathrm{A}]_0 - [\mathrm{A}]_t - [\mathrm{B}]_t$, which gives:
 
-$$[\mathrm{C}]_t = [\mathrm{A}]_0\left(1 + \frac{k_1\mathrm{e}^{-k_2t} - k_2\mathrm{e}^{-k_1t}}{k_2 - k_1}\right)$$
+\begin{equation}
+[\mathrm{C}]_t = [\mathrm{A}]_0\left(1 + \frac{k_1\mathrm{e}^{-k_2t} - k_2\mathrm{e}^{-k_1t}}{k_2 - k_1}\right)
+(\#eq:consecutive-C)
+\end{equation}
+
+Notice that as $t \to \infty$, both exponentials vanish and $[\mathrm{C}]_t \to [\mathrm{A}]_0$: all the reactant is eventually converted to product. For comparison, for a simple first-order reaction A $\to$ C with no intermediate, mass balance gives $[\mathrm{C}]_t = [\mathrm{A}]_0 - [\mathrm{A}]_t = [\mathrm{A}]_0(1 - \mathrm{e}^{-kt})$. The full expression for the consecutive case (Eqn. \@ref(eq:consecutive-C)) is more complex, but we shall see that it simplifies to exactly this form in important limiting cases.
 
 ```{r consecutive-concentration-profiles, echo=FALSE, fig.cap="Concentration profiles for the consecutive reaction A → B → C. The reactant A decays exponentially. The intermediate B rises to a maximum then falls. The product C increases monotonically towards $[\\mathrm{A}]_0$.", out.width='45%', fig.align='center'}
 knitr::include_graphics("lecture_4/figures/consecutive_profiles.png")
@@ -47,15 +52,17 @@ knitr::include_graphics("lecture_4/figures/consecutive_profiles.png")
 
 ### The Rate-Determining Step
 
-The behaviour of a consecutive reaction depends critically on the relative magnitudes of $k_1$ and $k_2$. Two limiting cases emerge, each with a clear physical interpretation.
+The behaviour of a consecutive reaction depends critically on the relative magnitudes of $k_1$ and $k_2$. Two limiting cases emerge from Eqn. \@ref(eq:consecutive-C), each with a clear physical interpretation. Let us take each in turn and see how the full expression simplifies.
 
 **When $k_1 \gg k_2$ (fast first step, slow second step):**
 
-A is consumed rapidly and B builds up to a high concentration before slowly converting to C. The overall rate of product formation is controlled by the slow second step — the first step "waits" for the second to catch up. In this limit, the expression for $[\mathrm{C}]_t$ simplifies to:
+A is consumed rapidly and B builds up to a high concentration before slowly converting to C. The overall rate of product formation is controlled by the slow second step — the first step "waits" for the second to catch up.
 
-$$[\mathrm{C}]_t \approx [\mathrm{A}]_0\left(1 - \mathrm{e}^{-k_2t}\right)$$
+To derive the limiting form, consider Eqn. \@ref(eq:consecutive-C). When $k_1 \gg k_2$, the exponential $\mathrm{e}^{-k_1t}$ decays much faster than $\mathrm{e}^{-k_2t}$, so at all but the very earliest times we can set $\mathrm{e}^{-k_1t} \approx 0$. In the denominator, $k_2 - k_1 \approx -k_1$. Substituting:
 
-The rate depends on $k_2$ but not on $k_1$: making the first step even faster does not speed up the overall reaction.
+$$[\mathrm{C}]_t \approx [\mathrm{A}]_0\left(1 + \frac{k_1\mathrm{e}^{-k_2t}}{-k_1}\right) = [\mathrm{A}]_0\left(1 - \mathrm{e}^{-k_2t}\right)$$
+
+The rate depends on $k_2$ but not on $k_1$: making the first step even faster does not speed up the overall reaction (Figure \@ref(fig:consecutive-fast-first-step)).
 
 ```{r consecutive-fast-first-step, echo=FALSE, fig.cap="Concentration profiles when $k_1 \\gg k_2$. The intermediate B builds up rapidly and then decays slowly. The second step is rate-determining: the overall rate depends on $k_2$ but not on $k_1$.", out.width='45%', fig.align='center'}
 knitr::include_graphics("lecture_4/figures/consecutive_fast_first_step.png")
@@ -63,25 +70,29 @@ knitr::include_graphics("lecture_4/figures/consecutive_fast_first_step.png")
 
 **When $k_1 \ll k_2$ (slow first step, fast second step):**
 
-A is consumed slowly, and B is converted to C almost as soon as it forms — so B never accumulates to a significant concentration. The overall rate is controlled by the slow first step. In this limit:
+A is consumed slowly, and B is converted to C almost as soon as it forms — so B never accumulates to a significant concentration. The overall rate is controlled by the slow first step.
 
-$$[\mathrm{C}]_t \approx [\mathrm{A}]_0\left(1 - \mathrm{e}^{-k_1t}\right)$$
+Now $\mathrm{e}^{-k_2t}$ decays much faster than $\mathrm{e}^{-k_1t}$, so we set $\mathrm{e}^{-k_2t} \approx 0$. In the denominator, $k_2 - k_1 \approx k_2$. Substituting into Eqn. \@ref(eq:consecutive-C):
 
-Now the rate depends on $k_1$ but not on $k_2$: making the second step even faster does not help.
+$$[\mathrm{C}]_t \approx [\mathrm{A}]_0\left(1 + \frac{- k_2\mathrm{e}^{-k_1t}}{k_2}\right) = [\mathrm{A}]_0\left(1 - \mathrm{e}^{-k_1t}\right)$$
+
+Now the rate depends on $k_1$ but not on $k_2$: making the second step even faster does not help (Figure \@ref(fig:consecutive-fast-second-step)).
 
 ```{r consecutive-fast-second-step, echo=FALSE, fig.cap="Concentration profiles when $k_1 \\ll k_2$. The intermediate B remains at low concentration throughout because it is consumed almost as fast as it forms. The first step is rate-determining.", out.width='45%', fig.align='center'}
 knitr::include_graphics("lecture_4/figures/consecutive_fast_second_step.png")
 ```
 
-In both cases, the overall rate is governed by the *slower* step. This is the **rate-determining step** (or rate-limiting step): the slowest step in a multi-step mechanism, which acts as a bottleneck controlling the overall rate of reaction. You can identify it from the concentration profiles: it is the step whose rate constant appears in the simplified expression for $[\mathrm{C}]_t$.
+In both cases, the overall rate is governed by the *slower* step — the **rate-determining step** (or rate-limiting step): the slowest step in a multi-step mechanism, which acts as a bottleneck for the overall rate. You can identify it from the concentration profiles: it is the step whose rate constant appears in the simplified expression for $[\mathrm{C}]_t$.
+
+Notice that both limiting expressions have the same functional form, $[\mathrm{C}]_t = [\mathrm{A}]_0(1 - \mathrm{e}^{-k_\mathrm{slow}t})$, which is identical to the product concentration for a simple first-order reaction. In each case, the consecutive mechanism reduces to *effective* first-order kinetics governed by the rate-determining step.
 
 ::: {.skill}
-**You should be able to:** Write differential rate equations for each species in a consecutive reaction A → B → C, describe qualitatively how the concentrations of reactant, intermediate, and product evolve with time, and identify the rate-determining step from the relative magnitudes of $k_1$ and $k_2$.
+**You should be able to:** Write differential rate equations for each species in a consecutive reaction A → B → C, describe qualitatively how the concentrations of reactant, intermediate, and product evolve with time, identify the rate-determining step from the relative magnitudes of $k_1$ and $k_2$, and given the full integrated rate law for $[\mathrm{C}]_t$, *derive* the simplified expressions for the limiting cases $k_1 \gg k_2$ and $k_1 \ll k_2$.
 :::
 
 ## Equilibrium Reactions
 
-Not all reactions go to completion. Many reach a **dynamic equilibrium** in which the forward and reverse reactions occur at equal rates, so the concentrations no longer change with time. Consider the simplest case:
+So far, our consecutive reaction A $\to$ B $\to$ C went to completion: all the reactant was eventually converted to product. In reality, *no* reaction goes fully to completion — every reaction eventually reaches **equilibrium**. Consider the simplest case:
 
 $$\mathrm{A} \underset{k_{-1}}{\stackrel{k_1}{\rightleftharpoons}} \mathrm{B}$$
 
@@ -91,7 +102,9 @@ $$\frac{\mathrm{d}[\mathrm{A}]}{\mathrm{d}t} = -k_1[\mathrm{A}] + k_{-1}[\mathrm
 
 $$\frac{\mathrm{d}[\mathrm{B}]}{\mathrm{d}t} = +k_1[\mathrm{A}] - k_{-1}[\mathrm{B}]$$
 
-At equilibrium, the concentrations stop changing: $\mathrm{d}[\mathrm{A}]/\mathrm{d}t = \mathrm{d}[\mathrm{B}]/\mathrm{d}t = 0$. Setting the rate equation for A equal to zero:
+An important point: when we say the system "reaches equilibrium", we do *not* mean the reaction has stopped. A and B are still interconverting — A is still forming B, and B is still forming A. What happens is that these two processes become equal and opposite, so the *net* change in $[\mathrm{A}]$ and $[\mathrm{B}]$ is zero. This is a **dynamic equilibrium**.
+
+Mathematically, setting the net rates to zero ($\mathrm{d}[\mathrm{A}]/\mathrm{d}t = \mathrm{d}[\mathrm{B}]/\mathrm{d}t = 0$) gives:
 
 $$k_1[\mathrm{A}]_\mathrm{eq} = k_{-1}[\mathrm{B}]_\mathrm{eq}$$
 
@@ -102,9 +115,9 @@ Rearranging:
 (\#eq:kinetic-equilibrium)
 \end{equation}
 
-This is a remarkable result. The equilibrium constant $K_\mathrm{eq}$ — which you will have met in thermodynamics as a ratio of concentrations at equilibrium — is here shown to equal the ratio of the forward and reverse rate constants. This connects **kinetics** (how fast reactions go) with **thermodynamics** (where the equilibrium lies). A large $K_\mathrm{eq}$ means the forward rate constant is much larger than the reverse: equilibrium lies to the right, favouring products. A small $K_\mathrm{eq}$ means the reverse reaction dominates: equilibrium lies to the left, favouring reactants.
+The equilibrium constant $K_\mathrm{eq}$ — the ratio of concentrations at equilibrium — equals the ratio of the forward and reverse rate constants. This connects **kinetics** (how fast reactions go) with **thermodynamics** (where the equilibrium lies). A large $K_\mathrm{eq}$ means the forward rate constant is much larger than the reverse: equilibrium lies to the right, favouring products. A small $K_\mathrm{eq}$ means the reverse reaction dominates: equilibrium lies to the left, favouring reactants.
 
-This relationship is general: for any elementary equilibrium, the equilibrium constant equals the ratio of the forward and reverse rate constants. It tells us that thermodynamic equilibrium is not a static state — it is a dynamic balance between opposing kinetic processes.
+This relationship is general: for any elementary equilibrium, the equilibrium constant equals the ratio of the forward and reverse rate constants.
 
 ::: {.skill}
 **You should be able to:** Write rate equations for a reversible reaction, derive the relationship $K_\mathrm{eq} = k_1/k_{-1}$ by setting the net rate to zero, and explain the connection between kinetics and thermodynamics.
@@ -116,19 +129,25 @@ We now combine the ideas of consecutive and equilibrium reactions. Consider a me
 
 $$\mathrm{A} + \mathrm{B} \underset{k_{-1}}{\stackrel{k_1}{\rightleftharpoons}} \mathrm{C} \xrightarrow{k_2} \mathrm{D}$$
 
-The rate equations for this mechanism are:
+As before, we write down rate equations for each species by tracking which steps produce and consume it:
+
+$$\frac{\mathrm{d}[\mathrm{A}]}{\mathrm{d}t} = -k_1[\mathrm{A}][\mathrm{B}] + k_{-1}[\mathrm{C}]$$
+
+$$\frac{\mathrm{d}[\mathrm{B}]}{\mathrm{d}t} = -k_1[\mathrm{A}][\mathrm{B}] + k_{-1}[\mathrm{C}]$$
+
+Notice that A and B have identical rate equations: they participate in the same steps with the same stoichiometry, and neither appears in the second step.
 
 $$\frac{\mathrm{d}[\mathrm{C}]}{\mathrm{d}t} = k_1[\mathrm{A}][\mathrm{B}] - k_{-1}[\mathrm{C}] - k_2[\mathrm{C}]$$
 
 $$\frac{\mathrm{d}[\mathrm{D}]}{\mathrm{d}t} = k_2[\mathrm{C}]$$
 
-In general, these equations cannot be solved analytically — they require numerical integration. But a powerful simplification is possible when $k_{-1} \gg k_2$: the reverse reaction of the first step is much faster than the forward reaction of the second step. Under these conditions, the first step reaches equilibrium long before a significant amount of D has been formed. The intermediate C is in equilibrium with A and B, even as it is slowly drained away by the second step. This is a **pre-equilibrium**.
+In general, these coupled equations cannot be solved analytically — they require numerical integration. The resulting concentration profiles are shown in Figure \@ref(fig:pre-equilibrium-profiles). But a powerful simplification is possible when $k_{-1} \gg k_2$: the reverse reaction of the first step is much faster than the forward reaction of the second step. Under these conditions, the first step reaches equilibrium long before a significant amount of D has been formed. The intermediate C is in equilibrium with A and B, even as it is slowly drained away by the second step. This is a **pre-equilibrium**.
 
 ```{r pre-equilibrium-profiles, echo=FALSE, fig.cap="Concentration profiles for the pre-equilibrium mechanism A + B ⇌ C → D. The intermediate C rapidly reaches a quasi-equilibrium concentration, then slowly depletes as product D forms.", out.width='45%', fig.align='center'}
 knitr::include_graphics("lecture_4/figures/pre_equilibrium_profiles.png")
 ```
 
-Since the first step is effectively at equilibrium, we can write:
+Since the first step is effectively at equilibrium, we can write:^[Strictly, the equilibrium constant $K$ is dimensionless and defined relative to a standard concentration $c^\circ = 1\,\mathrm{mol\,dm}^{-3}$, so $K = [\mathrm{C}]c^\circ/([\mathrm{A}][\mathrm{B}])$. For simplicity, we absorb $c^\circ$ into $K$ here, which is equivalent to working with concentrations expressed in $\mathrm{mol\,dm}^{-3}$.]
 
 $$\frac{[\mathrm{C}]}{[\mathrm{A}][\mathrm{B}]} = \frac{k_1}{k_{-1}} = K$$
 
@@ -139,11 +158,11 @@ $$[\mathrm{C}] = K[\mathrm{A}][\mathrm{B}]$$
 The overall rate of product formation is then:
 
 \begin{equation}
-\nu = \frac{\mathrm{d}[\mathrm{D}]}{\mathrm{d}t} = k_2[\mathrm{C}] = k_2K[\mathrm{A}][\mathrm{B}] = \frac{k_1 k_2}{k_{-1}}[\mathrm{A}][\mathrm{B}]
+\nu = \frac{\mathrm{d}[\mathrm{D}]}{\mathrm{d}t} = k_2[\mathrm{C}] = k_2K[\mathrm{A}][\mathrm{B}] = \frac{k_1 k_2}{k_{-1}}[\mathrm{A}][\mathrm{B}] = k_\mathrm{obs}[\mathrm{A}][\mathrm{B}]
 (\#eq:pre-equilibrium-rate)
 \end{equation}
 
-The result is a second-order rate law, even though the mechanism involves three elementary steps. The observed rate constant $k_\mathrm{obs} = k_1k_2/k_{-1}$ combines the individual rate constants from all three steps. This is a common outcome of pre-equilibrium mechanisms: the rate law looks simple, but the effective rate constant encodes information about the underlying multi-step mechanism.
+where $k_\mathrm{obs} = k_1k_2/k_{-1}$. The result is a second-order rate law, even though the mechanism involves two steps (three elementary processes). The observed rate constant combines the individual rate constants from all three steps — measuring $k_\mathrm{obs}$ alone does not tell us $k_1$, $k_{-1}$, and $k_2$ separately.
 
 The pre-equilibrium approximation applies whenever the first step equilibrates much faster than the second step proceeds — that is, when $k_{-1} \gg k_2$. If this condition is not met, we need a different approach. In the next chapter, we introduce the **steady-state approximation**, which provides a more general method for handling reactive intermediates and which reduces to the pre-equilibrium result as a special case.
 
@@ -155,7 +174,7 @@ The pre-equilibrium approximation applies whenever the first step equilibrates m
 
 - **Consecutive reactions** (A → B → C) involve intermediate species whose concentration rises then falls. Writing rate equations for each species requires tracking which steps produce and consume each species.
 - The **rate-determining step** is the slowest step in a multi-step mechanism. It acts as a bottleneck: the overall rate depends on the rate constant of this step, not the faster steps.
-- For **equilibrium reactions**, setting the net rate to zero gives $K_\mathrm{eq} = k_1/k_{-1}$, connecting kinetics (rate constants) to thermodynamics (the equilibrium constant).
+- **Equilibrium** is a dynamic state: forward and reverse reactions still occur, but at equal rates so the net change in concentration is zero. Setting the net rate to zero gives $K_\mathrm{eq} = k_1/k_{-1}$, connecting kinetics (rate constants) to thermodynamics (the equilibrium constant).
 - A **pre-equilibrium mechanism** arises when a fast reversible step establishes equilibrium before a slower step forms products. The approximation requires $k_{-1} \gg k_2$.
-- The pre-equilibrium approximation gives a simple overall rate law whose observed rate constant $k_\mathrm{obs} = k_1k_2/k_{-1}$ encodes information about all the elementary steps.
+- The pre-equilibrium approximation gives a simple overall rate law with an observed rate constant $k_\mathrm{obs} = k_1k_2/k_{-1}$ that combines the rate constants of all three elementary steps.
 - These methods provide the foundation for the **steady-state approximation** (next chapter), which generalises the treatment of reactive intermediates.
