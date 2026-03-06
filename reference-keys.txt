@@ -25,6 +25,7 @@ fig:consecutive-fast-second-step
 eq:kinetic-equilibrium
 fig:pre-equilibrium-profiles
 eq:pre-equilibrium-rate
+fig:pre-equilibrium-comparison
 fig:ssa-concept
 eq:ssa-rate-law
 fig:ssa-limiting-cases
@@ -64,6 +65,7 @@ eq:two-temperature
 fig:negative-ea
 fig:curved-arrhenius
 eq:appendix-second-order-two-reactants
+eq:consecutive-B-integrated
 working-with-exponentials-and-logarithms
 exponential-functions
 logarithmic-functions
@@ -189,3 +191,8 @@ what-does-a-negative-order-mean
 example-1-product-inhibition-in-h2-br2-rightarrow-2hbr
 example-2-competitive-adsorption-in-surface-reactions
 recognising-negative-orders
+integrating-factor
+identifying-the-standard-form
+applying-the-integrating-factor
+applying-the-initial-condition
+interpreting-the-result

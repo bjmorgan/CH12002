@@ -23,7 +23,7 @@
 <meta name="author" content="Benjamin J. Morgan" />
 
 
-<meta name="date" content="2026-03-02" />
+<meta name="date" content="2026-03-06" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -276,6 +276,13 @@
 <li class="chapter" data-level="C.3" data-path="appendix-negative-orders.html"><a href="appendix-negative-orders.html#example-2-competitive-adsorption-in-surface-reactions"><i class="fa fa-check"></i><b>C.3</b> Example 2: Competitive Adsorption in Surface Reactions</a></li>
 <li class="chapter" data-level="C.4" data-path="appendix-negative-orders.html"><a href="appendix-negative-orders.html#recognising-negative-orders"><i class="fa fa-check"></i><b>C.4</b> Recognising Negative Orders</a></li>
 </ul></li>
+<li class="chapter" data-level="D" data-path="integrating-factor.html"><a href="integrating-factor.html"><i class="fa fa-check"></i><b>D</b> Integrated Rate Law for Consecutive Reactions</a>
+<ul>
+<li class="chapter" data-level="D.1" data-path="integrating-factor.html"><a href="integrating-factor.html#identifying-the-standard-form"><i class="fa fa-check"></i><b>D.1</b> Identifying the Standard Form</a></li>
+<li class="chapter" data-level="D.2" data-path="integrating-factor.html"><a href="integrating-factor.html#applying-the-integrating-factor"><i class="fa fa-check"></i><b>D.2</b> Applying the Integrating Factor</a></li>
+<li class="chapter" data-level="D.3" data-path="integrating-factor.html"><a href="integrating-factor.html#applying-the-initial-condition"><i class="fa fa-check"></i><b>D.3</b> Applying the Initial Condition</a></li>
+<li class="chapter" data-level="D.4" data-path="integrating-factor.html"><a href="integrating-factor.html#interpreting-the-result"><i class="fa fa-check"></i><b>D.4</b> Interpreting the Result</a></li>
+</ul></li>
 </ul>
 
       </nav>
@@ -295,7 +302,7 @@
             <section class="normal" id="section-">
 <div id="complex-mechanisms" class="section level1 hasAnchor" number="4">
 <h1><span class="header-section-number">Lecture 4</span> Complex Reaction Mechanisms<a href="complex-mechanisms.html#complex-mechanisms" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>So far, we have focused on reactions that can be described by a single rate law involving a single reactant. But most chemical reactions proceed through multiple elementary steps, often involving intermediate species that are formed and then consumed during the reaction. In this chapter, we develop the tools for analysing these more complex mechanisms: consecutive reactions, equilibrium reactions, and pre-equilibrium mechanisms.</p>
+<p>So far, we have focused on reactions that can be described by a single rate law involving a single reactant. In <a href="introduction-to-chemical-kinetics.html#introduction-to-chemical-kinetics">Lecture 1</a>, we saw that the reaction H<sub>2</sub> + Br<sub>2</sub> → 2HBr has a complex rate law that cannot be written as a simple power law — and noted that a complex rate law always implies a multi-step mechanism. Most chemical reactions proceed through such multiple elementary steps, often involving intermediate species that are formed and then consumed during the reaction. In this chapter, we develop the tools for analysing these more complex mechanisms: consecutive reactions, equilibrium reactions, and pre-equilibrium mechanisms.</p>
 <div id="consecutive-reactions" class="section level2 hasAnchor" number="4.1">
 <h2><span class="header-section-number">4.1</span> Consecutive Reactions<a href="complex-mechanisms.html#consecutive-reactions" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Consider a reaction in which A is converted to a final product C, but not directly — instead, it proceeds through an intermediate B:</p>
@@ -322,7 +329,7 @@
 [\mathrm{C}]_t = [\mathrm{A}]_0\left(1 + \frac{k_1\mathrm{e}^{-k_2t} - k_2\mathrm{e}^{-k_1t}}{k_2 - k_1}\right)
 \tag{4.2}
 \end{equation}\]</span></p>
-<p>Notice that as <span class="math inline">\(t \to \infty\)</span>, both exponentials vanish and <span class="math inline">\([\mathrm{C}]_t \to [\mathrm{A}]_0\)</span>: all the reactant is eventually converted to product. For comparison, for a simple first-order reaction A <span class="math inline">\(\to\)</span> C with no intermediate, mass balance gives <span class="math inline">\([\mathrm{C}]_t = [\mathrm{A}]_0 - [\mathrm{A}]_t = [\mathrm{A}]_0(1 - \mathrm{e}^{-kt})\)</span>. The full expression for the consecutive case (Eqn. <a href="complex-mechanisms.html#eq:consecutive-C">(4.2)</a>) is more complex, but we shall see that it simplifies to exactly this form in important limiting cases.</p>
+<p>Notice that as <span class="math inline">\(t \to \infty\)</span>, both exponentials vanish and <span class="math inline">\([\mathrm{C}]_t \to [\mathrm{A}]_0\)</span>: all the reactant is eventually converted to product. Also notice that <span class="math inline">\([\mathrm{C}]\)</span> does not begin rising immediately: product can only form once the intermediate B is present, so there is a brief <strong>induction period</strong> at early times while B builds up from zero. For comparison, for a simple first-order reaction A <span class="math inline">\(\to\)</span> C with no intermediate, mass balance gives <span class="math inline">\([\mathrm{C}]_t = [\mathrm{A}]_0 - [\mathrm{A}]_t = [\mathrm{A}]_0(1 - \mathrm{e}^{-kt})\)</span>. The full expression for the consecutive case (Eqn. <a href="complex-mechanisms.html#eq:consecutive-C">(4.2)</a>) is more complex, but we shall see that it simplifies to exactly this form in important limiting cases.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:consecutive-concentration-profiles"></span>
 <img src="lecture_4/figures/consecutive_profiles.png" alt="Concentration profiles for the consecutive reaction A → B → C. The reactant A decays exponentially. The intermediate B rises to a maximum then falls. The product C increases monotonically towards $[\mathrm{A}]_0$." width="45%" />
 <p class="caption">
@@ -378,7 +385,7 @@ Figure 4.3: Concentration profiles when <span class="math inline">\(k_1 \ll k_2\
 \tag{4.3}
 \end{equation}\]</span></p>
 <p>The equilibrium constant <span class="math inline">\(K_\mathrm{eq}\)</span> — the ratio of concentrations at equilibrium — equals the ratio of the forward and reverse rate constants. This connects <strong>kinetics</strong> (how fast reactions go) with <strong>thermodynamics</strong> (where the equilibrium lies). A large <span class="math inline">\(K_\mathrm{eq}\)</span> means the forward rate constant is much larger than the reverse: equilibrium lies to the right, favouring products. A small <span class="math inline">\(K_\mathrm{eq}\)</span> means the reverse reaction dominates: equilibrium lies to the left, favouring reactants.</p>
-<p>This relationship is general: for any elementary equilibrium, the equilibrium constant equals the ratio of the forward and reverse rate constants.</p>
+<p>This relationship is general: for any elementary equilibrium, the equilibrium constant equals the ratio of the forward and reverse rate constants. If you have studied thermodynamics, you will recognise <span class="math inline">\(K_\mathrm{eq}\)</span> from the relationship <span class="math inline">\(\Delta G^\circ = -RT\ln K_\mathrm{eq}\)</span>. What we have shown here is that this thermodynamic quantity — which tells us <em>where</em> the equilibrium lies — is determined by the ratio of the forward and reverse <em>rate constants</em>.</p>
 <div class="skill">
 <p><strong>You should be able to:</strong> Write rate equations for a reversible reaction, derive the relationship <span class="math inline">\(K_\mathrm{eq} = k_1/k_{-1}\)</span> by setting the net rate to zero, and explain the connection between kinetics and thermodynamics.</p>
 </div>
@@ -410,7 +417,14 @@ Figure 4.4: Concentration profiles for the pre-equilibrium mechanism A + B ⇌ C
 \tag{4.4}
 \end{equation}\]</span></p>
 <p>where <span class="math inline">\(k_\mathrm{obs} = k_1k_2/k_{-1}\)</span>. The result is a second-order rate law, even though the mechanism involves two steps (three elementary processes). The observed rate constant combines the individual rate constants from all three steps — measuring <span class="math inline">\(k_\mathrm{obs}\)</span> alone does not tell us <span class="math inline">\(k_1\)</span>, <span class="math inline">\(k_{-1}\)</span>, and <span class="math inline">\(k_2\)</span> separately.</p>
-<p>The pre-equilibrium approximation applies whenever the first step equilibrates much faster than the second step proceeds — that is, when <span class="math inline">\(k_{-1} \gg k_2\)</span>. If this condition is not met, we need a different approach. In the next chapter, we introduce the <strong>steady-state approximation</strong>, which provides a more general method for handling reactive intermediates and which reduces to the pre-equilibrium result as a special case.</p>
+<p>How well does this approximation predict the concentration of product? Figure <a href="complex-mechanisms.html#fig:pre-equilibrium-comparison">4.5</a> compares the exact numerical solution for [D] (solid line) with the prediction from the pre-equilibrium rate law (dashed line). The approximate prediction captures the correct shape but systematically overestimates [D]. The reason is that the pre-equilibrium is not established instantaneously: at <span class="math inline">\(t = 0\)</span>, <span class="math inline">\([\mathrm{C}] = 0\)</span>, but the approximation assumes <span class="math inline">\([\mathrm{C}] = K[\mathrm{A}][\mathrm{B}]\)</span> from the outset. During the initial period while [C] builds up to its quasi-equilibrium value, the true rate of product formation is lower than the pre-equilibrium prediction, and this early overshoot is carried forward to all later times.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:pre-equilibrium-comparison"></span>
+<img src="lecture_4/figures/preequilibria_2.png" alt="Exact concentration profiles for the pre-equilibrium mechanism A + B ⇌ C → D (solid lines), with the prediction for [D] from the pre-equilibrium rate law shown as a dashed line. The approximate [D] overestimates the exact result because the approximation assumes the equilibrium is established from $t = 0$, whereas in reality [C] starts at zero and takes time to build up." width="50%" />
+<p class="caption">
+Figure 4.5: Exact concentration profiles for the pre-equilibrium mechanism A + B ⇌ C → D (solid lines), with the prediction for [D] from the pre-equilibrium rate law shown as a dashed line. The approximate [D] overestimates the exact result because the approximation assumes the equilibrium is established from <span class="math inline">\(t = 0\)</span>, whereas in reality [C] starts at zero and takes time to build up.
+</p>
+</div>
+<p>The pre-equilibrium approximation applies whenever the first step equilibrates much faster than the second step proceeds — that is, when <span class="math inline">\(k_{-1} \gg k_2\)</span>. If this condition is not met, we need a different approach. We can always <em>write down</em> the rate equations for any proposed mechanism — that is the straightforward part. <em>Solving</em> them is often the challenge, and approximations like the pre-equilibrium are what make that possible. In the next chapter, we introduce the <strong>steady-state approximation</strong>, which provides a more general method for handling reactive intermediates and which reduces to the pre-equilibrium result as a special case.</p>
 <div class="skill">
 <p><strong>You should be able to:</strong> Identify when a pre-equilibrium approximation is appropriate, apply it to derive an overall rate law, and explain why the observed rate constant <span class="math inline">\(k_\mathrm{obs} = k_1k_2/k_{-1}\)</span> depends on the rate constants of all three elementary steps.</p>
 </div>

@@ -23,7 +23,7 @@
 <meta name="author" content="Benjamin J. Morgan" />
 
 
-<meta name="date" content="2026-03-02" />
+<meta name="date" content="2026-03-06" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -276,6 +276,13 @@
 <li class="chapter" data-level="C.3" data-path="appendix-negative-orders.html"><a href="appendix-negative-orders.html#example-2-competitive-adsorption-in-surface-reactions"><i class="fa fa-check"></i><b>C.3</b> Example 2: Competitive Adsorption in Surface Reactions</a></li>
 <li class="chapter" data-level="C.4" data-path="appendix-negative-orders.html"><a href="appendix-negative-orders.html#recognising-negative-orders"><i class="fa fa-check"></i><b>C.4</b> Recognising Negative Orders</a></li>
 </ul></li>
+<li class="chapter" data-level="D" data-path="integrating-factor.html"><a href="integrating-factor.html"><i class="fa fa-check"></i><b>D</b> Integrated Rate Law for Consecutive Reactions</a>
+<ul>
+<li class="chapter" data-level="D.1" data-path="integrating-factor.html"><a href="integrating-factor.html#identifying-the-standard-form"><i class="fa fa-check"></i><b>D.1</b> Identifying the Standard Form</a></li>
+<li class="chapter" data-level="D.2" data-path="integrating-factor.html"><a href="integrating-factor.html#applying-the-integrating-factor"><i class="fa fa-check"></i><b>D.2</b> Applying the Integrating Factor</a></li>
+<li class="chapter" data-level="D.3" data-path="integrating-factor.html"><a href="integrating-factor.html#applying-the-initial-condition"><i class="fa fa-check"></i><b>D.3</b> Applying the Initial Condition</a></li>
+<li class="chapter" data-level="D.4" data-path="integrating-factor.html"><a href="integrating-factor.html#interpreting-the-result"><i class="fa fa-check"></i><b>D.4</b> Interpreting the Result</a></li>
+</ul></li>
 </ul>
 
       </nav>
@@ -295,12 +302,12 @@
             <section class="normal" id="section-">
 <div id="appendix-two-reactants" class="section level1 hasAnchor" number="11">
 <h1><span class="header-section-number">A</span> Integrated Rate Law for Two Different Reactants<a href="appendix-two-reactants.html#appendix-two-reactants" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>In Lecture 2, we stated without proof the integrated rate law for a reaction between two different species, <span class="math inline">\(\mathrm{A} + \mathrm{B} \rightarrow \text{products}\)</span>, with rate law <span class="math inline">\(\nu = k[\mathrm{A}][\mathrm{B}]\)</span>. Here we derive that result.</p>
+<p>In <a href="integrated-rate-laws.html#integrated-rate-laws">Lecture 2</a>, we stated without proof the integrated rate law for a reaction between two different species, <span class="math inline">\(\mathrm{A} + \mathrm{B} \rightarrow \text{products}\)</span>, with rate law <span class="math inline">\(\nu = k[\mathrm{A}][\mathrm{B}]\)</span>. Here we derive that result. The derivation is not examinable, but it illustrates how mass balance can be used to reduce a two-variable problem to a single-variable integral.</p>
 <div id="setting-up-the-problem" class="section level2 hasAnchor" number="11.1">
 <h2><span class="header-section-number">A.1</span> Setting Up the Problem<a href="appendix-two-reactants.html#setting-up-the-problem" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Both concentrations change with time, so the differential rate law</p>
 <p><span class="math display">\[\frac{\mathrm{d}[\mathrm{A}]}{\mathrm{d}t} = -k[\mathrm{A}][\mathrm{B}]\]</span></p>
-<p>contains two unknowns. To integrate, we need to express <span class="math inline">\([\mathrm{B}]\)</span> in terms of <span class="math inline">\([\mathrm{A}]\)</span>. For 1:1 stoichiometry, mass balance (Lecture 1) tells us that A and B are consumed in equal amounts, so at any time <span class="math inline">\(t\)</span>:</p>
+<p>contains two unknowns. To integrate, we need to express <span class="math inline">\([\mathrm{B}]\)</span> in terms of <span class="math inline">\([\mathrm{A}]\)</span>. For 1:1 stoichiometry, mass balance (<a href="introduction-to-chemical-kinetics.html#introduction-to-chemical-kinetics">Lecture 1</a>) tells us that A and B are consumed in equal amounts, so at any time <span class="math inline">\(t\)</span>:</p>
 <p><span class="math display">\[[\mathrm{A}]_0 - [\mathrm{A}]_t = [\mathrm{B}]_0 - [\mathrm{B}]_t\]</span></p>
 <p>Rearranging gives <span class="math inline">\([\mathrm{B}]_t = [\mathrm{B}]_0 - [\mathrm{A}]_0 + [\mathrm{A}]_t\)</span>. Writing <span class="math inline">\(\Delta = [\mathrm{B}]_0 - [\mathrm{A}]_0\)</span> for the difference in initial concentrations, the differential equation becomes:</p>
 <p><span class="math display">\[\frac{\mathrm{d}[\mathrm{A}]}{[\mathrm{A}]([\mathrm{A}] + \Delta)} = -k\,\mathrm{d}t\]</span></p>
@@ -322,7 +329,7 @@ kt = \frac{1}{[\mathrm{B}]_0 - [\mathrm{A}]_0}\ln\!\left(\frac{[\mathrm{B}]_t / 
 </div>
 <div id="the-equal-concentration-limit" class="section level2 hasAnchor" number="11.3">
 <h2><span class="header-section-number">A.3</span> The Equal-Concentration Limit<a href="appendix-two-reactants.html#the-equal-concentration-limit" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>This result requires <span class="math inline">\([\mathrm{A}]_0 \neq [\mathrm{B}]_0\)</span> (i.e. <span class="math inline">\(\Delta \neq 0\)</span>); otherwise the partial fraction decomposition breaks down (we cannot divide by zero). If the initial concentrations are equal, then by mass balance <span class="math inline">\([\mathrm{A}]_t = [\mathrm{B}]_t\)</span> at all times, so the rate law becomes <span class="math inline">\(\mathrm{d}[\mathrm{A}]/\mathrm{d}t = -k[\mathrm{A}]^2\)</span>. This is exactly the single-reactant second-order case already solved in Lecture 2 (Eqn. <a href="integrated-rate-laws.html#eq:second-order-integrated">(2.4)</a>).</p>
+<p>This result requires <span class="math inline">\([\mathrm{A}]_0 \neq [\mathrm{B}]_0\)</span> (i.e. <span class="math inline">\(\Delta \neq 0\)</span>); otherwise the partial fraction decomposition breaks down (we cannot divide by zero). If the initial concentrations are equal, then by mass balance <span class="math inline">\([\mathrm{A}]_t = [\mathrm{B}]_t\)</span> at all times, so the rate law becomes <span class="math inline">\(\mathrm{d}[\mathrm{A}]/\mathrm{d}t = -k[\mathrm{A}]^2\)</span>. This is exactly the single-reactant second-order case already solved in <a href="integrated-rate-laws.html#integrated-rate-laws">Lecture 2</a> (Eqn. <a href="integrated-rate-laws.html#eq:second-order-integrated">(2.4)</a>).</p>
 
 </div>
 </div>

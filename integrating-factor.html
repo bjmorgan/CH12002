@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Page not found | CH12002 Lecture Notes</title>
+  <title>D Integrated Rate Law for Consecutive Reactions | CH12002 Lecture Notes</title>
   <meta name="description" content="These are notes to accompany the CH12002 lecture course on Chemical Kinetics." />
   <meta name="generator" content="bookdown 0.46 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Page not found | CH12002 Lecture Notes" />
+  <meta property="og:title" content="D Integrated Rate Law for Consecutive Reactions | CH12002 Lecture Notes" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="These are notes to accompany the CH12002 lecture course on Chemical Kinetics." />
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Page not found | CH12002 Lecture Notes" />
+  <meta name="twitter:title" content="D Integrated Rate Law for Consecutive Reactions | CH12002 Lecture Notes" />
   
   <meta name="twitter:description" content="These are notes to accompany the CH12002 lecture course on Chemical Kinetics." />
   
@@ -30,7 +30,7 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
+<link rel="prev" href="appendix-negative-orders.html"/>
 
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
@@ -300,18 +300,57 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="page-not-found" class="section level1">
-<h1>Page not found</h1>
-<p>The page you requested cannot be found (perhaps it was moved or renamed).</p>
-<p>You may want to try searching to find the page's new location, or use
-the table of contents to find the page you are looking for.</p>
+<div id="integrating-factor" class="section level1 hasAnchor" number="14">
+<h1><span class="header-section-number">D</span> Integrated Rate Law for Consecutive Reactions<a href="integrating-factor.html#integrating-factor" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>In <a href="complex-mechanisms.html#complex-mechanisms">Lecture 4</a>, we wrote the differential rate equation for the intermediate B in the consecutive reaction <span class="math inline">\(\mathrm{A} \rightarrow \mathrm{B} \rightarrow \mathrm{C}\)</span>. The derivation below is not examinable, but it shows where the integrated rate law comes from and why the concentration profile of B has its characteristic shape. Substituting the first-order solution <span class="math inline">\([\mathrm{A}]_t = [\mathrm{A}]_0\mathrm{e}^{-k_1t}\)</span> gives:</p>
+<p><span class="math display">\[\frac{\mathrm{d}[\mathrm{B}]}{\mathrm{d}t} = k_1[\mathrm{A}]_0\mathrm{e}^{-k_1t} - k_2[\mathrm{B}]\]</span></p>
+<p>This cannot be solved by straightforward separation of variables, because both terms on the right-hand side involve time-dependent quantities. Instead, we use the <em>integrating factor method</em>.</p>
+<div id="identifying-the-standard-form" class="section level2 hasAnchor" number="14.1">
+<h2><span class="header-section-number">D.1</span> Identifying the Standard Form<a href="integrating-factor.html#identifying-the-standard-form" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Rearranging to collect the <span class="math inline">\([\mathrm{B}]\)</span> terms on the left gives a first-order linear ODE of the standard form <span class="math inline">\(\mathrm{d}y/\mathrm{d}t + P(t)\,y = Q(t)\)</span>:</p>
+<p><span class="math display">\[\frac{\mathrm{d}[\mathrm{B}]}{\mathrm{d}t} + k_2[\mathrm{B}] = k_1[\mathrm{A}]_0\mathrm{e}^{-k_1t}\]</span></p>
+<p>where <span class="math inline">\(P(t) = k_2\)</span> (a constant) and <span class="math inline">\(Q(t) = k_1[\mathrm{A}]_0\mathrm{e}^{-k_1t}\)</span>.</p>
 </div>
+<div id="applying-the-integrating-factor" class="section level2 hasAnchor" number="14.2">
+<h2><span class="header-section-number">D.2</span> Applying the Integrating Factor<a href="integrating-factor.html#applying-the-integrating-factor" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The integrating factor is <span class="math inline">\(\mu(t) = \mathrm{e}^{\int P(t)\,\mathrm{d}t} = \mathrm{e}^{k_2t}\)</span>. Multiplying both sides by <span class="math inline">\(\mathrm{e}^{k_2t}\)</span>:</p>
+<p><span class="math display">\[\mathrm{e}^{k_2t}\frac{\mathrm{d}[\mathrm{B}]}{\mathrm{d}t} + k_2[\mathrm{B}]\mathrm{e}^{k_2t} = k_1[\mathrm{A}]_0\mathrm{e}^{(k_2-k_1)t}\]</span></p>
+<p>The key step is recognising that the left-hand side is the derivative of a product:</p>
+<p><span class="math display">\[\frac{\mathrm{d}}{\mathrm{d}t}\!\left([\mathrm{B}]\mathrm{e}^{k_2t}\right) = k_1[\mathrm{A}]_0\mathrm{e}^{(k_2-k_1)t}\]</span></p>
+<p>Integrating both sides with respect to <span class="math inline">\(t\)</span>:</p>
+<p><span class="math display">\[[\mathrm{B}]\mathrm{e}^{k_2t} = \frac{k_1[\mathrm{A}]_0}{k_2-k_1}\mathrm{e}^{(k_2-k_1)t} + \alpha\]</span></p>
+<p>where <span class="math inline">\(\alpha\)</span> is the constant of integration. Dividing through by <span class="math inline">\(\mathrm{e}^{k_2t}\)</span>:</p>
+<p><span class="math display">\[[\mathrm{B}]_t = \frac{k_1[\mathrm{A}]_0}{k_2-k_1}\mathrm{e}^{-k_1t} + \alpha\mathrm{e}^{-k_2t}\]</span></p>
+</div>
+<div id="applying-the-initial-condition" class="section level2 hasAnchor" number="14.3">
+<h2><span class="header-section-number">D.3</span> Applying the Initial Condition<a href="integrating-factor.html#applying-the-initial-condition" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>At <span class="math inline">\(t = 0\)</span>, <span class="math inline">\([\mathrm{B}]_0 = 0\)</span> (we start with pure A), so:</p>
+<p><span class="math display">\[0 = \frac{k_1[\mathrm{A}]_0}{k_2-k_1} + \alpha\]</span></p>
+<p>giving <span class="math inline">\(\alpha = -k_1[\mathrm{A}]_0/(k_2-k_1)\)</span>. Substituting back:</p>
+<p><span class="math display" id="eq:consecutive-B-integrated">\[\begin{equation}
+[\mathrm{B}]_t = \frac{k_1[\mathrm{A}]_0}{k_2-k_1}\left(\mathrm{e}^{-k_1t} - \mathrm{e}^{-k_2t}\right)
+\tag{D.1}
+\end{equation}\]</span></p>
+</div>
+<div id="interpreting-the-result" class="section level2 hasAnchor" number="14.4">
+<h2><span class="header-section-number">D.4</span> Interpreting the Result<a href="integrating-factor.html#interpreting-the-result" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The concentration of B is the difference of two decaying exponentials — one decaying at rate <span class="math inline">\(k_1\)</span> (reflecting the supply of B from A) and the other at rate <span class="math inline">\(k_2\)</span> (reflecting the removal of B to form C). At short times, the <span class="math inline">\(\mathrm{e}^{-k_1t}\)</span> term dominates and <span class="math inline">\([\mathrm{B}]\)</span> rises; at longer times, <span class="math inline">\([\mathrm{A}]\)</span> is depleted and consumption of B overtakes its formation, so <span class="math inline">\([\mathrm{B}]\)</span> falls back towards zero. This gives the characteristic rise-and-fall profile discussed in <a href="complex-mechanisms.html#complex-mechanisms">Lecture 4</a>.</p>
+<p>Note that Eqn. <a href="integrating-factor.html#eq:consecutive-B-integrated">(D.1)</a> requires <span class="math inline">\(k_1 \neq k_2\)</span>; if the two rate constants are equal, the factor <span class="math inline">\(1/(k_2 - k_1)\)</span> diverges and the derivation above breaks down. The equal-rate-constant case requires a separate treatment (using L’Hôpital’s rule or re-solving the ODE directly), and gives <span class="math inline">\([\mathrm{B}]_t = k_1[\mathrm{A}]_0\,t\,\mathrm{e}^{-k_1t}\)</span>.</p>
+
+</div>
+</div>
+
+
+
+
+
+
             </section>
 
           </div>
         </div>
       </div>
-
+<a href="appendix-negative-orders.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 
     </div>
   </div>
@@ -343,7 +382,7 @@ gitbook.start({
     "size": 2
   },
   "edit": {
-    "link": "https://github.com/bjmorgan/CH12002/main/%s",
+    "link": "https://github.com/bjmorgan/CH12002/main/appendices/consecutive_reactions.Rmd",
     "text": "Edit"
   },
   "history": {

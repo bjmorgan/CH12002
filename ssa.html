@@ -23,7 +23,7 @@
 <meta name="author" content="Benjamin J. Morgan" />
 
 
-<meta name="date" content="2026-03-02" />
+<meta name="date" content="2026-03-06" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -276,6 +276,13 @@
 <li class="chapter" data-level="C.3" data-path="appendix-negative-orders.html"><a href="appendix-negative-orders.html#example-2-competitive-adsorption-in-surface-reactions"><i class="fa fa-check"></i><b>C.3</b> Example 2: Competitive Adsorption in Surface Reactions</a></li>
 <li class="chapter" data-level="C.4" data-path="appendix-negative-orders.html"><a href="appendix-negative-orders.html#recognising-negative-orders"><i class="fa fa-check"></i><b>C.4</b> Recognising Negative Orders</a></li>
 </ul></li>
+<li class="chapter" data-level="D" data-path="integrating-factor.html"><a href="integrating-factor.html"><i class="fa fa-check"></i><b>D</b> Integrated Rate Law for Consecutive Reactions</a>
+<ul>
+<li class="chapter" data-level="D.1" data-path="integrating-factor.html"><a href="integrating-factor.html#identifying-the-standard-form"><i class="fa fa-check"></i><b>D.1</b> Identifying the Standard Form</a></li>
+<li class="chapter" data-level="D.2" data-path="integrating-factor.html"><a href="integrating-factor.html#applying-the-integrating-factor"><i class="fa fa-check"></i><b>D.2</b> Applying the Integrating Factor</a></li>
+<li class="chapter" data-level="D.3" data-path="integrating-factor.html"><a href="integrating-factor.html#applying-the-initial-condition"><i class="fa fa-check"></i><b>D.3</b> Applying the Initial Condition</a></li>
+<li class="chapter" data-level="D.4" data-path="integrating-factor.html"><a href="integrating-factor.html#interpreting-the-result"><i class="fa fa-check"></i><b>D.4</b> Interpreting the Result</a></li>
+</ul></li>
 </ul>
 
       </nav>
@@ -351,13 +358,14 @@ Figure 5.1: Concentration profiles for the consecutive reaction A → B → C wh
 <p><span class="math display">\[\nu \approx \frac{k_1 k_2}{k_2}[\mathrm{A}][\mathrm{B}] = k_1[\mathrm{A}][\mathrm{B}]\]</span></p>
 <p>Now the overall rate depends only on <span class="math inline">\(k_1\)</span>. Once C is formed, it proceeds to D so rapidly that reversion to A + B is negligible. The first step is <em>made</em> irreversible by the fast second step, even though it is intrinsically reversible. The first step is therefore rate-determining, and the rate law is simply the rate of the first elementary step.</p>
 <p>Notice that the two limits give the same functional form (both are second order in A and B) but different effective rate constants: <span class="math inline">\(k_1 k_2/k_{-1}\)</span> in the pre-equilibrium limit and <span class="math inline">\(k_1\)</span> in the irreversible limit.</p>
-<p>Figure <a href="ssa.html#fig:ssa-limiting-cases">5.2</a> compares the SSA prediction with the exact numerical solution for this mechanism.</p>
+<p>We can test how well the SSA predicts the product concentration by comparing the approximate [D] (from the SSA rate law) with the exact numerical solution (Figure <a href="ssa.html#fig:ssa-limiting-cases">5.2</a>).</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:ssa-limiting-cases"></span>
-<img src="lecture_5/figures/ssa_exact_vs_approximate.png" alt="Exact concentration profiles for the mechanism A + B ⇌ C → D (solid lines), together with the SSA prediction for [D] (dashed line). The intermediate C remains at low concentration throughout, consistent with the steady-state assumption. The SSA prediction closely matches the exact solution except at short times, where the intermediate has not yet reached its steady-state concentration and the approximation is least valid." width="50%" />
+<img src="lecture_5/figures/ssa_exact_vs_approximate.png" alt="Exact concentration profiles for the mechanism A + B ⇌ C → D (solid lines), together with the prediction for [D] from the SSA rate law (dashed line). The intermediate C remains at low concentration throughout, consistent with the steady-state assumption. The SSA prediction closely matches the exact solution, with only a small discrepancy at short times while [C] builds up to its steady-state value." width="50%" />
 <p class="caption">
-Figure 5.2: Exact concentration profiles for the mechanism A + B ⇌ C → D (solid lines), together with the SSA prediction for [D] (dashed line). The intermediate C remains at low concentration throughout, consistent with the steady-state assumption. The SSA prediction closely matches the exact solution except at short times, where the intermediate has not yet reached its steady-state concentration and the approximation is least valid.
+Figure 5.2: Exact concentration profiles for the mechanism A + B ⇌ C → D (solid lines), together with the prediction for [D] from the SSA rate law (dashed line). The intermediate C remains at low concentration throughout, consistent with the steady-state assumption. The SSA prediction closely matches the exact solution, with only a small discrepancy at short times while [C] builds up to its steady-state value.
 </p>
 </div>
+<p>The agreement here is much closer than for the pre-equilibrium comparison in <a href="complex-mechanisms.html#complex-mechanisms">Lecture 4</a> (Figure <a href="complex-mechanisms.html#fig:pre-equilibrium-comparison">4.5</a>). Under SSA conditions, the intermediate [C] remains small throughout the reaction, so it reaches its steady-state concentration almost immediately and the induction period is negligibly short. More generally, the SSA is most reliable after this initial transient — the brief period during which the intermediate builds up from zero to its steady-state value. At the very start of a reaction, before the steady state has been established, the approximation is at its least accurate.</p>
 <div class="skill">
 <p><strong>You should be able to:</strong> Apply the steady-state approximation to the mechanism A + B ⇌ C → D by setting <span class="math inline">\(\mathrm{d}[\mathrm{C}]/\mathrm{d}t = 0\)</span>, derive the rate law <span class="math inline">\(\nu = k_1 k_2[\mathrm{A}][\mathrm{B}]/(k_{-1} + k_2)\)</span>, and show that the pre-equilibrium result is recovered when <span class="math inline">\(k_{-1} \gg k_2\)</span>.</p>
 </div>
@@ -406,6 +414,7 @@ Figure 5.2: Exact concentration profiles for the mechanism A + B ⇌ C → D (so
 <p>The <strong>pre-equilibrium approximation</strong> assumes that the first step genuinely reaches equilibrium before the slow step proceeds. This requires <span class="math inline">\(k_{-1} \gg k_2\)</span>: the reverse reaction of the first step must be much faster than the forward reaction of the second step. It gives a simple derivation and a clear physical picture, but applies only in this specific limit.</p>
 <p>The <strong>steady-state approximation</strong> assumes only that the intermediate’s concentration reaches a quasi-steady value — which can happen whether or not the first step is at equilibrium. For mechanisms involving reactive intermediates, the SSA covers a broader range of conditions and <em>reduces to</em> the pre-equilibrium result when <span class="math inline">\(k_{-1} \gg k_2\)</span>.</p>
 <p>In practice: if you are told (or can justify) that the first step is a fast equilibrium, the pre-equilibrium approach is quicker and gives the same answer. If no such information is given, or if you need a result that covers different limiting cases, use the SSA.</p>
+<p>As a final illustration, consider the simple consecutive reaction A <span class="math inline">\(\to\)</span> B <span class="math inline">\(\to\)</span> C from <a href="complex-mechanisms.html#complex-mechanisms">Lecture 4</a>, in the case <span class="math inline">\(k_2 \gg k_1\)</span> where B is a short-lived intermediate. The rate equation for B is <span class="math inline">\(\mathrm{d}[\mathrm{B}]/\mathrm{d}t = k_1[\mathrm{A}] - k_2[\mathrm{B}]\)</span>. Applying the SSA gives <span class="math inline">\(k_1[\mathrm{A}] = k_2[\mathrm{B}]_\mathrm{ss}\)</span>, so the overall rate of product formation is <span class="math inline">\(\nu = k_2[\mathrm{B}]_\mathrm{ss} = k_1[\mathrm{A}]\)</span> — first order with rate constant <span class="math inline">\(k_1\)</span>, exactly the rate-limiting step result we derived in <a href="complex-mechanisms.html#complex-mechanisms">Lecture 4</a> by analysing the limiting cases of the integrated rate law. The SSA provides a more direct route to the same conclusion.</p>
 </div>
 <div id="key-concepts-4" class="section level2 hasAnchor" number="5.5">
 <h2><span class="header-section-number">5.5</span> Key Concepts<a href="ssa.html#key-concepts-4" class="anchor-section" aria-label="Anchor link to header"></a></h2>

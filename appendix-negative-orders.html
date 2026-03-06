@@ -23,7 +23,7 @@
 <meta name="author" content="Benjamin J. Morgan" />
 
 
-<meta name="date" content="2026-03-02" />
+<meta name="date" content="2026-03-06" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -31,7 +31,7 @@
   
   
 <link rel="prev" href="appendix-third-body.html"/>
-
+<link rel="next" href="integrating-factor.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -276,6 +276,13 @@
 <li class="chapter" data-level="C.3" data-path="appendix-negative-orders.html"><a href="appendix-negative-orders.html#example-2-competitive-adsorption-in-surface-reactions"><i class="fa fa-check"></i><b>C.3</b> Example 2: Competitive Adsorption in Surface Reactions</a></li>
 <li class="chapter" data-level="C.4" data-path="appendix-negative-orders.html"><a href="appendix-negative-orders.html#recognising-negative-orders"><i class="fa fa-check"></i><b>C.4</b> Recognising Negative Orders</a></li>
 </ul></li>
+<li class="chapter" data-level="D" data-path="integrating-factor.html"><a href="integrating-factor.html"><i class="fa fa-check"></i><b>D</b> Integrated Rate Law for Consecutive Reactions</a>
+<ul>
+<li class="chapter" data-level="D.1" data-path="integrating-factor.html"><a href="integrating-factor.html#identifying-the-standard-form"><i class="fa fa-check"></i><b>D.1</b> Identifying the Standard Form</a></li>
+<li class="chapter" data-level="D.2" data-path="integrating-factor.html"><a href="integrating-factor.html#applying-the-integrating-factor"><i class="fa fa-check"></i><b>D.2</b> Applying the Integrating Factor</a></li>
+<li class="chapter" data-level="D.3" data-path="integrating-factor.html"><a href="integrating-factor.html#applying-the-initial-condition"><i class="fa fa-check"></i><b>D.3</b> Applying the Initial Condition</a></li>
+<li class="chapter" data-level="D.4" data-path="integrating-factor.html"><a href="integrating-factor.html#interpreting-the-result"><i class="fa fa-check"></i><b>D.4</b> Interpreting the Result</a></li>
+</ul></li>
 </ul>
 
       </nav>
@@ -295,7 +302,7 @@
             <section class="normal" id="section-">
 <div id="appendix-negative-orders" class="section level1 hasAnchor" number="13">
 <h1><span class="header-section-number">C</span> Negative Reaction Orders<a href="appendix-negative-orders.html#appendix-negative-orders" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>In Lecture 1, we defined the order of a reaction with respect to a given species as the exponent in the rate law. For the reactions we encounter in the main lectures, these exponents are positive integers or zero: increasing a reactant’s concentration either speeds up the reaction or has no effect. In some reactions, however, increasing the concentration of a particular species <em>slows down</em> the reaction. This unusual behaviour corresponds to a negative reaction order.</p>
+<p>In <a href="introduction-to-chemical-kinetics.html#introduction-to-chemical-kinetics">Lecture 1</a>, we defined the order of a reaction with respect to a given species as the exponent in the rate law. For the reactions we encounter in the main lectures, these exponents are positive integers or zero: increasing a reactant’s concentration either speeds up the reaction or has no effect. In some reactions, however, increasing the concentration of a particular species <em>slows down</em> the reaction. This unusual behaviour corresponds to a negative reaction order.</p>
 <p>This appendix explores how negative orders arise from underlying mechanisms. The material is not examinable, but it illustrates an important theme of the course: macroscopic rate laws encode information about microscopic mechanisms.</p>
 <div id="what-does-a-negative-order-mean" class="section level2 hasAnchor" number="13.1">
 <h2><span class="header-section-number">C.1</span> What Does a Negative Order Mean?<a href="appendix-negative-orders.html#what-does-a-negative-order-mean" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -305,18 +312,18 @@
 </div>
 <div id="example-1-product-inhibition-in-h2-br2-rightarrow-2hbr" class="section level2 hasAnchor" number="13.2">
 <h2><span class="header-section-number">C.2</span> Example 1: Product Inhibition in H<sub>2</sub> + Br<sub>2</sub> <span class="math inline">\(\rightarrow\)</span> 2HBr<a href="appendix-negative-orders.html#example-1-product-inhibition-in-h2-br2-rightarrow-2hbr" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>The formation of hydrogen bromide — a chain reaction discussed in detail in Lecture 9 — provides a classic example of product inhibition. The empirical rate law is:</p>
-<p><span class="math display">\[\nu = \frac{k[\mathrm{H_2}][\mathrm{Br_2}]^{1/2}}{1 + k&#39;[\mathrm{HBr}]/[\mathrm{Br_2}]}\]</span></p>
-<p>At high concentrations of HBr (specifically when <span class="math inline">\(k&#39;[\mathrm{HBr}]/[\mathrm{Br_2}] \gg 1\)</span>), this simplifies to:</p>
-<p><span class="math display">\[\nu \approx \frac{k[\mathrm{H_2}][\mathrm{Br_2}]^{3/2}}{k&#39;[\mathrm{HBr}]}\]</span></p>
+<p>The formation of hydrogen bromide — a chain reaction discussed in detail in <a href="chain-reactions.html#chain-reactions">Lecture 9</a> — provides a classic example of product inhibition. The empirical rate law is:</p>
+<p><span class="math display">\[\nu = \frac{k[\mathrm{H}_2][\mathrm{Br}_2]^{1/2}}{1 + k&#39;[\mathrm{HBr}]/[\mathrm{Br}_2]}\]</span></p>
+<p>At high concentrations of HBr (specifically when <span class="math inline">\(k&#39;[\mathrm{HBr}]/[\mathrm{Br}_2] \gg 1\)</span>), this simplifies to:</p>
+<p><span class="math display">\[\nu \approx \frac{k[\mathrm{H}_2][\mathrm{Br}_2]^{3/2}}{k&#39;[\mathrm{HBr}]}\]</span></p>
 <p>Here, HBr has an effective order of <span class="math inline">\(-1\)</span>. The very product we are trying to make inhibits its own formation.</p>
-<p>The origin lies in the chain mechanism. The key propagation steps produce HBr via reactive H<span class="math inline">\(^{\bullet}\)</span> radicals (Lecture 9), but HBr can also react with these same radicals:</p>
-<p><span class="math display">\[\mathrm{H}^{\bullet} + \mathrm{HBr} \rightarrow \mathrm{Br}^{\bullet} + \mathrm{H_2}\]</span></p>
+<p>The origin lies in the chain mechanism. The key propagation steps produce HBr via reactive H<span class="math inline">\(^{\bullet}\)</span> radicals (<a href="chain-reactions.html#chain-reactions">Lecture 9</a>), but HBr can also react with these same radicals:</p>
+<p><span class="math display">\[\mathrm{H}^{\bullet} + \mathrm{HBr} \rightarrow \mathrm{Br}^{\bullet} + \mathrm{H}_2\]</span></p>
 <p>This <em>chain inhibition</em> step consumes the very intermediates needed for product formation. The more HBr present, the more this reverse reaction competes with productive chain propagation, slowing the net rate. This is a general principle in chain kinetics: anything that consumes or deactivates chain-carrying intermediates produces negative kinetic behaviour.</p>
 </div>
 <div id="example-2-competitive-adsorption-in-surface-reactions" class="section level2 hasAnchor" number="13.3">
 <h2><span class="header-section-number">C.3</span> Example 2: Competitive Adsorption in Surface Reactions<a href="appendix-negative-orders.html#example-2-competitive-adsorption-in-surface-reactions" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Surface-catalysed reactions provide another important class of systems with negative orders, closely related to the Langmuir adsorption model discussed in Lecture 8.</p>
+<p>Surface-catalysed reactions provide another important class of systems with negative orders, closely related to the Langmuir adsorption model discussed in <a href="binding-and-catalysis.html#binding-and-catalysis">Lecture 8</a>.</p>
 <p>Unlike homogeneous reactions, surface processes require that reactants first <em>adsorb</em> onto the catalyst before they can react. The catalyst surface has a limited number of active sites, creating the potential for competition. For a typical surface reaction following the Langmuir–Hinshelwood mechanism:</p>
 <ol style="list-style-type: decimal">
 <li><span class="math inline">\(\mathrm{A}_{(\mathrm{g})} + {*} \rightleftharpoons \mathrm{A}{*}\)</span> (A adsorbs on an empty site <span class="math inline">\({*}\)</span>)</li>
@@ -324,7 +331,7 @@
 <li><span class="math inline">\(\mathrm{A}{*} + \mathrm{B}{*} \rightarrow \text{products} + 2{*}\)</span> (reaction between adsorbed species)</li>
 </ol>
 <p>The rate depends on having both A and B adsorbed on adjacent sites. If one species (say B) adsorbs much more strongly, or is present at very high pressure, it can monopolise the surface sites. Increasing the pressure of B then actually <em>decreases</em> the reaction rate, because B blocks the sites that A needs. This leads to a negative apparent order in B at high pressures, despite B being an essential reactant.</p>
-<p>This site-blocking effect is commonly observed in industrial catalysis. For example, in CO oxidation on platinum, excess CO can poison the catalyst by blocking oxygen adsorption sites. The mathematical framework from Lecture 8 — where the Langmuir isotherm describes surface coverage as a function of pressure — provides the quantitative basis for understanding these effects.</p>
+<p>This site-blocking effect is commonly observed in industrial catalysis. For example, in CO oxidation on platinum, excess CO can poison the catalyst by blocking oxygen adsorption sites. The mathematical framework from <a href="binding-and-catalysis.html#binding-and-catalysis">Lecture 8</a> — where the Langmuir isotherm describes surface coverage as a function of pressure — provides the quantitative basis for understanding these effects.</p>
 </div>
 <div id="recognising-negative-orders" class="section level2 hasAnchor" number="13.4">
 <h2><span class="header-section-number">C.4</span> Recognising Negative Orders<a href="appendix-negative-orders.html#recognising-negative-orders" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -337,19 +344,13 @@
 
 </div>
 </div>
-
-
-
-
-
-
             </section>
 
           </div>
         </div>
       </div>
-<a href="appendix-third-body.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-
+<a href="appendix-third-body.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="integrating-factor.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
