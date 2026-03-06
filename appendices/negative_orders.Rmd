@@ -1,6 +1,6 @@
 # Negative Reaction Orders {#appendix-negative-orders}
 
-In Lecture 1, we defined the order of a reaction with respect to a given species as the exponent in the rate law. For the reactions we encounter in the main lectures, these exponents are positive integers or zero: increasing a reactant's concentration either speeds up the reaction or has no effect. In some reactions, however, increasing the concentration of a particular species *slows down* the reaction. This unusual behaviour corresponds to a negative reaction order.
+In [Lecture 1](#introduction-to-chemical-kinetics), we defined the order of a reaction with respect to a given species as the exponent in the rate law. For the reactions we encounter in the main lectures, these exponents are positive integers or zero: increasing a reactant's concentration either speeds up the reaction or has no effect. In some reactions, however, increasing the concentration of a particular species *slows down* the reaction. This unusual behaviour corresponds to a negative reaction order.
 
 This appendix explores how negative orders arise from underlying mechanisms. The material is not examinable, but it illustrates an important theme of the course: macroscopic rate laws encode information about microscopic mechanisms.
 
@@ -14,25 +14,25 @@ increasing $[\mathrm{X}]$ decreases the reaction rate. The species X effectively
 
 ## Example 1: Product Inhibition in H~2~ + Br~2~ $\rightarrow$ 2HBr
 
-The formation of hydrogen bromide — a chain reaction discussed in detail in Lecture 9 — provides a classic example of product inhibition. The empirical rate law is:
+The formation of hydrogen bromide — a chain reaction discussed in detail in [Lecture 9](#chain-reactions) — provides a classic example of product inhibition. The empirical rate law is:
 
-$$\nu = \frac{k[\mathrm{H_2}][\mathrm{Br_2}]^{1/2}}{1 + k'[\mathrm{HBr}]/[\mathrm{Br_2}]}$$
+$$\nu = \frac{k[\mathrm{H}_2][\mathrm{Br}_2]^{1/2}}{1 + k'[\mathrm{HBr}]/[\mathrm{Br}_2]}$$
 
-At high concentrations of HBr (specifically when $k'[\mathrm{HBr}]/[\mathrm{Br_2}] \gg 1$), this simplifies to:
+At high concentrations of HBr (specifically when $k'[\mathrm{HBr}]/[\mathrm{Br}_2] \gg 1$), this simplifies to:
 
-$$\nu \approx \frac{k[\mathrm{H_2}][\mathrm{Br_2}]^{3/2}}{k'[\mathrm{HBr}]}$$
+$$\nu \approx \frac{k[\mathrm{H}_2][\mathrm{Br}_2]^{3/2}}{k'[\mathrm{HBr}]}$$
 
 Here, HBr has an effective order of $-1$. The very product we are trying to make inhibits its own formation.
 
-The origin lies in the chain mechanism. The key propagation steps produce HBr via reactive H$^{\bullet}$ radicals (Lecture 9), but HBr can also react with these same radicals:
+The origin lies in the chain mechanism. The key propagation steps produce HBr via reactive H$^{\bullet}$ radicals ([Lecture 9](#chain-reactions)), but HBr can also react with these same radicals:
 
-$$\mathrm{H}^{\bullet} + \mathrm{HBr} \rightarrow \mathrm{Br}^{\bullet} + \mathrm{H_2}$$
+$$\mathrm{H}^{\bullet} + \mathrm{HBr} \rightarrow \mathrm{Br}^{\bullet} + \mathrm{H}_2$$
 
 This *chain inhibition* step consumes the very intermediates needed for product formation. The more HBr present, the more this reverse reaction competes with productive chain propagation, slowing the net rate. This is a general principle in chain kinetics: anything that consumes or deactivates chain-carrying intermediates produces negative kinetic behaviour.
 
 ## Example 2: Competitive Adsorption in Surface Reactions
 
-Surface-catalysed reactions provide another important class of systems with negative orders, closely related to the Langmuir adsorption model discussed in Lecture 8.
+Surface-catalysed reactions provide another important class of systems with negative orders, closely related to the Langmuir adsorption model discussed in [Lecture 8](#binding-and-catalysis).
 
 Unlike homogeneous reactions, surface processes require that reactants first *adsorb* onto the catalyst before they can react. The catalyst surface has a limited number of active sites, creating the potential for competition. For a typical surface reaction following the Langmuir–Hinshelwood mechanism:
 
@@ -42,7 +42,7 @@ Unlike homogeneous reactions, surface processes require that reactants first *ad
 
 The rate depends on having both A and B adsorbed on adjacent sites. If one species (say B) adsorbs much more strongly, or is present at very high pressure, it can monopolise the surface sites. Increasing the pressure of B then actually *decreases* the reaction rate, because B blocks the sites that A needs. This leads to a negative apparent order in B at high pressures, despite B being an essential reactant.
 
-This site-blocking effect is commonly observed in industrial catalysis. For example, in CO oxidation on platinum, excess CO can poison the catalyst by blocking oxygen adsorption sites. The mathematical framework from Lecture 8 — where the Langmuir isotherm describes surface coverage as a function of pressure — provides the quantitative basis for understanding these effects.
+This site-blocking effect is commonly observed in industrial catalysis. For example, in CO oxidation on platinum, excess CO can poison the catalyst by blocking oxygen adsorption sites. The mathematical framework from [Lecture 8](#binding-and-catalysis) — where the Langmuir isotherm describes surface coverage as a function of pressure — provides the quantitative basis for understanding these effects.
 
 ## Recognising Negative Orders
 

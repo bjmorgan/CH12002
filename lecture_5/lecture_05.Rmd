@@ -89,11 +89,13 @@ Now the overall rate depends only on $k_1$. Once C is formed, it proceeds to D s
 
 Notice that the two limits give the same functional form (both are second order in A and B) but different effective rate constants: $k_1 k_2/k_{-1}$ in the pre-equilibrium limit and $k_1$ in the irreversible limit.
 
-Figure \@ref(fig:ssa-limiting-cases) compares the SSA prediction with the exact numerical solution for this mechanism.
+We can test how well the SSA predicts the product concentration by comparing the approximate [D] (from the SSA rate law) with the exact numerical solution (Figure \@ref(fig:ssa-limiting-cases)).
 
-```{r ssa-limiting-cases, echo=FALSE, fig.cap="Exact concentration profiles for the mechanism A + B ⇌ C → D (solid lines), together with the SSA prediction for [D] (dashed line). The intermediate C remains at low concentration throughout, consistent with the steady-state assumption. The SSA prediction closely matches the exact solution except at short times, where the intermediate has not yet reached its steady-state concentration and the approximation is least valid.", out.width='50%', fig.align='center'}
+```{r ssa-limiting-cases, echo=FALSE, fig.cap="Exact concentration profiles for the mechanism A + B ⇌ C → D (solid lines), together with the prediction for [D] from the SSA rate law (dashed line). The intermediate C remains at low concentration throughout, consistent with the steady-state assumption. The SSA prediction closely matches the exact solution, with only a small discrepancy at short times while [C] builds up to its steady-state value.", out.width='50%', fig.align='center'}
 knitr::include_graphics("lecture_5/figures/ssa_exact_vs_approximate.png")
 ```
+
+The agreement here is much closer than for the pre-equilibrium comparison in [Lecture 4](#complex-mechanisms) (Figure \@ref(fig:pre-equilibrium-comparison)). Under SSA conditions, the intermediate [C] remains small throughout the reaction, so it reaches its steady-state concentration almost immediately and the induction period is negligibly short. More generally, the SSA is most reliable after this initial transient — the brief period during which the intermediate builds up from zero to its steady-state value. At the very start of a reaction, before the steady state has been established, the approximation is at its least accurate.
 
 ::: {.skill}
 **You should be able to:** Apply the steady-state approximation to the mechanism A + B ⇌ C → D by setting $\mathrm{d}[\mathrm{C}]/\mathrm{d}t = 0$, derive the rate law $\nu = k_1 k_2[\mathrm{A}][\mathrm{B}]/(k_{-1} + k_2)$, and show that the pre-equilibrium result is recovered when $k_{-1} \gg k_2$.
@@ -169,6 +171,8 @@ The **pre-equilibrium approximation** assumes that the first step genuinely reac
 The **steady-state approximation** assumes only that the intermediate's concentration reaches a quasi-steady value — which can happen whether or not the first step is at equilibrium. For mechanisms involving reactive intermediates, the SSA covers a broader range of conditions and *reduces to* the pre-equilibrium result when $k_{-1} \gg k_2$.
 
 In practice: if you are told (or can justify) that the first step is a fast equilibrium, the pre-equilibrium approach is quicker and gives the same answer. If no such information is given, or if you need a result that covers different limiting cases, use the SSA.
+
+As a final illustration, consider the simple consecutive reaction A $\to$ B $\to$ C from [Lecture 4](#complex-mechanisms), in the case $k_2 \gg k_1$ where B is a short-lived intermediate. The rate equation for B is $\mathrm{d}[\mathrm{B}]/\mathrm{d}t = k_1[\mathrm{A}] - k_2[\mathrm{B}]$. Applying the SSA gives $k_1[\mathrm{A}] = k_2[\mathrm{B}]_\mathrm{ss}$, so the overall rate of product formation is $\nu = k_2[\mathrm{B}]_\mathrm{ss} = k_1[\mathrm{A}]$ — first order with rate constant $k_1$, exactly the rate-limiting step result we derived in [Lecture 4](#complex-mechanisms) by analysing the limiting cases of the integrated rate law. The SSA provides a more direct route to the same conclusion.
 
 ## Key Concepts
 

@@ -18,7 +18,8 @@ rmd_files: [
   "lecture_11/lecture_11.Rmd",
   "appendices/two_reactant_second_order.Rmd",
   "appendices/third_order.Rmd",
-  "appendices/negative_orders.Rmd"
+  "appendices/negative_orders.Rmd",
+  "appendices/consecutive_reactions.Rmd"
 ]
 
 output:

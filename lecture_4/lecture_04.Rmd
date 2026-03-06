@@ -1,6 +1,6 @@
 # Complex Reaction Mechanisms {#complex-mechanisms}
 
-So far, we have focused on reactions that can be described by a single rate law involving a single reactant. But most chemical reactions proceed through multiple elementary steps, often involving intermediate species that are formed and then consumed during the reaction. In this chapter, we develop the tools for analysing these more complex mechanisms: consecutive reactions, equilibrium reactions, and pre-equilibrium mechanisms.
+So far, we have focused on reactions that can be described by a single rate law involving a single reactant. In [Lecture 1](#introduction-to-chemical-kinetics), we saw that the reaction H~2~ + Br~2~ → 2HBr has a complex rate law that cannot be written as a simple power law — and noted that a complex rate law always implies a multi-step mechanism. Most chemical reactions proceed through such multiple elementary steps, often involving intermediate species that are formed and then consumed during the reaction. In this chapter, we develop the tools for analysing these more complex mechanisms: consecutive reactions, equilibrium reactions, and pre-equilibrium mechanisms.
 
 ## Consecutive Reactions
 
@@ -44,7 +44,7 @@ For C, we use mass balance: since every molecule of A must end up as either A, B
 (\#eq:consecutive-C)
 \end{equation}
 
-Notice that as $t \to \infty$, both exponentials vanish and $[\mathrm{C}]_t \to [\mathrm{A}]_0$: all the reactant is eventually converted to product. For comparison, for a simple first-order reaction A $\to$ C with no intermediate, mass balance gives $[\mathrm{C}]_t = [\mathrm{A}]_0 - [\mathrm{A}]_t = [\mathrm{A}]_0(1 - \mathrm{e}^{-kt})$. The full expression for the consecutive case (Eqn. \@ref(eq:consecutive-C)) is more complex, but we shall see that it simplifies to exactly this form in important limiting cases.
+Notice that as $t \to \infty$, both exponentials vanish and $[\mathrm{C}]_t \to [\mathrm{A}]_0$: all the reactant is eventually converted to product. Also notice that $[\mathrm{C}]$ does not begin rising immediately: product can only form once the intermediate B is present, so there is a brief **induction period** at early times while B builds up from zero. For comparison, for a simple first-order reaction A $\to$ C with no intermediate, mass balance gives $[\mathrm{C}]_t = [\mathrm{A}]_0 - [\mathrm{A}]_t = [\mathrm{A}]_0(1 - \mathrm{e}^{-kt})$. The full expression for the consecutive case (Eqn. \@ref(eq:consecutive-C)) is more complex, but we shall see that it simplifies to exactly this form in important limiting cases.
 
 ```{r consecutive-concentration-profiles, echo=FALSE, fig.cap="Concentration profiles for the consecutive reaction A → B → C. The reactant A decays exponentially. The intermediate B rises to a maximum then falls. The product C increases monotonically towards $[\\mathrm{A}]_0$.", out.width='45%', fig.align='center'}
 knitr::include_graphics("lecture_4/figures/consecutive_profiles.png")
@@ -117,7 +117,7 @@ Rearranging:
 
 The equilibrium constant $K_\mathrm{eq}$ — the ratio of concentrations at equilibrium — equals the ratio of the forward and reverse rate constants. This connects **kinetics** (how fast reactions go) with **thermodynamics** (where the equilibrium lies). A large $K_\mathrm{eq}$ means the forward rate constant is much larger than the reverse: equilibrium lies to the right, favouring products. A small $K_\mathrm{eq}$ means the reverse reaction dominates: equilibrium lies to the left, favouring reactants.
 
-This relationship is general: for any elementary equilibrium, the equilibrium constant equals the ratio of the forward and reverse rate constants.
+This relationship is general: for any elementary equilibrium, the equilibrium constant equals the ratio of the forward and reverse rate constants. If you have studied thermodynamics, you will recognise $K_\mathrm{eq}$ from the relationship $\Delta G^\circ = -RT\ln K_\mathrm{eq}$. What we have shown here is that this thermodynamic quantity — which tells us *where* the equilibrium lies — is determined by the ratio of the forward and reverse *rate constants*.
 
 ::: {.skill}
 **You should be able to:** Write rate equations for a reversible reaction, derive the relationship $K_\mathrm{eq} = k_1/k_{-1}$ by setting the net rate to zero, and explain the connection between kinetics and thermodynamics.
@@ -164,7 +164,13 @@ The overall rate of product formation is then:
 
 where $k_\mathrm{obs} = k_1k_2/k_{-1}$. The result is a second-order rate law, even though the mechanism involves two steps (three elementary processes). The observed rate constant combines the individual rate constants from all three steps — measuring $k_\mathrm{obs}$ alone does not tell us $k_1$, $k_{-1}$, and $k_2$ separately.
 
-The pre-equilibrium approximation applies whenever the first step equilibrates much faster than the second step proceeds — that is, when $k_{-1} \gg k_2$. If this condition is not met, we need a different approach. In the next chapter, we introduce the **steady-state approximation**, which provides a more general method for handling reactive intermediates and which reduces to the pre-equilibrium result as a special case.
+How well does this approximation predict the concentration of product? Figure \@ref(fig:pre-equilibrium-comparison) compares the exact numerical solution for [D] (solid line) with the prediction from the pre-equilibrium rate law (dashed line). The approximate prediction captures the correct shape but systematically overestimates [D]. The reason is that the pre-equilibrium is not established instantaneously: at $t = 0$, $[\mathrm{C}] = 0$, but the approximation assumes $[\mathrm{C}] = K[\mathrm{A}][\mathrm{B}]$ from the outset. During the initial period while [C] builds up to its quasi-equilibrium value, the true rate of product formation is lower than the pre-equilibrium prediction, and this early overshoot is carried forward to all later times.
+
+```{r pre-equilibrium-comparison, echo=FALSE, fig.cap="Exact concentration profiles for the pre-equilibrium mechanism A + B ⇌ C → D (solid lines), with the prediction for [D] from the pre-equilibrium rate law shown as a dashed line. The approximate [D] overestimates the exact result because the approximation assumes the equilibrium is established from $t = 0$, whereas in reality [C] starts at zero and takes time to build up.", out.width='50%', fig.align='center'}
+knitr::include_graphics("lecture_4/figures/preequilibria_2.png")
+```
+
+The pre-equilibrium approximation applies whenever the first step equilibrates much faster than the second step proceeds — that is, when $k_{-1} \gg k_2$. If this condition is not met, we need a different approach. We can always *write down* the rate equations for any proposed mechanism — that is the straightforward part. *Solving* them is often the challenge, and approximations like the pre-equilibrium are what make that possible. In the next chapter, we introduce the **steady-state approximation**, which provides a more general method for handling reactive intermediates and which reduces to the pre-equilibrium result as a special case.
 
 ::: {.skill}
 **You should be able to:** Identify when a pre-equilibrium approximation is appropriate, apply it to derive an overall rate law, and explain why the observed rate constant $k_\mathrm{obs} = k_1k_2/k_{-1}$ depends on the rate constants of all three elementary steps.

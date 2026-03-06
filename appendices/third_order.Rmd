@@ -1,6 +1,6 @@
 # Why Don't All Bimolecular Reactions Require a Third Body? {#appendix-third-body}
 
-In Lecture 7, we saw that ozone formation requires a third body to carry away the excess energy released when a new O–O bond forms (Section \@ref(sec:third-order)). The argument rested on energy and momentum conservation — principles that apply to *all* molecular collisions. This raises a natural question: if these constraints prevent a simple O + O~2~ reaction, why do we routinely observe second-order kinetics for other bimolecular reactions?
+In [Lecture 7](#unimolecular-reactions-and-collision-dynamics), we saw that ozone formation requires a third body to carry away the excess energy released when a new O–O bond forms (Section \@ref(sec:third-order)). The argument rested on energy and momentum conservation — principles that apply to *all* molecular collisions. This raises a natural question: if these constraints prevent a simple O + O~2~ reaction, why do we routinely observe second-order kinetics for other bimolecular reactions?
 
 This appendix explores the physical factors that determine whether a reaction can proceed without third-body assistance. The material is not examinable, but it deepens our understanding of why different reactions exhibit different kinetic behaviour.
 
@@ -35,4 +35,4 @@ Rather than a sharp divide, reactions span a spectrum. The likelihood of requiri
 
 Ozone formation sits at the extreme end of this spectrum — highly exothermic, barrierless, forming a small molecule with few internal degrees of freedom. Most bimolecular reactions we encounter in this course have some combination of activation barriers, moderate energy release, and greater molecular complexity that allows them to proceed as straightforward second-order processes.
 
-This explains an observation from Lecture 1: termolecular processes are rare, and apparent third-order kinetics usually arise from sequential bimolecular steps (as in the NO oxidation mechanism discussed in Lecture 7) rather than genuine three-body collisions.
+This explains an observation from [Lecture 1](#introduction-to-chemical-kinetics): termolecular processes are rare, and apparent third-order kinetics usually arise from sequential bimolecular steps (as in the NO oxidation mechanism discussed in [Lecture 7](#unimolecular-reactions-and-collision-dynamics)) rather than genuine three-body collisions.
