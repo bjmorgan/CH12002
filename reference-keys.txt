@@ -54,6 +54,7 @@ fig:lineweaver-burk
 eq:langmuir
 fig:langmuir-isotherm
 fig:ozone-hole
+fig:chain-anatomy
 eq:chain-length
 eq:hbr-experimental
 fig:hbr-chain
@@ -63,7 +64,6 @@ eq:h-ssa
 eq:br-steady-state
 eq:h-steady-state
 eq:hbr-derived
-fig:chain-anatomy
 eq:feedback-equation
 fig:branching-tree
 eq:feedback-solution
@@ -150,10 +150,10 @@ problem-solving-session
 unimolecular-reactions-and-collision-dynamics
 sec:lindemann
 separating-activation-from-reaction
-applying-the-steady-state-approximation
+the-lindemann-rate-law
 pressure-dependence
 sec:third-order
-the-no-oxidation-puzzle
+the-no-oxidation
 formation-of-ozone-why-a-third-body-is-needed
 key-concepts-5
 binding-and-catalysis
@@ -175,7 +175,6 @@ chain-length
 sec:hbr
 the-mechanism
 deriving-the-rate-law-using-the-ssa
-sec:chain-anatomy
 key-concepts-7
 feedback-stability-and-explosions
 sec:branching-chains

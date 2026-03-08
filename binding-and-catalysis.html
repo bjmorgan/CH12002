@@ -178,12 +178,12 @@
 <li class="chapter" data-level="7.1" data-path="unimolecular-reactions-and-collision-dynamics.html"><a href="unimolecular-reactions-and-collision-dynamics.html#sec:lindemann"><i class="fa fa-check"></i><b>7.1</b> The Lindemann–Hinshelwood Mechanism</a>
 <ul>
 <li class="chapter" data-level="7.1.1" data-path="unimolecular-reactions-and-collision-dynamics.html"><a href="unimolecular-reactions-and-collision-dynamics.html#separating-activation-from-reaction"><i class="fa fa-check"></i><b>7.1.1</b> Separating Activation from Reaction</a></li>
-<li class="chapter" data-level="7.1.2" data-path="unimolecular-reactions-and-collision-dynamics.html"><a href="unimolecular-reactions-and-collision-dynamics.html#applying-the-steady-state-approximation"><i class="fa fa-check"></i><b>7.1.2</b> Applying the Steady-State Approximation</a></li>
+<li class="chapter" data-level="7.1.2" data-path="unimolecular-reactions-and-collision-dynamics.html"><a href="unimolecular-reactions-and-collision-dynamics.html#the-lindemann-rate-law"><i class="fa fa-check"></i><b>7.1.2</b> The Lindemann Rate Law</a></li>
 <li class="chapter" data-level="7.1.3" data-path="unimolecular-reactions-and-collision-dynamics.html"><a href="unimolecular-reactions-and-collision-dynamics.html#pressure-dependence"><i class="fa fa-check"></i><b>7.1.3</b> Pressure Dependence</a></li>
 </ul></li>
 <li class="chapter" data-level="7.2" data-path="unimolecular-reactions-and-collision-dynamics.html"><a href="unimolecular-reactions-and-collision-dynamics.html#sec:third-order"><i class="fa fa-check"></i><b>7.2</b> Third-Order Reactions and Collision Dynamics</a>
 <ul>
-<li class="chapter" data-level="7.2.1" data-path="unimolecular-reactions-and-collision-dynamics.html"><a href="unimolecular-reactions-and-collision-dynamics.html#the-no-oxidation-puzzle"><i class="fa fa-check"></i><b>7.2.1</b> The NO Oxidation Puzzle</a></li>
+<li class="chapter" data-level="7.2.1" data-path="unimolecular-reactions-and-collision-dynamics.html"><a href="unimolecular-reactions-and-collision-dynamics.html#the-no-oxidation"><i class="fa fa-check"></i><b>7.2.1</b> The NO Oxidation</a></li>
 <li class="chapter" data-level="7.2.2" data-path="unimolecular-reactions-and-collision-dynamics.html"><a href="unimolecular-reactions-and-collision-dynamics.html#formation-of-ozone-why-a-third-body-is-needed"><i class="fa fa-check"></i><b>7.2.2</b> Formation of Ozone: Why a Third Body is Needed</a></li>
 </ul></li>
 <li class="chapter" data-level="7.3" data-path="unimolecular-reactions-and-collision-dynamics.html"><a href="unimolecular-reactions-and-collision-dynamics.html#key-concepts-5"><i class="fa fa-check"></i><b>7.3</b> Key Concepts</a></li>
@@ -218,8 +218,7 @@
 <li class="chapter" data-level="9.2.1" data-path="chain-reactions.html"><a href="chain-reactions.html#the-mechanism"><i class="fa fa-check"></i><b>9.2.1</b> The Mechanism</a></li>
 <li class="chapter" data-level="9.2.2" data-path="chain-reactions.html"><a href="chain-reactions.html#deriving-the-rate-law-using-the-ssa"><i class="fa fa-check"></i><b>9.2.2</b> Deriving the Rate Law Using the SSA</a></li>
 </ul></li>
-<li class="chapter" data-level="9.3" data-path="chain-reactions.html"><a href="chain-reactions.html#sec:chain-anatomy"><i class="fa fa-check"></i><b>9.3</b> The Anatomy of a Chain Reaction</a></li>
-<li class="chapter" data-level="9.4" data-path="chain-reactions.html"><a href="chain-reactions.html#key-concepts-7"><i class="fa fa-check"></i><b>9.4</b> Key Concepts</a></li>
+<li class="chapter" data-level="9.3" data-path="chain-reactions.html"><a href="chain-reactions.html#key-concepts-7"><i class="fa fa-check"></i><b>9.3</b> Key Concepts</a></li>
 </ul></li>
 <li class="chapter" data-level="10" data-path="feedback-stability-and-explosions.html"><a href="feedback-stability-and-explosions.html"><i class="fa fa-check"></i><b>10</b> Feedback, Stability, and Explosions</a>
 <ul>
@@ -301,10 +300,10 @@
             <section class="normal" id="section-">
 <div id="binding-and-catalysis" class="section level1 hasAnchor" number="8">
 <h1><span class="header-section-number">Lecture 8</span> Binding and Catalysis<a href="binding-and-catalysis.html#binding-and-catalysis" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>The <a href="unimolecular-reactions-and-collision-dynamics.html#sec:lindemann">Lindemann mechanism</a> showed how the SSA can explain pressure-dependent kinetics for gas-phase reactions. The same mathematical framework applies to a very different setting: the kinetics of <em>binding</em>. When a substrate binds to an enzyme, or a gas molecule adsorbs onto a surface, the resulting kinetics share a common mathematical structure — saturation kinetics — that arises from reversible binding to a finite number of sites.</p>
+<p>The <a href="unimolecular-reactions-and-collision-dynamics.html#sec:lindemann">Lindemann mechanism</a> showed how the SSA can explain pressure-dependent kinetics for gas-phase reactions. But the SSA is not limited to gas-phase chemistry. Whenever a species binds reversibly to a site — whether a substrate binding to an enzyme or a gas molecule adsorbing onto a surface — the number of available sites is finite. This means the system can become <em>saturated</em>: once every site is occupied, adding more of the binding species has no further effect. The kinetics of these systems, known as <strong>saturation kinetics</strong>, share a common mathematical structure that we develop in this chapter through two contrasting examples.</p>
 <div id="sec:enzyme-kinetics" class="section level2 hasAnchor" number="8.1">
 <h2><span class="header-section-number">8.1</span> Enzyme Kinetics<a href="binding-and-catalysis.html#sec:enzyme-kinetics" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Enzymes are proteins that act as biological catalysts, dramatically accelerating reaction rates by lowering activation energies. Their three-dimensional structures create <strong>active sites</strong>: specific binding pockets where substrate molecules bind and undergo transformation into products. This specificity gives enzymes their remarkable selectivity, often catalysing just one reaction among many possibilities (Figure <a href="binding-and-catalysis.html#fig:enzyme-substrate">8.1</a>).</p>
+<p>Enzymes are proteins that act as biological catalysts, accelerating reaction rates by many orders of magnitude through lowering activation energies. Their three-dimensional structures fold to create binding pockets where substrate molecules are held in precisely the right orientation for the reaction to proceed. These binding pockets are called <strong>active sites</strong>, and their specificity means that a given enzyme typically catalyses just one reaction among many possibilities (Figure <a href="binding-and-catalysis.html#fig:enzyme-substrate">8.1</a>).</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:enzyme-substrate"></span>
 <img src="lecture_8/figures/enzyme_substrate.png" alt="Schematic representation of enzyme-substrate binding. The enzyme's active site accommodates the substrate molecule, forming the enzyme-substrate complex ES, which then converts to product P and regenerates the free enzyme." width="70%" />
 <p class="caption">
@@ -368,10 +367,10 @@ v = \frac{v_\mathrm{max}[\mathrm{S}]}{K_\mathrm{M} + [\mathrm{S}]}
 Figure 8.2: The Michaelis–Menten curve: reaction velocity <span class="math inline">\(v\)</span> as a function of substrate concentration <span class="math inline">\([\mathrm{S}]\)</span>. The substrate concentration at which <span class="math inline">\(v = v_\mathrm{max}/2\)</span> equals <span class="math inline">\(K_\mathrm{M}\)</span>.
 </p>
 </div>
-<p><strong>Low substrate (<span class="math inline">\([\mathrm{S}] \ll K_\mathrm{M}\)</span>):</strong></p>
+<p>When the substrate concentration is low (<span class="math inline">\([\mathrm{S}] \ll K_\mathrm{M}\)</span>), the denominator is dominated by <span class="math inline">\(K_\mathrm{M}\)</span> and the equation simplifies to</p>
 <p><span class="math display">\[v \approx \frac{v_\mathrm{max}}{K_\mathrm{M}}[\mathrm{S}]\]</span></p>
 <p>The rate is first order in <span class="math inline">\([\mathrm{S}]\)</span>. Most enzyme molecules are free, so doubling the substrate concentration doubles the rate of binding and hence the rate of product formation.</p>
-<p><strong>High substrate (<span class="math inline">\([\mathrm{S}] \gg K_\mathrm{M}\)</span>):</strong></p>
+<p>When substrate is abundant (<span class="math inline">\([\mathrm{S}] \gg K_\mathrm{M}\)</span>), the denominator is dominated by <span class="math inline">\([\mathrm{S}]\)</span> and the equation simplifies to</p>
 <p><span class="math display">\[v \approx v_\mathrm{max}\]</span></p>
 <p>The rate is zero order in <span class="math inline">\([\mathrm{S}]\)</span> — the enzyme is <strong>saturated</strong>. Every enzyme molecule already has a substrate bound, so adding more substrate cannot increase the rate. This is the hallmark of saturation kinetics.</p>
 <p>At the crossover between these two regimes, where <span class="math inline">\([\mathrm{S}] = K_\mathrm{M}\)</span>, substituting into the Michaelis–Menten equation gives</p>
@@ -381,21 +380,21 @@ Figure 8.2: The Michaelis–Menten curve: reaction velocity <span class="math in
 <div id="the-physical-meaning-of-k_mathrmm" class="section level3 hasAnchor" number="8.1.5">
 <h3><span class="header-section-number">8.1.5</span> The Physical Meaning of <span class="math inline">\(K_\mathrm{M}\)</span><a href="binding-and-catalysis.html#the-physical-meaning-of-k_mathrmm" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>We defined <span class="math inline">\(K_\mathrm{M} = (k_{-1} + k_\mathrm{cat})/k_1\)</span> as a notational convenience, and have now seen that it is the half-saturation concentration. But what does it represent physically?</p>
-<p>The numerator, <span class="math inline">\(k_{-1} + k_\mathrm{cat}\)</span>, is the sum of the rate constants for the two processes that <em>destroy</em> the enzyme–substrate complex: dissociation back to E + S (rate constant <span class="math inline">\(k_{-1}\)</span>) and catalytic conversion to E + P (rate constant <span class="math inline">\(k_\mathrm{cat}\)</span>). The denominator, <span class="math inline">\(k_1\)</span>, is the rate constant for the process that <em>forms</em> ES. So <span class="math inline">\(K_\mathrm{M}\)</span> is the ratio of ES breakdown to ES formation — a large <span class="math inline">\(K_\mathrm{M}\)</span> means ES is destroyed faster than it is formed, requiring more substrate to achieve half-saturation.</p>
+<p>The numerator, <span class="math inline">\(k_{-1} + k_\mathrm{cat}\)</span>, is the sum of the rate constants for the two processes that <em>destroy</em> the enzyme–substrate complex: dissociation back to E + S (rate constant <span class="math inline">\(k_{-1}\)</span>) and catalytic conversion to E + P (rate constant <span class="math inline">\(k_\mathrm{cat}\)</span>). The denominator, <span class="math inline">\(k_1\)</span>, is the rate constant for the process that <em>forms</em> ES. So <span class="math inline">\(K_\mathrm{M}\)</span> is the ratio of ES breakdown to ES formation — a large <span class="math inline">\(K_\mathrm{M}\)</span> means the rate constants for ES breakdown are large relative to the rate constant for ES formation, so a higher substrate concentration is needed to push the binding equilibrium far enough to reach half-saturation.</p>
 <p>When <span class="math inline">\(k_\mathrm{cat} \ll k_{-1}\)</span> — that is, when the catalytic step is much slower than dissociation — the dominant pathway for ES breakdown is reversion to E + S. In this limit, <span class="math inline">\(K_\mathrm{M} \approx k_{-1}/k_1\)</span>, which is the dissociation constant <span class="math inline">\(K_\mathrm{d}\)</span> of the ES complex. This is the pre-equilibrium limit we encountered in <a href="complex-mechanisms.html#complex-mechanisms">Lecture 4</a> and revisited in <a href="ssa.html#ssa">Lecture 5</a>: the first step genuinely equilibrates before the slow step proceeds, and <span class="math inline">\(K_\mathrm{M}\)</span> becomes a true binding constant. A low <span class="math inline">\(K_\mathrm{M}\)</span> then directly indicates strong enzyme–substrate binding.</p>
 <p>In general, <span class="math inline">\(K_\mathrm{M}\)</span> also reflects how quickly ES converts to product, so it is a hybrid of binding and catalysis rather than a pure equilibrium constant. Nevertheless, the practical rule of thumb holds: a lower <span class="math inline">\(K_\mathrm{M}\)</span> means the enzyme reaches half-maximal rate at a lower substrate concentration, which <em>operationally</em> indicates effective binding.</p>
 </div>
 <div id="determining-michaelismenten-parameters" class="section level3 hasAnchor" number="8.1.6">
 <h3><span class="header-section-number">8.1.6</span> Determining Michaelis–Menten Parameters<a href="binding-and-catalysis.html#determining-michaelismenten-parameters" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>To use the Michaelis–Menten equation in practice, we need values of <span class="math inline">\(v_\mathrm{max}\)</span> and <span class="math inline">\(K_\mathrm{M}\)</span>. These are extracted from experimental measurements of <span class="math inline">\(v\)</span> at different substrate concentrations.</p>
-<p><strong>Non-linear regression.</strong> The most reliable method is to fit the Michaelis–Menten equation directly to a plot of <span class="math inline">\(v\)</span> versus <span class="math inline">\([\mathrm{S}]\)</span> using computational least-squares fitting (Figure <a href="binding-and-catalysis.html#fig:mm-data-with-fit">8.3</a>).</p>
+<p>The most reliable approach is non-linear regression: fitting the Michaelis–Menten equation directly to a plot of <span class="math inline">\(v\)</span> versus <span class="math inline">\([\mathrm{S}]\)</span> using computational least-squares fitting (Figure <a href="binding-and-catalysis.html#fig:mm-data-with-fit">8.3</a>).</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:mm-data-with-fit"></span>
 <img src="lecture_8/figures/mm_data_with_fit.png" alt="Simulated enzyme kinetics data (points) fitted to the Michaelis–Menten equation (dashed curve). The dashed horizontal line marks $v_\mathrm{max}$. Non-linear least-squares fitting gives $v_\mathrm{max}$ and $K_\mathrm{M}$ directly." width="60%" />
 <p class="caption">
 Figure 8.3: Simulated enzyme kinetics data (points) fitted to the Michaelis–Menten equation (dashed curve). The dashed horizontal line marks <span class="math inline">\(v_\mathrm{max}\)</span>. Non-linear least-squares fitting gives <span class="math inline">\(v_\mathrm{max}\)</span> and <span class="math inline">\(K_\mathrm{M}\)</span> directly.
 </p>
 </div>
-<p><strong>Lineweaver–Burk plot.</strong> Taking the reciprocal of both sides of Eqn. <a href="binding-and-catalysis.html#eq:michaelis-menten">(8.3)</a>:</p>
+<p>An alternative, historically important method is the Lineweaver–Burk (double-reciprocal) plot. Taking the reciprocal of both sides of Eqn. <a href="binding-and-catalysis.html#eq:michaelis-menten">(8.3)</a>:</p>
 <p><span class="math display" id="eq:lineweaver-burk">\[\begin{equation}
 \frac{1}{v} = \frac{K_\mathrm{M}}{v_\mathrm{max}} \cdot \frac{1}{[\mathrm{S}]} + \frac{1}{v_\mathrm{max}}
 \tag{8.4}
@@ -413,7 +412,7 @@ Figure 8.4: Lineweaver–Burk (double-reciprocal) plot of the same data as Figur
 <p>We have already seen that <span class="math inline">\(v_\mathrm{max} = k_\mathrm{cat}[\mathrm{E}]_0\)</span>. Rearranging, <span class="math inline">\(k_\mathrm{cat} = v_\mathrm{max}/[\mathrm{E}]_0\)</span>: it is the rate at which a single, fully saturated enzyme molecule converts substrate to product. For this reason <span class="math inline">\(k_\mathrm{cat}\)</span> is called the <strong>turnover number</strong> — it gives the maximum number of substrate molecules converted per enzyme molecule per unit time.</p>
 <p>A more complete measure of efficiency combines binding and catalysis. Returning to the low-substrate limit, and substituting <span class="math inline">\(v_\mathrm{max} = k_\mathrm{cat}[\mathrm{E}]_0\)</span>, the Michaelis–Menten equation becomes:</p>
 <p><span class="math display">\[v \approx \frac{k_\mathrm{cat}}{K_\mathrm{M}}[\mathrm{E}]_0[\mathrm{S}] \qquad \text{(when } [\mathrm{S}] \ll K_\mathrm{M}\text{)}\]</span></p>
-<p>The ratio <span class="math inline">\(k_\mathrm{cat}/K_\mathrm{M}\)</span> is called the <strong>specificity constant</strong>. It is the effective second-order rate constant for the reaction of free enzyme with free substrate, and captures both how well the enzyme binds its substrate and how quickly it turns over. The upper limit of <span class="math inline">\(k_\mathrm{cat}/K_\mathrm{M}\)</span> is set by the rate at which enzyme and substrate molecules encounter each other by diffusion — approximately <span class="math inline">\(10^{8}\)</span>–<span class="math inline">\(10^{9}\,\mathrm{dm}^3\,\mathrm{mol}^{-1}\,\mathrm{s}^{-1}\)</span>. Enzymes that approach this limit, such as catalase and carbonic anhydrase, are said to be <strong>diffusion-limited</strong>: every encounter leads to reaction.</p>
+<p>The ratio <span class="math inline">\(k_\mathrm{cat}/K_\mathrm{M}\)</span> is called the <strong>specificity constant</strong>. It is the effective second-order rate constant for the reaction of free enzyme with free substrate, and captures both how well the enzyme binds its substrate and how quickly it turns over. The upper limit of <span class="math inline">\(k_\mathrm{cat}/K_\mathrm{M}\)</span> is set by the rate at which enzyme and substrate molecules encounter each other by diffusion — approximately <span class="math inline">\(10^{8}\)</span>–<span class="math inline">\(10^{9}\,\mathrm{dm}^3\,\mathrm{mol}^{-1}\,\mathrm{s}^{-1}\)</span>. Enzymes that approach this limit, such as catalase and carbonic anhydrase, are said to be <strong>diffusion-limited</strong>: virtually every encounter leads to reaction.</p>
 <div class="skill">
 <p><strong>You should be able to:</strong> Derive the Michaelis–Menten equation by applying the SSA to the enzyme–substrate complex and using the enzyme conservation condition. Identify the limiting behaviour at low and high <span class="math inline">\([\mathrm{S}]\)</span>, and explain the physical meaning of <span class="math inline">\(K_\mathrm{M}\)</span>, <span class="math inline">\(v_\mathrm{max}\)</span>, and <span class="math inline">\(k_\mathrm{cat}\)</span>.</p>
 </div>
@@ -423,20 +422,20 @@ Figure 8.4: Lineweaver–Burk (double-reciprocal) plot of the same data as Figur
 <h2><span class="header-section-number">8.2</span> The Langmuir Adsorption Isotherm<a href="binding-and-catalysis.html#sec:langmuir" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Enzyme kinetics describes binding at molecular active sites in solution. A closely related problem arises in surface chemistry: how does a gas adsorb onto a solid surface?</p>
 <p>Consider a surface with a fixed number of equivalent adsorption sites. Gas molecules A can bind to (adsorb on) empty sites, and adsorbed molecules can desorb back into the gas phase:</p>
-<p><span class="math display">\[\mathrm{A(g)} + \text{site} \underset{k_\mathrm{d}}{\stackrel{k_\mathrm{a}}{\rightleftharpoons}} \mathrm{A(ads)}\]</span></p>
+<p><span class="math display">\[\mathrm{A(g)} + \text{site} \underset{k_\mathrm{des}}{\stackrel{k_\mathrm{ads}}{\rightleftharpoons}} \mathrm{A(ads)}\]</span></p>
 <p>We define the <strong>fractional surface coverage</strong> <span class="math inline">\(\theta\)</span> as the fraction of sites that are occupied (<span class="math inline">\(0 \leq \theta \leq 1\)</span>). The rate of adsorption is proportional to both the gas-phase pressure <span class="math inline">\(p\)</span> and the fraction of <em>empty</em> sites <span class="math inline">\((1 - \theta)\)</span>. The rate of desorption is proportional to the fraction of occupied sites <span class="math inline">\(\theta\)</span>:</p>
 <p><span class="math display">\[\begin{align*}
-\text{Rate of adsorption} &amp;= k_\mathrm{a}\,p\,(1 - \theta) \\
-\text{Rate of desorption} &amp;= k_\mathrm{d}\,\theta
+\text{Rate of adsorption} &amp;= k_\mathrm{ads}\,p\,(1 - \theta) \\
+\text{Rate of desorption} &amp;= k_\mathrm{des}\,\theta
 \end{align*}\]</span></p>
 <p>At equilibrium, these rates are equal:</p>
-<p><span class="math display">\[k_\mathrm{a}\,p\,(1 - \theta) = k_\mathrm{d}\,\theta\]</span></p>
-<p>Expanding the left-hand side and collecting terms in <span class="math inline">\(\theta\)</span> gives <span class="math inline">\(k_\mathrm{a}\,p = \theta(k_\mathrm{d} + k_\mathrm{a}\,p)\)</span>, so that</p>
+<p><span class="math display">\[k_\mathrm{ads}\,p\,(1 - \theta) = k_\mathrm{des}\,\theta\]</span></p>
+<p>Expanding the left-hand side and collecting terms in <span class="math inline">\(\theta\)</span> gives <span class="math inline">\(k_\mathrm{ads}\,p = \theta(k_\mathrm{des} + k_\mathrm{ads}\,p)\)</span>, so that</p>
 <p><span class="math display" id="eq:langmuir">\[\begin{equation}
 \theta = \frac{K\,p}{1 + K\,p}
 \tag{8.5}
 \end{equation}\]</span></p>
-<p>where <span class="math inline">\(K = k_\mathrm{a}/k_\mathrm{d}\)</span> is the <strong>Langmuir adsorption constant</strong>, with units of inverse pressure. Because adsorption and desorption are a single reversible step, <span class="math inline">\(K\)</span> is a genuine equilibrium constant — the ratio of forward and reverse rate constants, just as in the equilibrium treatment of <a href="complex-mechanisms.html#complex-mechanisms">Lecture 4</a>. This contrasts with <span class="math inline">\(K_\mathrm{M}\)</span>, which is a hybrid of binding and catalysis rather than a true equilibrium constant. The resulting isotherm is shown in Figure <a href="binding-and-catalysis.html#fig:langmuir-isotherm">8.5</a>.</p>
+<p>where <span class="math inline">\(K = k_\mathrm{ads}/k_\mathrm{des}\)</span> is the <strong>Langmuir adsorption constant</strong>, with units of inverse pressure. Because adsorption and desorption are a single reversible step, <span class="math inline">\(K\)</span> is a genuine equilibrium constant — the ratio of forward and reverse rate constants, just as in the equilibrium treatment of <a href="complex-mechanisms.html#complex-mechanisms">Lecture 4</a>. This contrasts with <span class="math inline">\(K_\mathrm{M}\)</span>, which is a hybrid of binding and catalysis rather than a true equilibrium constant. The resulting isotherm is shown in Figure <a href="binding-and-catalysis.html#fig:langmuir-isotherm">8.5</a>.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:langmuir-isotherm"></span>
 <img src="lecture_8/figures/langmuir_isotherm.png" alt="The Langmuir adsorption isotherm: fractional surface coverage $\theta$ as a function of gas pressure $p$. The pressure at which $\theta = 1/2$ equals $1/K$." width="60%" />
 <p class="caption">
@@ -445,10 +444,10 @@ Figure 8.5: The Langmuir adsorption isotherm: fractional surface coverage <span 
 </div>
 <div id="limiting-cases-1" class="section level3 hasAnchor" number="8.2.1">
 <h3><span class="header-section-number">8.2.1</span> Limiting Cases<a href="binding-and-catalysis.html#limiting-cases-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p><strong>Low pressure (<span class="math inline">\(K\,p \ll 1\)</span>):</strong></p>
+<p>At low pressures, where <span class="math inline">\(K\,p \ll 1\)</span>, the denominator approaches unity and</p>
 <p><span class="math display">\[\theta \approx K\,p\]</span></p>
 <p>The coverage increases linearly with pressure. Most sites are empty, so each additional gas molecule has many available sites to bind to.</p>
-<p><strong>High pressure (<span class="math inline">\(K\,p \gg 1\)</span>):</strong></p>
+<p>At high pressures, where <span class="math inline">\(K\,p \gg 1\)</span>, the <span class="math inline">\(1\)</span> in the denominator becomes negligible and</p>
 <p><span class="math display">\[\theta \approx 1\]</span></p>
 <p>The surface is <strong>saturated</strong> — virtually every site is occupied. Increasing the pressure further has no effect on the coverage, because there are no more sites available.</p>
 <p>At <span class="math inline">\(p = 1/K\)</span>, substituting into the Langmuir isotherm gives</p>
@@ -514,7 +513,7 @@ Figure 8.5: The Langmuir adsorption isotherm: fractional surface coverage <span 
 </tbody>
 </table>
 <p>The general pattern is: when the number of sites is limited and binding is reversible, the response (rate or coverage) increases with the concentration of the binding species but eventually saturates. This behaviour appears across chemistry and biology — from enzyme kinetics and surface catalysis to receptor–ligand binding and ion-channel gating.</p>
-<p>Saturation kinetics also has a surprising consequence for surface reactions. When two species compete for the same adsorption sites, increasing the pressure of one reactant can <em>decrease</em> the overall reaction rate by blocking sites needed by the other. This leads to the counterintuitive phenomenon of <em>negative reaction orders</em>, discussed in Appendix <a href="appendix-negative-orders.html#appendix-negative-orders">C</a>.</p>
+<p>One might expect that increasing the pressure of a reactant always increases the reaction rate. But when two species compete for the same adsorption sites, increasing the pressure of one reactant can <em>decrease</em> the overall rate by blocking sites needed by the other. This leads to the counterintuitive phenomenon of <em>negative reaction orders</em>, discussed in Appendix <a href="appendix-negative-orders.html#appendix-negative-orders">C</a>.</p>
 </div>
 <div id="key-concepts-6" class="section level2 hasAnchor" number="8.4">
 <h2><span class="header-section-number">8.4</span> Key Concepts<a href="binding-and-catalysis.html#key-concepts-6" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -524,7 +523,7 @@ Figure 8.5: The Langmuir adsorption isotherm: fractional surface coverage <span 
 <li><span class="math inline">\(K_\mathrm{M} = (k_{-1} + k_\mathrm{cat})/k_1\)</span> is the substrate concentration at which the rate is half-maximal. It is the ratio of ES breakdown to ES formation rate constants. In the pre-equilibrium limit (<span class="math inline">\(k_\mathrm{cat} \ll k_{-1}\)</span>), <span class="math inline">\(K_\mathrm{M}\)</span> reduces to the dissociation constant <span class="math inline">\(K_\mathrm{d}\)</span>.</li>
 <li>The <strong>Lineweaver–Burk plot</strong> (<span class="math inline">\(1/v\)</span> vs <span class="math inline">\(1/[\mathrm{S}]\)</span>) linearises the Michaelis–Menten equation, but modern practice favours non-linear regression.</li>
 <li>The <strong>specificity constant</strong> <span class="math inline">\(k_\mathrm{cat}/K_\mathrm{M}\)</span> measures the overall catalytic efficiency of an enzyme, with an upper limit set by the diffusion-controlled encounter rate.</li>
-<li>The <strong>Langmuir adsorption isotherm</strong>, <span class="math inline">\(\theta = Kp/(1 + Kp)\)</span>, describes the fractional coverage of a surface as a function of gas pressure, where <span class="math inline">\(K = k_\mathrm{a}/k_\mathrm{d}\)</span> is a genuine equilibrium constant.</li>
+<li>The <strong>Langmuir adsorption isotherm</strong>, <span class="math inline">\(\theta = Kp/(1 + Kp)\)</span>, describes the fractional coverage of a surface as a function of gas pressure, where <span class="math inline">\(K = k_\mathrm{ads}/k_\mathrm{des}\)</span> is a genuine equilibrium constant.</li>
 <li>Both equations share the same mathematical form because both describe <strong>reversible binding to a finite number of sites</strong> — the defining feature of saturation kinetics.</li>
 </ul>
 
