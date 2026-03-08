@@ -1,10 +1,10 @@
 # Unimolecular Reactions and Collision Dynamics
 
-In the preceding chapters, we developed the steady-state approximation as a general tool for deriving rate laws from complex mechanisms. We now put it to work on real chemical problems. In this chapter, we tackle two puzzles that cannot be resolved without thinking carefully about elementary steps: how can a unimolecular reaction show pressure-dependent kinetics, and why do some apparently simple reactions require a third body to proceed?
+In Lectures 4 and 5 we developed the pre-equilibrium approximation and the steady-state approximation as tools for deriving rate laws from multi-step mechanisms. We now apply these tools to real chemical systems where the observed kinetics are genuinely surprising. A gas-phase decomposition that requires collisional activation nonetheless shows first-order kinetics; certain combination reactions have rate laws suggesting three molecules must collide simultaneously. In each case, a multi-step mechanism makes the macroscopic kinetics look quite different from what the elementary steps alone would suggest.
 
 ## The Lindemann–Hinshelwood Mechanism {#sec:lindemann}
 
-Many reactions that appear simple at first glance actually proceed through complex mechanisms involving multiple elementary steps. A classic example is the thermal decomposition of azomethane:
+Consider the thermal decomposition of azomethane:
 
 $$\mathrm{CH_3N_2CH_3} \rightarrow \mathrm{C_2H_6} + \mathrm{N_2}$$
 
@@ -12,40 +12,29 @@ At high pressures, this reaction exhibits first-order kinetics:
 
 $$-\frac{\mathrm{d}[\mathrm{CH_3N_2CH_3}]}{\mathrm{d}t} = k[\mathrm{CH_3N_2CH_3}]$$
 
-This simple rate law presents us with a fundamental mechanistic puzzle. We observe two seemingly contradictory behaviours:
+Let us look more carefully at what this rate law implies. First-order kinetics ($\nu = k[\mathrm{A}]$) suggests each molecule reacts independently — the probability of decomposition does not depend on how many other molecules are nearby. Yet the rate increases with temperature, indicating that molecules must acquire energy to overcome an activation barrier. In the gas phase, molecules acquire energy through collisions with their neighbours.
 
-1. The reaction shows first-order kinetics ($\nu = k[\mathrm{A}]$), suggesting each molecule reacts independently.
+This creates a contradiction. If collisions supply the activation energy, we would expect the rate to depend on collision frequency, which is proportional to the concentration of both colliding species. This would give second-order kinetics ($\nu = k[\mathrm{A}]^2$), not first order. Something more subtle must be going on.
 
-2. The rate increases with temperature, indicating that energy is required to overcome an activation barrier. But how does each molecule acquire this activation energy?
+### Separating Activation from Reaction
 
-If the activation energy came from molecular collisions (the usual mechanism for thermal activation), we would expect the rate to depend on the frequency of these collisions. Since collision frequency is proportional to the concentration of both colliding species, this would lead to second-order kinetics ($\nu = k[\mathrm{A}]^2$). Yet we observe first-order behaviour. Something more subtle must be going on.
+In 1921, Frederick Lindemann proposed a three-step mechanism to resolve this paradox. The idea is to separate the activation event (a collision) from the reaction event (unimolecular decomposition):
 
-```{r lindemann-puzzle, echo=FALSE, fig.cap="The unimolecular reaction paradox: the thermal decomposition of azomethane shows first-order kinetics at high pressure, yet the rate increases with temperature, implying collisional activation — which would suggest second-order kinetics. [Draft figure from lecture slides.]", out.width='70%', fig.align='center'}
-knitr::include_graphics("lecture_7/figures/lindemann_puzzle.png")
-```
+\begin{align}
+\mathrm{A} + \mathrm{M} &\xrightarrow{k_1} \mathrm{A^*} + \mathrm{M} & &\text{(excitation by collision)} (\#eq:lindemann-step1) \\
+\mathrm{A^*} + \mathrm{M} &\xrightarrow{k_{-1}} \mathrm{A} + \mathrm{M} & &\text{(deactivation by collision)} (\#eq:lindemann-step2) \\
+\mathrm{A^*} &\xrightarrow{k_2} \mathrm{P} & &\text{(unimolecular decomposition)} (\#eq:lindemann-step3)
+\end{align}
 
-### The Mechanism
+Here, M represents any collision partner (often the reactant molecule itself), and A* represents an energetically excited molecule that has acquired enough energy to react. The key insight is that activation and reaction are *separate* events (Figure \@ref(fig:lindemann-competition)). A molecule can be activated by one collision, then react at a later time — or it may lose its energy in another collision before it has a chance to react.
 
-In 1921, Frederick Lindemann proposed a three-step mechanism to resolve this paradox:
-
-**Step 1 — Excitation by collision:**
-$$\mathrm{A} + \mathrm{M} \xrightarrow{k_1} \mathrm{A^*} + \mathrm{M}$$
-
-**Step 2 — Deactivation by collision:**
-$$\mathrm{A^*} + \mathrm{M} \xrightarrow{k_{-1}} \mathrm{A} + \mathrm{M}$$
-
-**Step 3 — Unimolecular decomposition:**
-$$\mathrm{A^*} \xrightarrow{k_2} \mathrm{P}$$
-
-Here, M represents any collision partner (often the reactant molecule itself), and A* represents an energetically excited molecule that has acquired enough energy to react. The key insight is that activation (Step 1) and reaction (Step 3) are *separate* events. A molecule can be activated by one collision, then react at a later time — or it may lose its energy in another collision (Step 2) before it has a chance to react.
-
-```{r lindemann-steps, echo=FALSE, fig.cap="The Lindemann mechanism: (1) A is excited by collision with M; (2) A* can be deactivated by a further collision; (3) A* decomposes unimolecularly to products. The SSA is applied to the reactive intermediate A*. [Draft figure from lecture slides.]", out.width='70%', fig.align='center'}
-knitr::include_graphics("lecture_7/figures/lindemann_steps.png")
+```{r lindemann-competition, echo=FALSE, eval=FALSE, fig.cap="The two competing fates of the excited intermediate A*. Collisional deactivation (rate $k_{-1}[\\mathrm{M}][\\mathrm{A^*}]$) returns the molecule to the ground state; unimolecular decomposition (rate $k_2[\\mathrm{A^*}]$) forms products. At high pressures, deactivation dominates and A* is maintained at its equilibrium concentration. At low pressures, decomposition wins and every excitation leads to reaction.", out.width='60%', fig.align='center'}
+knitr::include_graphics("lecture_7/figures/lindemann_competition.png") # TODO: generate competition diagram
 ```
 
 ### Applying the Steady-State Approximation
 
-The excited molecule A* is a reactive intermediate — it is formed by Step 1 and consumed by Steps 2 and 3. Applying the SSA:
+The excited molecule A* is a reactive intermediate — it is formed by excitation (Eqn. \@ref(eq:lindemann-step1)) and consumed by deactivation and decomposition (Eqns. \@ref(eq:lindemann-step2)–\@ref(eq:lindemann-step3)). At any instant, a small fraction of A molecules will have been excited by collisions, but most of these rapidly lose their energy again before they decompose. The concentration of A* therefore remains small and approximately constant after an initial transient — exactly the conditions under which the SSA applies. Setting $\mathrm{d}[\mathrm{A^*}]/\mathrm{d}t \approx 0$:
 
 $$\frac{\mathrm{d}[\mathrm{A^*}]}{\mathrm{d}t} = k_1[\mathrm{A}][\mathrm{M}] - k_{-1}[\mathrm{A^*}][\mathrm{M}] - k_2[\mathrm{A^*}] \approx 0$$
 
@@ -60,42 +49,40 @@ The overall rate of product formation is then:
 (\#eq:lindemann-rate)
 \end{equation}
 
-This is the **Lindemann rate law**. Notice that it has exactly the same mathematical structure as the SSA rate laws we derived in Lecture 5 (Eqn. \@ref(eq:ssa-rate-law)) — a ratio with competing terms in the denominator. The behaviour depends on which term dominates.
+This is the **Lindemann rate law**. It has exactly the same mathematical structure as the SSA rate laws we derived in Lecture 5 (Eqn. \@ref(eq:ssa-rate-law)) — a ratio with competing terms in the denominator. The behaviour depends on which term dominates.
 
-For the specific case of azomethane decomposition, where the reactant itself acts as the collision partner (M = A):
+We can now return to the azomethane example that motivated this analysis. In a pure gas of azomethane, the reactant itself acts as the collision partner, so M = A:
 
 $$\nu = \frac{k_1 k_2[\mathrm{A}]^2}{k_{-1}[\mathrm{A}] + k_2}$$
 
+This makes the pressure dependence particularly transparent: $[\mathrm{A}]$ appears in *both* the numerator and the denominator, so the apparent reaction order depends on which term in the denominator dominates — and that depends on the pressure.
+
 ### Pressure Dependence
 
-The denominator of Eqn. \@ref(eq:lindemann-rate) contains $[\mathrm{M}]$, which is proportional to pressure. This gives the Lindemann mechanism a distinctive pressure dependence — the *apparent* reaction order changes with pressure.
-
-**High-pressure limit ($k_{-1}[\mathrm{M}] \gg k_2$):**
-
-At high pressures, collisions are frequent and deactivation is much faster than decomposition. The denominator is dominated by $k_{-1}[\mathrm{M}]$:
+Let us work through the two limiting cases of the general rate law (Eqn. \@ref(eq:lindemann-rate)). At high pressures, collisions are frequent, so deactivation is much faster than decomposition ($k_{-1}[\mathrm{M}] \gg k_2$). The denominator is dominated by $k_{-1}[\mathrm{M}]$:
 
 \begin{equation}
 \nu \approx \frac{k_1 k_2}{k_{-1}}[\mathrm{A}]
 (\#eq:lindemann-high-p)
 \end{equation}
 
-The reaction is **first order** in A, with an effective rate constant $k_\mathrm{eff} = k_1 k_2/k_{-1}$. This explains the observed first-order kinetics at high pressures. Physically: excited molecules are produced and deactivated many times before any one of them happens to decompose. The rate-determining step is the unimolecular decomposition of A*, and the concentration of A* is maintained at its equilibrium value by the fast excitation–deactivation equilibrium.
+The reaction is **first order** in A, with an effective rate constant $k_\mathrm{eff} = k_1 k_2/k_{-1}$. This explains the observed first-order kinetics at high pressures.
 
-**Low-pressure limit ($k_{-1}[\mathrm{M}] \ll k_2$):**
+Physically, excited molecules are produced and deactivated many times before any one of them happens to decompose. The excitation–deactivation equilibrium is so fast that the concentration of A* is maintained at its equilibrium value throughout the reaction, and the rate-determining step is the slow unimolecular decomposition of A*.
 
-At low pressures, collisions are rare. Once a molecule is excited, it decomposes before it encounters another molecule that could deactivate it. The denominator is dominated by $k_2$:
+At low pressures, collisions are rare ($k_{-1}[\mathrm{M}] \ll k_2$). Once a molecule is excited, it decomposes before it encounters another molecule that could deactivate it. The denominator is now dominated by $k_2$:
 
 \begin{equation}
 \nu \approx k_1[\mathrm{A}][\mathrm{M}]
 (\#eq:lindemann-low-p)
 \end{equation}
 
-The reaction is **second order** — first order in A and first order in M. The rate-determining step is now the excitation collision (Step 1), because every excited molecule goes on to react. This prediction was experimentally verified in 1927, providing strong support for the Lindemann mechanism.
+The reaction is **second order** — first order in A and first order in M. The rate-determining step is now the excitation collision, because every excited molecule goes on to react. This prediction was experimentally verified in 1927, providing strong support for the Lindemann mechanism.
 
-The Lindemann mechanism thus resolves the unimolecular paradox: the reaction *is* activated by collisions, but at high pressures the excitation–deactivation equilibrium is so fast that it is invisible to the experimenter. The observed kinetics reflect only the slow unimolecular decomposition step.
+The Lindemann mechanism thus resolves the unimolecular paradox: the reaction is genuinely activated by collisions, but at high pressures the excitation–deactivation equilibrium is so fast that it is invisible to the experimenter. The observed kinetics reflect only the slow unimolecular decomposition step. Figure \@ref(fig:lindemann-pressure) summarises the transition between these two regimes.
 
-```{r lindemann-pressure, echo=FALSE, fig.cap="The Lindemann rate law at high pressure: when collisional deactivation is much faster than unimolecular reaction ($k_{-1}[\\mathrm{M}] \\gg k_2$), the reaction is first order with effective rate constant $k_1 k_2/k_{-1}$. [Draft figure from lecture slides.]", out.width='70%', fig.align='center'}
-knitr::include_graphics("lecture_7/figures/lindemann_high_pressure.png")
+```{r lindemann-pressure, echo=FALSE, fig.cap="Pressure dependence of the effective rate constant predicted by the Lindemann mechanism, plotted as $k_\\mathrm{eff}/k_\\infty$ vs $[\\mathrm{M}]/[\\mathrm{M}]_{1/2}$ on logarithmic axes. At high pressure (right), excitation and deactivation equilibrate and the reaction is first order with $k_\\mathrm{eff} = k_\\infty = k_1 k_2/k_{-1}$. At low pressure (left), every excitation leads to reaction and the kinetics become second order, with $k_\\mathrm{eff}$ proportional to $[\\mathrm{M}]$ (dashed line, slope 1). The half-saturation concentration $[\\mathrm{M}]_{1/2} = k_2/k_{-1}$ marks the crossover between the two regimes.", out.width='70%', fig.align='center'}
+knitr::include_graphics("lecture_7/figures/lindemann_pressure.png")
 ```
 
 ::: {.skill}
@@ -104,9 +91,11 @@ knitr::include_graphics("lecture_7/figures/lindemann_high_pressure.png")
 
 ## Third-Order Reactions and Collision Dynamics {#sec:third-order}
 
+The Lindemann mechanism showed how a multi-step mechanism can make a collision-activated reaction appear first order. We now turn to another surprising case: reactions whose kinetics suggest that three molecules must collide simultaneously.
+
 ### The NO Oxidation Puzzle
 
-Some reactions exhibit third-order kinetics, such as the oxidation of nitric oxide:
+The oxidation of nitric oxide exhibits third-order kinetics:
 
 $$2\mathrm{NO} + \mathrm{O_2} \rightarrow 2\mathrm{NO_2}$$
 
@@ -114,29 +103,31 @@ with rate law:
 
 $$\nu = k[\mathrm{NO}]^2[\mathrm{O_2}]$$
 
-A termolecular collision mechanism — in which two NO molecules and one O~2~ molecule must collide simultaneously — seems implausible. Simultaneous three-body collisions are extremely rare events. Moreover, this reaction has the unusual property that its rate *decreases* with increasing temperature, suggesting a more complex mechanism.
+A termolecular collision mechanism — in which two NO molecules and one O~2~ molecule must collide simultaneously — seems implausible. A bimolecular collision is already a low-probability event; requiring a third molecule to arrive at precisely the same point at the same instant makes the probability negligibly small. Moreover, this reaction has the unusual property that its rate *decreases* with increasing temperature — the opposite of what we expect for a simple, single-step reaction — suggesting a more complex mechanism.
 
-A pre-equilibrium mechanism provides a much better explanation:
+If termolecular collisions are ruled out, the third-order kinetics must arise from a sequence of at least two bimolecular steps. Since the rate law contains $[\mathrm{NO}]^2$, a natural candidate is the formation of an NO dimer in a fast, reversible first step, followed by a slow reaction of the dimer with O~2~:
 
 $$\mathrm{NO} + \mathrm{NO} \underset{k_{-1}}{\stackrel{k_1}{\rightleftharpoons}} (\mathrm{NO})_2$$
 $$(\mathrm{NO})_2 + \mathrm{O_2} \xrightarrow{k_2} 2\mathrm{NO_2}$$
 
-At equilibrium:
+If the dimerisation equilibrium is fast compared to the second step, we can write:
 
 $$K = \frac{k_1}{k_{-1}} = \frac{[(\mathrm{NO})_2]}{[\mathrm{NO}]^2}$$
 
-The overall rate is:
+The overall rate is determined by the slow step:
 
 \begin{equation}
 \nu = k_2[(\mathrm{NO})_2][\mathrm{O_2}] = k_2 K[\mathrm{NO}]^2[\mathrm{O_2}]
 (\#eq:no-oxidation-rate)
 \end{equation}
 
-This mechanism explains two key observations. First, the third-order kinetics: the rate depends on $[\mathrm{NO}]^2$ (from the equilibrium expression) and $[\mathrm{O_2}]$ (from the slow step), giving overall third-order behaviour without requiring a termolecular collision. Second, the negative temperature dependence: the dimerisation equilibrium in the first step is exothermic, so increasing the temperature shifts the equilibrium to the left (Le Chatelier's principle), reducing $[(\mathrm{NO})_2]$ and hence slowing the overall reaction. The effective rate constant $k_\mathrm{obs} = k_2 K$ decreases with temperature because $K$ decreases faster than $k_2$ increases.
+This mechanism explains the third-order kinetics without requiring a termolecular collision: the rate depends on $[\mathrm{NO}]^2$ (from the equilibrium expression) and $[\mathrm{O_2}]$ (from the slow step), giving overall third-order behaviour from two sequential bimolecular steps.
+
+It also explains the negative temperature dependence. The dimerisation in the first step is exothermic, so increasing the temperature shifts the equilibrium to the left (Le Chatelier's principle), reducing $[(\mathrm{NO})_2]$ and hence slowing the overall reaction. The effective rate constant $k_\mathrm{obs} = k_2 K$ decreases with temperature because $K$ decreases faster than $k_2$ increases. We will return to negative activation energies in Lecture 11.
 
 ### Formation of Ozone: Why a Third Body is Needed
 
-Another important third-order reaction is ozone formation:
+In the NO oxidation, the third-order kinetics arise because two NO molecules must come together to form the dimer before O~2~ can react — so $[\mathrm{NO}]^2$ enters through the pre-equilibrium expression. Ozone formation is also third order, but for a completely different physical reason — one that reveals a fundamental constraint on how small molecules can combine:
 
 $$\mathrm{O} + \mathrm{O_2} + \mathrm{M} \rightarrow \mathrm{O_3} + \mathrm{M}$$
 
@@ -149,27 +140,32 @@ with rate law:
 
 where M represents a third body — any molecule present in the gas (typically N~2~ or O~2~). Why is a third body needed for this apparently simple combination reaction?
 
-The requirement arises from two fundamental constraints of molecular collisions:
+The requirement arises from the conservation of energy and momentum in molecular collisions (Figure \@ref(fig:ozone-collision)). The formation of ozone is highly exothermic, releasing approximately $107\,\mathrm{kJ\,mol}^{-1}$ when the new O–O bond forms. A bimolecular collision between O and O~2~ produces a vibrationally excited ozone molecule, O~3~*, that contains all of this excess energy in its vibrational modes.
 
-**Energy conservation.** The formation of ozone is highly exothermic, releasing approximately $107\,\mathrm{kJ\,mol}^{-1}$ when the new O–O bond forms. A bimolecular collision between O and O~2~ produces a vibrationally excited ozone molecule, O~3~*, that contains all this excess energy in its vibrational modes.
+Why can't this energy simply leave as translational kinetic energy of the product? Because conservation of momentum fixes the product's velocity. When O and O~2~ collide and stick together, the velocity of the resulting O~3~ is completely determined by conservation of momentum — there is only one product, so there is only one unknown and one equation. Once the velocity is fixed, so is the translational kinetic energy. All of the bond energy that was released must therefore end up as internal vibration. The resulting O~3~* is so highly excited that it rapidly dissociates back to O + O~2~ — unless something removes the excess energy first.
 
-**Momentum conservation.** When O collides with O~2~, the total momentum of the system must be conserved. This constrains how the released energy is distributed: much of it ends up as internal vibrational energy of the O~3~* product rather than translational kinetic energy. The resulting O~3~* is so highly excited that it rapidly dissociates back to O + O~2~ — unless something removes the excess energy first.
-
-```{r ozone-collision, echo=FALSE, fig.cap="A bimolecular collision between O and O$_2$ produces a vibrationally excited O$_3^*$. Conservation of momentum and energy means the excess energy ends up as internal vibration, causing O$_3^*$ to dissociate unless a third body M removes the energy. [Draft figure from lecture slides.]", out.width='70%', fig.align='center'}
+```{r ozone-collision, echo=FALSE, fig.cap="Schematic of the energy and momentum constraints in ozone formation. A bimolecular O + O~2~ collision produces a vibrationally excited O~3~* that retains the bond-formation energy as internal vibration. Without a third body to carry away this energy, O$_3^*$ dissociates back to reactants.", out.width='70%', fig.align='center'}
 knitr::include_graphics("lecture_7/figures/ozone_collision.png")
 ```
 
 This is where the third body becomes essential. When the vibrationally excited O~3~* collides with M, the excess energy can be transferred to M as translational kinetic energy, allowing the ozone molecule to stabilise:
 
-**Step 1 — Formation of excited ozone:**
-$$\mathrm{O} + \mathrm{O_2} \underset{k_{-1}}{\stackrel{k_1}{\rightleftharpoons}} \mathrm{O_3^*}$$
+\begin{align*}
+\mathrm{O} + \mathrm{O_2} &\underset{k_{-1}}{\stackrel{k_1}{\rightleftharpoons}} \mathrm{O_3^*} & &\text{(formation of excited ozone)} \\
+\mathrm{O_3^*} + \mathrm{M} &\xrightarrow{k_2} \mathrm{O_3} + \mathrm{M} & &\text{(collisional stabilisation)}
+\end{align*}
 
-**Step 2 — Collisional stabilisation:**
-$$\mathrm{O_3^*} + \mathrm{M} \xrightarrow{k_2} \mathrm{O_3} + \mathrm{M}$$
+The key question is whether the pre-equilibrium approximation applies to O~3~&ast;. The excited intermediate dissociates on a timescale of just a few molecular vibrations — far faster than it encounters a third body M. Formation and dissociation of O~3~&ast; therefore reach a quasi-equilibrium long before any significant stabilisation occurs. This is exactly the condition for a pre-equilibrium approximation:
 
-Applying a pre-equilibrium approximation to O~3~* yields the observed third-order rate law (Eqn. \@ref(eq:ozone-rate)), with $k_\mathrm{obs} = k_2 K = k_1 k_2/k_{-1}$.
+$$K = \frac{k_1}{k_{-1}} = \frac{[\mathrm{O_3^*}]}{[\mathrm{O}][\mathrm{O_2}]}$$
 
-The necessity for a third body illustrates a general principle: highly exothermic reactions involving small molecules (with few internal degrees of freedom to absorb the energy) often cannot proceed as simple bimolecular encounters. A third-body collision provides the mechanism to remove excess energy, allowing the product to survive. This explains why third-order kinetics are common in atmospheric chemistry and combustion, where small radicals and atoms frequently combine. Appendix \@ref(appendix-third-body) explores why most other bimolecular reactions *don't* require a third body, despite the same conservation laws applying to all collisions.
+The overall rate of stable ozone formation is determined by the slow stabilisation step:
+
+$$\nu = k_2[\mathrm{O_3^*}][\mathrm{M}] = k_2 K [\mathrm{O}][\mathrm{O_2}][\mathrm{M}] = \frac{k_1 k_2}{k_{-1}}[\mathrm{O}][\mathrm{O_2}][\mathrm{M}]$$
+
+This reproduces the observed third-order rate law (Eqn. \@ref(eq:ozone-rate)), with $k_\mathrm{obs} = k_1 k_2/k_{-1}$.
+
+The necessity for a third body illustrates a general principle: highly exothermic reactions involving small molecules often cannot proceed as simple bimolecular encounters. A triatomic like O~3~ has only three vibrational modes, so the bond energy is concentrated into just a few motions — enough to break the molecule apart again. A larger molecule, by contrast, can spread the same energy across dozens of vibrational modes, each receiving only a small share, and can survive long enough to lose the energy gradually through subsequent collisions. This is why third-order kinetics are common in atmospheric chemistry and combustion, where small radicals and atoms frequently combine, but rare for reactions that produce larger molecules. Appendix \@ref(appendix-third-body) explores this distinction further.
 
 ::: {.skill}
 **You should be able to:** Explain why a termolecular collision is implausible for the NO oxidation reaction, write a pre-equilibrium mechanism that reproduces the observed third-order rate law, and explain why ozone formation requires a third body.
@@ -182,4 +178,3 @@ The necessity for a third body illustrates a general principle: highly exothermi
 - Third-order rate laws do not imply termolecular collisions. Pre-equilibrium mechanisms involving two sequential bimolecular steps can produce apparent third-order kinetics.
 - The **negative temperature dependence** of the NO oxidation arises because the pre-equilibrium constant $K$ decreases with temperature faster than $k_2$ increases.
 - Highly exothermic association reactions often require a **third body** to carry away excess energy from a vibrationally excited intermediate. Without this energy transfer, the product dissociates back to reactants.
-- The SSA and pre-equilibrium approximation, developed in Lectures 4 and 5, are essential tools for understanding real reaction mechanisms — from gas-phase decomposition to atmospheric chemistry.

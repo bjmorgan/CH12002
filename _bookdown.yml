@@ -11,6 +11,7 @@ rmd_files: [
   "lecture_3/lecture_03.Rmd",
   "lecture_4/lecture_04.Rmd",
   "lecture_5/lecture_05.Rmd",
+  "lecture_6/lecture_06.Rmd",
   "lecture_7/lecture_07.Rmd",
   "lecture_8/lecture_08.Rmd",
   "lecture_9/lecture_09.Rmd",
@@ -19,7 +20,8 @@ rmd_files: [
   "appendices/two_reactant_second_order.Rmd",
   "appendices/third_order.Rmd",
   "appendices/negative_orders.Rmd",
-  "appendices/consecutive_reactions.Rmd"
+  "appendices/consecutive_reactions.Rmd",
+  "appendices/relaxation_methods.Rmd"
 ]
 
 output:

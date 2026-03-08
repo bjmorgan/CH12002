@@ -1,22 +1,22 @@
 # Binding and Catalysis
 
-The Lindemann mechanism showed how the SSA can explain pressure-dependent kinetics for gas-phase reactions. In this chapter, we apply the same mathematical framework to a very different setting: the kinetics of *binding*. When a substrate binds to an enzyme, or a gas molecule adsorbs onto a surface, the resulting kinetics share a common mathematical structure — saturation kinetics — that arises from the competition between binding and reaction at a finite number of sites.
+The [Lindemann mechanism](#sec:lindemann) showed how the SSA can explain pressure-dependent kinetics for gas-phase reactions. The same mathematical framework applies to a very different setting: the kinetics of *binding*. When a substrate binds to an enzyme, or a gas molecule adsorbs onto a surface, the resulting kinetics share a common mathematical structure — saturation kinetics — that arises from reversible binding to a finite number of sites.
 
 ## Enzyme Kinetics {#sec:enzyme-kinetics}
 
-Enzymes are biological catalysts — predominantly proteins — that dramatically accelerate reaction rates by lowering activation energies. Their three-dimensional structures create **active sites**: specific binding pockets where substrate molecules bind and undergo transformation into products. This specificity gives enzymes their remarkable selectivity, often catalysing just one reaction among many possibilities.
+Enzymes are proteins that act as biological catalysts, dramatically accelerating reaction rates by lowering activation energies. Their three-dimensional structures create **active sites**: specific binding pockets where substrate molecules bind and undergo transformation into products. This specificity gives enzymes their remarkable selectivity, often catalysing just one reaction among many possibilities (Figure \@ref(fig:enzyme-substrate)).
 
-```{r enzyme-substrate, echo=FALSE, fig.cap="Schematic representation of enzyme-substrate binding. The enzyme's active site accommodates the substrate molecule, forming the enzyme-substrate complex ES, which then converts to product P and regenerates the free enzyme. [Draft figure from lecture slides.]", out.width='70%', fig.align='center'}
+```{r enzyme-substrate, echo=FALSE, fig.cap="Schematic representation of enzyme-substrate binding. The enzyme's active site accommodates the substrate molecule, forming the enzyme-substrate complex ES, which then converts to product P and regenerates the free enzyme.", out.width='70%', fig.align='center'}
 knitr::include_graphics("lecture_8/figures/enzyme_substrate.png")
 ```
 
 ### The Michaelis–Menten Mechanism
 
-The basic kinetic model for enzyme catalysis was proposed by Victor Henri and refined by Leonor Michaelis and Maud Menten. The enzyme E binds reversibly to its substrate S, forming an enzyme–substrate complex ES, which then converts irreversibly to product P and regenerates the free enzyme:
+The simplest kinetic model for enzyme catalysis treats the process in two steps: reversible binding followed by irreversible catalysis. The enzyme E binds reversibly to its substrate S, forming an enzyme–substrate complex ES, which then converts irreversibly to product P and regenerates the free enzyme:
 
 $$\mathrm{E} + \mathrm{S} \underset{k_{-1}}{\stackrel{k_1}{\rightleftharpoons}} \mathrm{ES} \xrightarrow{k_\mathrm{cat}} \mathrm{E} + \mathrm{P}$$
 
-This gives the rate equations:
+This mechanism (first proposed by Victor Henri and refined by Leonor Michaelis and Maud Menten) involves three elementary processes — binding, unbinding, and catalysis — each with its own rate constant. The concentration of the enzyme–substrate complex changes because ES is formed by binding (rate constant $k_1$), destroyed by unbinding back to free enzyme and substrate ($k_{-1}$), and consumed by the catalytic step that produces product ($k_\mathrm{cat}$):
 
 \begin{align*}
 \frac{\mathrm{d}[\mathrm{ES}]}{\mathrm{d}t} &= k_1[\mathrm{E}][\mathrm{S}] - k_{-1}[\mathrm{ES}] - k_\mathrm{cat}[\mathrm{ES}] \\
@@ -27,46 +27,64 @@ The rate of product formation depends on $[\mathrm{ES}]$, which is difficult to 
 
 ### Deriving the Michaelis–Menten Equation
 
-Applying the SSA to the enzyme–substrate complex:
+In [Lecture 5](#ssa) we applied the SSA to reactive intermediates that are consumed almost as fast as they form, keeping their concentrations small. The enzyme–substrate complex ES is different: it can accumulate to significant concentrations, and may even account for most of the enzyme present.
 
-$$\frac{\mathrm{d}[\mathrm{ES}]}{\mathrm{d}t} = k_1[\mathrm{E}][\mathrm{S}] - (k_{-1} + k_\mathrm{cat})[\mathrm{ES}] \approx 0$$
+The SSA still applies, however, because the catalytic step regenerates free enzyme — E is produced by the same reaction that consumes ES. This creates a cycle in which E and ES continually interconvert, and their concentrations settle into a steady state once the initial transient has passed. We also assume that substrate is in large excess over enzyme ($[\mathrm{S}] \gg [\mathrm{E}]_0$), so that $[\mathrm{S}]$ remains effectively constant as the reaction proceeds. Setting $\mathrm{d}[\mathrm{ES}]/\mathrm{d}t = 0$:
+
+$$k_1[\mathrm{E}][\mathrm{S}] - (k_{-1} + k_\mathrm{cat})[\mathrm{ES}] = 0$$
 
 Solving for $[\mathrm{ES}]$:
 
 $$[\mathrm{ES}] = \frac{k_1[\mathrm{E}][\mathrm{S}]}{k_{-1} + k_\mathrm{cat}}$$
 
-This still contains $[\mathrm{E}]$, the free enzyme concentration, which changes during the reaction. We replace it using the **enzyme conservation** condition — the total enzyme concentration $[\mathrm{E}]_0$ is constant:
-
-$$[\mathrm{E}]_0 = [\mathrm{E}] + [\mathrm{ES}] \qquad \Rightarrow \qquad [\mathrm{E}] = [\mathrm{E}]_0 - [\mathrm{ES}]$$
-
-Substituting and solving (the algebra is straightforward but involves several steps):
-
-$$[\mathrm{ES}] = \frac{[\mathrm{E}]_0[\mathrm{S}]}{K_\mathrm{M} + [\mathrm{S}]}$$
-
-where we have defined the **Michaelis constant**:
+The expression contains three rate constants. To make the subsequent algebra easier to follow, we group the combination $(k_{-1} + k_\mathrm{cat})/k_1$ — which has units of concentration — into a single quantity called the **Michaelis constant**:
 
 \begin{equation}
 K_\mathrm{M} = \frac{k_{-1} + k_\mathrm{cat}}{k_1}
 (\#eq:michaelis-constant)
 \end{equation}
 
-$K_\mathrm{M}$ has units of concentration and quantifies the affinity between enzyme and substrate. When $k_\mathrm{cat} \ll k_{-1}$, the Michaelis constant reduces to $K_\mathrm{M} \approx k_{-1}/k_1$, which is the dissociation constant of the ES complex — a low $K_\mathrm{M}$ then indicates strong binding (high affinity). In general, $K_\mathrm{M}$ also depends on how quickly ES converts to product, so its interpretation is slightly more nuanced, but the rule of thumb holds: a lower $K_\mathrm{M}$ means the enzyme binds its substrate more effectively.
+With this definition, the SSA expression simplifies to $[\mathrm{ES}] = [\mathrm{E}][\mathrm{S}]/K_\mathrm{M}$.
 
-The rate of product formation is then:
+This still contains $[\mathrm{E}]$, the free enzyme concentration, which is difficult to measure directly. We replace it using the **enzyme conservation** condition — the total enzyme concentration $[\mathrm{E}]_0$ is constant:
+
+$$[\mathrm{E}]_0 = [\mathrm{E}] + [\mathrm{ES}]$$
+
+Substituting $[\mathrm{ES}] = [\mathrm{E}][\mathrm{S}]/K_\mathrm{M}$ and solving for $[\mathrm{E}]$:
+
+\begin{align*}
+[\mathrm{E}]_0 &= [\mathrm{E}] + \frac{[\mathrm{E}][\mathrm{S}]}{K_\mathrm{M}} = [\mathrm{E}]\left(\frac{K_\mathrm{M} + [\mathrm{S}]}{K_\mathrm{M}}\right) \\[6pt]
+[\mathrm{E}] &= \frac{[\mathrm{E}]_0\,K_\mathrm{M}}{K_\mathrm{M} + [\mathrm{S}]}
+\end{align*}
+
+The rate of product formation is $v = k_\mathrm{cat}[\mathrm{ES}] = k_\mathrm{cat}[\mathrm{E}][\mathrm{S}]/K_\mathrm{M}$. Substituting our expression for $[\mathrm{E}]$:
 
 \begin{equation}
-v = k_\mathrm{cat}[\mathrm{ES}] = \frac{k_\mathrm{cat}[\mathrm{E}]_0[\mathrm{S}]}{K_\mathrm{M} + [\mathrm{S}]} = \frac{v_\mathrm{max}[\mathrm{S}]}{K_\mathrm{M} + [\mathrm{S}]}
+v = \frac{k_\mathrm{cat}[\mathrm{E}]_0[\mathrm{S}]}{K_\mathrm{M} + [\mathrm{S}]}
+(\#eq:mm-ssa-rate)
+\end{equation}
+
+This is the SSA rate equation for the Michaelis–Menten mechanism: the rate of product formation expressed entirely in terms of $[\mathrm{S}]$, the total enzyme concentration $[\mathrm{E}]_0$, and the rate constants (grouped into $K_\mathrm{M}$ and $k_\mathrm{cat}$).
+
+### The Maximum Velocity
+
+For a given experiment, $[\mathrm{E}]_0$ is fixed, and $k_\mathrm{cat}$ is a property of the enzyme. Their product is therefore a constant that represents the maximum possible rate — achieved when every enzyme molecule is bound to substrate ($[\mathrm{ES}] = [\mathrm{E}]_0$). We define the **maximum velocity**:
+
+$$v_\mathrm{max} = k_\mathrm{cat}[\mathrm{E}]_0$$
+
+Eqn. \@ref(eq:mm-ssa-rate) then becomes the **Michaelis–Menten equation**:
+
+\begin{equation}
+v = \frac{v_\mathrm{max}[\mathrm{S}]}{K_\mathrm{M} + [\mathrm{S}]}
 (\#eq:michaelis-menten)
 \end{equation}
 
-where $v_\mathrm{max} = k_\mathrm{cat}[\mathrm{E}]_0$ is the **maximum velocity** — the rate when every enzyme molecule is bound to substrate.
-
-This is the **Michaelis–Menten equation**. It has the same mathematical form as the SSA rate laws in Lecture 5 — a quantity in the numerator divided by a sum of two terms in the denominator — and the same saturation behaviour emerges from the same competition.
-
 ### Limiting Cases
 
-```{r michaelis-menten-curve, echo=FALSE, fig.cap="The Michaelis–Menten curve: reaction velocity $v$ as a function of substrate concentration $[\\mathrm{S}]$. At low $[\\mathrm{S}]$ the rate increases linearly. At high $[\\mathrm{S}]$ the rate saturates at $v_\\mathrm{max}$. The substrate concentration at which $v = v_\\mathrm{max}/2$ equals $K_\\mathrm{M}$. [Draft figure from lecture slides.]", out.width='70%', fig.align='center'}
-knitr::include_graphics("lecture_8/figures/michaelis_menten_curve.png")
+The behaviour of the Michaelis–Menten equation is shown in Figure \@ref(fig:michaelis-menten-curve). Two limiting cases reveal the physical content of the equation.
+
+```{r michaelis-menten-curve, echo=FALSE, fig.cap="The Michaelis–Menten curve: reaction velocity $v$ as a function of substrate concentration $[\\mathrm{S}]$. The substrate concentration at which $v = v_\\mathrm{max}/2$ equals $K_\\mathrm{M}$.", out.width='60%', fig.align='center'}
+knitr::include_graphics("lecture_8/figures/mm_curve.png")
 ```
 
 **Low substrate ($[\mathrm{S}] \ll K_\mathrm{M}$):**
@@ -81,11 +99,31 @@ $$v \approx v_\mathrm{max}$$
 
 The rate is zero order in $[\mathrm{S}]$ — the enzyme is **saturated**. Every enzyme molecule already has a substrate bound, so adding more substrate cannot increase the rate. This is the hallmark of saturation kinetics.
 
-At the crossover point where $[\mathrm{S}] = K_\mathrm{M}$, substituting into the Michaelis–Menten equation gives $v = v_\mathrm{max}/2$. This provides a convenient graphical method for estimating $K_\mathrm{M}$: it is the substrate concentration at which the rate is half-maximal.
+At the crossover between these two regimes, where $[\mathrm{S}] = K_\mathrm{M}$, substituting into the Michaelis–Menten equation gives
+
+$$v = \frac{v_\mathrm{max}\,K_\mathrm{M}}{K_\mathrm{M} + K_\mathrm{M}} = \frac{v_\mathrm{max}}{2}$$
+
+This provides a convenient graphical method for estimating $K_\mathrm{M}$: it is the substrate concentration at which the rate is half-maximal (Figure \@ref(fig:michaelis-menten-curve)).
+
+### The Physical Meaning of $K_\mathrm{M}$
+
+We defined $K_\mathrm{M} = (k_{-1} + k_\mathrm{cat})/k_1$ as a notational convenience, and have now seen that it is the half-saturation concentration. But what does it represent physically?
+
+The numerator, $k_{-1} + k_\mathrm{cat}$, is the sum of the rate constants for the two processes that *destroy* the enzyme–substrate complex: dissociation back to E + S (rate constant $k_{-1}$) and catalytic conversion to E + P (rate constant $k_\mathrm{cat}$). The denominator, $k_1$, is the rate constant for the process that *forms* ES. So $K_\mathrm{M}$ is the ratio of ES breakdown to ES formation — a large $K_\mathrm{M}$ means ES is destroyed faster than it is formed, requiring more substrate to achieve half-saturation.
+
+When $k_\mathrm{cat} \ll k_{-1}$ — that is, when the catalytic step is much slower than dissociation — the dominant pathway for ES breakdown is reversion to E + S. In this limit, $K_\mathrm{M} \approx k_{-1}/k_1$, which is the dissociation constant $K_\mathrm{d}$ of the ES complex. This is the pre-equilibrium limit we encountered in [Lecture 4](#complex-mechanisms) and revisited in [Lecture 5](#ssa): the first step genuinely equilibrates before the slow step proceeds, and $K_\mathrm{M}$ becomes a true binding constant. A low $K_\mathrm{M}$ then directly indicates strong enzyme–substrate binding.
+
+In general, $K_\mathrm{M}$ also reflects how quickly ES converts to product, so it is a hybrid of binding and catalysis rather than a pure equilibrium constant. Nevertheless, the practical rule of thumb holds: a lower $K_\mathrm{M}$ means the enzyme reaches half-maximal rate at a lower substrate concentration, which *operationally* indicates effective binding.
 
 ### Determining Michaelis–Menten Parameters
 
-**Non-linear regression.** The most reliable method is to fit the Michaelis–Menten equation directly to a plot of $v$ versus $[\mathrm{S}]$ using computational least-squares fitting.
+To use the Michaelis–Menten equation in practice, we need values of $v_\mathrm{max}$ and $K_\mathrm{M}$. These are extracted from experimental measurements of $v$ at different substrate concentrations.
+
+**Non-linear regression.** The most reliable method is to fit the Michaelis–Menten equation directly to a plot of $v$ versus $[\mathrm{S}]$ using computational least-squares fitting (Figure \@ref(fig:mm-data-with-fit)).
+
+```{r mm-data-with-fit, echo=FALSE, fig.cap="Simulated enzyme kinetics data (points) fitted to the Michaelis–Menten equation (dashed curve). The dashed horizontal line marks $v_\\mathrm{max}$. Non-linear least-squares fitting gives $v_\\mathrm{max}$ and $K_\\mathrm{M}$ directly.", out.width='60%', fig.align='center'}
+knitr::include_graphics("lecture_8/figures/mm_data_with_fit.png")
+```
 
 **Lineweaver–Burk plot.** Taking the reciprocal of both sides of Eqn. \@ref(eq:michaelis-menten):
 
@@ -94,23 +132,21 @@ At the crossover point where $[\mathrm{S}] = K_\mathrm{M}$, substituting into th
 (\#eq:lineweaver-burk)
 \end{equation}
 
-A plot of $1/v$ versus $1/[\mathrm{S}]$ is linear, with slope $K_\mathrm{M}/v_\mathrm{max}$ and $y$-intercept $1/v_\mathrm{max}$. While historically important, the Lineweaver–Burk transformation magnifies errors at low $[\mathrm{S}]$ (where $1/[\mathrm{S}]$ is large), so modern practice favours non-linear regression when computational tools are available.
+A plot of $1/v$ versus $1/[\mathrm{S}]$ is linear, with slope $K_\mathrm{M}/v_\mathrm{max}$ and $y$-intercept $1/v_\mathrm{max}$ (Figure \@ref(fig:lineweaver-burk)). While historically important, the Lineweaver–Burk plot has a practical drawback. At low $[\mathrm{S}]$, rates are small and therefore hard to measure accurately. Taking the reciprocal of a small, noisy number gives a large, even noisier number — and these are precisely the points that end up far to the right of the plot, where they have the most influence on the fitted line. The least reliable data points thus dominate the fit. Modern practice therefore favours non-linear regression when computational tools are available.
 
-```{r lineweaver-burk, echo=FALSE, fig.cap="Lineweaver–Burk (double-reciprocal) plot. A plot of $1/v$ versus $1/[\\mathrm{S}]$ gives a straight line with $y$-intercept $1/v_\\mathrm{max}$ and slope $K_\\mathrm{M}/v_\\mathrm{max}$. The $x$-intercept equals $-1/K_\\mathrm{M}$. Note that data at low $[\\mathrm{S}]$ (high $1/[\\mathrm{S}]$) carry disproportionate influence on the fit. [Draft figure from lecture slides.]", out.width='70%', fig.align='center'}
+```{r lineweaver-burk, echo=FALSE, fig.cap="Lineweaver–Burk (double-reciprocal) plot of the same data as Figure \\@ref(fig:mm-data-with-fit). The reciprocal transformation magnifies errors at low $[\\mathrm{S}]$ (high $1/[\\mathrm{S}]$), giving those points disproportionate influence on the fit.", out.width='60%', fig.align='center'}
 knitr::include_graphics("lecture_8/figures/lineweaver_burk.png")
 ```
 
 ### Catalytic Efficiency
 
-The **catalytic constant** $k_\mathrm{cat}$ (also called the **turnover number**) gives the maximum number of substrate molecules converted to product per enzyme molecule per unit time:
+We have already seen that $v_\mathrm{max} = k_\mathrm{cat}[\mathrm{E}]_0$. Rearranging, $k_\mathrm{cat} = v_\mathrm{max}/[\mathrm{E}]_0$: it is the rate at which a single, fully saturated enzyme molecule converts substrate to product. For this reason $k_\mathrm{cat}$ is called the **turnover number** — it gives the maximum number of substrate molecules converted per enzyme molecule per unit time.
 
-$$k_\mathrm{cat} = \frac{v_\mathrm{max}}{[\mathrm{E}]_0}$$
-
-A more complete measure of efficiency combines binding and catalysis. The **specificity constant** $k_\mathrm{cat}/K_\mathrm{M}$ is the effective second-order rate constant for the reaction of free enzyme with free substrate at low $[\mathrm{S}]$:
+A more complete measure of efficiency combines binding and catalysis. Returning to the low-substrate limit, and substituting $v_\mathrm{max} = k_\mathrm{cat}[\mathrm{E}]_0$, the Michaelis–Menten equation becomes:
 
 $$v \approx \frac{k_\mathrm{cat}}{K_\mathrm{M}}[\mathrm{E}]_0[\mathrm{S}] \qquad \text{(when } [\mathrm{S}] \ll K_\mathrm{M}\text{)}$$
 
-The upper limit of $k_\mathrm{cat}/K_\mathrm{M}$ is set by the rate at which enzyme and substrate molecules encounter each other by diffusion — approximately $10^{8}$–$10^{9}\,\mathrm{dm}^3\,\mathrm{mol}^{-1}\,\mathrm{s}^{-1}$. Enzymes that approach this limit, such as catalase and carbonic anhydrase, are said to be **diffusion-limited**: every encounter leads to reaction.
+The ratio $k_\mathrm{cat}/K_\mathrm{M}$ is called the **specificity constant**. It is the effective second-order rate constant for the reaction of free enzyme with free substrate, and captures both how well the enzyme binds its substrate and how quickly it turns over. The upper limit of $k_\mathrm{cat}/K_\mathrm{M}$ is set by the rate at which enzyme and substrate molecules encounter each other by diffusion — approximately $10^{8}$–$10^{9}\,\mathrm{dm}^3\,\mathrm{mol}^{-1}\,\mathrm{s}^{-1}$. Enzymes that approach this limit, such as catalase and carbonic anhydrase, are said to be **diffusion-limited**: every encounter leads to reaction.
 
 ::: {.skill}
 **You should be able to:** Derive the Michaelis–Menten equation by applying the SSA to the enzyme–substrate complex and using the enzyme conservation condition. Identify the limiting behaviour at low and high $[\mathrm{S}]$, and explain the physical meaning of $K_\mathrm{M}$, $v_\mathrm{max}$, and $k_\mathrm{cat}$.
@@ -131,24 +167,20 @@ We define the **fractional surface coverage** $\theta$ as the fraction of sites 
 \text{Rate of desorption} &= k_\mathrm{d}\,\theta
 \end{align*}
 
-At equilibrium (or equivalently, applying the SSA to the surface coverage), these rates are equal:
+At equilibrium, these rates are equal:
 
 $$k_\mathrm{a}\,p\,(1 - \theta) = k_\mathrm{d}\,\theta$$
 
-Expanding and rearranging:
-
-$$k_\mathrm{a}\,p = \theta(k_\mathrm{d} + k_\mathrm{a}\,p)$$
+Expanding the left-hand side and collecting terms in $\theta$ gives $k_\mathrm{a}\,p = \theta(k_\mathrm{d} + k_\mathrm{a}\,p)$, so that
 
 \begin{equation}
 \theta = \frac{K\,p}{1 + K\,p}
 (\#eq:langmuir)
 \end{equation}
 
-where $K = k_\mathrm{a}/k_\mathrm{d}$ is the **Langmuir adsorption constant** (the ratio of the adsorption and desorption rate constants, with units of inverse pressure).
+where $K = k_\mathrm{a}/k_\mathrm{d}$ is the **Langmuir adsorption constant**, with units of inverse pressure. Because adsorption and desorption are a single reversible step, $K$ is a genuine equilibrium constant — the ratio of forward and reverse rate constants, just as in the equilibrium treatment of [Lecture 4](#complex-mechanisms). This contrasts with $K_\mathrm{M}$, which is a hybrid of binding and catalysis rather than a true equilibrium constant. The resulting isotherm is shown in Figure \@ref(fig:langmuir-isotherm).
 
-```{r langmuir-isotherm, echo=FALSE, eval=FALSE, fig.cap="The Langmuir adsorption isotherm: fractional surface coverage $\\theta$ as a function of gas pressure $p$. At low pressure, $\\theta$ increases linearly with $p$. At high pressure, the surface becomes saturated ($\\theta \\to 1$). The pressure at which $\\theta = 1/2$ equals $1/K$."}
-# TODO: No matching slide available — Langmuir isotherm is new content for 2026.
-# Need to create a new figure showing θ vs p with saturation behaviour.
+```{r langmuir-isotherm, echo=FALSE, fig.cap="The Langmuir adsorption isotherm: fractional surface coverage $\\theta$ as a function of gas pressure $p$. The pressure at which $\\theta = 1/2$ equals $1/K$.", out.width='60%', fig.align='center'}
 knitr::include_graphics("lecture_8/figures/langmuir_isotherm.png")
 ```
 
@@ -166,7 +198,11 @@ $$\theta \approx 1$$
 
 The surface is **saturated** — virtually every site is occupied. Increasing the pressure further has no effect on the coverage, because there are no more sites available.
 
-At $p = 1/K$, the coverage is $\theta = 1/2$. The Langmuir constant $K$ thus plays the same role as $1/K_\mathrm{M}$ in enzyme kinetics: it characterises the binding strength, and its reciprocal is the "half-saturation" value.
+At $p = 1/K$, substituting into the Langmuir isotherm gives
+
+$$\theta = \frac{K \cdot 1/K}{1 + K \cdot 1/K} = \frac{1}{2}$$
+
+The Langmuir constant $K$ thus plays the same role as $1/K_\mathrm{M}$ in enzyme kinetics: it characterises the binding strength, and its reciprocal is the half-saturation pressure.
 
 ::: {.skill}
 **You should be able to:** Derive the Langmuir adsorption isotherm $\theta = Kp/(1 + Kp)$ by balancing the rates of adsorption and desorption, and describe the limiting behaviour at low and high pressure.
@@ -174,7 +210,7 @@ At $p = 1/K$, the coverage is $\theta = 1/2$. The Langmuir constant $K$ thus pla
 
 ## The Common Pattern: Saturation Kinetics {#sec:saturation-pattern}
 
-The Michaelis–Menten equation and the Langmuir isotherm describe very different physical systems — enzymes in solution and gases on surfaces — yet they share the same mathematical form. This is not a coincidence. Both arise from the same underlying mechanism: **reversible binding to a finite number of sites, followed by a process that competes with unbinding**.
+The Michaelis–Menten equation and the Langmuir isotherm describe very different physical systems — enzymes in solution and gases on surfaces — yet they share the same mathematical form. This is not a coincidence. Both arise from the same underlying mechanism: **reversible binding to a finite number of sites**.
 
 | | Michaelis–Menten | Langmuir |
 |---|---|---|
@@ -186,13 +222,16 @@ The Michaelis–Menten equation and the Langmuir isotherm describe very differen
 | **Low-concentration limit** | First order in $[\mathrm{S}]$ | $\theta$ proportional to $p$ |
 | **High-concentration limit** | Zero order in $[\mathrm{S}]$ | $\theta$ independent of $p$ |
 
-The general pattern is: when the number of sites is limited and binding is reversible, the response (rate or coverage) increases with the concentration of the binding species but eventually saturates. This behaviour appears across chemistry and biology — from enzyme kinetics and surface catalysis to receptor–ligand binding and ion-channel gating. In surface reactions where two species compete for the same sites, this competition can lead to the counterintuitive phenomenon of *negative reaction orders*, where increasing a reactant's concentration actually slows the reaction (Appendix \@ref(appendix-negative-orders)).
+The general pattern is: when the number of sites is limited and binding is reversible, the response (rate or coverage) increases with the concentration of the binding species but eventually saturates. This behaviour appears across chemistry and biology — from enzyme kinetics and surface catalysis to receptor–ligand binding and ion-channel gating.
+
+Saturation kinetics also has a surprising consequence for surface reactions. When two species compete for the same adsorption sites, increasing the pressure of one reactant can *decrease* the overall reaction rate by blocking sites needed by the other. This leads to the counterintuitive phenomenon of *negative reaction orders*, discussed in Appendix \@ref(appendix-negative-orders).
 
 ## Key Concepts
 
 - The **Michaelis–Menten equation**, $v = v_\mathrm{max}[\mathrm{S}]/(K_\mathrm{M} + [\mathrm{S}])$, is derived by applying the SSA to the enzyme–substrate complex and using the enzyme conservation condition $[\mathrm{E}]_0 = [\mathrm{E}] + [\mathrm{ES}]$.
-- $K_\mathrm{M}$ is the substrate concentration at which the rate is half-maximal. It quantifies enzyme–substrate affinity: lower $K_\mathrm{M}$ means stronger binding.
-- At low $[\mathrm{S}]$ the reaction is first order (most enzyme is free); at high $[\mathrm{S}]$ it is zero order (enzyme is saturated).
-- The **Langmuir adsorption isotherm**, $\theta = Kp/(1 + Kp)$, describes the fractional coverage of a surface as a function of gas pressure. It is derived by balancing the rates of adsorption and desorption.
-- Both equations share the same mathematical form because both describe **reversible binding to a finite number of sites** — the defining feature of saturation kinetics.
+- At low $[\mathrm{S}]$ the reaction is first order (most enzyme is free); at high $[\mathrm{S}]$ it is zero order (enzyme is **saturated**).
+- $K_\mathrm{M} = (k_{-1} + k_\mathrm{cat})/k_1$ is the substrate concentration at which the rate is half-maximal. It is the ratio of ES breakdown to ES formation rate constants. In the pre-equilibrium limit ($k_\mathrm{cat} \ll k_{-1}$), $K_\mathrm{M}$ reduces to the dissociation constant $K_\mathrm{d}$.
+- The **Lineweaver–Burk plot** ($1/v$ vs $1/[\mathrm{S}]$) linearises the Michaelis–Menten equation, but modern practice favours non-linear regression.
 - The **specificity constant** $k_\mathrm{cat}/K_\mathrm{M}$ measures the overall catalytic efficiency of an enzyme, with an upper limit set by the diffusion-controlled encounter rate.
+- The **Langmuir adsorption isotherm**, $\theta = Kp/(1 + Kp)$, describes the fractional coverage of a surface as a function of gas pressure, where $K = k_\mathrm{a}/k_\mathrm{d}$ is a genuine equilibrium constant.
+- Both equations share the same mathematical form because both describe **reversible binding to a finite number of sites** — the defining feature of saturation kinetics.

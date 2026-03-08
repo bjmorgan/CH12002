@@ -1,44 +1,43 @@
 # Feedback, Stability, and Explosions
 
-In the previous chapter, we saw that chain reactions can be classified as straight or branching depending on whether propagation conserves or multiplies the number of reactive intermediates. We now ask the quantitative question: *what determines whether a chain reaction reaches a steady state or explodes?* The answer lies in a simple differential equation whose behaviour is controlled by a single parameter — the **feedback parameter** $\phi$.
+The chain reactions we studied in the previous chapter (CFC-catalysed ozone destruction, H~2~ + Br~2~) are all **straight chains**: each propagation step consumes one radical and produces exactly one replacement. The total radical population is set by the balance between initiation and termination, and the system reaches a steady state. But not all chain reactions are so well behaved.
+
+## Branching Chain Reactions {#sec:branching-chains}
+
+In a **branching chain** reaction, one or more propagation steps produce *more* reactive intermediates than they consume. The combustion of hydrogen provides the classic example. The key elementary steps include:
+
+\begin{align*}
+\mathrm{H}^{\bullet} + \mathrm{O_2} &\rightarrow \mathrm{OH}^{\bullet} + \mathrm{O}^{\bullet\bullet} \\
+\mathrm{O}^{\bullet\bullet} + \mathrm{H_2} &\rightarrow \mathrm{OH}^{\bullet} + \mathrm{H}^{\bullet} \\
+\mathrm{OH}^{\bullet} + \mathrm{H_2} &\rightarrow \mathrm{H_2O} + \mathrm{H}^{\bullet}
+\end{align*}
+
+In the first step, one radical ($\mathrm{H}^{\bullet}$) generates *two* new radicals ($\mathrm{OH}^{\bullet}$ and $\mathrm{O}^{\bullet\bullet}$). The second step is also branching: one $\mathrm{O}^{\bullet\bullet}$ produces both $\mathrm{OH}^{\bullet}$ and $\mathrm{H}^{\bullet}$. The third step is ordinary propagation (one in, one out). The net effect is that the radical population can *grow* with each cycle. If this branching outpaces termination, the radical concentration increases exponentially and the reaction accelerates towards an **explosion**.
+
+A mixture of hydrogen and oxygen can sit indefinitely at room temperature, yet a single spark triggers a violent explosion. Both scenarios involve the same elementary steps. What determines the outcome? The answer lies in the competition between branching (which multiplies radicals) and termination (which removes them). We can capture this competition in a single quantity, the **feedback parameter** $\phi$.
 
 ## The General Feedback Equation {#sec:feedback-equation}
 
-Consider a reactive intermediate I that is produced by initiation and whose concentration changes through two competing effects:
-
-1. **Initiation** creates new intermediates at a constant rate $\nu_f = k_\mathrm{init}[\mathrm{M}]$, independent of $[\mathrm{I}]$.
-2. **Propagation and termination** together cause $[\mathrm{I}]$ to grow or decay at a rate proportional to $[\mathrm{I}]$ itself.
-
-The rate equation for I is:
+Consider a reactive intermediate I produced by initiation at a constant rate $\nu_f = k_\mathrm{init}[\mathrm{M}]$, independent of $[\mathrm{I}]$. Once formed, the intermediate is subject to processes that depend on its own concentration: propagation steps may conserve, multiply, or consume radicals, while termination removes them. The net effect of all these $[\mathrm{I}]$-dependent processes can be captured by $\phi$, giving the rate equation:
 
 \begin{equation}
 \frac{\mathrm{d}[\mathrm{I}]}{\mathrm{d}t} = \nu_f + \phi[\mathrm{I}]
 (\#eq:feedback-equation)
 \end{equation}
 
-where $\phi$ is the **feedback parameter** that captures the net effect of all processes that depend on the intermediate concentration. The sign of $\phi$ determines everything.
+The first term represents the constant creation of new intermediates by initiation. The second term represents the net effect of all processes whose rate depends on $[\mathrm{I}]$: when $\phi$ is negative, these processes act as a brake on the intermediate population; when $\phi$ is positive, they amplify it.
 
-### What Determines $\phi$?
+The physical meaning of $\phi$ depends on the type of chain reaction. In a straight chain (such as H~2~ + Br~2~), each propagation step consumes one radical and produces exactly one replacement, so propagation has no net effect on $[\mathrm{I}]$. The only $[\mathrm{I}]$-dependent process is termination, which removes intermediates, giving $\phi = -k_\mathrm{term}$. Since $k_\mathrm{term} > 0$, the feedback is always negative: termination acts as a brake that grows stronger as the intermediate population builds up.
 
-The feedback parameter $\phi$ reflects the competition between processes that *create* intermediates and processes that *remove* them:
+In a branching chain reaction, propagation steps multiply intermediates. Each cycle creates new radicals at a rate $k_\mathrm{branch}[\mathrm{A}][\mathrm{I}]$ that depends on both the intermediate concentration and the concentration of a reactant A. This competes with termination at rate $k_\mathrm{term}[\mathrm{I}]$, so the feedback parameter becomes $\phi = k_\mathrm{branch}[\mathrm{A}] - k_\mathrm{term}$. The sign of $\phi$ now depends on which process wins. If termination dominates ($k_\mathrm{term} > k_\mathrm{branch}[\mathrm{A}]$), then $\phi < 0$ and the system behaves like a straight chain, reaching a steady state. If branching dominates ($k_\mathrm{branch}[\mathrm{A}] > k_\mathrm{term}$), then $\phi > 0$ and the intermediate concentration grows without bound. Figure \@ref(fig:branching-tree) illustrates how a single radical can generate an exponentially growing population when each propagation step produces two replacements.
 
-**For a straight chain reaction** (e.g. H~2~ + Br~2~), the propagation steps conserve the number of intermediates — every radical consumed produces exactly one new radical. The net effect on $[\mathrm{I}]$ comes only from termination, which removes intermediates:
-
-$$\phi = -k_\mathrm{term}$$
-
-Since $k_\mathrm{term} > 0$, the feedback parameter is *negative*. Termination acts as a brake: the faster the intermediates build up, the faster they are removed by recombination.
-
-**For a branching chain reaction** (e.g. H~2~/O~2~ combustion), the propagation steps multiply intermediates. Each propagation cycle creates new radicals at a rate proportional to $[\mathrm{I}]$, competing with termination:
-
-$$\phi = k_\mathrm{branch} - k_\mathrm{term}$$
-
-Now the sign of $\phi$ depends on which process wins. If termination dominates ($k_\mathrm{term} > k_\mathrm{branch}$), then $\phi < 0$ and the system behaves like a straight chain — it reaches a steady state. If branching dominates ($k_\mathrm{branch} > k_\mathrm{term}$), then $\phi > 0$ and the intermediate concentration grows without bound.
-
-```{r branching-tree, echo=FALSE, fig.cap="A branching chain reaction: each propagation step produces two intermediates from one, leading to exponential growth in the radical population. If branching outpaces termination ($\\phi > 0$), the number of intermediates doubles with each cycle. [Draft figure from lecture slides.]", out.width='70%', fig.align='center'}
+```{r branching-tree, echo=FALSE, fig.cap="A branching chain reaction: each propagation step produces two intermediates from one, leading to exponential growth in the radical population. If branching outpaces termination ($\\phi > 0$), the number of intermediates doubles with each cycle.", out.width='70%', fig.align='center'}
 knitr::include_graphics("lecture_10/figures/branching_tree.png")
 ```
 
 ## Solving the Feedback Equation {#sec:feedback-solution}
+
+The feedback equation (Eqn. \@ref(eq:feedback-equation)) contains everything we need to predict whether a chain reaction will burn steadily or explode. To extract this prediction, we solve the equation and examine how the solution depends on the sign of $\phi$.
 
 Eqn. \@ref(eq:feedback-equation) is a first-order linear ODE that we can solve by separation of variables. With the initial condition $[\mathrm{I}]_0 = 0$:
 
@@ -57,25 +56,19 @@ Rearranging:
 
 This single equation describes both stable and explosive behaviour, depending entirely on the sign of $\phi$.
 
-### Negative Feedback ($\phi < 0$): Steady State
-
 When $\phi < 0$, the exponential term $\mathrm{e}^{\phi t}$ decays to zero as $t \rightarrow \infty$. The intermediate concentration approaches a constant value:
 
 $$[\mathrm{I}]_\infty = \frac{\nu_f}{|\phi|}$$
 
-This is a **steady state**: the rate of initiation is exactly balanced by the rate of termination. The system is self-regulating — if $[\mathrm{I}]$ rises above the steady-state value, the increased termination rate pulls it back down. This is the scenario that underpins the steady-state approximation we have used throughout the course.
+This is a **steady state**: the rate of initiation is exactly balanced by the rate of termination. The system is self-regulating, because if $[\mathrm{I}]$ rises above the steady-state value, the increased termination rate pulls it back down. This is the scenario that underpins the steady-state approximation we have used throughout the course. The time to reach the steady state is characterised by $\tau = 1/|\phi|$. If $|\phi|$ is large (fast termination), the steady state is reached quickly and persists for most of the reaction, which is exactly the condition under which the SSA is valid.
 
-The time to reach the steady state is characterised by $\tau = 1/|\phi|$. If $|\phi|$ is large (fast termination), the steady state is reached quickly and persists for most of the reaction — exactly the conditions under which the SSA is valid.
-
-### Positive Feedback ($\phi > 0$): Explosion
-
-When $\phi > 0$, the exponential term $\mathrm{e}^{\phi t}$ grows without bound. The intermediate concentration increases exponentially:
+When $\phi > 0$, the picture changes dramatically. The exponential term $\mathrm{e}^{\phi t}$ grows without bound, and the intermediate concentration increases exponentially:
 
 $$[\mathrm{I}]_t \approx \frac{\nu_f}{\phi}\,\mathrm{e}^{\phi t} \qquad \text{(for large } t\text{)}$$
 
-Branching creates intermediates faster than termination can remove them. Each new radical generates more than one replacement, leading to a cascade. The radical population — and hence the reaction rate — increases exponentially. This is a **chain-branching explosion**: the reaction accelerates catastrophically until limited by reactant depletion or physical containment.
+Branching creates intermediates faster than termination can remove them. Each new radical generates more than one replacement, leading to a cascade. The radical population (and hence the reaction rate) increases exponentially. This is a **chain-branching explosion**: the reaction accelerates catastrophically until limited by reactant depletion or physical containment. Figure \@ref(fig:feedback-profiles) compares these two cases.
 
-```{r feedback-profiles, echo=FALSE, fig.cap="Solutions to the feedback equation for negative and positive feedback. When $\\phi < 0$, $[\\mathrm{I}]$ rises to a steady state $\\nu_f/|\\phi|$ (lower curve). When $\\phi > 0$, $[\\mathrm{I}]$ grows exponentially — the signature of a chain-branching explosion (upper curve). [Draft figure from lecture slides.]", out.width='70%', fig.align='center'}
+```{r feedback-profiles, echo=FALSE, fig.cap="Solutions to the feedback equation for negative and positive feedback. When $\\phi < 0$, $[\\mathrm{I}]$ rises to a steady state $\\nu_f/|\\phi|$ (lower curve). When $\\phi > 0$, $[\\mathrm{I}]$ grows exponentially (upper curve).", out.width='70%', fig.align='center'}
 knitr::include_graphics("lecture_10/figures/feedback_profiles.png")
 ```
 
@@ -85,17 +78,16 @@ knitr::include_graphics("lecture_10/figures/feedback_profiles.png")
 
 ## From Mechanism to Stability {#sec:mechanism-to-stability}
 
-We can now connect the abstract feedback parameter $\phi$ to the elementary steps of a specific mechanism. Consider a general chain reaction with initiation, propagation, branching, and termination:
+The qualitative picture above tells us that the sign of $\phi$ determines the fate of a chain reaction. To predict whether a specific reaction will explode under given conditions, we need to express $\phi$ in terms of the elementary rate constants.
 
-**Initiation:** $\mathrm{M} \xrightarrow{k_\mathrm{init}} \mathrm{I}$ (rate $= k_\mathrm{init}[\mathrm{M}] = \nu_f$)
+A general chain reaction has four types of elementary step:
 
-**Propagation (straight):** $\mathrm{I} + \mathrm{A} \xrightarrow{k_\mathrm{prop}} \mathrm{I} + \text{products}$ (no net change in [I])
+1. $\mathrm{M} \xrightarrow{k_\mathrm{init}} \mathrm{I}$ (initiation: rate $= k_\mathrm{init}[\mathrm{M}] = \nu_f$)
+2. $\mathrm{I} + \mathrm{A} \xrightarrow{k_\mathrm{prop}} \mathrm{I} + \text{products}$ (straight propagation: no net change in [I])
+3. $\mathrm{I} + \mathrm{A} \xrightarrow{k_\mathrm{branch}} 2\mathrm{I} + \text{products}$ (branching: net gain of one I)
+4. $\mathrm{I} \xrightarrow{k_\mathrm{term}} \text{inactive products}$ (termination: net loss of one I)
 
-**Branching:** $\mathrm{I} + \mathrm{A} \xrightarrow{k_\mathrm{branch}} 2\mathrm{I} + \text{products}$ (net gain of one I)
-
-**Termination:** $\mathrm{I} \xrightarrow{k_\mathrm{term}} \text{inactive products}$ (net loss of one I)
-
-The rate equation for I is:
+Writing the rate equation for I by summing the contributions from each step:
 
 $$\frac{\mathrm{d}[\mathrm{I}]}{\mathrm{d}t} = \underbrace{\nu_f}_{\text{initiation}} + \underbrace{k_\mathrm{branch}[\mathrm{A}]}_{\text{branching}} \cdot [\mathrm{I}] - \underbrace{k_\mathrm{term}}_{\text{termination}} \cdot [\mathrm{I}]$$
 
@@ -106,31 +98,75 @@ This has the form of Eqn. \@ref(eq:feedback-equation) with:
 (\#eq:phi-general)
 \end{equation}
 
-This expression reveals why conditions matter:
+The crucial feature of this expression is that $\phi$ depends on conditions. If the branching step involves a reactant A, then $\phi$ depends on $[\mathrm{A}]$: a dilute mixture may have $\phi < 0$ (safe), while a concentrated mixture pushes $\phi$ above zero (explosive). This is why fuel--air mixtures explode only above a certain concentration.
 
-- **Concentration dependence.** If the branching step involves a reactant A, then $\phi$ depends on $[\mathrm{A}]$. A dilute mixture may have $\phi < 0$ (safe), while a concentrated mixture has $\phi > 0$ (explosive). This is why fuel–air mixtures explode only above a certain concentration.
+In gas-phase reactions, the balance between branching and termination also depends on pressure. Termination often occurs at surfaces (the vessel walls), while branching occurs in the gas phase. At low pressure, molecules reach the walls easily and $k_\mathrm{term}$ is large, keeping $\phi < 0$. At intermediate pressures, molecules collide more frequently in the gas phase and gas-phase branching may dominate, pushing $\phi > 0$. At very high pressures, three-body collisions become frequent enough to provide a new termination pathway in the gas phase ($\mathrm{I} + \mathrm{A} + \mathrm{M} \rightarrow \text{stable product}$), and $k_\mathrm{term}$ increases again, pulling $\phi$ back below zero.
 
-- **Pressure dependence.** In gas-phase reactions, termination often occurs at surfaces (vessel walls), while branching occurs in the gas phase. Changing the pressure alters the balance: at low pressure, molecules reach the walls easily and $k_\mathrm{term}$ is large (safe); at intermediate pressures, gas-phase branching may dominate (explosive); at very high pressures, three-body termination in the gas phase becomes important and the system may become safe again.
+Finally, because the rate constants $k_\mathrm{branch}$ and $k_\mathrm{term}$ have different activation energies, raising the temperature may push $\phi$ from negative to positive, triggering an explosion. We will return to this connection between temperature and rate constants in the next chapter on the Arrhenius equation.
 
-- **Temperature dependence.** The rate constants $k_\mathrm{branch}$ and $k_\mathrm{term}$ have different activation energies. Raising the temperature may push $\phi$ from negative to positive, triggering an explosion.
+## The Hydrogen--Oxygen Explosion {#sec:hydrogen-oxygen}
 
-These considerations explain why hydrogen–oxygen mixtures have complex **explosion limits** — boundaries in pressure–temperature space that separate explosive from non-explosive conditions. The limits correspond to the condition $\phi = 0$, where branching and termination are exactly balanced.
+We can now return to the hydrogen--oxygen system introduced at the start of this chapter and apply the feedback framework. The branching steps ($\mathrm{H}^{\bullet} + \mathrm{O_2}$ and $\mathrm{O}^{\bullet\bullet} + \mathrm{H_2}$) drive the radical population upward, but termination competes through two distinct pathways that dominate under different conditions: at low pressures, radicals diffuse to the vessel walls and recombine (wall termination), while at high pressures, three-body collisions such as $\mathrm{H}^{\bullet} + \mathrm{O}_2 + \mathrm{M} \rightarrow \mathrm{HO}_{2}^{\bullet}$ (where M is any third body that carries away the excess energy) remove radicals in the gas phase.
 
-```{r explosion-limits, echo=FALSE, eval=FALSE, fig.cap="Schematic explosion limits for the H$_2$/O$_2$ system in pressure--temperature space. The boundaries correspond to $\\phi = 0$, where branching and termination rates are balanced. The system is explosive in the shaded region and reaches a steady state outside it."}
-# TODO: No matching slide available — explosion limit P-T diagram is new content for 2026.
-# Need to create a new figure showing the three explosion limits.
+The interplay between these pressure-dependent termination pathways and the gas-phase branching steps produces three distinct **explosion limits** in pressure--temperature space. At very low pressure, wall termination dominates and the mixture is safe ($\phi < 0$). As the pressure increases, molecules take longer to reach the walls, wall termination becomes less effective, and the mixture enters the explosive regime ($\phi > 0$) at the *first explosion limit*. Increasing the pressure further eventually makes the three-body termination step $\mathrm{H}^{\bullet} + \mathrm{O}_2 + \mathrm{M}$ significant, pulling $\phi$ back below zero at the *second explosion limit*. At still higher pressures, a *third explosion limit* arises from thermal effects: the exothermic reaction generates heat faster than it can be dissipated, leading to a thermal explosion rather than a chain-branching one. Figure \@ref(fig:explosion-limits) shows this characteristic pattern.
+
+```{r explosion-limits, echo=FALSE, fig.cap="Schematic explosion limits for the H$_2$/O$_2$ system in pressure--temperature space. The first and second limits correspond to $\\phi = 0$, where the dominant termination mechanism shifts between wall termination and gas-phase three-body termination. The third limit arises from thermal runaway.", out.width='70%', fig.align='center'}
 knitr::include_graphics("lecture_10/figures/explosion_limits.png")
 ```
+
+These explosion limits are not merely academic: they determine the conditions under which hydrogen can be safely stored and handled, and they played a central role in the historical development of combustion science.
 
 ::: {.skill}
 **You should be able to:** Given a chain reaction mechanism with initiation, branching, and termination steps, write the feedback equation for the reactive intermediate, identify the feedback parameter $\phi$, and predict the conditions (concentration, pressure, temperature) under which the reaction will reach a steady state or become explosive.
 :::
 
+## Worked Example: Applying the Feedback Framework {#sec:worked-example}
+
+Consider the following reaction scheme involving a radical intermediate $\mathrm{R}^{\bullet}$:
+
+\begin{align*}
+\mathrm{A} &\xrightarrow{k_1} \mathrm{R}^{\bullet} \\
+\mathrm{R}^{\bullet} + \mathrm{B} &\xrightarrow{k_2} 2\mathrm{R}^{\bullet} \\
+\mathrm{R}^{\bullet} + \mathrm{C} &\xrightarrow{k_3} \mathrm{P}
+\end{align*}
+
+with $k_1 = 0.5\,\mathrm{s}^{-1}$, $k_2 = 2\,\mathrm{M}^{-1}\,\mathrm{s}^{-1}$, $k_3 = 3\,\mathrm{M}^{-1}\,\mathrm{s}^{-1}$, $[\mathrm{A}]_0 = 1\,\mathrm{M}$, $[\mathrm{B}]_0 = 5\,\mathrm{M}$, and $[\mathrm{C}]_0 = 10\,\mathrm{M}$.
+
+The first step is initiation (creates $\mathrm{R}^{\bullet}$ from a stable precursor). The second is branching: one $\mathrm{R}^{\bullet}$ goes in and two come out, giving a net gain of one radical. The third is termination: $\mathrm{R}^{\bullet}$ is consumed and converted to the stable product P.
+
+**Does this system show positive or negative feedback?** We write the rate equation for $\mathrm{R}^{\bullet}$. The branching step consumes one $\mathrm{R}^{\bullet}$ and produces two, so its net contribution is $+k_2[\mathrm{B}][\mathrm{R}^{\bullet}]$. Termination contributes $-k_3[\mathrm{C}][\mathrm{R}^{\bullet}]$. Combining:
+
+$$\frac{\mathrm{d}[\mathrm{R}^{\bullet}]}{\mathrm{d}t} = k_1[\mathrm{A}] + \left(k_2[\mathrm{B}] - k_3[\mathrm{C}]\right)[\mathrm{R}^{\bullet}]$$
+
+This has the form of the feedback equation with $\nu_f = k_1[\mathrm{A}]$ and:
+
+$$\phi = k_2[\mathrm{B}] - k_3[\mathrm{C}] = (2)(5) - (3)(10) = -20\,\mathrm{s}^{-1}$$
+
+Since $\phi < 0$, the feedback is negative and the system reaches a steady state.
+
+**What is the steady-state radical concentration?** Setting $\mathrm{d}[\mathrm{R}^{\bullet}]/\mathrm{d}t = 0$:
+
+$$[\mathrm{R}^{\bullet}]_\infty = \frac{\nu_f}{|\phi|} = \frac{k_1[\mathrm{A}]}{|\phi|} = \frac{(0.5)(1)}{20} = 0.025\,\mathrm{M}$$
+
+The system approaches this value regardless of the initial radical concentration. If $[\mathrm{R}^{\bullet}]_0 = 0$, the concentration rises from zero towards $0.025\,\mathrm{M}$. If $[\mathrm{R}^{\bullet}]_0 = 0.050\,\mathrm{M}$ (above the steady state), it decays back down to $0.025\,\mathrm{M}$. Both trajectories converge on the same steady state with a timescale $\tau = 1/|\phi| = 1/20 = 0.05\,\mathrm{s}$.
+
+**Would increasing [B] make an explosion more or less likely?** Since $\phi = k_2[\mathrm{B}] - k_3[\mathrm{C}]$, increasing $[\mathrm{B}]$ increases $\phi$, pushing it towards positive values. An explosion becomes more likely. This makes physical sense: B is the reactant in the branching step, so more B means faster branching.
+
+**What is the maximum [C] for which an explosion will occur?** The explosion limit corresponds to $\phi = 0$:
+
+$$k_2[\mathrm{B}] = k_3[\mathrm{C}] \qquad \Rightarrow \qquad [\mathrm{C}] = \frac{k_2[\mathrm{B}]}{k_3} = \frac{(2)(5)}{3} = 3.3\,\mathrm{M}$$
+
+For $[\mathrm{C}] < 3.3\,\mathrm{M}$, branching outpaces termination ($\phi > 0$) and the system explodes. For $[\mathrm{C}] > 3.3\,\mathrm{M}$, termination wins ($\phi < 0$) and the system reaches a steady state. The species C acts as an inhibitor: it provides a termination pathway that competes with branching, and its concentration determines whether the system is safe or explosive.
+
+The question we posed at the start of this chapter has a remarkably clean answer. Whether a chain reaction reaches a steady state or explodes depends on a single parameter, $\phi = k_\mathrm{branch}[\mathrm{A}] - k_\mathrm{term}$, that captures the competition between branching and termination. The same mathematics that underpins the steady-state approximation ($\phi < 0$, intermediates controlled) also predicts its breakdown ($\phi > 0$, intermediates in runaway). What changes $\phi$ from negative to positive is a shift in conditions: concentration, pressure, or temperature. In the next chapter, we examine how temperature affects rate constants through the Arrhenius equation, completing our picture of how molecular-level properties determine macroscopic reaction behaviour.
+
 ## Key Concepts
 
+- In a **branching chain** reaction, propagation steps produce more reactive intermediates than they consume, so the radical population can grow with each cycle. This contrasts with the straight chains of the previous chapter, where propagation conserves the number of intermediates.
 - The **feedback equation** $\mathrm{d}[\mathrm{I}]/\mathrm{d}t = \nu_f + \phi[\mathrm{I}]$ describes the evolution of reactive intermediates in chain reactions. The initiation rate $\nu_f$ creates intermediates; the feedback parameter $\phi$ determines whether they accumulate or are controlled.
 - For **straight chains**, $\phi = -k_\mathrm{term} < 0$: termination provides negative feedback and the system reaches a steady state.
 - For **branching chains**, $\phi = k_\mathrm{branch}[\mathrm{A}] - k_\mathrm{term}$: the sign depends on the competition between branching (which multiplies intermediates) and termination (which removes them).
 - The general solution $[\mathrm{I}]_t = (\nu_f/\phi)(\mathrm{e}^{\phi t} - 1)$ describes both steady-state behaviour ($\phi < 0$) and explosive runaway ($\phi > 0$) within a single equation.
+- The **hydrogen--oxygen system** illustrates how pressure-dependent termination pathways (wall termination at low pressure, three-body termination at high pressure) create distinct explosion limits in pressure--temperature space.
 - **Explosion limits** correspond to the condition $\phi = 0$. They depend on concentration, pressure, and temperature because these variables affect the rates of branching and termination differently.
-- The SSA is valid precisely when $\phi < 0$ and $|\phi|$ is large — the intermediate reaches its steady state quickly and stays there. Positive feedback ($\phi > 0$) represents the breakdown of the SSA.
+- The SSA is valid precisely when $\phi < 0$ and $|\phi|$ is large: the intermediate reaches its steady state quickly and stays there. Positive feedback ($\phi > 0$) represents the breakdown of the SSA.
