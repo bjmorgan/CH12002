@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>A Integrated Rate Law for Two Different Reactants | CH12002 Lecture Notes</title>
+  <title>Lecture 6 Problem-Solving Session | CH12002 Lecture Notes</title>
   <meta name="description" content="These are notes to accompany the CH12002 lecture course on Chemical Kinetics." />
   <meta name="generator" content="bookdown 0.46 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="A Integrated Rate Law for Two Different Reactants | CH12002 Lecture Notes" />
+  <meta property="og:title" content="Lecture 6 Problem-Solving Session | CH12002 Lecture Notes" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="These are notes to accompany the CH12002 lecture course on Chemical Kinetics." />
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="A Integrated Rate Law for Two Different Reactants | CH12002 Lecture Notes" />
+  <meta name="twitter:title" content="Lecture 6 Problem-Solving Session | CH12002 Lecture Notes" />
   
   <meta name="twitter:description" content="These are notes to accompany the CH12002 lecture course on Chemical Kinetics." />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="temperature-effects-on-reaction-rates.html"/>
-<link rel="next" href="appendix-third-body.html"/>
+<link rel="prev" href="ssa.html"/>
+<link rel="next" href="unimolecular-reactions-and-collision-dynamics.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -299,46 +299,18 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="appendix-two-reactants" class="section level1 hasAnchor" number="12">
-<h1><span class="header-section-number">A</span> Integrated Rate Law for Two Different Reactants<a href="appendix-two-reactants.html#appendix-two-reactants" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>In <a href="integrated-rate-laws.html#integrated-rate-laws">Lecture 2</a>, we stated without proof the integrated rate law for a reaction between two different species, <span class="math inline">\(\mathrm{A} + \mathrm{B} \rightarrow \text{products}\)</span>, with rate law <span class="math inline">\(\nu = k[\mathrm{A}][\mathrm{B}]\)</span>. Here we derive that result. The derivation is not examinable, but it illustrates how mass balance can be used to reduce a two-variable problem to a single-variable integral.</p>
-<div id="setting-up-the-problem" class="section level2 hasAnchor" number="12.1">
-<h2><span class="header-section-number">A.1</span> Setting Up the Problem<a href="appendix-two-reactants.html#setting-up-the-problem" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Both concentrations change with time, so the differential rate law</p>
-<p><span class="math display">\[\frac{\mathrm{d}[\mathrm{A}]}{\mathrm{d}t} = -k[\mathrm{A}][\mathrm{B}]\]</span></p>
-<p>contains two unknowns. To integrate, we need to express <span class="math inline">\([\mathrm{B}]\)</span> in terms of <span class="math inline">\([\mathrm{A}]\)</span>. For 1:1 stoichiometry, mass balance (<a href="introduction-to-chemical-kinetics.html#introduction-to-chemical-kinetics">Lecture 1</a>) tells us that A and B are consumed in equal amounts, so at any time <span class="math inline">\(t\)</span>:</p>
-<p><span class="math display">\[[\mathrm{A}]_0 - [\mathrm{A}]_t = [\mathrm{B}]_0 - [\mathrm{B}]_t\]</span></p>
-<p>Rearranging gives <span class="math inline">\([\mathrm{B}]_t = [\mathrm{B}]_0 - [\mathrm{A}]_0 + [\mathrm{A}]_t\)</span>. Writing <span class="math inline">\(\Delta = [\mathrm{B}]_0 - [\mathrm{A}]_0\)</span> for the difference in initial concentrations, the differential equation becomes:</p>
-<p><span class="math display">\[\frac{\mathrm{d}[\mathrm{A}]}{[\mathrm{A}]([\mathrm{A}] + \Delta)} = -k\,\mathrm{d}t\]</span></p>
-</div>
-<div id="solving-by-partial-fractions" class="section level2 hasAnchor" number="12.2">
-<h2><span class="header-section-number">A.2</span> Solving by Partial Fractions<a href="appendix-two-reactants.html#solving-by-partial-fractions" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>The left-hand side can be decomposed using partial fractions:</p>
-<p><span class="math display">\[\frac{1}{[\mathrm{A}]([\mathrm{A}] + \Delta)} = \frac{1}{\Delta}\!\left(\frac{1}{[\mathrm{A}]} - \frac{1}{[\mathrm{A}] + \Delta}\right)\]</span></p>
-<p>Integrating both sides between <span class="math inline">\(t = 0\)</span> and <span class="math inline">\(t\)</span>:</p>
-<p><span class="math display">\[\begin{align*}
-\frac{1}{\Delta}\left[\ln[\mathrm{A}] - \ln([\mathrm{A}] + \Delta)\right]_{[\mathrm{A}]_0}^{[\mathrm{A}]_t} &amp;= -kt \\[6pt]
-\frac{1}{\Delta}\left(\ln\frac{[\mathrm{A}]_t}{[\mathrm{A}]_0} - \ln\frac{[\mathrm{B}]_t}{[\mathrm{B}]_0}\right) &amp;= -kt
-\end{align*}\]</span></p>
-<p>where in the second line we have used <span class="math inline">\([\mathrm{A}]_t + \Delta = [\mathrm{B}]_t\)</span> and <span class="math inline">\([\mathrm{A}]_0 + \Delta = [\mathrm{B}]_0\)</span>. Rearranging gives the final result:</p>
-<p><span class="math display" id="eq:appendix-second-order-two-reactants">\[\begin{equation}
-kt = \frac{1}{[\mathrm{B}]_0 - [\mathrm{A}]_0}\ln\!\left(\frac{[\mathrm{B}]_t / [\mathrm{B}]_0}{[\mathrm{A}]_t / [\mathrm{A}]_0}\right)
-\tag{A.1}
-\end{equation}\]</span></p>
-</div>
-<div id="the-equal-concentration-limit" class="section level2 hasAnchor" number="12.3">
-<h2><span class="header-section-number">A.3</span> The Equal-Concentration Limit<a href="appendix-two-reactants.html#the-equal-concentration-limit" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>This result requires <span class="math inline">\([\mathrm{A}]_0 \neq [\mathrm{B}]_0\)</span> (i.e. <span class="math inline">\(\Delta \neq 0\)</span>); otherwise the partial fraction decomposition breaks down (we cannot divide by zero). If the initial concentrations are equal, then by mass balance <span class="math inline">\([\mathrm{A}]_t = [\mathrm{B}]_t\)</span> at all times, so the rate law becomes <span class="math inline">\(\mathrm{d}[\mathrm{A}]/\mathrm{d}t = -k[\mathrm{A}]^2\)</span>. This is exactly the single-reactant second-order case already solved in <a href="integrated-rate-laws.html#integrated-rate-laws">Lecture 2</a> (Eqn. <a href="integrated-rate-laws.html#eq:second-order-integrated">(2.4)</a>).</p>
+<div id="problem-solving-session" class="section level1 hasAnchor" number="6">
+<h1><span class="header-section-number">Lecture 6</span> Problem-Solving Session<a href="problem-solving-session.html#problem-solving-session" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>This lecture is a problem-solving session covering material from Lectures 1–5. The problem set and worked solutions are available on Moodle.</p>
 
-</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="temperature-effects-on-reaction-rates.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="appendix-third-body.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="ssa.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="unimolecular-reactions-and-collision-dynamics.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -369,7 +341,7 @@ gitbook.start({
     "size": 2
   },
   "edit": {
-    "link": "https://github.com/bjmorgan/CH12002/main/appendices/two_reactant_second_order.Rmd",
+    "link": "https://github.com/bjmorgan/CH12002/main/lecture_6/lecture_06.Rmd",
     "text": "Edit"
   },
   "history": {
