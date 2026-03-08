@@ -1,10 +1,10 @@
 # Chain Reactions
 
-So far, the mechanisms we have studied (consecutive reactions, pre-equilibria, enzyme catalysis) all lead to steady, predictable kinetics. But not all reactions behave so tamely. In a **chain reaction**, reactive intermediates are not merely consumed; they are *regenerated* by the very steps that form the products, creating a self-sustaining cycle that can sustain a steady flame or trigger a violent explosion.
+Consecutive reactions, pre-equilibria, and enzyme catalysis all lead to steady, predictable kinetics. Not all reactions behave so tamely. In a **chain reaction**, reactive intermediates are not merely consumed; they are *regenerated* by the very steps that form the products, creating a self-sustaining cycle that can sustain a steady flame or trigger a violent explosion.
 
 ## The Ozone Layer and CFC-Catalysed Destruction {#sec:ozone}
 
-The ozone layer in the stratosphere absorbs ultraviolet radiation that would otherwise damage DNA and other biological molecules at the Earth's surface. In the 1970s, scientists discovered that chlorofluorocarbons (CFCs), widely used as refrigerants and aerosol propellants, were depleting this protective layer through a chain reaction. This discovery, which led to the 1995 Nobel Prize in Chemistry for Crutzen, Molina, and Rowley, provides a striking example of how a tiny concentration of reactive intermediates can destroy a vastly larger amount of substrate. Figure \@ref(fig:ozone-hole) shows the consequences: satellite observations over Antarctica reveal the progressive development of the ozone hole over just five years.
+The ozone layer in the stratosphere absorbs ultraviolet radiation that would otherwise damage DNA and other biological molecules at the Earth's surface. In the 1970s, scientists discovered that chlorofluorocarbons (CFCs), widely used as refrigerants and aerosol propellants, were depleting this protective layer through a chain reaction. This discovery, which led to the 1995 Nobel Prize in Chemistry for Crutzen, Molina, and Rowland, provides a striking example of how a tiny concentration of reactive intermediates can destroy a vastly larger amount of substrate. Figure \@ref(fig:ozone-hole) shows the consequences: satellite observations over Antarctica reveal the progressive development of the ozone hole over just five years.
 
 ```{r ozone-hole, echo=FALSE, fig.cap="Satellite observations of total column ozone over Antarctica from 1979 to 1983. Blue and purple regions indicate depleted ozone.", out.width='100%', fig.align='center'}
 knitr::include_graphics("lecture_9/figures/ozone_hole.png")
@@ -24,13 +24,19 @@ $$\mathrm{C_nF_mCl} + h\nu \xrightarrow{k_1} \mathrm{C_nF_m}^{\bullet} + \mathrm
 **Termination:**
 $$\mathrm{Cl}^{\bullet} + \mathrm{CH_4} \xrightarrow{k_4} \mathrm{CH_3}^{\bullet} + \mathrm{HCl}$$
 
-Initiation occurs when UV radiation breaks a C–Cl bond in a CFC molecule, releasing a chlorine radical. This step is slow (it requires a UV photon of the right wavelength) and produces just one reactive intermediate, $\mathrm{Cl}^{\bullet}$.
+**Initiation** is a step that creates reactive intermediates from stable molecules. Here, UV radiation breaks a C–Cl bond in a CFC molecule, releasing a chlorine radical. Initiation is typically slow relative to propagation (in this case it requires a UV photon of the right wavelength) and may require an external energy source such as heat, light, or a chemical initiator.
 
-Once formed, $\mathrm{Cl}^{\bullet}$ enters the propagation cycle. The first step consumes $\mathrm{Cl}^{\bullet}$ and produces $\mathrm{ClO}^{\bullet}$; the second consumes $\mathrm{ClO}^{\bullet}$ and regenerates $\mathrm{Cl}^{\bullet}$. Each turn of the cycle destroys one molecule of O~3~ and one atom of O, converting them to two molecules of O~2~. The net reaction is:
+Once formed, $\mathrm{Cl}^{\bullet}$ enters the **propagation** cycle: a sequence of steps that regenerate the reactive intermediate while forming products. The first step consumes $\mathrm{Cl}^{\bullet}$ and produces $\mathrm{ClO}^{\bullet}$; the second consumes $\mathrm{ClO}^{\bullet}$ and regenerates $\mathrm{Cl}^{\bullet}$. The two propagation steps repeat in alternation: each radical produces the next, forming a self-sustaining chain. Each turn of the cycle destroys one molecule of O~3~ and one atom of O, converting them to two molecules of O~2~. The net reaction is:
 
 $$\mathrm{O_3} + \mathrm{O} \rightarrow 2\mathrm{O_2}$$
 
-The chlorine radical emerges unchanged; it is a catalyst, recycled indefinitely by the propagation cycle. The chain ends when a termination step converts the reactive $\mathrm{Cl}^{\bullet}$ into a stable molecule such as HCl, permanently removing the chain-carrying intermediate. Other termination pathways exist (such as $\mathrm{ClO}^{\bullet} + \mathrm{NO_2} \rightarrow \mathrm{ClONO_2}$), but the essential point is the same: termination stops the chain.
+The chlorine radical emerges unchanged; it is a catalyst, recycled indefinitely by the propagation cycle. The chain ends when a **termination** step removes the reactive intermediate permanently — here by converting $\mathrm{Cl}^{\bullet}$ into the stable molecule HCl. Other termination pathways exist (such as $\mathrm{ClO}^{\bullet} + \mathrm{NO_2} \rightarrow \mathrm{ClONO_2}$), but the essential point is the same: termination stops the chain by removing the chain-carrying intermediate.
+
+This pattern of initiation, propagation, and termination is common to all chain reactions. Figure \@ref(fig:chain-anatomy) shows the general structure schematically.
+
+```{r chain-anatomy, echo=FALSE, fig.cap="The general anatomy of a chain reaction: initiation creates reactive intermediates (R$_1$, R$_2$), propagation regenerates them in a cyclic sequence while producing products (P), and termination removes them. The competition between propagation and termination determines whether the chain is sustained.", out.width='70%', fig.align='center'}
+knitr::include_graphics("lecture_9/figures/chain_anatomy.png")
+```
 
 ### Chain Length
 
@@ -49,14 +55,14 @@ The CFC-ozone reaction is a straightforward chain: a single radical carrier ($\m
 
 $$\mathrm{H_2} + \mathrm{Br_2} \rightarrow 2\mathrm{HBr}$$
 
-appears simple, but its experimentally determined rate law is anything but:
+appears simple — from the stoichiometry alone, we might expect a straightforward rate law such as $\nu = k[\mathrm{H_2}][\mathrm{Br_2}]$. The experimentally determined rate law is quite different:
 
 \begin{equation}
 \nu = \frac{k[\mathrm{H_2}][\mathrm{Br_2}]^{1/2}}{1 + k'[\mathrm{HBr}]/[\mathrm{Br_2}]}
 (\#eq:hbr-experimental)
 \end{equation}
 
-This rate law has two unusual features: a fractional power of $[\mathrm{Br_2}]^{1/2}$ in the numerator, and a term in the denominator that involves the *product* HBr (which means the overall order with respect to Br~2~ is not even defined). Neither feature can be explained by a single elementary step. To understand where this rate law comes from, we need to consider the full chain mechanism.
+This rate law has two unusual features: a fractional power of $[\mathrm{Br_2}]^{1/2}$ in the numerator, and a term in the denominator that involves the *product* HBr (which means the overall order with respect to Br~2~ is not even defined). Neither feature can arise from a single elementary step, since elementary steps always have small integer orders. To understand where this rate law comes from, we need to consider the full chain mechanism.
 
 ### The Mechanism
 
@@ -79,23 +85,25 @@ These two steps repeat in sequence, forming a chain in which each radical produc
 knitr::include_graphics("lecture_9/figures/hbr_chain.png")
 ```
 
+This mechanism also features a step not present in the ozone example. Some chain reactions have **inhibition** steps that consume intermediates unproductively, regenerating reactants rather than forming products. Here, the reverse of the first propagation step diverts $\mathrm{H}^{\bullet}$ without forming product:
+
 **Inhibition (reverse of first propagation step):**
 $$\mathrm{H}^{\bullet} + \mathrm{HBr} \xrightarrow{k_{-2}} \mathrm{Br}^{\bullet} + \mathrm{H_2}$$
 
 **Termination:**
 $$2\mathrm{Br}^{\bullet} + \mathrm{M} \xrightarrow{k_4} \mathrm{Br_2} + \mathrm{M}$$
 
-The difference in Br–Br and H–H bond energies has another important consequence: it determines which radical is present in higher concentration. Both propagation steps form an H–Br bond, but the first ($k_2$) must break the strong H–H bond while the second ($k_3$) breaks the weaker Br–Br bond. The second step is therefore much faster ($k_3 \gg k_2$), so each $\mathrm{H}^{\bullet}$ radical produced is rapidly converted back to $\mathrm{Br}^{\bullet}$. This means $[\mathrm{Br}^{\bullet}] \gg [\mathrm{H}^{\bullet}]$ throughout the reaction, and $\mathrm{Br}^{\bullet}$ recombination is the dominant termination pathway.
+Bond energies also determine which radical is present in higher concentration. Both propagation steps form an H–Br bond ($366\,\mathrm{kJ\,mol}^{-1}$), but they differ in the bond they break: the first step ($k_2$) breaks the strong H–H bond ($436\,\mathrm{kJ\,mol}^{-1}$), making it endothermic overall, while the second ($k_3$) breaks the much weaker Br–Br bond ($194\,\mathrm{kJ\,mol}^{-1}$), making it strongly exothermic. The exothermic step has a much lower activation barrier, so $k_3 \gg k_2$ and each $\mathrm{H}^{\bullet}$ radical produced is rapidly converted back to $\mathrm{Br}^{\bullet}$. This means $[\mathrm{Br}^{\bullet}] \gg [\mathrm{H}^{\bullet}]$ throughout the reaction, and $\mathrm{Br}^{\bullet}$ recombination is the dominant termination pathway.
 
-```{r hbr-chain-cycle, echo=FALSE, fig.cap="The cyclic nature of the H$_2$ + Br$_2$ chain reaction. Bromine radicals are consumed in one propagation step and regenerated in the next, creating a self-sustaining cycle that produces two molecules of HBr per turn. The inhibition step diverts H$^\\bullet$ back to Br$^\\bullet$ without forming product. [Draft figure from lecture slides.]", out.width='70%', fig.align='center'}
+```{r hbr-chain-cycle, echo=FALSE, fig.cap="The cyclic nature of the H$_2$ + Br$_2$ chain reaction. Bromine radicals are consumed in one propagation step and regenerated in the next, creating a self-sustaining cycle that produces two molecules of HBr per turn. The inhibition step diverts H$^\\bullet$ back to Br$^\\bullet$ without forming product.", out.width='70%', fig.align='center'}
 knitr::include_graphics("lecture_9/figures/hbr_chain_cycle.png")
 ```
 
-Figure \@ref(fig:hbr-chain-cycle) illustrates the **cyclic** structure of the propagation steps. Each complete cycle produces two molecules of HBr and regenerates the radical that started it. This is the defining feature of a chain reaction: the intermediates catalyse their own regeneration.
+Figure \@ref(fig:hbr-chain-cycle) illustrates the complete mechanism as a cycle, showing how initiation, propagation, inhibition, and termination are connected. Each complete propagation cycle produces two molecules of HBr and regenerates the radical that started it.
 
 ### Deriving the Rate Law Using the SSA
 
-With the mechanism established, we can test whether it reproduces the puzzling experimental rate law. We apply the SSA to both radical intermediates, setting each rate of change to zero. In what follows, we absorb the constant concentration of the collision partner $\mathrm{M}$ into the rate constants $k_1$ and $k_4$.
+We apply the SSA to both radical intermediates, setting each rate of change to zero. In what follows, we absorb the constant concentration of the collision partner $\mathrm{M}$ into the rate constants $k_1$ and $k_4$.
 
 For $\mathrm{Br}^{\bullet}$, we write down every elementary step that produces or consumes it. Initiation (which creates *two* $\mathrm{Br}^{\bullet}$ per event), the second propagation step, and the inhibition step all produce $\mathrm{Br}^{\bullet}$; the first propagation step and termination (which destroys *two*) consume it. Setting the total rate of change to zero:
 
@@ -122,7 +130,7 @@ This makes physical sense: the propagation cycle merely interconverts $\mathrm{B
 (\#eq:br-steady-state)
 \end{equation}
 
-This result immediately explains the $[\mathrm{Br_2}]^{1/2}$ dependence in the experimental rate law: it comes from the square root in the steady-state radical concentration, which in turn arises because termination is *second order* in $\mathrm{Br}^{\bullet}$ (two radicals must meet to recombine).
+This result accounts for the $[\mathrm{Br_2}]^{1/2}$ dependence in the experimental rate law: it comes from the square root in the steady-state radical concentration, which in turn arises because termination is *second order* in $\mathrm{Br}^{\bullet}$ (two radicals must meet to recombine).
 
 To find $[\mathrm{H}^{\bullet}]_\mathrm{ss}$, we return to the $\mathrm{H}^{\bullet}$ balance (Eqn. \@ref(eq:h-ssa)) and solve for $[\mathrm{H}^{\bullet}]$:
 
@@ -148,28 +156,10 @@ The inhibition term in the denominator has a clear physical origin. The inhibiti
 
 We can see this clearly by examining limiting cases. Early in the reaction, when very little HBr has formed, the denominator approaches 1 and the rate law simplifies to $\nu \approx k[\mathrm{H_2}][\mathrm{Br_2}]^{1/2}$ — a straightforward three-halves order law. As the reaction progresses and HBr accumulates while Br~2~ is consumed, the ratio $[\mathrm{HBr}]/[\mathrm{Br_2}]$ grows, the denominator increases, and the rate drops. The reaction progressively inhibits itself. This is an example of a *negative reaction order*, a phenomenon explored further in Appendix \@ref(appendix-negative-orders).
 
-::: {.skill}
-**You should be able to:** Identify the initiation, propagation, termination, and inhibition steps in the H~2~ + Br~2~ mechanism, explain the physical origin of the $[\mathrm{Br_2}]^{1/2}$ dependence and the inhibition term, and describe how the SSA is applied to derive the rate law.
-:::
-
-## The Anatomy of a Chain Reaction {#sec:chain-anatomy}
-
-The H~2~ + Br~2~ reaction illustrates a pattern common to all chain reactions. The chain begins with an **initiation** step that creates reactive intermediates from stable molecules. In the H~2~ + Br~2~ case, this is the thermal dissociation of Br~2~ into bromine radicals. Initiation is typically slow and may require an external energy source such as heat, light, or a chemical initiator.
-
-Once radicals are present, the **propagation** cycle takes over: each step consumes one reactive intermediate and generates another, producing product molecules while regenerating the intermediates that sustain the chain. All chains eventually end through **termination** steps that remove reactive intermediates, usually by radical recombination. Termination competes with propagation and ultimately limits the **chain length**, the average number of propagation cycles completed per initiation event.
-
-Some chain reactions also feature **inhibition** steps that consume intermediates unproductively, regenerating reactants rather than forming products. In the H~2~ + Br~2~ system, termination occurs by $\mathrm{Br}^{\bullet}$ recombination, and inhibition by the reverse of the first propagation step.
-
-Figure \@ref(fig:chain-anatomy) shows this general structure schematically.
-
-```{r chain-anatomy, echo=FALSE, fig.cap="The general anatomy of a chain reaction: initiation creates reactive intermediates (R$_1$, R$_2$), propagation regenerates them in a cyclic sequence while producing products (P), and termination removes them. The competition between propagation and termination determines whether the chain is sustained.", out.width='70%', fig.align='center'}
-knitr::include_graphics("lecture_9/figures/chain_anatomy.png")
-```
-
-Both the ozone and HBr reactions are examples of **straight chain** reactions: each propagation step consumes one reactive intermediate and produces exactly one replacement. The total radical population is maintained by the propagation cycle and slowly depleted by termination. But what happens when propagation steps produce *more* intermediates than they consume? That question leads us to branching chain reactions and the possibility of explosions, which we take up in the next chapter.
+Both the ozone and HBr reactions are examples of **straight chain** reactions: each propagation cycle consumes one reactive intermediate and produces exactly one replacement. The total radical population is maintained by propagation and slowly depleted by termination. In a straight chain, the competition between propagation and termination always reaches a balance — and as the ozone example shows, even this steady balance can be devastating when chain lengths reach $10^6$ or more. But not all chains reach a steady state. When propagation steps produce *more* intermediates than they consume, the radical population grows exponentially and the result is an explosion.
 
 ::: {.skill}
-**You should be able to:** Classify the steps in a chain reaction mechanism as initiation, propagation, termination, or inhibition. Given a chain mechanism, identify the chain-carrying intermediates and write the net reaction for one complete propagation cycle. Explain why small concentrations of chain carriers can cause large amounts of reaction (chain length). Apply the SSA to derive the rate law for the H~2~ + Br~2~ reaction.
+**You should be able to:** Classify the steps in a chain reaction mechanism as initiation, propagation, termination, or inhibition. Given a chain mechanism, identify the chain-carrying intermediates and write the net reaction for one complete propagation cycle. Explain why small concentrations of chain carriers can cause large amounts of reaction (chain length). Identify the initiation, propagation, termination, and inhibition steps in the H~2~ + Br~2~ mechanism, explain the physical origin of the $[\mathrm{Br_2}]^{1/2}$ dependence and the inhibition term, and describe how the SSA is applied to derive the rate law.
 :::
 
 ## Key Concepts
