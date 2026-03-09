@@ -146,7 +146,7 @@ concentration-dependent-limiting-behaviour
 ssa-versus-pre-equilibrium
 key-concepts-4
 problem-solving-session
-unimolecular-reactions-and-collision-dynamics
+unimolecular-and-third-order-reactions
 sec:lindemann
 separating-activation-from-reaction
 the-lindemann-rate-law
