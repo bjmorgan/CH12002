@@ -159,7 +159,6 @@ binding-and-catalysis
 sec:enzyme-kinetics
 the-michaelismenten-mechanism
 deriving-the-michaelismenten-equation
-the-maximum-velocity
 limiting-cases
 the-physical-meaning-of-k_mathrmm
 determining-michaelismenten-parameters
