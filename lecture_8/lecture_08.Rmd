@@ -1,6 +1,6 @@
 # Binding and Catalysis
 
-The [Lindemann mechanism](#sec:lindemann) showed how the SSA can explain pressure-dependent kinetics for gas-phase reactions. But the SSA is not limited to gas-phase chemistry. Whenever a species binds reversibly to a site — whether a substrate binding to an enzyme or a gas molecule adsorbing onto a surface — the number of available sites is finite. This means the system can become *saturated*: once every site is occupied, adding more of the binding species has no further effect. The kinetics of these systems, known as **saturation kinetics**, share a common mathematical structure that we develop in this chapter through two contrasting examples.
+The [Lindemann mechanism](#sec:lindemann) showed how the SSA can explain pressure-dependent kinetics for gas-phase reactions. But the SSA is not limited to gas-phase chemistry. Whenever a species binds reversibly to a site — whether a substrate binding to an enzyme or a gas molecule adsorbing onto a surface — the number of available sites is finite. This means the system can become *saturated*: once every site is occupied, adding more of the binding species has no further effect. The kinetics of these systems, known as **saturation kinetics**, share a common mathematical structure.
 
 ## Enzyme Kinetics {#sec:enzyme-kinetics}
 
@@ -57,7 +57,7 @@ Substituting $[\mathrm{ES}] = [\mathrm{E}][\mathrm{S}]/K_\mathrm{M}$ and solving
 [\mathrm{E}] &= \frac{[\mathrm{E}]_0\,K_\mathrm{M}}{K_\mathrm{M} + [\mathrm{S}]}
 \end{align*}
 
-The rate of product formation is $v = k_\mathrm{cat}[\mathrm{ES}] = k_\mathrm{cat}[\mathrm{E}][\mathrm{S}]/K_\mathrm{M}$. Substituting our expression for $[\mathrm{E}]$:
+The rate of product formation is $v = k_\mathrm{cat}[\mathrm{ES}] = k_\mathrm{cat}[\mathrm{E}][\mathrm{S}]/K_\mathrm{M}$ (enzyme kinetics conventionally uses $v$ for rate rather than $\nu$). Substituting our expression for $[\mathrm{E}]$:
 
 \begin{equation}
 v = \frac{k_\mathrm{cat}[\mathrm{E}]_0[\mathrm{S}]}{K_\mathrm{M} + [\mathrm{S}]}
@@ -65,8 +65,6 @@ v = \frac{k_\mathrm{cat}[\mathrm{E}]_0[\mathrm{S}]}{K_\mathrm{M} + [\mathrm{S}]}
 \end{equation}
 
 This is the SSA rate equation for the Michaelis–Menten mechanism: the rate of product formation expressed entirely in terms of $[\mathrm{S}]$, the total enzyme concentration $[\mathrm{E}]_0$, and the rate constants (grouped into $K_\mathrm{M}$ and $k_\mathrm{cat}$).
-
-### The Maximum Velocity
 
 For a given experiment, $[\mathrm{E}]_0$ is fixed, and $k_\mathrm{cat}$ is a property of the enzyme. Their product is therefore a constant that represents the maximum possible rate — achieved when every enzyme molecule is bound to substrate ($[\mathrm{ES}] = [\mathrm{E}]_0$). We define the **maximum velocity**:
 
@@ -107,7 +105,7 @@ This provides a convenient graphical method for estimating $K_\mathrm{M}$: it is
 
 ### The Physical Meaning of $K_\mathrm{M}$
 
-We defined $K_\mathrm{M} = (k_{-1} + k_\mathrm{cat})/k_1$ as a notational convenience, and have now seen that it is the half-saturation concentration. But what does it represent physically?
+We defined $K_\mathrm{M}$ (Eqn. \@ref(eq:michaelis-constant)) as a notational convenience, and have now seen that it is the half-saturation concentration. But what does it represent physically?
 
 The numerator, $k_{-1} + k_\mathrm{cat}$, is the sum of the rate constants for the two processes that *destroy* the enzyme–substrate complex: dissociation back to E + S (rate constant $k_{-1}$) and catalytic conversion to E + P (rate constant $k_\mathrm{cat}$). The denominator, $k_1$, is the rate constant for the process that *forms* ES. So $K_\mathrm{M}$ is the ratio of ES breakdown to ES formation — a large $K_\mathrm{M}$ means the rate constants for ES breakdown are large relative to the rate constant for ES formation, so a higher substrate concentration is needed to push the binding equilibrium far enough to reach half-saturation.
 
@@ -198,7 +196,7 @@ $$\theta \approx 1$$
 
 The surface is **saturated** — virtually every site is occupied. Increasing the pressure further has no effect on the coverage, because there are no more sites available.
 
-At $p = 1/K$, substituting into the Langmuir isotherm gives
+At $p = 1/K$, substituting into Eqn. \@ref(eq:langmuir) gives
 
 $$\theta = \frac{K \cdot 1/K}{1 + K \cdot 1/K} = \frac{1}{2}$$
 
@@ -231,7 +229,7 @@ One might expect that increasing the pressure of a reactant always increases the
 - The **Michaelis–Menten equation**, $v = v_\mathrm{max}[\mathrm{S}]/(K_\mathrm{M} + [\mathrm{S}])$, is derived by applying the SSA to the enzyme–substrate complex and using the enzyme conservation condition $[\mathrm{E}]_0 = [\mathrm{E}] + [\mathrm{ES}]$.
 - At low $[\mathrm{S}]$ the reaction is first order (most enzyme is free); at high $[\mathrm{S}]$ it is zero order (enzyme is **saturated**).
 - $K_\mathrm{M} = (k_{-1} + k_\mathrm{cat})/k_1$ is the substrate concentration at which the rate is half-maximal. It is the ratio of ES breakdown to ES formation rate constants. In the pre-equilibrium limit ($k_\mathrm{cat} \ll k_{-1}$), $K_\mathrm{M}$ reduces to the dissociation constant $K_\mathrm{d}$.
-- The **Lineweaver–Burk plot** ($1/v$ vs $1/[\mathrm{S}]$) linearises the Michaelis–Menten equation, but modern practice favours non-linear regression.
+- The **Lineweaver–Burk plot** (Eqn. \@ref(eq:lineweaver-burk)) linearises the Michaelis–Menten equation, but modern practice favours non-linear regression.
 - The **specificity constant** $k_\mathrm{cat}/K_\mathrm{M}$ measures the overall catalytic efficiency of an enzyme, with an upper limit set by the diffusion-controlled encounter rate.
 - The **Langmuir adsorption isotherm**, $\theta = Kp/(1 + Kp)$, describes the fractional coverage of a surface as a function of gas pressure, where $K = k_\mathrm{ads}/k_\mathrm{des}$ is a genuine equilibrium constant.
 - Both equations share the same mathematical form because both describe **reversible binding to a finite number of sites** — the defining feature of saturation kinetics.
