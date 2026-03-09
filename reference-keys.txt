@@ -37,8 +37,6 @@ eq:lindemann-step1
 eq:lindemann-step2
 eq:lindemann-step3
 eq:lindemann-rate
-eq:lindemann-high-p
-eq:lindemann-low-p
 fig:lindemann-pressure
 eq:no-rate-intermediate
 eq:no-equilibrium
@@ -206,10 +204,10 @@ why-most-reactions-avoid-this-problem
 a-spectrum-of-behaviour
 appendix-sticking-collisions
 appendix-negative-orders
-what-does-a-negative-order-mean
+when-increasing-a-concentration-slows-the-reaction
 example-1-product-inhibition-in-h2-br2-rightarrow-2hbr
 example-2-competitive-adsorption-in-surface-reactions
-recognising-negative-orders
+recognising-inhibition-in-rate-laws
 integrating-factor
 identifying-the-standard-form
 applying-the-integrating-factor

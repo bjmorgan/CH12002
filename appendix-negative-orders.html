@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>D Negative Reaction Orders | CH12002 Lecture Notes</title>
+  <title>D Negative Apparent Orders | CH12002 Lecture Notes</title>
   <meta name="description" content="These are notes to accompany the CH12002 lecture course on Chemical Kinetics." />
   <meta name="generator" content="bookdown 0.46 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="D Negative Reaction Orders | CH12002 Lecture Notes" />
+  <meta property="og:title" content="D Negative Apparent Orders | CH12002 Lecture Notes" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="These are notes to accompany the CH12002 lecture course on Chemical Kinetics." />
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="D Negative Reaction Orders | CH12002 Lecture Notes" />
+  <meta name="twitter:title" content="D Negative Apparent Orders | CH12002 Lecture Notes" />
   
   <meta name="twitter:description" content="These are notes to accompany the CH12002 lecture course on Chemical Kinetics." />
   
@@ -261,12 +261,12 @@
 <li class="chapter" data-level="B.3" data-path="appendix-third-body.html"><a href="appendix-third-body.html#a-spectrum-of-behaviour"><i class="fa fa-check"></i><b>B.3</b> A Spectrum of Behaviour</a></li>
 </ul></li>
 <li class="chapter" data-level="C" data-path="appendix-sticking-collisions.html"><a href="appendix-sticking-collisions.html"><i class="fa fa-check"></i><b>C</b> Translational Kinetic Energy in Sticking Collisions</a></li>
-<li class="chapter" data-level="D" data-path="appendix-negative-orders.html"><a href="appendix-negative-orders.html"><i class="fa fa-check"></i><b>D</b> Negative Reaction Orders</a>
+<li class="chapter" data-level="D" data-path="appendix-negative-orders.html"><a href="appendix-negative-orders.html"><i class="fa fa-check"></i><b>D</b> Negative Apparent Orders</a>
 <ul>
-<li class="chapter" data-level="D.1" data-path="appendix-negative-orders.html"><a href="appendix-negative-orders.html#what-does-a-negative-order-mean"><i class="fa fa-check"></i><b>D.1</b> What Does a Negative Order Mean?</a></li>
+<li class="chapter" data-level="D.1" data-path="appendix-negative-orders.html"><a href="appendix-negative-orders.html#when-increasing-a-concentration-slows-the-reaction"><i class="fa fa-check"></i><b>D.1</b> When Increasing a Concentration Slows the Reaction</a></li>
 <li class="chapter" data-level="D.2" data-path="appendix-negative-orders.html"><a href="appendix-negative-orders.html#example-1-product-inhibition-in-h2-br2-rightarrow-2hbr"><i class="fa fa-check"></i><b>D.2</b> Example 1: Product Inhibition in H<sub>2</sub> + Br<sub>2</sub> <span class="math inline">\(\rightarrow\)</span> 2HBr</a></li>
 <li class="chapter" data-level="D.3" data-path="appendix-negative-orders.html"><a href="appendix-negative-orders.html#example-2-competitive-adsorption-in-surface-reactions"><i class="fa fa-check"></i><b>D.3</b> Example 2: Competitive Adsorption in Surface Reactions</a></li>
-<li class="chapter" data-level="D.4" data-path="appendix-negative-orders.html"><a href="appendix-negative-orders.html#recognising-negative-orders"><i class="fa fa-check"></i><b>D.4</b> Recognising Negative Orders</a></li>
+<li class="chapter" data-level="D.4" data-path="appendix-negative-orders.html"><a href="appendix-negative-orders.html#recognising-inhibition-in-rate-laws"><i class="fa fa-check"></i><b>D.4</b> Recognising Inhibition in Rate Laws</a></li>
 </ul></li>
 <li class="chapter" data-level="E" data-path="integrating-factor.html"><a href="integrating-factor.html"><i class="fa fa-check"></i><b>E</b> Integrated Rate Law for Consecutive Reactions</a>
 <ul>
@@ -300,46 +300,48 @@
 
             <section class="normal" id="section-">
 <div id="appendix-negative-orders" class="section level1 hasAnchor" number="15">
-<h1><span class="header-section-number">D</span> Negative Reaction Orders<a href="appendix-negative-orders.html#appendix-negative-orders" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>In <a href="introduction-to-chemical-kinetics.html#introduction-to-chemical-kinetics">Lecture 1</a>, we defined the order of a reaction with respect to a given species as the exponent in the rate law. For the reactions we encounter in the main lectures, these exponents are positive integers or zero: increasing a reactant’s concentration either speeds up the reaction or has no effect. In some reactions, however, increasing the concentration of a particular species <em>slows down</em> the reaction. This unusual behaviour corresponds to a negative reaction order.</p>
-<p>This appendix explores how negative orders arise from underlying mechanisms. The material is not examinable, but it illustrates an important theme of the course: macroscopic rate laws encode information about microscopic mechanisms.</p>
-<div id="what-does-a-negative-order-mean" class="section level2 hasAnchor" number="15.1">
-<h2><span class="header-section-number">D.1</span> What Does a Negative Order Mean?<a href="appendix-negative-orders.html#what-does-a-negative-order-mean" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>When a species X appears with a negative order <span class="math inline">\(n\)</span> in a rate law:</p>
+<h1><span class="header-section-number">D</span> Negative Apparent Orders<a href="appendix-negative-orders.html#appendix-negative-orders" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>In <a href="introduction-to-chemical-kinetics.html#introduction-to-chemical-kinetics">Lecture 1</a>, we defined the order of a reaction with respect to a given species as the exponent in the rate law. For a simple power-law rate law <span class="math inline">\(\nu = k[\mathrm{A}]^a[\mathrm{B}]^b\)</span>, the orders <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> are well defined. In more complex rate laws — particularly those arising from multi-step mechanisms — a species can appear in both the numerator and the denominator. When this happens, the rate law cannot be written as a simple power law and the order with respect to that species is <em>not defined</em>. We have already seen this pattern in the Lindemann mechanism (<a href="unimolecular-reactions-and-collision-dynamics.html#sec:lindemann">Lecture 7</a>), the Michaelis–Menten equation (<a href="binding-and-catalysis.html#sec:enzyme-kinetics">Lecture 8</a>), and the H<sub>2</sub> + Br<sub>2</sub> rate law (<a href="chain-reactions.html#chain-reactions">Lecture 9</a>).</p>
+<p>Although these rate laws have no well-defined order, they can exhibit striking behaviour: increasing the concentration of a species can <em>slow down</em> the reaction. In limiting cases, the rate law simplifies to a power-law form in which the species appears with a negative exponent — a negative <em>apparent</em> order. This appendix explores how this behaviour arises from underlying mechanisms. The material is not examinable, but it illustrates an important theme of the course: macroscopic rate laws encode information about microscopic mechanisms.</p>
+<div id="when-increasing-a-concentration-slows-the-reaction" class="section level2 hasAnchor" number="15.1">
+<h2><span class="header-section-number">D.1</span> When Increasing a Concentration Slows the Reaction<a href="appendix-negative-orders.html#when-increasing-a-concentration-slows-the-reaction" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>If a rate law can be written as a simple power law with a negative exponent:</p>
 <p><span class="math display">\[\nu = \frac{k[\mathrm{A}]^a[\mathrm{B}]^b}{[\mathrm{X}]^n}\]</span></p>
-<p>increasing <span class="math inline">\([\mathrm{X}]\)</span> decreases the reaction rate. The species X effectively acts as an <em>inhibitor</em> rather than a promoter of the reaction. Negative orders cannot arise from a single elementary step — they always signal a complex, multi-step mechanism in which the species interferes with one or more productive reaction pathways.</p>
+<p>then X has a well-defined negative order <span class="math inline">\(-n\)</span>, and increasing <span class="math inline">\([\mathrm{X}]\)</span> always decreases the rate. Such a rate law cannot arise from a single elementary step — it always signals a complex, multi-step mechanism in which the species interferes with one or more productive reaction pathways.</p>
+<p>More commonly, the species appears within a denominator of the form <span class="math inline">\((1 + \alpha[\mathrm{X}])\)</span>, where <span class="math inline">\(\alpha\)</span> is some combination of rate constants (not necessarily an equilibrium constant). This is the pattern in the <a href="binding-and-catalysis.html#sec:enzyme-kinetics">Michaelis–Menten</a> and <a href="unimolecular-reactions-and-collision-dynamics.html#sec:lindemann">Lindemann</a> rate laws. The order with respect to X is then undefined: it varies continuously from 0 (when <span class="math inline">\(\alpha[\mathrm{X}] \ll 1\)</span>) to <span class="math inline">\(-1\)</span> (when <span class="math inline">\(\alpha[\mathrm{X}] \gg 1\)</span>). It is only in this high-concentration limit that we can speak of a negative <em>apparent</em> order.</p>
 </div>
 <div id="example-1-product-inhibition-in-h2-br2-rightarrow-2hbr" class="section level2 hasAnchor" number="15.2">
 <h2><span class="header-section-number">D.2</span> Example 1: Product Inhibition in H<sub>2</sub> + Br<sub>2</sub> <span class="math inline">\(\rightarrow\)</span> 2HBr<a href="appendix-negative-orders.html#example-1-product-inhibition-in-h2-br2-rightarrow-2hbr" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>The formation of hydrogen bromide — a chain reaction discussed in detail in <a href="chain-reactions.html#chain-reactions">Lecture 9</a> — provides a classic example of product inhibition. The empirical rate law is:</p>
 <p><span class="math display">\[\nu = \frac{k[\mathrm{H}_2][\mathrm{Br}_2]^{1/2}}{1 + k&#39;[\mathrm{HBr}]/[\mathrm{Br}_2]}\]</span></p>
-<p>At high concentrations of HBr (specifically when <span class="math inline">\(k&#39;[\mathrm{HBr}]/[\mathrm{Br}_2] \gg 1\)</span>), this simplifies to:</p>
+<p>Because HBr appears in a <span class="math inline">\((1 + \ldots)\)</span> denominator term, the order with respect to HBr is not well defined. Early in the reaction, when very little HBr has formed, the denominator is close to 1 and HBr has essentially no effect on the rate. As HBr accumulates, the denominator grows and the rate decreases. In the limit <span class="math inline">\(k&#39;[\mathrm{HBr}]/[\mathrm{Br}_2] \gg 1\)</span>, the rate law simplifies to:</p>
 <p><span class="math display">\[\nu \approx \frac{k[\mathrm{H}_2][\mathrm{Br}_2]^{3/2}}{k&#39;[\mathrm{HBr}]}\]</span></p>
-<p>Here, HBr has an effective order of <span class="math inline">\(-1\)</span>. The very product we are trying to make inhibits its own formation.</p>
+<p>In this limiting form, HBr has an apparent order of <span class="math inline">\(-1\)</span>. The very product we are trying to make inhibits its own formation.</p>
 <p>The origin lies in the chain mechanism. The key propagation steps produce HBr via reactive H<span class="math inline">\(^{\bullet}\)</span> radicals (<a href="chain-reactions.html#chain-reactions">Lecture 9</a>), but HBr can also react with these same radicals:</p>
 <p><span class="math display">\[\mathrm{H}^{\bullet} + \mathrm{HBr} \rightarrow \mathrm{Br}^{\bullet} + \mathrm{H}_2\]</span></p>
-<p>This <em>chain inhibition</em> step consumes the very intermediates needed for product formation. The more HBr present, the more this reverse reaction competes with productive chain propagation, slowing the net rate. This is a general principle in chain kinetics: anything that consumes or deactivates chain-carrying intermediates produces negative kinetic behaviour.</p>
+<p>This <em>chain inhibition</em> step consumes the very intermediates needed for product formation. The more HBr present, the more this reverse reaction competes with productive chain propagation, slowing the net rate. This is a general principle in chain kinetics: anything that consumes or deactivates chain-carrying intermediates can produce inhibition.</p>
 </div>
 <div id="example-2-competitive-adsorption-in-surface-reactions" class="section level2 hasAnchor" number="15.3">
 <h2><span class="header-section-number">D.3</span> Example 2: Competitive Adsorption in Surface Reactions<a href="appendix-negative-orders.html#example-2-competitive-adsorption-in-surface-reactions" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Surface-catalysed reactions provide another important class of systems with negative orders, closely related to the Langmuir adsorption model discussed in <a href="binding-and-catalysis.html#binding-and-catalysis">Lecture 8</a>.</p>
+<p>Surface-catalysed reactions provide another class of systems where increasing a reactant’s pressure can decrease the rate, closely related to the Langmuir adsorption model discussed in <a href="binding-and-catalysis.html#sec:langmuir">Lecture 8</a>.</p>
 <p>Unlike homogeneous reactions, surface processes require that reactants first <em>adsorb</em> onto the catalyst before they can react. The catalyst surface has a limited number of active sites, creating the potential for competition. For a typical surface reaction following the Langmuir–Hinshelwood mechanism:</p>
 <ol style="list-style-type: decimal">
 <li><span class="math inline">\(\mathrm{A}_{(\mathrm{g})} + {*} \rightleftharpoons \mathrm{A}{*}\)</span> (A adsorbs on an empty site <span class="math inline">\({*}\)</span>)</li>
 <li><span class="math inline">\(\mathrm{B}_{(\mathrm{g})} + {*} \rightleftharpoons \mathrm{B}{*}\)</span> (B adsorbs on an empty site <span class="math inline">\({*}\)</span>)</li>
 <li><span class="math inline">\(\mathrm{A}{*} + \mathrm{B}{*} \rightarrow \text{products} + 2{*}\)</span> (reaction between adsorbed species)</li>
 </ol>
-<p>The rate depends on having both A and B adsorbed on adjacent sites. If one species (say B) adsorbs much more strongly, or is present at very high pressure, it can monopolise the surface sites. Increasing the pressure of B then actually <em>decreases</em> the reaction rate, because B blocks the sites that A needs. This leads to a negative apparent order in B at high pressures, despite B being an essential reactant.</p>
-<p>This site-blocking effect is commonly observed in industrial catalysis. For example, in CO oxidation on platinum, excess CO can poison the catalyst by blocking oxygen adsorption sites. The mathematical framework from <a href="binding-and-catalysis.html#binding-and-catalysis">Lecture 8</a> — where the Langmuir isotherm describes surface coverage as a function of pressure — provides the quantitative basis for understanding these effects.</p>
+<p>The rate depends on having both A and B adsorbed on adjacent sites. Using the competitive Langmuir isotherm, the coverages are <span class="math inline">\(\theta_\mathrm{A} = K_\mathrm{A} p_\mathrm{A}/(1 + K_\mathrm{A} p_\mathrm{A} + K_\mathrm{B} p_\mathrm{B})\)</span> and similarly for B. The rate is proportional to <span class="math inline">\(\theta_\mathrm{A} \theta_\mathrm{B}\)</span>, which is not a simple power law in either pressure — the order with respect to each species is undefined, just as in the Michaelis–Menten and HBr examples.</p>
+<p>If B adsorbs much more strongly, or is present at very high pressure, it can monopolise the surface sites. In the limit <span class="math inline">\(K_\mathrm{B} p_\mathrm{B} \gg 1 + K_\mathrm{A} p_\mathrm{A}\)</span>, the rate becomes approximately proportional to <span class="math inline">\(p_\mathrm{A}/p_\mathrm{B}\)</span>: the apparent order in B approaches <span class="math inline">\(-1\)</span>, despite B being an essential reactant. Increasing the pressure of B <em>decreases</em> the reaction rate by blocking the sites that A needs.</p>
+<p>This site-blocking effect is commonly observed in industrial catalysis. For example, in CO oxidation on platinum, excess CO can poison the catalyst by blocking oxygen adsorption sites. The mathematical framework from <a href="binding-and-catalysis.html#sec:langmuir">Lecture 8</a> — where the Langmuir isotherm describes surface coverage as a function of pressure — provides the quantitative basis for understanding these effects.</p>
 </div>
-<div id="recognising-negative-orders" class="section level2 hasAnchor" number="15.4">
-<h2><span class="header-section-number">D.4</span> Recognising Negative Orders<a href="appendix-negative-orders.html#recognising-negative-orders" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Negative orders often appear in disguised forms within rate expressions:</p>
+<div id="recognising-inhibition-in-rate-laws" class="section level2 hasAnchor" number="15.4">
+<h2><span class="header-section-number">D.4</span> Recognising Inhibition in Rate Laws<a href="appendix-negative-orders.html#recognising-inhibition-in-rate-laws" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The phenomenon of increasing a species’ concentration slowing the reaction appears in several forms:</p>
 <ul>
-<li><strong>Denominator terms</strong>: Any concentration appearing in the denominator has a negative effective order, whether directly (e.g., <span class="math inline">\(k[\mathrm{A}]/[\mathrm{X}]\)</span>) or within inhibition factors (e.g., <span class="math inline">\(k[\mathrm{A}]/(1 + K[\mathrm{X}])\)</span>).</li>
-<li><strong>Saturation behaviour</strong>: Rates that plateau or decrease with increasing concentration suggest competitive effects leading to negative orders in the high-concentration limit.</li>
+<li><strong>Species in the denominator of a <span class="math inline">\((1 + \ldots)\)</span> term</strong>: The order with respect to that species is undefined, varying continuously from 0 at low concentration to an apparent <span class="math inline">\(-1\)</span> at high concentration. This is the most common pattern, seen in the Michaelis–Menten equation, the Lindemann mechanism, the HBr rate law, and competitive Langmuir adsorption.</li>
+<li><strong>Species in the denominator of a simple ratio</strong> (e.g., <span class="math inline">\(k[\mathrm{A}]/[\mathrm{X}]\)</span>): This represents a well-defined negative order of <span class="math inline">\(-1\)</span>. Such forms typically arise as limiting cases of the more general <span class="math inline">\((1 + \ldots)\)</span> pattern.</li>
 </ul>
-<p>The common thread is that negative orders arise when a species participates in the overall mechanism in ways that <em>hinder</em> rather than help the net forward reaction — whether by consuming reactive intermediates, blocking active sites, or driving reverse reactions.</p>
+<p>The common thread is that these behaviours arise when a species participates in the overall mechanism in ways that <em>hinder</em> rather than help the net forward reaction — whether by consuming reactive intermediates, blocking active sites, or driving reverse reactions.</p>
 
 </div>
 </div>
