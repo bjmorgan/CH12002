@@ -1,0 +1,31 @@
+# Translational Kinetic Energy in Sticking Collisions {#appendix-sticking-collisions}
+
+In [Lecture 7](#unimolecular-reactions-and-collision-dynamics) we claimed that when two molecules collide and stick together, the translational kinetic energy of the product is always less than the total translational kinetic energy of the two reactants. This appendix proves that result.
+
+Consider two molecules with masses $m_1$ and $m_2$ and velocities $v_1$ and $v_2$. Before the collision, their total translational kinetic energy is
+
+$$E_\mathrm{trans} = \frac{1}{2}m_1 v_1^2 + \frac{1}{2}m_2 v_2^2$$
+
+and their total momentum is $P = m_1 v_1 + m_2 v_2$. After the collision, the product (mass $m_1 + m_2$) must carry all of this momentum, so its velocity is $V = P/(m_1 + m_2)$ and its translational kinetic energy is
+
+$$E'_\mathrm{trans} = \frac{P^2}{2(m_1 + m_2)} = \frac{(m_1 v_1 + m_2 v_2)^2}{2(m_1 + m_2)}$$
+
+To compare $E_\mathrm{trans}$ and $E'_\mathrm{trans}$, we write the initial kinetic energy over the same denominator $2(m_1 + m_2)$:
+
+$$E_\mathrm{trans} = \frac{m_1(m_1 + m_2) v_1^2 + m_2(m_1 + m_2) v_2^2}{2(m_1 + m_2)}$$
+
+Subtracting:
+
+\begin{align}
+E_\mathrm{trans} - E'_\mathrm{trans} &= \frac{m_1(m_1 + m_2) v_1^2 + m_2(m_1 + m_2) v_2^2 - (m_1 v_1 + m_2 v_2)^2}{2(m_1 + m_2)} \notag \\
+&= \frac{m_1 m_2 (v_1^2 - 2v_1 v_2 + v_2^2)}{2(m_1 + m_2)} \notag \\
+&= \frac{m_1 m_2}{2(m_1 + m_2)}(v_1 - v_2)^2
+\end{align}
+
+Since $(v_1 - v_2)^2 \geq 0$, the product always has less translational kinetic energy than the two reactants started with. The difference is zero only when $v_1 = v_2$ — that is, when both molecules have the same velocity, in which case there is no relative motion and no collision.
+
+This result is sometimes called the kinetic energy loss in a perfectly inelastic collision. The "lost" translational kinetic energy is converted to internal energy of the product. When a chemical bond also forms during the collision, the bond energy adds to this further, giving a total internal energy of
+
+$$E_\mathrm{internal} = \frac{m_1 m_2}{2(m_1 + m_2)}(v_1 - v_2)^2 + \Delta E_\mathrm{bond}$$
+
+Both terms are positive, so the product always acquires internal energy in a sticking collision.
