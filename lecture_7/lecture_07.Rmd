@@ -1,4 +1,4 @@
-# Unimolecular Reactions and Collision Dynamics
+# Unimolecular and Third-Order Reactions
 
 In Lectures [4](#complex-mechanisms) and [5](#ssa) we developed tools for analysing multi-step reaction mechanisms: writing rate equations for each species, identifying reactive intermediates, and using the pre-equilibrium and steady-state approximations when exact solutions are out of reach. Here we apply these tools to three gas-phase reactions. Each appears at first to be consistent with a mechanism consisting of a single elementary step, but consideration of additional factors leads us to multi-step mechanisms that better account for the experimental observations.
 
