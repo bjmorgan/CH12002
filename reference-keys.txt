@@ -40,7 +40,8 @@ eq:lindemann-rate
 eq:lindemann-high-p
 eq:lindemann-low-p
 fig:lindemann-pressure
-eq:no-oxidation-rate
+eq:no-rate-intermediate
+eq:no-equilibrium
 eq:ozone-rate
 fig:ozone-collision
 fig:enzyme-substrate
@@ -203,6 +204,7 @@ appendix-third-body
 the-problem-energy-disposal-after-bond-formation
 why-most-reactions-avoid-this-problem
 a-spectrum-of-behaviour
+appendix-sticking-collisions
 appendix-negative-orders
 what-does-a-negative-order-mean
 example-1-product-inhibition-in-h2-br2-rightarrow-2hbr

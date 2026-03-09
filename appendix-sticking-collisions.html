@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>CH12002 Lecture Notes</title>
+  <title>C Translational Kinetic Energy in Sticking Collisions | CH12002 Lecture Notes</title>
   <meta name="description" content="These are notes to accompany the CH12002 lecture course on Chemical Kinetics." />
   <meta name="generator" content="bookdown 0.46 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="CH12002 Lecture Notes" />
+  <meta property="og:title" content="C Translational Kinetic Energy in Sticking Collisions | CH12002 Lecture Notes" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="These are notes to accompany the CH12002 lecture course on Chemical Kinetics." />
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="CH12002 Lecture Notes" />
+  <meta name="twitter:title" content="C Translational Kinetic Energy in Sticking Collisions | CH12002 Lecture Notes" />
   
   <meta name="twitter:description" content="These are notes to accompany the CH12002 lecture course on Chemical Kinetics." />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-<link rel="next" href="mathematical-foundations.html"/>
+<link rel="prev" href="appendix-third-body.html"/>
+<link rel="next" href="appendix-negative-orders.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -299,14 +299,25 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">CH12002 Lecture Notes</h1>
-<p class="author"><em>Benjamin J. Morgan</em></p>
-<p class="date"><em>2026-03-09</em></p>
-</div>
-<div id="about" class="section level1 unnumbered hasAnchor">
-<h1>About<a href="index.html#about" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>These notes accompany the CH12002 lecture course on Chemical Kinetics.</p>
+<div id="appendix-sticking-collisions" class="section level1 hasAnchor" number="14">
+<h1><span class="header-section-number">C</span> Translational Kinetic Energy in Sticking Collisions<a href="appendix-sticking-collisions.html#appendix-sticking-collisions" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>In <a href="unimolecular-reactions-and-collision-dynamics.html#unimolecular-reactions-and-collision-dynamics">Lecture 7</a> we claimed that when two molecules collide and stick together, the translational kinetic energy of the product is always less than the total translational kinetic energy of the two reactants. This appendix proves that result.</p>
+<p>Consider two molecules with masses <span class="math inline">\(m_1\)</span> and <span class="math inline">\(m_2\)</span> and velocities <span class="math inline">\(v_1\)</span> and <span class="math inline">\(v_2\)</span>. Before the collision, their total translational kinetic energy is</p>
+<p><span class="math display">\[E_\mathrm{trans} = \frac{1}{2}m_1 v_1^2 + \frac{1}{2}m_2 v_2^2\]</span></p>
+<p>and their total momentum is <span class="math inline">\(P = m_1 v_1 + m_2 v_2\)</span>. After the collision, the product (mass <span class="math inline">\(m_1 + m_2\)</span>) must carry all of this momentum, so its velocity is <span class="math inline">\(V = P/(m_1 + m_2)\)</span> and its translational kinetic energy is</p>
+<p><span class="math display">\[E&#39;_\mathrm{trans} = \frac{P^2}{2(m_1 + m_2)} = \frac{(m_1 v_1 + m_2 v_2)^2}{2(m_1 + m_2)}\]</span></p>
+<p>To compare <span class="math inline">\(E_\mathrm{trans}\)</span> and <span class="math inline">\(E&#39;_\mathrm{trans}\)</span>, we write the initial kinetic energy over the same denominator <span class="math inline">\(2(m_1 + m_2)\)</span>:</p>
+<p><span class="math display">\[E_\mathrm{trans} = \frac{m_1(m_1 + m_2) v_1^2 + m_2(m_1 + m_2) v_2^2}{2(m_1 + m_2)}\]</span></p>
+<p>Subtracting:</p>
+<p><span class="math display">\[\begin{align}
+E_\mathrm{trans} - E&#39;_\mathrm{trans} &amp;= \frac{m_1(m_1 + m_2) v_1^2 + m_2(m_1 + m_2) v_2^2 - (m_1 v_1 + m_2 v_2)^2}{2(m_1 + m_2)} \notag \\
+&amp;= \frac{m_1 m_2 (v_1^2 - 2v_1 v_2 + v_2^2)}{2(m_1 + m_2)} \notag \\
+&amp;= \frac{m_1 m_2}{2(m_1 + m_2)}(v_1 - v_2)^2
+\end{align}\]</span></p>
+<p>Since <span class="math inline">\((v_1 - v_2)^2 \geq 0\)</span>, the product always has less translational kinetic energy than the two reactants started with. The difference is zero only when <span class="math inline">\(v_1 = v_2\)</span> — that is, when both molecules have the same velocity, in which case there is no relative motion and no collision.</p>
+<p>This result is sometimes called the kinetic energy loss in a perfectly inelastic collision. The “lost” translational kinetic energy is converted to internal energy of the product. When a chemical bond also forms during the collision, the bond energy adds to this further, giving a total internal energy of</p>
+<p><span class="math display">\[E_\mathrm{internal} = \frac{m_1 m_2}{2(m_1 + m_2)}(v_1 - v_2)^2 + \Delta E_\mathrm{bond}\]</span></p>
+<p>Both terms are positive, so the product always acquires internal energy in a sticking collision.</p>
 
 </div>
             </section>
@@ -314,8 +325,8 @@
           </div>
         </div>
       </div>
-
-<a href="mathematical-foundations.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="appendix-third-body.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="appendix-negative-orders.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -346,7 +357,7 @@ gitbook.start({
     "size": 2
   },
   "edit": {
-    "link": "https://github.com/bjmorgan/CH12002/main/index.Rmd",
+    "link": "https://github.com/bjmorgan/CH12002/main/appendices/sticking_collisions.Rmd",
     "text": "Edit"
   },
   "history": {
