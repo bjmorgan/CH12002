@@ -224,7 +224,7 @@ The Michaelis–Menten equation and the Langmuir isotherm describe very differen
 
 The general pattern is: when the number of sites is limited and binding is reversible, the response (rate or coverage) increases with the concentration of the binding species but eventually saturates. This behaviour appears across chemistry and biology — from enzyme kinetics and surface catalysis to receptor–ligand binding and ion-channel gating.
 
-One might expect that increasing the pressure of a reactant always increases the reaction rate. But when two species compete for the same adsorption sites, increasing the pressure of one reactant can *decrease* the overall rate by blocking sites needed by the other. This leads to the counterintuitive phenomenon of *negative reaction orders*, discussed in Appendix \@ref(appendix-negative-orders).
+One might expect that increasing the pressure of a reactant always increases the reaction rate. But when two species compete for the same adsorption sites, increasing the pressure of one reactant can *decrease* the overall rate by blocking sites needed by the other. The full rate law for such systems has no well-defined order with respect to either species, but in the high-coverage limit the apparent order can become negative — increasing a reactant's pressure slows the reaction down. This counterintuitive behaviour is explored further in Appendix \@ref(appendix-negative-orders).
 
 ## Key Concepts
 

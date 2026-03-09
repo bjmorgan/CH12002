@@ -14,7 +14,7 @@ $$-\frac{\mathrm{d}[\mathrm{CH_3N_2CH_3}]}{\mathrm{d}t} = k[\mathrm{CH_3N_2CH_3}
 
 At first sight, this seems entirely unremarkable. The stoichiometry shows a single reactant molecule falling apart. The simplest mechanism consistent with this stoichiometry is a single unimolecular elementary step, where the molecule spontaneously decomposes via a first-order process, consistent with the data.
 
-But a molecule cannot simply fall apart on its own; it needs enough energy to break a bond. Empirically, we also observe that the rate of this reaction increases with temperature. This temperature dependence tells us that the reacting molecules must overcome an energy barrier: faster thermal motion at higher temperatures means more molecules have enough energy to react. In a thermal gas-phase reaction, molecules acquire this energy through collisions with their neighbours.
+But a molecule cannot simply fall apart on its own; it needs enough energy to break a bond. Empirically, we also observe that the rate of this reaction increases with temperature. This temperature dependence tells us that the reacting molecules must overcome an energy barrier: at higher temperatures, a larger fraction of molecules have enough energy to surmount this barrier. In a thermal gas-phase reaction, molecules acquire this energy through collisions with their neighbours.
 
 If collisions supply the activation energy, then the rate should depend on the frequency of these molecular collisions. Collision frequency is proportional to the concentrations of *both* colliding partners, giving second-order kinetics ($\nu = k[\mathrm{A}]^2$). The observed first-order kinetics and the need for collisional activation therefore seem to be incompatible. Something more subtle must be going on.
 
@@ -49,7 +49,7 @@ The overall rate of product formation is then:
 (\#eq:lindemann-rate)
 \end{equation}
 
-This is the **Lindemann rate law**.
+This is the **Lindemann rate law** (also known as the Lindemann–Hinshelwood rate law, after Cyril Hinshelwood refined Lindemann's original treatment).
 
 For azomethane, the reactant itself acts as the collision partner, so M = A and the rate law becomes:
 
@@ -57,31 +57,25 @@ $$\nu = \frac{k_1 k_2[\mathrm{A}]^2}{k_{-1}[\mathrm{A}] + k_2}$$
 
 ### Pressure Dependence
 
-The concentration $[\mathrm{A}]$ appears in both the numerator and the denominator of the Lindemann rate law. We saw in [Lecture 5](#ssa) how rate laws of this form show different behaviour depending on which term in the denominator dominates. Here, the balance between the two terms depends on the pressure, via the concentration $[\mathrm{A}]$. Let us work through the two limiting cases (Eqn. \@ref(eq:lindemann-rate)).
+The concentration $[\mathrm{A}]$ appears in both the numerator and the denominator of the Lindemann rate law. We saw in [Lecture 5](#ssa) how rate laws of this form show different behaviour depending on which term in the denominator dominates. Here, the balance between the two terms depends on the pressure, via the concentration $[\mathrm{A}]$. Let us work through the two limiting cases.
 
-At high pressures, $[\mathrm{A}]$ is large, so the deactivation term in the denominator dominates: $k_{-1}[\mathrm{A}] \gg k_2$. We can drop $k_2$ from the denominator, and $[\mathrm{A}]$ cancels between numerator and denominator:
+At high pressures, $[\mathrm{A}]$ is large, so the deactivation term in the denominator dominates: $k_{-1}[\mathrm{A}] \gg k_2$. Dropping $k_2$ from the denominator gives:
 
-\begin{equation}
-\nu \approx \frac{k_1 k_2[\mathrm{A}]^2}{k_{-1}[\mathrm{A}]} = \frac{k_1 k_2}{k_{-1}}[\mathrm{A}]
-(\#eq:lindemann-high-p)
-\end{equation}
+$$\nu \approx \frac{k_1 k_2[\mathrm{A}]^2}{k_{-1}[\mathrm{A}]} = \frac{k_1 k_2}{k_{-1}}[\mathrm{A}]$$
 
-The rate depends only on $[\mathrm{A}]$ — the reaction is **first order**, with an effective rate constant $k_\mathrm{eff} = k_1 k_2/k_{-1}$. This is consistent with the observed first-order kinetics of azomethane at high pressures.
+The factor of $[\mathrm{A}]$ cancels between numerator and denominator, and the rate depends only on $[\mathrm{A}]$ — the reaction is **first order**, with an effective rate constant $k_\mathrm{eff} = k_1 k_2/k_{-1}$. This is consistent with the observed first-order kinetics of azomethane at high pressures.
 
 At high pressure, collisions between molecules are frequent, and an excited molecule undergoes many collisions before it has a chance to decompose. Excitation and deactivation therefore reach equilibrium on a timescale much shorter than the decomposition, so the concentration of A* is maintained at its equilibrium value. The rate-determining step is the slow unimolecular decomposition of A*.
 
-At low pressures, $[\mathrm{A}]$ is small, so the decomposition term dominates: $k_{-1}[\mathrm{A}] \ll k_2$. We can drop $k_{-1}[\mathrm{A}]$ from the denominator, and $k_2$ cancels:
+At low pressures, $[\mathrm{A}]$ is small, so the decomposition term dominates: $k_{-1}[\mathrm{A}] \ll k_2$. Dropping $k_{-1}[\mathrm{A}]$ from the denominator gives:
 
-\begin{equation}
-\nu \approx \frac{k_1 k_2[\mathrm{A}]^2}{k_2} = k_1[\mathrm{A}]^2
-(\#eq:lindemann-low-p)
-\end{equation}
+$$\nu \approx \frac{k_1 k_2[\mathrm{A}]^2}{k_2} = k_1[\mathrm{A}]^2$$
 
-The rate now depends on $[\mathrm{A}]^2$ — the reaction is **second order**.
+The factor of $k_2$ cancels, and the rate now depends on $[\mathrm{A}]^2$ — the reaction is **second order**.
 
 At low pressures, collisions are infrequent, and once a molecule is excited it decomposes before it encounters another molecule that could deactivate it. Every excitation leads to reaction, so the rate-determining step is the excitation collision itself.
 
-Let us take stock. We started with two empirical observations about the decomposition of azomethane: the reaction follows first-order kinetics at high pressures, yet it is thermally activated — molecules must acquire energy through bimolecular collisions to react. These observations seemed contradictory. The Lindemann mechanism reconciles them by separating activation from reaction. Collisions excite molecules, but at high pressures excitation and deactivation equilibrate so rapidly that they are invisible to the experimenter. The observed kinetics reflect only the slow unimolecular decomposition of A*.
+We started with two empirical observations about the decomposition of azomethane: the reaction follows first-order kinetics at high pressures, yet it is thermally activated — molecules must acquire energy through bimolecular collisions to react. These observations seemed contradictory. The Lindemann mechanism accounts for both by separating activation from reaction. Collisions excite molecules, but at high pressures excitation and deactivation equilibrate so rapidly that they are invisible to the experimenter. The observed kinetics reflect only the slow unimolecular decomposition of A*.
 
 However, the Lindemann mechanism also makes a further prediction: as the pressure falls and collisions become less frequent, the pre-equilibrium between A and A* breaks down; the rate-determining step shifts from decomposition to excitation, and the kinetics therefore switches from first order to second order (Figure \@ref(fig:lindemann-pressure)). Following Lindemann's prediction in 1921, this transition to second-order kinetics at low pressures was observed experimentally in 1927, providing strong evidence that this apparently simple unimolecular decomposition is actually a complex multistep process.
 
@@ -105,7 +99,7 @@ has the experimentally determined rate law:
 
 $$\nu = k[\mathrm{NO}]^2[\mathrm{O_2}]$$
 
-The rate law contains three concentration terms, giving an overall order of three. The stoichiometry is consistent with a single termolecular step — two NO molecules and one O~2~ molecule coming together simultaneously. But the probability of three molecules arriving at the same point at the same instant is negligibly small. A termolecular elementary step cannot account for the observed rate. The reaction also has an unusual temperature dependence: the rate *decreases* with increasing temperature. For a single elementary step, we would expect the opposite: higher temperatures mean faster molecular motion and more energetic collisions, so a larger fraction of molecules have enough energy to react. Any proposed mechanism must account for both observations.
+The rate law contains three concentration terms, giving an overall order of three. The stoichiometry is consistent with a single termolecular step — two NO molecules and one O~2~ molecule coming together simultaneously — and such a step would give exactly the observed rate law. But termolecular collisions are physically implausible. A bimolecular collision requires two molecules to be close enough to interact at the same instant; this happens frequently at ordinary pressures. A termolecular collision requires a *third* molecule to arrive at the same point at the same time, and the probability of this three-way coincidence is negligibly small. The reaction also has an unusual temperature dependence: the rate *decreases* with increasing temperature. For a single elementary step, we would expect the opposite: at higher temperatures, a larger fraction of molecules have enough energy to overcome the activation barrier. Any proposed mechanism must account for both observations.
 
 One mechanism that is consistent with both observations is a pre-equilibrium in which NO first dimerises:
 
@@ -153,9 +147,9 @@ with the experimentally determined rate law:
 
 where M represents a third body; any molecule present in the gas (typically N~2~ or O~2~). 
 
-This reaction involves only two chemical species combining (O and O~2~), so we might expect simple bimolecular kinetics, rather than the experimentally observed third-order behaviour. The explanation lies in the constraints that conservation of energy and momentum impose on how two molecules can combine (Figure \@ref(fig:ozone-collision)).
+This reaction involves only two chemical species combining (O and O~2~), so we might expect simple bimolecular kinetics, rather than the experimentally observed third-order behaviour. To understand why, we need to consider what happens to the energy released when a new chemical bond forms.
 
-The formation of ozone is highly exothermic, releasing approximately $107\,\mathrm{kJ\,mol}^{-1}$ when the new O–O bond forms. To see where this energy ends up, consider first a head-on collision in which O and O~2~ carry equal and opposite momenta. The total momentum is zero, so conservation of momentum requires the product O~3~ to be stationary — it has no translational kinetic energy at all. All of the initial translational kinetic energy, plus the $107\,\mathrm{kJ\,mol}^{-1}$ of bond energy released when the new bond forms, goes into internal vibration. The resulting O~3~* is so highly excited that it rapidly dissociates back to O + O~2~. The only way to stabilise the product is to remove this excess vibrational energy before the molecule falls apart, and the only way to do that is through a collision with another molecule — a third body — that can carry the energy away as translational kinetic energy.
+The formation of ozone is highly exothermic, releasing approximately $107\,\mathrm{kJ\,mol}^{-1}$ when the new O–O bond forms. To see where this energy ends up, consider first a head-on collision in which O and O~2~ carry equal and opposite momenta. The total momentum is zero, so conservation of momentum requires the product O~3~ to be stationary — it has no translational kinetic energy at all. All of the initial translational kinetic energy, plus the $107\,\mathrm{kJ\,mol}^{-1}$ of bond energy released when the new bond forms, goes into internal vibration. The resulting O~3~* is so highly excited that it dissociates back to O + O~2~ within just a few molecular vibrations (Figure \@ref(fig:ozone-collision)). The only way to stabilise the product is to remove this excess vibrational energy before the molecule falls apart, and the only way to do that is through a collision with another molecule — a third body — that can carry the energy away as translational kinetic energy.
 
 ```{r ozone-collision, echo=FALSE, fig.cap="Schematic of the energy and momentum constraints in ozone formation. A bimolecular O + O~2~ collision produces a vibrationally excited O~3~* that retains the bond-formation energy as internal vibration. Without a third body to carry away this energy, O~3~&ast; dissociates back to reactants.", out.width='70%', fig.align='center'}
 knitr::include_graphics("lecture_7/figures/ozone_collision.png")
