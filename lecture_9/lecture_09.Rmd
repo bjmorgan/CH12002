@@ -26,7 +26,7 @@ $$\mathrm{Cl}^{\bullet} + \mathrm{CH_4} \xrightarrow{k_4} \mathrm{CH_3}^{\bullet
 
 **Initiation** is a step that creates reactive intermediates from stable molecules. Here, UV radiation breaks a C–Cl bond in a CFC molecule, releasing a chlorine radical. Initiation is typically slow relative to propagation (in this case it requires a UV photon of the right wavelength) and may require an external energy source such as heat, light, or a chemical initiator.
 
-Once formed, $\mathrm{Cl}^{\bullet}$ enters the **propagation** cycle: a sequence of steps that regenerate the reactive intermediate while forming products. The first step consumes $\mathrm{Cl}^{\bullet}$ and produces $\mathrm{ClO}^{\bullet}$; the second consumes $\mathrm{ClO}^{\bullet}$ and regenerates $\mathrm{Cl}^{\bullet}$. The two propagation steps repeat in alternation: each radical produces the next, forming a self-sustaining chain. Each turn of the cycle destroys one molecule of O~3~ and one atom of O, converting them to two molecules of O~2~. The net reaction is:
+Once formed, $\mathrm{Cl}^{\bullet}$ enters the **propagation** cycle: a sequence of steps that regenerate the reactive intermediate while forming products. The first step consumes $\mathrm{Cl}^{\bullet}$ and produces $\mathrm{ClO}^{\bullet}$; the second consumes $\mathrm{ClO}^{\bullet}$ and regenerates $\mathrm{Cl}^{\bullet}$. The atomic oxygen in the second step is produced by UV photolysis of O~2~ in the stratosphere and is highly reactive — its electron configuration (1s^2^ 2s^2^ 2p^4^) leaves two unpaired electrons, making it a radical species even though we follow the standard convention of writing it without a radical dot. The two propagation steps repeat in alternation: each radical produces the next, forming a self-sustaining chain. Each turn of the cycle destroys one molecule of O~3~ and one atom of O, converting them to two molecules of O~2~. The net reaction is:
 
 $$\mathrm{O_3} + \mathrm{O} \rightarrow 2\mathrm{O_2}$$
 
@@ -38,16 +38,7 @@ This pattern of initiation, propagation, and termination is common to all chain 
 knitr::include_graphics("lecture_9/figures/chain_anatomy.png")
 ```
 
-### Chain Length
-
-The competition between propagation and termination determines how much damage each chlorine radical does before it is removed. The **chain length** $n$ measures this: it is the average number of propagation cycles completed per initiation event. We can express it as the ratio of the propagation rate to the initiation rate:
-
-\begin{equation}
-n = \frac{\nu_\mathrm{prop}}{\nu_\mathrm{init}}
-(\#eq:chain-length)
-\end{equation}
-
-For CFC-catalysed ozone destruction, the chain length is enormous: a single chlorine radical can destroy approximately $10^6$ molecules of ozone before being removed by termination. This is why even trace quantities of CFCs (parts per billion in the stratosphere) caused such dramatic ozone depletion, and why the Montreal Protocol banning CFC production was so urgent.
+The competition between propagation and termination determines how much damage each chlorine radical does before it is removed: each turn of the propagation cycle destroys one molecule of ozone, and the cycle repeats until termination converts $\mathrm{Cl}^{\bullet}$ to HCl. So how many molecules of ozone does a single chlorine radical destroy? To answer this question quantitatively, we first need to develop some tools.
 
 ## The H~2~ + Br~2~ Reaction {#sec:hbr}
 
@@ -156,16 +147,62 @@ The inhibition term in the denominator has a clear physical origin. The inhibiti
 
 We can see this clearly by examining limiting cases. Early in the reaction, when very little HBr has formed, the denominator approaches 1 and the rate law simplifies to $\nu \approx k[\mathrm{H_2}][\mathrm{Br_2}]^{1/2}$ — a straightforward three-halves order law. As the reaction progresses and HBr accumulates while Br~2~ is consumed, the ratio $[\mathrm{HBr}]/[\mathrm{Br_2}]$ grows, the denominator increases, and the rate drops. The reaction progressively inhibits itself. Because HBr appears in both numerator and denominator of the full rate law, the order with respect to HBr is not well defined — but in the limit of high $[\mathrm{HBr}]/[\mathrm{Br_2}]$, the apparent order approaches $-1$. This phenomenon is explored further in Appendix \@ref(appendix-negative-orders).
 
-Both the ozone and HBr reactions are examples of **straight chain** reactions: each propagation cycle consumes one reactive intermediate and produces exactly one replacement. The total radical population is maintained by propagation and slowly depleted by termination. In a straight chain, the competition between propagation and termination always reaches a balance — and as the ozone example shows, even this steady balance can be devastating when chain lengths reach $10^6$ or more. But not all chains reach a steady state. When propagation steps produce *more* intermediates than they consume, the radical population grows exponentially and the result is an explosion.
+## Chain Length {#sec:chain-length}
+
+We now have the tools to answer the quantitative question we posed in Section \@ref(sec:ozone): how many propagation cycles does a chain carrier complete before termination removes it? We define this number as the **chain length**, $\bar{\nu}$. At steady state, the rates of initiation and termination are equal, so we can write:
+
+\begin{equation}
+\bar{\nu} = \frac{\nu_\mathrm{prop}}{\nu_\mathrm{term}} = \frac{\nu_\mathrm{prop}}{\nu_\mathrm{init}}
+(\#eq:chain-length)
+\end{equation}
+
+For any individual radical, the chain length reflects a competition: at each moment, the radical can either propagate (continuing the chain) or be terminated (ending it). The ratio of these two rates determines how long the chain runs.
+
+For the H~2~ + Br~2~ reaction, we consider the chain length early in the reaction, where inhibition is negligible and the rate law reduces to $\nu \approx k[\mathrm{H_2}][\mathrm{Br_2}]^{1/2}$. For a single $\mathrm{Br}^{\bullet}$ radical, propagation competes with termination:
+
+- **Propagation** ($\mathrm{Br}^{\bullet} + \mathrm{H_2}$): rate per radical $= k_2[\mathrm{H_2}]$
+- **Termination** ($2\mathrm{Br}^{\bullet} + \mathrm{M} \rightarrow \mathrm{Br_2} + \mathrm{M}$): rate per radical $= k_4[\mathrm{Br}^{\bullet}][\mathrm{M}]$
+
+giving:
+
+$$\bar{\nu}_\mathrm{HBr} = \frac{k_2[\mathrm{H_2}]}{k_4[\mathrm{Br}^{\bullet}][\mathrm{M}]}$$
+
+Notice that $[\mathrm{Br}^{\bullet}]$ does not cancel: because termination is *bimolecular* in the radical (two $\mathrm{Br}^{\bullet}$ must meet to recombine), the rate at which any individual radical is terminated depends on the overall radical concentration. To obtain the chain length in terms of measurable quantities, we would substitute the steady-state concentration $[\mathrm{Br}^{\bullet}]_\mathrm{ss} = \sqrt{k_1/k_4}\,[\mathrm{Br_2}]^{1/2}$ from Eqn. \@ref(eq:br-steady-state).
+
+### Returning to Ozone {#sec:ozone-chain-length}
+
+We can now return to the question posed at the start of this chapter: how many ozone molecules does a single chlorine radical destroy? Applying the same approach to the CFC mechanism from Section \@ref(sec:ozone):
+
+- **Propagation** ($\mathrm{Cl}^{\bullet} + \mathrm{O_3}$): rate per radical $= k_2[\mathrm{O_3}]$
+- **Termination** ($\mathrm{Cl}^{\bullet} + \mathrm{CH_4}$): rate per radical $= k_4[\mathrm{CH_4}]$
+
+\begin{equation}
+\bar{\nu}_\mathrm{O_3} = \frac{k_2[\mathrm{O_3}]}{k_4[\mathrm{CH_4}]}
+(\#eq:ozone-chain-length)
+\end{equation}
+
+This time, $[\mathrm{Cl}^{\bullet}]$ cancels completely — because both propagation and termination are first order in the radical. The chain length depends only on the rate constants and the concentrations of stable species, which are directly measurable.
+
+Both $k_2$ and $k_4$ are rate constants for elementary bimolecular reactions and can be measured independently in the laboratory (for example, by flash photolysis). At typical stratospheric conditions (~25 km altitude), $k_2$ is roughly 100 times larger than $k_4$, and the concentrations of O~3~ and CH~4~ are comparable, giving $\bar{\nu} \sim 10^2$. A single chlorine radical destroys a few hundred molecules of ozone before being converted to HCl by reaction with methane.
+
+This is already a striking number — but it falls short of the widely quoted figure of approximately $10^5$ ozone molecules destroyed per chlorine atom over its stratospheric lifetime. The resolution is that HCl is not a permanent sink. Reaction with hydroxyl radicals regenerates $\mathrm{Cl}^{\bullet}$:
+
+$$\mathrm{HCl} + \mathrm{OH}^{\bullet} \rightarrow \mathrm{Cl}^{\bullet} + \mathrm{H_2O}$$
+
+starting a new chain. The "termination" product is really a **reservoir species** — a temporary holding form from which the radical is eventually re-released. Over the multi-year stratospheric lifetime of a chlorine atom, it passes through many successive chains, and the cumulative ozone destruction reaches $\sim 10^5$ molecules. This is why even trace quantities of CFCs (parts per billion in the stratosphere) caused such dramatic ozone depletion, and why the Montreal Protocol banning CFC production was so urgent.
+
+The chain length formula tells us the damage per chain; the reservoir chemistry multiplies that over the lifetime of the radical. A full treatment of reservoir species is beyond the scope of this course, but the lesson is clear: the quantitative tools we have developed — writing a mechanism, identifying chain-carrying intermediates, and analysing the competition between propagation and termination — take us a long way towards understanding even complex atmospheric chemistry.
+
+Both the ozone and HBr reactions are examples of **straight chain** reactions: each propagation cycle consumes one reactive intermediate and produces exactly one replacement. The total radical population is maintained by propagation and slowly depleted by termination. In a straight chain, the competition between propagation and termination always reaches a balance — and as the ozone example demonstrates, even this steady balance can cause enormous cumulative damage. But not all chains reach a steady state. When propagation steps produce *more* intermediates than they consume, the radical population grows exponentially and the result is an explosion.
 
 ::: {.skill}
-**You should be able to:** Classify the steps in a chain reaction mechanism as initiation, propagation, termination, or inhibition. Given a chain mechanism, identify the chain-carrying intermediates and write the net reaction for one complete propagation cycle. Explain why small concentrations of chain carriers can cause large amounts of reaction (chain length). Identify the initiation, propagation, termination, and inhibition steps in the H~2~ + Br~2~ mechanism, explain the physical origin of the $[\mathrm{Br_2}]^{1/2}$ dependence and the inhibition term, and describe how the SSA is applied to derive the rate law.
+**You should be able to:** Classify the steps in a chain reaction mechanism as initiation, propagation, termination, or inhibition. Given a chain mechanism, identify the chain-carrying intermediates and write the net reaction for one complete propagation cycle. Derive a chain length expression from the competition between propagation and termination rates. Identify the initiation, propagation, termination, and inhibition steps in the H~2~ + Br~2~ mechanism, explain the physical origin of the $[\mathrm{Br_2}]^{1/2}$ dependence and the inhibition term, and describe how the SSA is applied to derive the rate law.
 :::
 
 ## Key Concepts
 
 - A **chain reaction** is a mechanism in which reactive intermediates are regenerated by the propagation steps that form products, creating a self-sustaining cycle.
-- The **chain length** $n = \nu_\mathrm{prop}/\nu_\mathrm{init}$ measures how many propagation cycles each initiation event sustains. Large chain lengths (e.g. $\sim 10^6$ for CFC-catalysed ozone destruction) explain how trace intermediates can cause large-scale chemical change.
+- The **chain length** $\bar{\nu} = \nu_\mathrm{prop}/\nu_\mathrm{term}$ measures how many propagation cycles a chain carrier completes before termination. For CFC-catalysed ozone destruction, the chain length per cycle is $\sim 10^2$, but cumulative destruction reaches $\sim 10^5$ because reservoir species regenerate the radical over its multi-year stratospheric lifetime.
 - Every chain reaction has **initiation** (creating intermediates), **propagation** (regenerating them while forming products), and **termination** (removing them). Some also have **inhibition** steps that divert intermediates without forming product.
 - The H~2~ + Br~2~ rate law, $\nu = k[\mathrm{H_2}][\mathrm{Br_2}]^{1/2}/(1 + k'[\mathrm{HBr}]/[\mathrm{Br_2}])$, is derived by applying the SSA to both radical intermediates. The $[\mathrm{Br_2}]^{1/2}$ dependence arises from bimolecular termination; the HBr inhibition term arises from a reverse propagation step.
 - In a **straight chain** (such as the ozone and HBr reactions), each propagation cycle conserves the number of intermediates. The question of what happens when propagation *multiplies* intermediates leads to branching chains and explosions.
