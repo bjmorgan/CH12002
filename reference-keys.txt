@@ -54,7 +54,6 @@ eq:langmuir
 fig:langmuir-isotherm
 fig:ozone-hole
 fig:chain-anatomy
-eq:chain-length
 eq:hbr-experimental
 fig:hbr-chain
 fig:hbr-chain-cycle
@@ -63,6 +62,8 @@ eq:h-ssa
 eq:br-steady-state
 eq:h-steady-state
 eq:hbr-derived
+eq:chain-length
+eq:ozone-chain-length
 eq:feedback-equation
 fig:branching-tree
 eq:feedback-solution
@@ -169,10 +170,11 @@ sec:saturation-pattern
 key-concepts-6
 chain-reactions
 sec:ozone
-chain-length
 sec:hbr
 the-mechanism
 deriving-the-rate-law-using-the-ssa
+sec:chain-length
+sec:ozone-chain-length
 key-concepts-7
 feedback-stability-and-explosions
 sec:branching-chains
