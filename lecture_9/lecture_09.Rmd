@@ -4,7 +4,7 @@ We have seen how to write rate equations for multi-step mechanisms and use the S
 
 ## The Ozone Layer and CFC-Catalysed Destruction {#sec:ozone}
 
-The ozone layer in the stratosphere absorbs ultraviolet radiation that would otherwise damage DNA and other biological molecules at the Earth's surface. In the 1970s, scientists discovered that chlorofluorocarbons (CFCs), widely used as refrigerants and aerosol propellants, were depleting this protective layer through a chain reaction. This discovery, which led to the 1995 Nobel Prize in Chemistry for Crutzen, Molina, and Rowland, provides a vivid example of how a tiny concentration of reactive intermediates can destroy a vastly larger amount of substrate. Figure \@ref(fig:ozone-hole) shows the consequences: satellite observations over Antarctica reveal the progressive development of the ozone hole over just five years.
+The ozone layer in the stratosphere absorbs nearly 98% of the Sun's ultraviolet radiation, shielding DNA and other biological molecules at the Earth's surface. In the 1970s, scientists discovered that chlorofluorocarbons (CFCs), widely used as refrigerants and aerosol propellants, were depleting this protective layer through a chain reaction. This discovery, which led to the 1995 Nobel Prize in Chemistry for Crutzen, Molina, and Rowland, provides a vivid example of how a tiny concentration of reactive intermediates can destroy a vastly larger amount of substrate. Figure \@ref(fig:ozone-hole) shows the consequences: satellite observations over Antarctica reveal the progressive development of the ozone hole over just five years.
 
 ```{r ozone-hole, echo=FALSE, fig.cap="Satellite observations of total column ozone over Antarctica from 1979 to 1983. Blue and purple regions indicate depleted ozone.", out.width='100%', fig.align='center'}
 knitr::include_graphics("lecture_9/figures/ozone_hole.png")
@@ -48,11 +48,11 @@ The competition between propagation and termination determines how much damage e
 
 ## The H~2~ + Br~2~ Reaction {#sec:hbr}
 
-The CFC-ozone reaction is a straightforward chain: a single radical carrier ($\mathrm{Cl}^{\bullet}$) cycles through one propagation loop until termination removes it. Not all chain reactions are so simple. The gas-phase reaction of hydrogen with bromine to form hydrogen bromide,
+The CFC-ozone reaction is a straightforward chain: a single radical carrier ($\mathrm{Cl}^{\bullet}$) cycles through one propagation loop until termination removes it. Not all chain reactions are so simple. We first encountered the gas-phase reaction of hydrogen with bromine in Lecture 1, where its deceptively simple stoichiometry suggested a straightforward bimolecular process. The overall reaction,
 
 $$\mathrm{H_2} + \mathrm{Br_2} \rightarrow 2\mathrm{HBr}$$
 
-appears simple; from the stoichiometry alone, we might expect a straightforward rate law such as $\nu = k[\mathrm{H_2}][\mathrm{Br_2}]$. The experimentally determined rate law, however, is quite different:
+appears simple; from the stoichiometry alone, we might expect a rate law such as $\nu = k[\mathrm{H_2}][\mathrm{Br_2}]$. The experimentally determined rate law, however, is quite different:
 
 \begin{equation}
 \nu = \frac{k[\mathrm{H_2}][\mathrm{Br_2}]^{1/2}}{1 + k'[\mathrm{HBr}]/[\mathrm{Br_2}]}
@@ -90,7 +90,11 @@ $$\mathrm{H}^{\bullet} + \mathrm{HBr} \xrightarrow{k_{-2}} \mathrm{Br}^{\bullet}
 **Termination:**
 $$2\mathrm{Br}^{\bullet} + \mathrm{M} \xrightarrow{k_4} \mathrm{Br_2} + \mathrm{M}$$
 
-Bond energies also determine which radical is present in higher concentration. Both propagation steps form an H–Br bond ($366\,\mathrm{kJ\,mol}^{-1}$), but they differ in the bond they break: the first step ($k_2$) breaks the strong H–H bond ($436\,\mathrm{kJ\,mol}^{-1}$), making it endothermic overall, while the second ($k_3$) breaks the much weaker Br–Br bond ($194\,\mathrm{kJ\,mol}^{-1}$), making it strongly exothermic. For closely related reactions that involve the same type of bond-forming step, exothermic reactions tend to have lower activation barriers than endothermic ones. Here that means $k_3 \gg k_2$ and each $\mathrm{H}^{\bullet}$ radical produced is rapidly converted back to $\mathrm{Br}^{\bullet}$. This means $[\mathrm{Br}^{\bullet}] \gg [\mathrm{H}^{\bullet}]$ throughout the reaction, and $\mathrm{Br}^{\bullet}$ recombination is the dominant termination pathway. Figure \@ref(fig:hbr-chain-cycle) illustrates the complete mechanism as a cycle.
+Bond energies also determine which radical is present in higher concentration. Both propagation steps form an H–Br bond ($366\,\mathrm{kJ\,mol}^{-1}$), but they differ in the bond they break: the first step ($k_2$) breaks the strong H–H bond ($436\,\mathrm{kJ\,mol}^{-1}$), making it endothermic overall, while the second ($k_3$) breaks the much weaker Br–Br bond ($194\,\mathrm{kJ\,mol}^{-1}$), making it strongly exothermic. For closely related reactions that involve the same type of bond-forming step, exothermic reactions tend to have lower activation barriers than endothermic ones. Here that means $k_3 \gg k_2$. We can see the consequences by noting that at steady state the two propagation steps must proceed at equal rates — the cycle cannot pass through one half faster than the other. Setting $k_2[\mathrm{Br}^{\bullet}][\mathrm{H_2}] = k_3[\mathrm{H}^{\bullet}][\mathrm{Br_2}]$ and rearranging gives:
+
+$$\frac{[\mathrm{Br}^{\bullet}]}{[\mathrm{H}^{\bullet}]} = \frac{k_3}{k_2}\,\frac{[\mathrm{Br_2}]}{[\mathrm{H_2}]}$$
+
+Since $k_3 \gg k_2$ and the reactant concentrations are comparable, we find $[\mathrm{Br}^{\bullet}] \gg [\mathrm{H}^{\bullet}]$ throughout the reaction. This has a direct consequence for termination. We might ask: why does the mechanism include only Br•+Br• recombination, and not H•+H• or H•+Br•? The answer is that all three processes occur, but because $[\mathrm{Br}^{\bullet}]$ is so much larger than $[\mathrm{H}^{\bullet}]$, Br•+Br• encounters are overwhelmingly more frequent, making all other termination pathways negligible. Figure \@ref(fig:hbr-chain-cycle) illustrates the complete mechanism as a cycle.
 
 ```{r hbr-chain-cycle, echo=FALSE, fig.cap="The cyclic nature of the H$_2$ + Br$_2$ chain reaction. Bromine radicals are consumed in one propagation step and regenerated in the next, creating a self-sustaining cycle that produces two molecules of HBr per turn. The inhibition step diverts H$^\\bullet$ back to Br$^\\bullet$ without forming product.", out.width='65%', fig.align='center'}
 knitr::include_graphics("lecture_9/figures/hbr_chain_cycle.png")
@@ -185,7 +189,7 @@ This is the subtle point: inhibition does not end the chain. The radical comes b
 
 $$\bar{\nu}_\mathrm{HBr} = \frac{k_2[\mathrm{H_2}]}{\sqrt{k_1 k_4}\,[\mathrm{Br_2}]^{1/2}} \cdot \frac{1}{1 + (k_{-2}/k_3)[\mathrm{HBr}]/[\mathrm{Br_2}]}$$
 
-As HBr accumulates and Br~2~ is consumed, the inhibition term grows and the chain length shrinks — each successive chain produces less product before being terminated. While $[\mathrm{Br_2}]$ has not been substantially consumed, the rate of initiation ($k_1[\mathrm{Br_2}]$) is approximately constant and the chain length is proportional to the overall rate: the rate slows down precisely *because* the chains are getting shorter.
+As HBr accumulates and Br~2~ is consumed, the inhibition term grows and the chain length shrinks — each successive chain produces less product before being terminated. While $[\mathrm{Br_2}]$ has not been substantially consumed, the rate of initiation ($k_1[\mathrm{Br_2}]$) is approximately constant and the chain length is proportional to the overall rate. The individual elementary rate constants do not change as the reaction proceeds; what changes is the chain length. The reaction slows down precisely *because* the chains are getting shorter.
 
 ### Returning to Ozone {#sec:ozone-chain-length}
 

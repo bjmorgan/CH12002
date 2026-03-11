@@ -6,7 +6,7 @@ Chemistry is fundamentally concerned with change: the transformation of substanc
 
 A reaction may be thermodynamically favourable yet proceed so slowly that it appears not to happen at all. Consider the conversion of diamond to graphite: this is thermodynamically spontaneous at room temperature and pressure, yet the process occurs at such a negligible rate that diamonds are stable over geological timescales. Conversely, some reactions reach equilibrium in fractions of a second.
 
-Chemical kinetics tells us how *fast* a reaction proceeds. Together with thermodynamics, it provides a complete picture of chemical change, whether in laboratory settings, industrial applications, or natural systems.
+Chemical kinetics tells us how *fast* a reaction proceeds. But kinetics reveals more than just speed: because different molecular-level mechanisms lead to different rate laws, measuring how fast a reaction occurs can tell us *how* it occurs.
 
 ## Describing How Concentrations Change with Time
 
@@ -20,13 +20,7 @@ We track the progress of this reaction by monitoring concentrations as functions
 knitr::include_graphics("lecture_1/figures/concentration_profile.png")
 ```
 
-Starting from initial values at $t = 0$, the system evolves toward its final state. The questions we might ask include:
-
-- How much product B is present after time $t$?
-- How long will it take for a certain percentage of A to convert to B?
-- If we change pressure, temperature, or initial concentration, how will the reaction speed be affected?
-
-Answering these questions requires us to understand how reaction rates relate to concentrations.
+Starting from initial values at $t = 0$, the system evolves toward its final state. We might ask how much product B is present after a given time, how long it takes for a certain percentage of A to convert, or how changes in temperature or concentration affect the reaction speed. Answering these questions requires us to understand how reaction rates relate to concentrations.
 
 ## Reaction Rates
 
@@ -34,11 +28,11 @@ We quantify how quickly a reaction occurs in terms of the rate at which concentr
 
 $$\text{change in [A] per unit time} = \frac{[\mathrm{A}]_{t_2} - [\mathrm{A}]_{t_1}}{t_2 - t_1} = \frac{\Delta[\mathrm{A}]}{\Delta t}$$
 
-```{r fig-rate-slope, echo=FALSE, fig.cap="The reaction rate at any instant equals the slope of the tangent to the concentration-time curve at that point. For a reaction where the rate decreases over time (as reactant is consumed), the slope becomes less steep as the reaction progresses.", out.width='90%', fig.align='center'}
+```{r fig-rate-slope, echo=FALSE, fig.cap="The reaction rate at any instant equals the slope of the tangent to the concentration-time curve at that point. For a reaction where the rate decreases over time (as reactant is consumed), the slope becomes less steep as the reaction progresses.", out.width='40%', fig.align='center'}
 knitr::include_graphics("lecture_1/figures/rate_slope.png")
 ```
 
-In general, however, reaction rates are not constant; reactions slow down as they approach equilibrium. The ratio $\Delta[\mathrm{A}]/\Delta t$ gives only the average rate over the interval $\Delta t$. To describe the rate at a particular instant, we take the limit as $\Delta t \rightarrow 0$. Geometrically, this means drawing a tangent to the concentration–time curve at the time of interest; the slope of that tangent is the instantaneous rate (Figure \@ref(fig:fig-rate-slope)). Formally, this limit defines the derivative, and we can write the rate in terms of either species:
+In general, however, reaction rates are not constant; reactions typically slow down as reactant is consumed. The ratio $\Delta[\mathrm{A}]/\Delta t$ gives only the average rate over the interval $\Delta t$. To describe the rate at a particular instant, we take the limit as $\Delta t \rightarrow 0$. Geometrically, this means drawing a tangent to the concentration–time curve at the time of interest; the slope of that tangent is the instantaneous rate (Figure \@ref(fig:fig-rate-slope)). Formally, this limit defines the derivative, and we can write the rate in terms of either species:
 
 $$\text{rate} = -\frac{\mathrm{d}[\mathrm{A}]}{\mathrm{d}t} = +\frac{\mathrm{d}[\mathrm{B}]}{\mathrm{d}t}$$
 
@@ -52,15 +46,7 @@ $$\mathrm{A} + 2\mathrm{B} \rightarrow \mathrm{C}$$
 knitr::include_graphics("lecture_1/figures/stoichiometric_profiles.png")
 ```
 
-B is consumed twice as rapidly as A (Figure \@ref(fig:fig-stoich-profiles)). This means that $-\mathrm{d}[\mathrm{A}]/\mathrm{d}t$ and $-\mathrm{d}[\mathrm{B}]/\mathrm{d}t$ give different numerical values, so our choice of which species to monitor would seem to affect the "rate" we report. To define a single, unambiguous reaction rate, we divide the rate of change of each species by its stoichiometric coefficient in the balanced equation. In general, for a reaction
-
-$$\nu_\mathrm{A}\mathrm{A} + \nu_\mathrm{B}\mathrm{B} + \ldots \rightarrow \nu_\mathrm{P}\mathrm{P} + \nu_\mathrm{Q}\mathrm{Q} + \ldots$$
-
-the rate is:
-
-$$\text{rate} = -\frac{1}{\nu_\mathrm{A}}\frac{\mathrm{d}[\mathrm{A}]}{\mathrm{d}t} = -\frac{1}{\nu_\mathrm{B}}\frac{\mathrm{d}[\mathrm{B}]}{\mathrm{d}t} = \ldots = +\frac{1}{\nu_\mathrm{P}}\frac{\mathrm{d}[\mathrm{P}]}{\mathrm{d}t} = +\frac{1}{\nu_\mathrm{Q}}\frac{\mathrm{d}[\mathrm{Q}]}{\mathrm{d}t} = \ldots$$
-
-For our A + 2B → C example, with $\nu_\mathrm{A} = 1$, $\nu_\mathrm{B} = 2$, and $\nu_\mathrm{C} = 1$, this gives:
+B is consumed twice as rapidly as A (Figure \@ref(fig:fig-stoich-profiles)). This means that $-\mathrm{d}[\mathrm{A}]/\mathrm{d}t$ and $-\mathrm{d}[\mathrm{B}]/\mathrm{d}t$ give different numerical values, so our choice of which species to monitor would seem to affect the "rate" we report. To define a single, unambiguous reaction rate, we divide the rate of change of each species by its stoichiometric coefficient in the balanced equation. For A + 2B → C, this gives:
 
 $$\text{rate} = -\frac{\mathrm{d}[\mathrm{A}]}{\mathrm{d}t} = -\frac{1}{2}\frac{\mathrm{d}[\mathrm{B}]}{\mathrm{d}t} = +\frac{\mathrm{d}[\mathrm{C}]}{\mathrm{d}t}$$
 
@@ -102,16 +88,13 @@ Rearranging:
 
 $$\frac{\mathrm{d}[\mathrm{B}]}{\mathrm{d}t} = -2\frac{\mathrm{d}[\mathrm{A}]}{\mathrm{d}t}$$
 
-This confirms that B is produced twice as fast as A is consumed—exactly what we expect from the stoichiometry. To define a single reaction rate that is independent of which species we monitor, we write:
+This confirms that B is produced twice as fast as A is consumed—exactly what we expect from the stoichiometry. Denoting the reaction rate by $\nu$, we can define a single rate that is independent of which species we monitor:
 
 $$\nu = -\frac{\mathrm{d}[\mathrm{A}]}{\mathrm{d}t} = +\frac{1}{2}\frac{\mathrm{d}[\mathrm{B}]}{\mathrm{d}t}$$
 
 For any reaction, mass balance leads to the general expression:
 
-\begin{equation}
-\nu = \frac{1}{\nu_\mathrm{X}}\frac{\mathrm{d}[\mathrm{X}]}{\mathrm{d}t}
-(\#eq:rate-stoichiometric)
-\end{equation}
+$$\nu = \frac{1}{\nu_\mathrm{X}}\frac{\mathrm{d}[\mathrm{X}]}{\mathrm{d}t}$$
 
 where $\nu_\mathrm{X}$ is the stoichiometric coefficient of species X, negative for reactants and positive for products. This relationship ensures that the reaction rate $\nu$ has the same numerical value regardless of which species we use to measure it.
 
@@ -121,7 +104,7 @@ where $\nu_\mathrm{X}$ is the stoichiometric coefficient of species X, negative 
 
 ## Rate Laws
 
-Why do most reactions slow down as they progress? At the start, plenty of reactant is available and molecular encounters are frequent, so the reaction proceeds quickly. As reactant is consumed, fewer molecules remain, encounters become less frequent, and the rate falls. This suggests a general principle: the rate of a reaction depends on the concentrations of the reactants. The mathematical expression that captures this dependence is called a **rate law**.
+Why do most reactions slow down as they progress? As reactant is consumed, fewer reactant molecules remain. With less reactant available, the rate of conversion into products falls. This suggests a general principle: the rate of a reaction depends on the concentrations of the reactants. The mathematical expression that captures this dependence is called a **rate law**.
 
 Many reactions follow a **simple rate law** where the rate is proportional to the concentration of each reactant raised to some power:
 
@@ -156,7 +139,7 @@ What determines the form of a rate law? To answer this, we need to look at what 
 
 When cyclopropane rearranges to propene, only a single molecule is involved: bonds within the ring break and reform to produce an open-chain isomer. When a hydrogen molecule collides with an iodine molecule and they react to form two molecules of HI, that collision is one event involving two molecules. Each of these is an **elementary process** (or elementary reaction): a single molecular event that cannot be broken down into simpler steps. Any chemical reaction, no matter how complex its overall stoichiometry, can be decomposed into a sequence of such steps.
 
-We classify elementary processes by their **molecularity**, the number of reactant molecules that participate. A **unimolecular** process involves just one molecule, as in the cyclopropane isomerisation. A **bimolecular** process requires two molecules to collide and react, as in the formation of HI. **Termolecular** processes, where three molecules come together simultaneously, are rare. These three cases are illustrated in Figure \@ref(fig:fig-molecularity).
+We classify elementary processes by their **molecularity**, the number of reactant molecules that participate. A **unimolecular** process involves just one molecule, as in the cyclopropane isomerisation. A **bimolecular** process requires two molecules to collide and react, as in the formation of HI. **Termolecular** processes, where three molecules come together simultaneously, are rare because the probability of a simultaneous three-body collision is very low. These three cases are illustrated in Figure \@ref(fig:fig-molecularity).
 
 ```{r fig-molecularity, echo=FALSE, fig.cap="Schematic representation of elementary processes classified by molecularity. Unimolecular processes involve a single molecule (e.g., isomerisation or decomposition). Bimolecular processes involve collision between two molecules. Termolecular processes, involving simultaneous three-body collisions, are rare.", out.width='70%', fig.align='center'}
 knitr::include_graphics("lecture_1/figures/molecularity.png")
@@ -171,7 +154,7 @@ For elementary processes, and *only* for elementary processes, the rate law dire
 | Bimolecular | $2\mathrm{A} \rightarrow \mathrm{P}$ | $\nu = k[\mathrm{A}]^2$ |
 | Termolecular | $\mathrm{A} + \mathrm{B} + \mathrm{C} \rightarrow \mathrm{P}$ | $\nu = k[\mathrm{A}][\mathrm{B}][\mathrm{C}]$ |
 
-This direct correspondence between molecularity and reaction order holds because an elementary process represents an actual molecular event. The rate depends on how frequently the required molecular encounters occur. For a unimolecular process, the rate depends only on how many A molecules are present. For a bimolecular process, the rate depends on how often A and B molecules collide. Doubling the concentration of A doubles the number of A molecules available to collide; independently, doubling the concentration of B doubles the number of collision partners. The collision rate is therefore proportional to both $[\mathrm{A}]$ and $[\mathrm{B}]$.
+This direct correspondence between molecularity and reaction order holds because an elementary process represents an actual molecular event. For a unimolecular process, the rate depends only on how many A molecules are present. For a bimolecular process, the rate depends on how often A and B molecules collide. Doubling the concentration of A doubles the number of A molecules available to collide; independently, doubling the concentration of B doubles the number of collision partners. The collision rate is therefore proportional to both $[\mathrm{A}]$ and $[\mathrm{B}]$.
 
 ## Complex Reactions
 
@@ -185,7 +168,7 @@ Most reactions we encounter are not elementary processes but rather sequences of
 
 Each elementary step follows a simple rate law determined by its molecularity, but the overall rate law for a complex reaction emerges from how these steps combine, which is why the overall rate law can be complicated. Conversely, when we observe a complex rate law, this tells us the reaction must proceed through multiple elementary steps.
 
-For complex reactions, we cannot deduce the rate law from the stoichiometry alone; it must be determined experimentally. However, different mechanisms — different sequences of elementary steps — predict different overall rate laws. This gives us a powerful strategy: propose a mechanism, derive the rate law it predicts, and compare the prediction with experiment. Agreement supports the proposed mechanism; disagreement rules it out. Rate laws, therefore, are not merely descriptions of how fast a reaction proceeds — they provide a window into what is happening at the molecular level.
+For complex reactions, we cannot deduce the rate law from the stoichiometry alone; it must be determined experimentally. However, different mechanisms—different sequences of elementary steps—predict different overall rate laws. This gives us a powerful strategy: propose a mechanism, derive the rate law it predicts, and compare the prediction with experiment. Agreement supports the proposed mechanism; disagreement rules it out. Rate laws, therefore, are not merely descriptions of how fast a reaction proceeds—they provide a window into what is happening at the molecular level.
 
 ## Units of the Rate Constant
 
@@ -212,7 +195,7 @@ Comparing rate constants only makes sense when they refer to the same order of r
 **You should be able to:** Write the rate law for an elementary process given its molecularity, and determine the units of a rate constant given the overall reaction order.
 :::
 
-This chapter has introduced two mathematical descriptions of a reaction rate. The first defines rate as the derivative of a concentration: $\nu = -\mathrm{d}[\mathrm{A}]/\mathrm{d}t$. The second expresses rate as a function of concentrations through the rate law: $\nu = k[\mathrm{A}]^a[\mathrm{B}]^b\ldots$. Setting these equal gives a differential equation whose solution is the concentration profile, $[\mathrm{A}]_t$. Much of chemical kinetics involves moving between these two descriptions: from experimental concentration data to rate laws, and from rate laws to predicted concentration profiles. Because different mechanisms predict different rate laws, this interplay between measurement and prediction also provides a route from macroscopic observations to molecular-level understanding.
+We now have two mathematical descriptions of a reaction rate. The first defines rate as the derivative of a concentration: $\nu = -\mathrm{d}[\mathrm{A}]/\mathrm{d}t$. The second expresses rate as a function of concentrations through the rate law: $\nu = k[\mathrm{A}]^a[\mathrm{B}]^b\ldots$. Setting these equal gives a differential equation whose solution is the concentration profile, $[\mathrm{A}]_t$. Much of chemical kinetics involves moving between these two descriptions: from experimental concentration data to rate laws, and from rate laws to predicted concentration profiles. Because different mechanisms predict different rate laws, this interplay between measurement and prediction also provides a route from macroscopic observations to molecular-level understanding.
 
 ## Key Concepts
 

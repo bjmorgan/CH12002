@@ -2,7 +2,7 @@
 
 For the mechanism A + B $\rightleftharpoons$ C $\rightarrow$ D, we can write down the differential rate equations for every species, but we cannot solve them analytically. The pre-equilibrium approximation gave us a tractable rate law for the special case $k_{-1} \gg k_2$, but what about other cases? And what about mechanisms with four, five, or six elementary steps? The bookkeeping needed to write down the rate equations grows, but the fundamental problem remains the same: the equations are *coupled* (the rate of change of one species depends on the concentrations of others) and there is no general analytical solution.
 
-To make progress, we need approximation methods that work across a broad range of mechanisms. The **steady-state approximation** (SSA) is perhaps the most widely used such method in chemical kinetics. It applies whenever a reactive intermediate is short-lived and highly reactive, and it reduces coupled differential equations to simple algebra.
+To make progress, we need approximation methods that work across a broad range of mechanisms. The **steady-state approximation** (SSA) is the most widely used such method in chemical kinetics. It applies whenever a reactive intermediate is consumed much faster than it is formed, and it reduces coupled differential equations to simple algebra.
 
 ## The Idea Behind the Steady-State Approximation
 
@@ -12,7 +12,7 @@ In many mechanisms, reactive intermediates like B are highly unstable — they a
 
 If a reactive intermediate is consumed much faster than it is formed, two things follow. First, its concentration must remain small compared to those of the reactants and products; if it were to accumulate, the fast consumption step would rapidly remove the excess.
 
-Second, after a brief initial period during which the intermediate builds up from zero, its concentration reaches a nearly constant value — a **steady state** — because any small increase in concentration is immediately counteracted by the fast consumption step.
+Second, after a brief initial period during which the intermediate builds up from zero, its concentration reaches a nearly constant value (a **steady state**) because any small increase in concentration is immediately counteracted by the fast consumption step.
 
 The steady-state approximation exploits this. For a reactive intermediate I whose concentration is approximately constant, $\mathrm{d}[\mathrm{I}]/\mathrm{d}t \approx 0$. Under the SSA, we therefore *set* $\mathrm{d}[\mathrm{I}]/\mathrm{d}t = 0$:
 
@@ -20,11 +20,11 @@ $$\frac{\mathrm{d}[\mathrm{I}]}{\mathrm{d}t} = 0$$
 
 This does *not* mean that $[\mathrm{I}] = 0$. The intermediate is present (it must be, because the reaction proceeds through it) but its concentration changes so slowly compared to the other species that we treat $\mathrm{d}[\mathrm{I}]/\mathrm{d}t$ as zero.
 
-The power of this step is that it replaces a differential equation (which, together with the equations for the other species, forms a coupled system with no analytical solution) with an algebraic equation that we can solve by hand.
+This step replaces a differential equation (which, together with the equations for the other species, forms a coupled system with no analytical solution) with an algebraic equation that we can solve by hand.
 
 Figure \@ref(fig:ssa-concept) illustrates this for the consecutive reaction A $\rightarrow$ B $\rightarrow$ C when $k_1 \ll k_2$. Because B is consumed much faster than it is formed, it never accumulates to a significant concentration. After a brief initial rise, $[\mathrm{B}]$ remains low and nearly constant — precisely the conditions under which the SSA is valid.
 
-```{r ssa-concept, echo=FALSE, fig.cap="Concentration profiles for the consecutive reaction A → B → C when $k_1 \\ll k_2$. The intermediate B rises briefly to a low concentration and then remains nearly constant as A is consumed — this is the steady state. Because B is consumed (by the fast second step) much faster than it is formed (by the slow first step), it never accumulates to a significant concentration. The SSA approximates this behaviour by setting $\\mathrm{d}[\\mathrm{B}]/\\mathrm{d}t = 0$.", out.width='50%', fig.align='center'}
+```{r ssa-concept, echo=FALSE, fig.cap="Concentration profiles for the consecutive reaction A → B → C when $k_1 \\ll k_2$. The intermediate B rises briefly to a low concentration and then remains nearly constant as A is consumed. Because B is consumed (by the fast second step) much faster than it is formed (by the slow first step), it never accumulates to a significant concentration.", out.width='50%', fig.align='center'}
 knitr::include_graphics("lecture_5/figures/ssa_concept.png")
 ```
 
@@ -67,7 +67,7 @@ This is the SSA rate law for this mechanism. It is second order overall (first o
 
 ### Pre-Equilibrium and Irreversible Limits
 
-The denominator $(k_{-1} + k_2)$ in Eqn. \@ref(eq:ssa-rate-law) has a direct physical meaning: it represents the two competing fates of the intermediate C. Once formed, C can either revert to A + B (with rate constant $k_{-1}$) or proceed to D (with rate constant $k_2$). The SSA is valid whenever both of these consumption processes are fast compared to the formation step, i.e. $(k_{-1} + k_2) \gg k_1$.
+The denominator $(k_{-1} + k_2)$ in Eqn. \@ref(eq:ssa-rate-law) has a direct physical meaning: it represents the two competing fates of the intermediate C. Once formed, C can either revert to A + B (with rate constant $k_{-1}$) or proceed to D (with rate constant $k_2$). The SSA is valid whenever the combined rate of these consumption processes is much faster than the rate of formation, so that C is consumed almost as soon as it appears and never accumulates to a significant concentration.
 
 The two limiting cases correspond to which fate dominates.
 
@@ -99,7 +99,7 @@ We can test how well the SSA predicts the product concentration by comparing the
 knitr::include_graphics("lecture_5/figures/ssa_exact_vs_approximate.png")
 ```
 
-The agreement here is much closer than for the pre-equilibrium comparison in [Lecture 4](#complex-mechanisms) (Figure \@ref(fig:pre-equilibrium-comparison)). Under SSA conditions, the intermediate $[\mathrm{C}]$ remains small throughout the reaction, so it reaches its steady-state concentration almost immediately and the induction period is negligibly short.
+The agreement between the SSA prediction and the exact solution is much closer than for the pre-equilibrium comparison in [Lecture 4](#complex-mechanisms) (Figure \@ref(fig:pre-equilibrium-comparison)). Under SSA conditions, the intermediate $[\mathrm{C}]$ remains small throughout the reaction, so it reaches its steady-state concentration almost immediately and the induction period is negligibly short.
 
 Where the SSA does break down is at the very start of the reaction. The logic is straightforward: we derived the rate law by assuming that $[\mathrm{C}]$ does not change, so the approximation is worst wherever $[\mathrm{C}]$ changes most, and that is during the initial transient as the intermediate builds up from zero to its steady-state value. Once the steady state is established, the approximation becomes increasingly accurate.
 
@@ -109,7 +109,7 @@ Where the SSA does break down is at the very start of the reaction. The logic is
 
 ## A Second Example: A ⇌ B, B + C → D {#sec:ssa-example-2}
 
-The SSA applies to any mechanism with a reactive intermediate — the algebra changes but the approach is the same. Consider the mechanism
+A second example shows how the SSA can produce rate laws with richer concentration dependence. Consider the mechanism
 
 $$\mathrm{A} \underset{k_{-1}}{\stackrel{k_1}{\rightleftharpoons}} \mathrm{B} \qquad \mathrm{B} + \mathrm{C} \xrightarrow{k_2} \mathrm{D}$$
 
@@ -132,7 +132,7 @@ The overall rate of product formation is then:
 (\#eq:ssa-example-2)
 \end{equation}
 
-This rate law has a striking feature: $[\mathrm{C}]$ appears in both the numerator and the denominator. As a result, the rate is *not* simply proportional to $[\mathrm{C}]$ — there is no well-defined order with respect to C. (The rate is, however, always first order in A.) This is a good example of a mechanism that gives rise to a rate law that cannot be expressed as a simple power law $\nu = k[\mathrm{A}]^m[\mathrm{C}]^n$.
+In this rate law, $[\mathrm{C}]$ appears in both the numerator and the denominator. As a result, the rate is *not* simply proportional to $[\mathrm{C}]$ — there is no well-defined order with respect to C. (The rate is, however, always first order in A.) This is a good example of a mechanism that gives rise to a rate law that cannot be expressed as a simple power law $\nu = k[\mathrm{A}]^m[\mathrm{C}]^n$.
 
 ### Concentration-Dependent Limiting Behaviour
 
@@ -160,7 +160,7 @@ The reaction is first order in A and *zero order* in C — the rate does not dep
 
 Because the comparison involves the *product* $k_2[\mathrm{C}]$ rather than just a rate constant, it is possible to switch between these two regimes experimentally by varying $[\mathrm{C}]$. At low $[\mathrm{C}]$, where $k_{-1} \gg k_2[\mathrm{C}]$, the reaction is first order in C and second order overall. At high $[\mathrm{C}]$, where $k_2[\mathrm{C}] \gg k_{-1}$, the reaction becomes zero order in C and first order overall.
 
-This is a concrete, testable prediction: the SSA tells us not just what the rate law is, but how the *apparent order* should change with experimental conditions. If a proposed mechanism follows this pattern, we can test it by measuring the rate at different concentrations of C and checking whether the order shifts as predicted. This same mathematical pattern, where a rate law interpolates between two limiting orders, turns up in several important mechanisms that we will meet later in the course.
+This is a concrete, testable prediction: the SSA tells us not just what the rate law is, but how the *apparent order* should change with experimental conditions. If a proposed mechanism follows this pattern, we can test it by measuring the rate at different concentrations of C and checking whether the order shifts as predicted.
 
 ::: {.skill}
 **You should be able to:** Apply the SSA to a mechanism with a reactive intermediate (such as A ⇌ B, B + C → D), derive the resulting rate law, and identify the limiting cases by examining which terms dominate in the denominator.
@@ -168,15 +168,11 @@ This is a concrete, testable prediction: the SSA tells us not just what the rate
 
 ## SSA versus Pre-Equilibrium
 
-The pre-equilibrium approximation and the steady-state approximation both handle reactive intermediates, but they make different assumptions and apply in different regimes.
+Both the pre-equilibrium approximation and the steady-state approximation handle reactive intermediates, but they make different assumptions and apply in different regimes. The pre-equilibrium approximation assumes that the first step genuinely reaches equilibrium before the slow step proceeds, requiring $k_{-1} \gg k_2$. It gives a simple derivation and a clear physical picture, but applies only in this specific limit. The SSA assumes only that the intermediate's concentration reaches a quasi-steady value, which can happen whether or not the first step is at equilibrium. It therefore covers a broader range of conditions and *reduces to* the pre-equilibrium result when $k_{-1} \gg k_2$.
 
-The **pre-equilibrium approximation** assumes that the first step genuinely reaches equilibrium before the slow step proceeds. This requires $k_{-1} \gg k_2$: the reverse reaction of the first step must be much faster than the forward reaction of the second step. It gives a simple derivation and a clear physical picture, but applies only in this specific limit.
+In practice: if we are told (or can justify) that the first step is a fast equilibrium, the pre-equilibrium approach is quicker and gives the same answer. If no such information is given, or if we need a result that covers different limiting cases, the SSA is the better choice.
 
-The **steady-state approximation** assumes only that the intermediate's concentration reaches a quasi-steady value, which can happen whether or not the first step is at equilibrium. For mechanisms involving reactive intermediates, the SSA covers a broader range of conditions and *reduces to* the pre-equilibrium result when $k_{-1} \gg k_2$.
-
-In practice: if you are told (or can justify) that the first step is a fast equilibrium, the pre-equilibrium approach is quicker and gives the same answer. If no such information is given, or if you need a result that covers different limiting cases, use the SSA.
-
-A good check of any approximation is whether it reproduces known results in simple cases. Consider the consecutive reaction A $\to$ B $\to$ C from [Lecture 4](#complex-mechanisms), in the case $k_2 \gg k_1$ where B is a short-lived intermediate. The rate equation for B is:
+The consecutive reaction A $\to$ B $\to$ C from [Lecture 4](#complex-mechanisms), in the case $k_2 \gg k_1$ where B is a short-lived intermediate, provides a useful check. The rate equation for B is:
 
 $$\frac{\mathrm{d}[\mathrm{B}]}{\mathrm{d}t} = k_1[\mathrm{A}] - k_2[\mathrm{B}]$$
 

@@ -1,10 +1,10 @@
 # Methods for Determining Rate Laws from Experimental Data
 
-Different reaction mechanisms predict different rate laws. If we can determine the rate law from experimental data, we gain direct information about the microscopic mechanism — the sequence of molecular events that makes a reaction happen. But how do we carry out this analysis systematically? And what do we do when a reaction involves more than one reactant? We have already seen that each reaction order gives a different linear form when we plot concentration–time data appropriately. Here we develop this idea into a complete toolkit of four complementary methods for extracting rate laws from experiment.
+Different reaction mechanisms predict different rate laws. If we can determine the rate law from experimental data, we gain direct information about the microscopic mechanism — the sequence of molecular events that makes a reaction happen. But how do we carry out this analysis systematically? And what do we do when a reaction involves more than one reactant? We have already seen (in [Lecture 2](#integrated-rate-laws)) that each reaction order gives a different linear form when we plot concentration–time data appropriately. Here we develop this idea into a complete toolkit of four complementary methods for extracting rate laws from experiment.
 
 ## The Integral Method
 
-The integral method is the most direct approach. Given concentration–time data for a reaction, we plot the data in each of the linear forms from the summary table and look for the plot that gives a straight line. The order of that straight-line plot tells us the reaction order; the slope gives the rate constant.
+The integral method is the most direct approach. Given concentration–time data for a reaction, we plot the data in each of the linear forms from the summary table and look for the plot that gives a straight line. The order of that straight-line plot tells us the reaction order; the rate constant can be extracted from the slope.
 
 | Order | Linear plot | Slope |
 |:---:|:---|:---:|
@@ -14,7 +14,7 @@ The integral method is the most direct approach. Given concentration–time data
 
 ### Worked Example: Azomethane Decomposition Revisited
 
-We can illustrate this with the azomethane decomposition data from the previous chapter:
+We can illustrate this with the azomethane decomposition data from [Lecture 2](#integrated-rate-laws):
 
 | $t$ / min | 0 | 30 | 60 | 90 | 120 | 150 | 180 |
 |---|---|---|---|---|---|---|---|
@@ -26,7 +26,7 @@ Plotting $\ln[\mathrm{azomethane}]$ against $t$ gives a straight line with slope
 knitr::include_graphics("lecture_3/figures/azomethane_second_order_rejection.png")
 ```
 
-This is the essence of the integral method: we test each candidate rate law in turn and reject those that do not give a straight line. A linear plot both confirms the reaction order and provides the rate constant from the slope. If none of the standard plots gives a convincing straight line, the reaction may have a non-integer order or a more complex rate law — situations we will encounter when we study reaction mechanisms.
+This is the essence of the integral method: we test each candidate rate law in turn and reject those that do not give a straight line. A linear plot both confirms the reaction order and provides the rate constant from the slope. If none of the standard plots gives a convincing straight line, the reaction may have a non-integer order or a more complex rate law — situations that arise when a reaction proceeds through a complex mechanism.
 
 ::: {.skill}
 **You should be able to:** Apply the integral method to concentration–time data: plot in the appropriate linear forms, identify which (if any) gives a straight line, and extract the rate constant from the slope.
@@ -38,7 +38,7 @@ While we have focused on linear transformations, modern computational methods al
 
 ## The Half-Life Method
 
-The integral method requires plotting the data and fitting a straight line. But is there a way to test for first-order kinetics just by inspecting the numbers? There is, and it rests on a unique property of exponential functions. For a first-order reaction, the integrated rate law gives:
+The integral method requires plotting the data and fitting a straight line. But is there a way to test for first-order kinetics just by inspecting the numbers? It rests on a unique property of exponential functions. For a first-order reaction, the integrated rate law gives:
 
 $$[\mathrm{A}]_t = [\mathrm{A}]_0\,\mathrm{e}^{-kt}$$
 
@@ -65,7 +65,7 @@ t_{1/2} = \frac{\ln 2}{k}
 
 Notice that $t_{1/2}$ depends only on $k$, not on $[\mathrm{A}]_0$. The half-life is *constant*: it takes the same amount of time for the concentration to halve whether we start from $[\mathrm{A}]_0$ or from any later concentration. This is a defining characteristic of first-order kinetics.
 
-But there is nothing special about the factor of one-half — it is simply a convention. If the concentration falls to 0.75 of its value in the first 30 minutes, it falls to 0.75 again in the next 30 minutes, and the next, and so on. We could define a "three-quarter-life" from this just as easily. More generally, for a first-order reaction, the time taken for the concentration to fall to any fixed fraction $1/n$ of its current value is:
+But there is nothing special about the factor of one-half in Eqn. \@ref(eq:first-order-half-life) — it is simply a convention. If the concentration falls to 0.75 of its value in the first 30 minutes, it falls to 0.75 again in the next 30 minutes, and the next, and so on. We could define a "three-quarter-life" from this just as easily. More generally, for a first-order reaction, the time taken for the concentration to fall to any fixed fraction $1/n$ of its current value is:
 
 \begin{equation}
 t_{1/n} = \frac{\ln n}{k}
@@ -87,11 +87,11 @@ We can use this as an independent check on the azomethane data. Looking at the r
 | 120–150 min | 2.75 | 2.06 | 0.75 |
 | 150–180 min | 2.06 | 1.55 | 0.75 |
 
-The constant ratio of 0.75 confirms first-order kinetics — without plotting a single graph. We can also extract $k$ from these data. The concentration falls to $0.75 = 3/4$ of its value every 30 minutes, so in the notation of Eqn. \@ref(eq:first-order-t1n), $1/n = 3/4$, giving $n = 4/3$ and $\Delta t = 30\,\mathrm{min}$:
+The constant ratio of 0.75 confirms first-order kinetics — without plotting a single graph. We can also extract $k$ from these data. The concentration falls to $0.75 = 3/4$ of its value every 30 minutes, so in the notation of Eqn. \@ref(eq:first-order-t1n), $1/n = 3/4$, giving $n = 4/3$ and $t_{1/n} = 30\,\mathrm{min}$:
 
 $$k = \frac{\ln(4/3)}{30\,\mathrm{min}} = 9.6 \times 10^{-3}\,\mathrm{min}^{-1}$$
 
-This agrees with the value obtained from the integral method, as it should, since both methods assume first-order kinetics and extract $k$ from the same underlying exponential. The half-life method is less precise than the graphical method (it relies on reading individual data points rather than fitting a line through all the data), but it provides a quick and intuitive test that does not require plotting.
+This agrees with the value obtained from the integral method, as it should, since both methods assume first-order kinetics and extract $k$ from the same underlying exponential. The half-life method is less precise than the graphical method (more sensitive to measurement error in individual data points, rather than fitting a line through all the data), but it provides a quick and intuitive test that does not require plotting.
 
 ::: {.skill}
 **You should be able to:** Derive the first-order half-life expression $t_{1/2} = \ln 2/k$, and use constant proportional change in concentration–time data to test for first-order kinetics.
@@ -114,7 +114,7 @@ The **isolation method** sidesteps the problem by turning a two-variable system 
 (\#eq:pseudo-rate-law)
 \end{equation}
 
-The reaction now behaves as if it depends only on $[\mathrm{A}]$, with a pseudo-rate constant $k'$ that absorbs the (constant) concentration of B — a **pseudo-$\alpha$th-order** rate law. The specific case $\alpha = 1$ gives the pseudo-first-order kinetics we encountered when discussing integrated rate laws. We can now apply the integral method or half-life method to determine $\alpha$.
+The reaction now behaves as if it depends only on $[\mathrm{A}]$, with a pseudo-rate constant $k'$ that absorbs the (constant) concentration of B — a **pseudo-$\alpha$th-order** rate law. The specific case $\alpha = 1$ gives the pseudo-first-order kinetics we encountered in [Lecture 2](#integrated-rate-laws). We can now apply the integral method or half-life method to determine $\alpha$.
 
 To find $\beta$, we repeat the experiment with A in large excess ($[\mathrm{A}]_0 \gg [\mathrm{B}]_0$). Now $[\mathrm{A}]_t \approx [\mathrm{A}]_0$ and:
 
@@ -124,7 +124,7 @@ Applying the integral method to this simplified rate law gives $\beta$. This swa
 
 ### Varying the Excess Concentration
 
-There is another way to find $\beta$ that does not require swapping which species is in excess. Instead, we keep B in large excess (so the pseudo-$\alpha$th-order analysis still works) but repeat the experiment at several different values of $[\mathrm{B}]_0$. Applying the integral or half-life method to each experiment gives a pseudo-rate constant $k'$, and each experiment gives a different value of $k'$ because $k'$ depends on $[\mathrm{B}]_0$. Taking logarithms of $k' = k[\mathrm{B}]_0^\beta$:
+There is another way to find $\beta$ that does not require swapping which species is in excess. Instead, we keep B in large excess (so the pseudo-$\alpha$th-order analysis still works) but repeat the experiment at several different values of $[\mathrm{B}]_0$. Applying the integral or half-life method to each experiment gives a pseudo-rate constant $k'$, and each experiment gives a different value of $k'$ because $k'$ depends on $[\mathrm{B}]_0$ (Eqn. \@ref(eq:pseudo-rate-law)). Taking logarithms:
 
 \begin{equation}
 \ln k' = \ln k + \beta\ln[\mathrm{B}]_0
@@ -134,7 +134,7 @@ There is another way to find $\beta$ that does not require swapping which specie
 A plot of $\ln k'$ versus $\ln[\mathrm{B}]_0$ gives a straight line with slope $\beta$ and intercept $\ln k$. This determines both the partial order $\beta$ and the true rate constant $k$ from a single set of isolation experiments.
 
 ::: {.skill}
-**You should be able to:** Explain how the isolation method simplifies a multi-reactant rate law, and use the relationship $\ln k' = \ln k + \beta\ln[\mathrm{B}]_0$ to determine a partial order from pseudo-rate constants.
+**You should be able to:** Explain how the isolation method simplifies a multi-reactant rate law, and use the relationship $\ln k' = \ln k + \beta\ln[\mathrm{B}]_0$ (Eqn. \@ref(eq:isolation-log-form)) to determine a partial order from pseudo-rate constants.
 :::
 
 ## The Differential Method (Initial Rates)
@@ -150,7 +150,7 @@ But rate is an instantaneous quantity — how do we measure it at known concentr
 (\#eq:initial-rates-log-form)
 \end{equation}
 
-If we hold $[\mathrm{B}]_0$ constant and vary $[\mathrm{A}]_0$ across a series of experiments, the $\beta\ln[\mathrm{B}]_0$ term is the same in every experiment, and we can write:
+If we hold $[\mathrm{B}]_0$ constant and vary $[\mathrm{A}]_0$ across a series of experiments, the $\beta\ln[\mathrm{B}]_0$ term in Eqn. \@ref(eq:initial-rates-log-form) is the same in every experiment, and we can write:
 
 $$\ln\nu_0 = (\ln k + \beta\ln[\mathrm{B}]_0) + \alpha\ln[\mathrm{A}]_0$$
 
@@ -158,7 +158,7 @@ A plot of $\ln\nu_0$ versus $\ln[\mathrm{A}]_0$ gives a straight line with slope
 
 ### Worked Example: Determining Orders by Comparing Experiments
 
-In practice, when starting concentrations are chosen as simple multiples, we can often determine orders by direct comparison rather than plotting. Consider the following data for $\mathrm{A} + \mathrm{B} \rightarrow \text{products}$:
+In practice, when starting concentrations are chosen as simple multiples, we can often determine orders by direct comparison rather than plotting. The following data for $\mathrm{A} + \mathrm{B} \rightarrow \text{products}$ illustrate how this works:
 
 | Experiment | $[\mathrm{A}]_0\,/\,\mathrm{mol\,dm}^{-3}$ | $[\mathrm{B}]_0\,/\,\mathrm{mol\,dm}^{-3}$ | $\nu_0\,/\,\mathrm{mol\,dm}^{-3}\,\mathrm{s}^{-1}$ |
 |:---:|:---:|:---:|:---:|
@@ -178,7 +178,7 @@ $$\frac{\nu_{0,3}}{\nu_{0,1}} = \left(\frac{[\mathrm{B}]_{0,3}}{[\mathrm{B}]_{0,
 
 The measured ratio is $4.8 \times 10^{-3}/1.2 \times 10^{-3} = 4$. So $2^\beta = 4$, giving $\beta = 2$: second order in B.
 
-The rate law is therefore $\nu = k[\mathrm{A}][\mathrm{B}]^2$. Once the orders are known, we can find $k$ by substituting the data from any single experiment back into the rate law. The underlying logic is the same as for the graphical method — we are changing one concentration at a time and seeing how the rate responds — but the comparison is immediate and does not require plotting. Notice that this is the same principle behind the isolation method: **control one variable, change the other, and see what happens**. In the isolation method we achieve this by flooding the system with excess of one reactant; here we achieve it by experimental design, choosing starting concentrations that differ in only one component.
+The rate law is therefore $\nu = k[\mathrm{A}][\mathrm{B}]^2$. Once the orders are known, we can find $k$ by substituting the data from any single experiment back into the rate law. The underlying logic is the same as for the graphical method — we are changing one concentration at a time and seeing how the rate responds — but the comparison is immediate and does not require plotting. This is the same principle behind the isolation method: **control one variable, change the other, and see what happens**. In the isolation method we achieve this by flooding the system with excess of one reactant; here we achieve it by experimental design, choosing starting concentrations that differ in only one component.
 
 The method of initial rates is flexible — it does not require any reactant to be in large excess, but it does require that we can measure the rate at the very start of the reaction. For very fast reactions (timescales of microseconds or less), this may be experimentally difficult or impossible, and one of the other methods may be more practical.
 

@@ -37,7 +37,7 @@ Solving for $[\mathrm{ES}]$:
 
 $$[\mathrm{ES}] = \frac{k_1[\mathrm{E}][\mathrm{S}]}{k_{-1} + k_\mathrm{cat}}$$
 
-The expression contains three rate constants. To make the subsequent algebra easier to follow, we group the combination $(k_{-1} + k_\mathrm{cat})/k_1$ — which has units of concentration — into a single quantity called the **Michaelis constant**:
+The expression contains three rate constants that always appear together. Rather than tracking all three individually, we group the combination $(k_{-1} + k_\mathrm{cat})/k_1$ — which has units of concentration — into a single quantity called the **Michaelis constant**. This gives us one experimentally determinable parameter that characterises the enzyme–substrate system and can be used to compare different enzymes:
 
 \begin{equation}
 K_\mathrm{M} = \frac{k_{-1} + k_\mathrm{cat}}{k_1}
@@ -176,7 +176,7 @@ Expanding the left-hand side and collecting terms in $\theta$ gives $k_\mathrm{a
 (\#eq:langmuir)
 \end{equation}
 
-where $K = k_\mathrm{ads}/k_\mathrm{des}$ is the **Langmuir adsorption constant**, with units of inverse pressure. Because adsorption and desorption are a single reversible step, $K$ is a genuine equilibrium constant — the ratio of forward and reverse rate constants, just as in the equilibrium treatment of [Lecture 4](#complex-mechanisms). This contrasts with $K_\mathrm{M}$, which is a hybrid of binding and catalysis rather than a true equilibrium constant. The resulting isotherm is shown in Figure \@ref(fig:langmuir-isotherm).
+where $K = k_\mathrm{ads}/k_\mathrm{des}$ is the **Langmuir adsorption constant**, with units of inverse pressure. Because adsorption and desorption are a single reversible step, $K$ is a genuine equilibrium constant — the ratio of forward and reverse rate constants, just as in the equilibrium treatment of [Lecture 4](#complex-mechanisms). This contrasts with $K_\mathrm{M}$, which is a hybrid of binding and catalysis rather than a true equilibrium constant. As a true equilibrium constant, $K$ is directly related to the standard Gibbs energy of adsorption through $\Delta G^\circ = -RT\ln K$, providing a thermodynamic measure of the strength of the gas–surface interaction. The resulting isotherm is shown in Figure \@ref(fig:langmuir-isotherm).
 
 ```{r langmuir-isotherm, echo=FALSE, fig.cap="The Langmuir adsorption isotherm: fractional surface coverage $\\theta$ as a function of gas pressure $p$. The pressure at which $\\theta = 1/2$ equals $1/K$.", out.width='60%', fig.align='center'}
 knitr::include_graphics("lecture_8/figures/langmuir_isotherm.png")

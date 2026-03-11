@@ -1,28 +1,26 @@
 # Integrated Rate Laws
 
-In the previous chapter, we saw that rate laws provide a window into how reactions work at the molecular level. The formation of HI has the simple rate law $\nu = k[\mathrm{H}_2][\mathrm{I}_2]$, but the formation of HBr—despite its similar stoichiometry—follows a complex rate law that reflects a multi-step chain mechanism. Different mechanisms produce different rate laws. To use rate laws as a tool for understanding mechanisms, however, we first need to be able to extract them from experimental data.
+In the previous chapter, we saw that rate laws provide a window into how reactions work at the molecular level. The formation of HI has the simple rate law $\nu = k[\mathrm{H}_2][\mathrm{I}_2]$, but the formation of HBr (despite its similar stoichiometry) follows a complex rate law that reflects a multi-step chain mechanism. Different mechanisms produce different rate laws. To use rate laws as a tool for understanding mechanisms, however, we first need to be able to extract them from experimental data.
 
-The challenge is that our rate laws are written in terms of rates—derivatives such as $\mathrm{d}[\mathrm{A}]/\mathrm{d}t$—whereas what we typically measure in the laboratory is concentration as a function of time. Consider, for example, the thermal decomposition of azomethane (CH~3~N~2~CH~3~), studied at $2.18 \times 10^4\,\mathrm{Pa}$ and $576\,\mathrm{K}$:
+The challenge is that our rate laws are written in terms of rates, derivatives such as $\mathrm{d}[\mathrm{A}]/\mathrm{d}t$, whereas what we typically measure in the laboratory is concentration as a function of time. Consider, for example, the thermal decomposition of azomethane (CH~3~N~2~CH~3~), studied at $2.18 \times 10^4\,\mathrm{Pa}$ and $576\,\mathrm{K}$:
 
 | $t$ / min | 0 | 30 | 60 | 90 | 120 | 150 | 180 |
 |---|---|---|---|---|---|---|---|
 | $[\text{azomethane}]$ / $10^{-3}\,\mathrm{mol\,dm}^{-3}$ | 8.70 | 6.52 | 4.89 | 3.67 | 2.75 | 2.06 | 1.55 |
 
-What is the rate law for this reaction? What is the rate constant? We cannot answer these questions just by inspecting the raw data—we need a strategy for connecting our differential rate laws to concentration–time measurements.
+What is the rate law for this reaction? What is the rate constant? We cannot answer these questions just by inspecting the raw data. We need a strategy for connecting our differential rate laws to concentration–time measurements.
 
 The approach is straightforward: *propose* a rate law, *integrate* it to predict how $[\mathrm{A}]_t$ should depend on time, and then *compare* that prediction with the experimental data. If the prediction fits, we have our rate law and rate constant; if not, we try a different order.
 
-## From Differential to Integrated Rate Laws
-
-To integrate a differential rate law, we use the technique of *separation of variables*: we rearrange so that everything involving concentration is on one side and everything involving time is on the other, then integrate each side independently between appropriate limits (using the techniques from the [Mathematical Foundations](#mathematical-foundations) chapter). This gives us the **integrated rate law**: an equation that tells us the concentration $[\mathrm{A}]_t$ as a function of time. We then rearrange this into a **linear form** suitable for graphical analysis. The same sequence of steps—separate, integrate, rearrange—applies to every simple rate law, so follow the pattern as we work through the zeroth-, first-, and second-order cases below.
-
 ## Zeroth-Order Reactions
+
+To integrate a differential rate law, we use the technique of *separation of variables*: we rearrange so that everything involving concentration is on one side and everything involving time is on the other, then integrate each side independently between appropriate limits (using the techniques from the [Mathematical Foundations](#mathematical-foundations) chapter). This gives us the **integrated rate law**: an equation that tells us the concentration $[\mathrm{A}]_t$ as a function of time. We then rearrange this into a **linear form** suitable for graphical analysis.
 
 For a zeroth-order reaction, the rate is constant, independent of the concentration of the reactant:
 
 $$\frac{\mathrm{d}[\mathrm{A}]}{\mathrm{d}t} = -k$$
 
-The variables are already separated—concentration on the left, time on the right—so we integrate both sides between $t = 0$ (when $[\mathrm{A}] = [\mathrm{A}]_0$) and time $t$ (when $[\mathrm{A}] = [\mathrm{A}]_t$):
+The variables are already separated (concentration on the left, time on the right), so we integrate both sides between $t = 0$ (when $[\mathrm{A}] = [\mathrm{A}]_0$) and time $t$ (when $[\mathrm{A}] = [\mathrm{A}]_t$):
 
 $$\int_{[\mathrm{A}]_0}^{[\mathrm{A}]_t} \mathrm{d}[\mathrm{A}] = \int_0^t -k\,\mathrm{d}t$$
 
@@ -37,9 +35,9 @@ Rearranging gives the zeroth-order integrated rate law:
 
 The differential rate law and this integrated form are two equivalent descriptions of zeroth-order kinetics: one tells us the instantaneous rate of change, the other the accumulated change from the start of the reaction.
 
-Eqn. \@ref(eq:zeroth-order-integrated) is already in linear form: a plot of $[\mathrm{A}]_t$ against $t$ gives a straight line with slope $-k$ and intercept $[\mathrm{A}]_0$ (Figure \@ref(fig:zeroth-order-plot)). Physically, a constant rate means the reaction proceeds at the same speed regardless of how much reactant remains—a situation that can arise, for example, when a reaction is limited by a saturated catalyst surface.
+Eqn. \@ref(eq:zeroth-order-integrated) is already in linear form: a plot of $[\mathrm{A}]_t$ against $t$ gives a straight line with slope $-k$ and intercept $[\mathrm{A}]_0$ (Figure \@ref(fig:zeroth-order-plot)). Physically, a constant rate means the reaction proceeds at the same speed regardless of how much reactant remains, a situation that can arise, for example, when a reaction is limited by a saturated catalyst surface.
 
-```{r zeroth-order-plot, echo=FALSE, fig.cap="Zeroth-order kinetics: plotting $[\\mathrm{A}]$ versus $t$ gives a straight line with slope $-k$ and intercept $[\\mathrm{A}]_0$.", out.width='45%', fig.align='center'}
+```{r zeroth-order-plot, echo=FALSE, fig.cap="Zeroth-order kinetics: $[\\mathrm{A}]$ decreases linearly with time. A plot of $[\\mathrm{A}]$ versus $t$ gives a straight line with slope $-k$ and intercept $[\\mathrm{A}]_0$. The concentration reaches zero at $t = [\\mathrm{A}]_0/k$, after which the model no longer applies.", out.width='45%', fig.align='center'}
 knitr::include_graphics("lecture_2/figures/zeroth_order_linear.png")
 ```
 
@@ -73,7 +71,7 @@ A plot of $\ln[\mathrm{A}]_t$ against $t$ gives a straight line with slope $-k$ 
 
 This is the exponential decay we derived from general principles in the [Mathematical Foundations](#mathematical-foundations) chapter: whenever a quantity changes at a rate proportional to its current value, the result is an exponential function. First-order kinetics means the concentration decreases by the same *fraction* in each successive time interval. If 25% decomposes in the first 30 minutes, then 25% of what remains decomposes in the next 30 minutes, and the next, regardless of how much is left.
 
-```{r first-order-plot, echo=FALSE, fig.cap="First-order kinetics: plotting $\\ln[\\mathrm{A}]$ versus $t$ gives a straight line with slope $-k$ and intercept $\\ln[\\mathrm{A}]_0$.", out.width='45%', fig.align='center'}
+```{r first-order-plot, echo=FALSE, fig.cap="First-order kinetics: $[\\mathrm{A}]$ decays exponentially, so a plot of $\\ln[\\mathrm{A}]$ versus $t$ gives a straight line with slope $-k$ and intercept $\\ln[\\mathrm{A}]_0$. The concentration approaches zero asymptotically but never reaches it.", out.width='45%', fig.align='center'}
 knitr::include_graphics("lecture_2/figures/first_order_linear.png")
 ```
 
@@ -100,7 +98,7 @@ Rearranging:
 
 A plot of $1/[\mathrm{A}]_t$ against $t$ gives a straight line with slope $+k$ and intercept $1/[\mathrm{A}]_0$ (Figure \@ref(fig:second-order-plot)). Notice that the slope is positive here, unlike the zeroth- and first-order cases where it is negative. Physically, because the rate depends on the *square* of the concentration, halving the concentration quarters the rate. Second-order reactions therefore slow down much more dramatically than first-order reactions as the reactant is consumed.
 
-```{r second-order-plot, echo=FALSE, fig.cap="Second-order kinetics: plotting $1/[\\mathrm{A}]$ versus $t$ gives a straight line with slope $+k$ and intercept $1/[\\mathrm{A}]_0$.", out.width='45%', fig.align='center'}
+```{r second-order-plot, echo=FALSE, fig.cap="Second-order kinetics: $[\\mathrm{A}]$ decays more slowly than exponentially as the rate drops with the square of the concentration. A plot of $1/[\\mathrm{A}]$ versus $t$ gives a straight line with slope $+k$ (positive, unlike the zeroth- and first-order cases) and intercept $1/[\\mathrm{A}]_0$.", out.width='45%', fig.align='center'}
 knitr::include_graphics("lecture_2/figures/second_order_linear.png")
 ```
 
@@ -114,7 +112,7 @@ Some textbooks write the second-order integrated rate law with an extra factor o
 
 ## Distinguishing Reaction Orders by Graphical Analysis
 
-The table below collects the key results, and Figure \@ref(fig:integrated-rate-laws-overview) shows the corresponding concentration profiles and linear plots.
+Each reaction order produces a different linear relationship, making it possible to distinguish them by plotting the same data in three different ways. The table below collects the key results, and Figure \@ref(fig:integrated-rate-laws-overview) shows the corresponding concentration profiles and linear plots.
 
 | Order | Integrated form | Linear plot | Slope |
 |:---:|:---|:---|:---:|
@@ -122,7 +120,7 @@ The table below collects the key results, and Figure \@ref(fig:integrated-rate-l
 | 1 | $[\mathrm{A}]_t = [\mathrm{A}]_0\,\mathrm{e}^{-kt}$ | $\ln[\mathrm{A}]$ vs $t$ | $-k$ |
 | 2 | $\frac{1}{[\mathrm{A}]_t} = \frac{1}{[\mathrm{A}]_0} + kt$ | $\frac{1}{[\mathrm{A}]}$ vs $t$ | $+k$ |
 
-```{r integrated-rate-laws-overview, echo=FALSE, fig.cap="Summary of the integrated rate laws for zeroth-, first-, and second-order reactions. For each reaction order, the differential rate law is integrated to give an expression for $[\\mathrm{A}]_t$, which is then rearranged into a linear form suitable for graphical analysis.", out.width='90%', fig.align='center'}
+```{r integrated-rate-laws-overview, echo=FALSE, fig.cap="Concentration--time profiles (left) and the corresponding linear plots (right) for zeroth-, first-, and second-order reactions. Each reaction order produces a distinct curve shape, but differences are much easier to identify in the linear plots: data that obey a given rate law fall on a straight line, while data that do not show systematic curvature.", out.width='90%', fig.align='center'}
 knitr::include_graphics("lecture_2/figures/integrated_rate_laws_summary.png")
 ```
 
@@ -134,13 +132,7 @@ These graphical tests apply whenever a reaction follows a simple rate law of the
 
 ## Worked Example: Decomposition of Azomethane
 
-Which of our three models fits the azomethane data? Here again are the concentration–time measurements for the thermal decomposition of azomethane at $576\,\mathrm{K}$:
-
-| $t$ / min | 0 | 30 | 60 | 90 | 120 | 150 | 180 |
-|---|---|---|---|---|---|---|---|
-| $[\text{azomethane}]$ / $10^{-3}\,\mathrm{mol\,dm}^{-3}$ | 8.70 | 6.52 | 4.89 | 3.67 | 2.75 | 2.06 | 1.55 |
-
-We test each of the three integrated rate laws by plotting the data in the corresponding linear form. Figure \@ref(fig:azomethane-linear-plots) shows the result: plotting $\ln[\text{azomethane}]$ against $t$ gives a straight line, consistent with first-order kinetics, with slope $-k = -9.6 \times 10^{-3}\,\mathrm{min}^{-1}$. The other two linear forms—$[\text{azomethane}]$ against $t$ and $1/[\text{azomethane}]$ against $t$—show clear curvature, ruling out zeroth- and second-order rate laws.
+Which of our three models fits the azomethane data from the start of this chapter? We test each of the three integrated rate laws by plotting the data in the corresponding linear form. Figure \@ref(fig:azomethane-linear-plots) shows the result: plotting $\ln[\text{azomethane}]$ against $t$ gives a straight line, consistent with first-order kinetics, with slope $-k = -9.6 \times 10^{-3}\,\mathrm{min}^{-1}$. The other two linear forms—$[\text{azomethane}]$ against $t$ and $1/[\text{azomethane}]$ against $t$—show clear curvature, ruling out zeroth- and second-order rate laws.
 
 ```{r azomethane-linear-plots, echo=FALSE, fig.cap="Testing the azomethane decomposition data against each linear form. Only the first-order plot ($\\ln[\\text{azomethane}]$ vs $t$, centre) gives a straight line; the zeroth-order (left) and second-order (right) plots show systematic curvature. The slope of the first-order plot gives $k = 9.6 \\times 10^{-3}\\,\\mathrm{min}^{-1}$.", out.width='90%', fig.align='center'}
 knitr::include_graphics("lecture_2/figures/azomethane_linear_plots.png")
@@ -167,11 +159,11 @@ kt = \frac{1}{[\mathrm{B}]_0 - [\mathrm{A}]_0} \ln\!\left(\frac{[\mathrm{B}]_t /
 
 The derivation of this result is given in Appendix \@ref(appendix-two-reactants); you are not expected to reproduce it. The result requires $[\mathrm{A}]_0 \neq [\mathrm{B}]_0$, since otherwise the denominator is zero. If the initial concentrations are equal, the problem reduces to the single-reactant second-order case (Eqn. \@ref(eq:second-order-integrated)).
 
-A common and powerful simplification—the [isolation method](#the-isolation-method)—is to use one reactant in large excess. If $[\mathrm{B}]_0$ is, say, 100 times larger than $[\mathrm{A}]_0$, then even after all of A has reacted, $[\mathrm{B}]$ has decreased by only 1%. For practical purposes $[\mathrm{B}]$ remains constant throughout the reaction, and the rate law simplifies to:
+A common simplification, the [isolation method](#the-isolation-method), is to use one reactant in large excess. If $[\mathrm{B}]_0$ is, say, 100 times larger than $[\mathrm{A}]_0$, then even after all of A has reacted, $[\mathrm{B}]$ has decreased by only 1%. For practical purposes $[\mathrm{B}]$ remains constant throughout the reaction, and the rate law simplifies to:
 
 $$\frac{\mathrm{d}[\mathrm{A}]}{\mathrm{d}t} \approx -k'[\mathrm{A}] \quad \text{where } k' = k[\mathrm{B}]_0$$
 
-This is called a *pseudo-first-order* rate law: the reaction is second-order overall, but behaves as first-order under these conditions. The problem reduces to the first-order integrated rate law we have already derived—all of the graphical analysis from this chapter applies directly.
+This is called a *pseudo-first-order* rate law: the reaction is second-order overall, but behaves as first-order under these conditions. The problem reduces to the first-order integrated rate law we have already derived, and all of the graphical analysis from this chapter applies directly.
 
 ## Key Concepts
 
@@ -179,7 +171,7 @@ This is called a *pseudo-first-order* rate law: the reaction is second-order ove
 - Integrated rate laws relate concentration to time, connecting differential rate laws to experimentally measurable quantities.
 - The strategy is: propose a rate law, integrate to predict $[\mathrm{A}]_t$, and compare with data.
 - Each reaction order gives a different integrated rate law with a characteristic linear form.
-- Plotting data in the appropriate linear form tests whether a given rate law is consistent with the data. A straight line confirms the proposed order; the slope gives the rate constant.
+- Plotting data in the appropriate linear form tests whether a given rate law is consistent with the data. A straight line is consistent with the proposed order; the slope gives the rate constant.
 - For zeroth-order: $[\mathrm{A}]$ vs $t$ is linear (slope $-k$). For first-order: $\ln[\mathrm{A}]$ vs $t$ is linear (slope $-k$). For second-order: $1/[\mathrm{A}]$ vs $t$ is linear (slope $+k$).
 - First-order kinetics corresponds to exponential decay: $[\mathrm{A}]_t = [\mathrm{A}]_0\,\mathrm{e}^{-kt}$.
 - Reactions between two different species can be simplified to pseudo-first-order kinetics by using one reactant in large excess.
