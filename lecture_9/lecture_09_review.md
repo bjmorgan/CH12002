@@ -1,213 +1,189 @@
-# Review: `lecture_09.Rmd` (L9: Chain Reactions)
+# Review: `lecture_09.Rmd` (L9: Chain Reactions) — Second Pass
 
 **Reviewer:** Claude
-**Date:** 2026-03-10
-**Status:** Read-only review — no changes made to source file
+**Date:** 2026-03-11
+**Status:** Read-only review of revised version — no changes made to source file
 
 ## Overall Assessment
 
-This is a well-structured lecture with a strong narrative arc: introduce chain reactions via the CFC/ozone example, develop the SSA derivation for H₂ + Br₂, then return to quantify the ozone question via chain length. The pedagogy is generally sound — the HBr section in particular does an excellent job of stating the naive expectation before revealing the complex rate law. The main issues are: a notation inconsistency around the absorbed [M] convention, several signposting phrases, a disruptive digression about oxygen's electron configuration, and a few places where prose restates figure captions.
+The revised lecture is substantially improved. The opening paragraph now makes concrete backward connections to the SSA and poses the central question ("how much damage does it do?") upfront. The chain length section has been reworked from first principles via a probability argument, with explicit rate expressions and cancellations that make the derivation transparent. The new ozone-specific figures (linear chain and cycle) replace a generic diagram with concrete illustrations of the mechanism under discussion. The [M] notation inconsistency, the missing Evans–Polanyi premise, the dangling fragment, and the figure-ordering issue are all resolved. The remaining issues are minor: em dash overuse, three residual signposting phrases, a figure that interrupts a sentence–equation pair, and two small imprecisions in the chain length prose.
 
 ## Section-by-Section Review
 
 ### Opening paragraph (line 3)
 
-**Structure (criterion 10):** The opening connects backward ("Consecutive reactions, pre-equilibria, and enzyme catalysis") and introduces the new topic. However, the backward connection is abstract — it names previous topics but doesn't remind the reader concretely what *tools* or *results* they have. A more concrete callback ("We have seen how to write rate equations for multi-step mechanisms and use the SSA to derive overall rate laws") would better orient the reader in the course narrative.
+All three jobs well done: backward connection to the SSA is concrete ("write rate equations for multi-step mechanisms and use the SSA to derive overall rate laws"), the concept of regeneration is introduced clearly, and the central question is posed at the end ("how much damage does it do along the way?"). A strong opening. ✓
 
-**Concepts before names (criterion 2):** The term "chain reaction" is bolded and defined in the opening sentence before the reader has any intuitive sense of why regeneration of intermediates creates qualitatively different behaviour. The CFC example that follows does build the intuition, so the overall section works, but the opening sentence front-loads the name.
+### Section: The Ozone Layer and CFC-Catalysed Destruction (lines 5–45)
 
-### Section: The Ozone Layer and CFC-Catalysed Destruction (lines 5–41)
+**Figures (criterion 6):** All three figures (`ozone-hole`, `ozone-chain`, `ozone-cycle`) are referenced before they appear. ✓
 
-**Narrative (criterion 10):** Works well as a concrete motivating example. The Nobel Prize context is engaging and appropriate.
+**Figure interrupting prose (criterion 10/pacing):** Line 29 ends with "The net reaction is:" — but the `ozone-chain` figure (lines 31–33) intervenes before the net reaction equation at line 35. A reader encountering "The net reaction is:" expects the equation immediately; the figure breaks this expectation. The figure reference at "forming a self-sustaining chain (Figure \@ref(fig:ozone-chain))" is earlier in line 29, so the figure could be placed *before* the sentence about the net reaction without disrupting the reference order.
 
-**Figures (criterion 6):** Figures `ozone-hole` and `chain-anatomy` are both referenced before they appear. Properly handled.
+**Voice (criterion 9):** Reads well throughout. The prose flows naturally from mechanism to definitions to the closing question. ✓
 
-**Bold-label definition (criterion 1):** Line 27 opens a paragraph with "**Initiation** is a step that creates reactive intermediates from stable molecules." This reads like a glossary entry. The definitions for propagation and termination are better integrated into flowing prose (lines 29, 33).
+### Section: The H₂ + Br₂ Reaction (lines 47–95)
 
-**Digression (criterion 10/pacing):** Line 29 includes a lengthy parenthetical about atomic oxygen's electron configuration: "its electron configuration (1s² 2s² 2p⁴) leaves two unpaired electrons, making it a radical species even though we follow the standard convention of writing it without a radical dot." This interrupts the explanation of the propagation cycle with tangential detail. It would be better as an aside or footnote, or simply trimmed to a brief note.
+**Stepwise argument (criterion 14):** Naive expectation explicitly stated at line 53 ("we might expect a straightforward rate law such as ν = k[H₂][Br₂]"). Mechanism presented as established science. Bond energy arguments support the claim about relative rate constants. All good. ✓
 
-**Signposting (criterion 4):** Line 41: "To answer this question quantitatively, we first need to develop some tools." This announces what is coming rather than just proceeding. The question itself ("So how many molecules of ozone does a single chlorine radical destroy?") is good — it sets up the thread that pulls through the chapter. The second sentence is the problem.
+**Evans–Polanyi premise (criterion 13):** The justification added in the earlier round ("For closely related reactions that involve the same type of bond-forming step, exothermic reactions tend to have lower activation barriers than endothermic ones") remains in place at line 91. ✓
 
-**Intensifier (criterion 12):** Line 7: "a striking example." "Striking" appears again at line 188, so the word is used twice in the chapter.
+**Signposting (criterion 4):** Line 60: "To understand where this rate law comes from, we need to consider the full chain mechanism." — This announces intent rather than proceeding. Could be trimmed or removed.
 
-### Section: The H₂ + Br₂ Reaction (lines 43–93)
+**Figures (criterion 6):** `hbr-chain` referenced at line 77 before line 79. `hbr-chain-cycle` referenced at line 91 before line 93. Both correct. ✓
 
-**Stepwise argument (criterion 14):** Lines 48–56 are exemplary. The naive expectation is stated explicitly ("from the stoichiometry alone, we might expect a straightforward rate law such as ν = k[H₂][Br₂]"), the actual rate law is presented, and the unusual features are identified. This is exactly how criterion 14 should be satisfied.
+### Section: Deriving the Rate Law Using the SSA (lines 97–150)
 
-**Presenting vs. discovering (criterion 14):** Line 60: "The reaction proceeds through a sequence of elementary steps" — presents as established science. Good.
+**Notation (criterion 15):** [M] absorption stated at line 99, consistently maintained throughout the derivation and chain length section. ✓
 
-**Logical coherence (criterion 13):** Line 87: "The exothermic step has a much lower activation barrier, so k₃ ≫ k₂." This invokes a correlation between exothermicity and activation energy (the Evans–Polanyi relationship) without stating it. For first-year students, the assertion that exothermic ⇒ low barrier is a missing premise. The argument needs a brief justification — even a parenthetical like "(a general trend for related reactions sharing the same type of bond-forming step)" — to avoid looking like an unjustified assertion.
+**Mathematical accuracy:** SSA derivation, cancellation, steady-state concentrations, and final rate law are all correct. ✓
 
-**Figure placement (criterion 6):** Figure `hbr-chain` (line 75) is referenced before it appears (line 73). Good. Figure `hbr-chain-cycle` (line 89) is referenced *after* it appears (line 93). The style guide states: "Refer to figures in the text *before* they appear." This violates that convention.
+**Intuition (criterion 3):** Physical interpretation follows each key result: the meaning of the cancellation (line 119), the origin of [Br₂]^{1/2} (line 126), the inhibition term (line 148), and the limiting cases (line 150). ✓
 
-**Redundancy (criterion 8):** Line 93 ("Figure \@ref(fig:hbr-chain-cycle) illustrates the complete mechanism as a cycle, showing how initiation, propagation, inhibition, and termination are connected. Each complete propagation cycle produces two molecules of HBr and regenerates the radical that started it.") substantially restates the figure caption (lines 89–91), which already describes the cyclic nature, the two HBr molecules per cycle, and the inhibition step.
+**Dangling referent (criterion 15):** "This self-inhibition and the concept of negative apparent orders are explored further in Appendix..." — clear referent. ✓
 
-### Section: Deriving the Rate Law Using the SSA (lines 95–148)
+### Section: Chain Length (lines 152–184)
 
-**Notation consistency (criterion 15):** Line 97 states: "we absorb the constant concentration of the collision partner M into the rate constants k₁ and k₄." This is good practice. However, [M] reappears later in line 164 within the chain length section, creating an inconsistency (discussed below under Notation Consistency).
+This section is substantially improved. The probability motivation (lines 154–156) gives physical intuition before the rate-ratio equation. The explicit cancellation in the HBr chain length (line 174) is transparent. The substitution to measurable quantities (line 178) completes the derivation. The new material on the general chain length with inhibition (lines 180–184) connects the chain length to the rate law and provides genuine physical insight.
 
-**Mathematical accuracy:** The SSA derivation is correct throughout. The two SSA equations (Eqns. eq:br-ssa and eq:h-ssa) are properly constructed. The cancellation when added is correctly explained and physically interpreted. The final rate law (Eqn. eq:hbr-derived) matches the standard result. All verified.
+**Notation used once (criterion economy):** Line 156 introduces $p(\text{propagation})$ and $p(\text{termination})$, which appear only in this one equation. The style guide notes: "Don't introduce notation that appears only once." Since the $p$-notation serves to motivate the rate ratio on the next line, it is pedagogically useful but technically violates the economy principle. Consider whether the probability argument could be made in prose without the intermediate equation.
 
-**Intuition before/after equations (criterion 3):** Well done throughout. Line 99 explains what produces and consumes Br• before writing the equation. Line 113 motivates adding the equations before doing so. Lines 117 and 124 provide physical interpretation after the results. Lines 146–148 explain the inhibition term's physical origin clearly.
+**Imprecise language (criterion 13):** Line 180: "propagation must now compete with both termination *and* inhibition for the fate of each radical." This is slightly imprecise. Inhibition competes with the *second* propagation step for H•, while termination competes with the *first* propagation step for Br•. Different radicals face different competing pathways. The formula at line 182 is correct, but the prose oversimplifies by suggesting all three fates apply to every radical.
 
-**Limiting cases:** Lines 148 analyse the early-reaction and late-reaction limits. Good pedagogical practice.
+**Imprecise qualification (criterion 13):** Line 184: "Since the rate of initiation ($k_1[\mathrm{Br_2}]$) is approximately constant" — true only while [Br₂] has not changed significantly. A qualifying phrase ("early in the reaction" or "while [Br₂] has not been substantially consumed") would sharpen this.
 
-**Signposting (criterion 4):** Line 133: "We can now write the overall rate of HBr formation." — mild signposting. Could lead directly into the rate expression.
+**Voice (criterion 9):** Line 165: "Note that at steady state, the rate of initiation equals the rate of termination" — "Note that" is flagged as a mild signpost opener by criterion 9.
 
-### Section: Chain Length (lines 150–170)
+### Subsection: Returning to Ozone (lines 186–208)
 
-**Signposting (criterion 4):** Line 152: "We now have the tools to answer the quantitative question we posed in Section \@ref(sec:ozone)." Line 174: "We can now return to the question posed at the start of this chapter." Both are signposting.
+**Stepwise argument (criterion 14):** The naive expectation is now explicit (line 202: "If termination permanently removed the radical, this chain length of ~10² would represent the total ozone destruction per chlorine atom"). The surprise follows naturally. ✓
 
-**Notation inconsistency (criterion 15):** Line 164: "rate per radical = k₄[Br•][M]" reintroduces [M], which was absorbed into k₄ at line 97. Line 170 then refers to Eqn. eq:br-steady-state, which was derived with [M] already absorbed into k₄. These two conventions are incompatible within the same section. Either [M] should remain absorbed (and not appear in line 164) or it should be made explicit throughout (requiring modification of the SSA derivation's equations).
+**Scientific precision (criterion 13):** "Chlorine-containing species" with parenthetical listing of forms (line 206) is accurate. ✓
 
-**Incomplete follow-through (criterion 14):** Line 170: "To obtain the chain length in terms of measurable quantities, we would substitute the steady-state concentration..." uses conditional mood ("we would") and does not actually perform the substitution. This leaves the HBr chain length expression incomplete — the reader is told what *could* be done but never sees the result.
+**Explicit cancellation (line 194):** Showing both [Cl•] in the ratio before cancelling makes the contrast with HBr (where [Br•] does not fully cancel) transparent. Good addition. ✓
 
-### Subsection: Returning to Ozone (lines 172–196)
+### Closing paragraph, skill statements, and Key Concepts (lines 210–222)
 
-**Naive expectation (criterion 14):** The text derives ν̄ ~ 10² (line 186), then immediately states "but it falls short of the widely quoted figure of approximately 10⁵" (line 188). The naive expectation — that the chain length formula gives the total ozone destruction per chlorine atom — is not explicitly stated before the discrepancy is revealed.
+**Signposting (criterion 4):** Line 210: "In the next lecture, we will see what happens when propagation steps produce *more* intermediates than they consume — leading to **branching chains** and explosions." This is an explicit forward reference ("In the next lecture, we will see..."). The style guide and criterion 10 note that the closing should circle back to the questions or ideas from the opening, providing narrative closure, rather than previewing the next lecture. The preceding material (ozone chain length, reservoir species, straight chains) does circle back to the opening question and provides good closure. This final sentence slightly weakens the narrative by looking forward rather than landing on the completed argument.
 
-**Sentence fragment (criterion 15):** Lines 190–192: After the displayed equation, the text continues with "starting a new chain." — a dangling fragment that should be grammatically connected to the preceding sentence.
+**Key Concepts (lines 216–222):** Five bullets, well written. The final bullet no longer includes a forward reference about branching. ✓
 
-**Imprecise language (criterion 13):** Line 192: "the multi-year stratospheric lifetime of a chlorine atom" — a chlorine atom does not persist as such; it cycles through Cl•, HCl, ClONO₂, etc. Should say "chlorine-containing species" or "a chlorine atom in its various chemical forms."
-
-**Intensifier (criterion 12):** Line 188: "This is already a striking number" — second use of "striking." The number and subsequent contrast with ~10⁵ do the rhetorical work; the intensifier adds little.
-
-### Skill Statements and Key Concepts (lines 198–209)
-
-**Skill statement:** Comprehensive and well-targeted. Lists the key examinable skills clearly.
-
-**Key Concepts:** Five bullets covering the main ideas. Well written. The last bullet effectively bridges to L10 without excessive forward reference.
+**Skill statement (lines 212–214):** Comprehensive and appropriately targeted. ✓
 
 ## Cross-Cutting Issues
 
-1. **Signposting phrases** appear throughout: "To answer this question quantitatively, we first need to develop some tools" (line 41), "We now have the tools to answer..." (line 152), "We can now write..." (line 133), "We can now return..." (line 174). These announce rather than doing.
+1. **Em dashes:** 9 em dashes in approximately 2,540 words of prose = 1 per ~282 words. This exceeds the guideline of ~1 per 500 words. The formatting is consistent (all spaced ` — `). No em dashes are used for numeric ranges and none are paired constructions that would work better as parentheses. The overuse is modest and each individual em dash reads naturally, but the cumulative density gives the prose a slightly breathless quality.
 
-2. **The [M] notation inconsistency** is the most serious technical issue. The convention established in line 97 (absorb [M] into rate constants) is violated in lines 164 and 168, creating confusion about what the rate constants mean.
+2. **Three residual signposting instances:** Lines 60, 165, and 210 (detailed above).
 
-3. **"Striking"** appears twice (lines 7 and 188), drawing attention to itself through repetition.
+3. **The [M] notation inconsistency** from the first version is fully resolved. ✓
 
-4. **The opening paragraph** could be strengthened with more concrete backward connections and a clearer central question. The central question (how many ozone molecules?) doesn't emerge until line 41.
+4. **Figure `ozone-chain` interrupts** the "The net reaction is:" → equation flow (line 29 → 31–33 → 35).
 
 ## Narrative Coherence Assessment
 
 ### Lecture level
 
-The central theme is: chain reactions feature regeneration of reactive intermediates, and the SSA lets us derive their rate laws and quantify the damage via chain length. The lecture builds a coherent argument:
+The central theme — chain reactions feature regeneration of intermediates, and the chain length quantifies the damage — is stated clearly in the opening and developed systematically through two examples of increasing complexity. The arc is:
 
-1. Ozone/CFC as motivating example → introduces the vocabulary
-2. HBr as a complex chain → demonstrates SSA derivation → explains unusual rate law
-3. Chain length → returns to ozone → quantifies the damage → reveals the reservoir complication
+1. Opening: What is a chain reaction? How much damage can one radical do?
+2. CFC/ozone: Concrete motivating example; introduces initiation, propagation, termination.
+3. HBr: More complex chain with inhibition; SSA derivation reproduces the experimental rate law.
+4. Chain length: Quantifies the competition between propagation and termination; returns to ozone; reveals the reservoir species surprise.
+5. Closing: Defines straight chains; bridges to branching chains.
 
-This arc is strong. The opening question (how many ozone molecules?) is posed in line 41 and answered in lines 182–186, with the reservoir species twist providing genuine narrative interest. The closing Key Concepts section summarises effectively.
-
-**Weakness:** The opening paragraph (line 3) doesn't set up this arc. The quantitative question doesn't appear until after the CFC mechanism has been fully presented. A revision could hint at the question earlier: "how much damage can a single reactive intermediate do?"
-
-**Closure:** The lecture closes with the straight-chain → branching-chain bridge (line 196), which serves L10 but slightly weakens L9's own closure. The Key Concepts section compensates by summarising L9's content.
+The opening question is answered quantitatively in the ozone chain length section. The reservoir species discussion adds a genuine narrative twist. The lecture achieves strong closure *before* the final forward-looking sentence at line 210.
 
 ### Section level
 
-**Ozone → HBr:** Good transition (lines 43–45). The text explicitly states that the CFC example is simple and that HBr is more complex. The purpose of the HBr section is clear.
+All section transitions are motivated by content: the move from ozone to HBr is motivated by the need for a more complex example; the chain length section is motivated by the quantitative question posed at the end of the ozone section; the return to ozone is motivated by the chain length tools just developed. The only procedural transition remaining is at line 60 ("To understand where this rate law comes from, we need to consider the full chain mechanism"), which could be trimmed.
 
-**HBr mechanism → SSA derivation:** Natural flow. The mechanism is presented, then we derive its consequences.
-
-**SSA derivation → Chain length:** The reference to the negative-orders appendix (line 148) is a slight detour before the chain length section begins. The transition could be tighter.
-
-**Chain length → Ozone return:** Well motivated by the earlier question.
+The chain length section's new structure (probability → rate ratio → HBr → ozone) builds clearly from intuition to application. The addition of the general chain length with inhibition (lines 180–184) is pedagogically valuable: it connects the chain length to the rate law and provides the insight that "the rate slows down precisely because the chains are getting shorter."
 
 ## Systematic Verification Passes
 
 ### Pass 1: Imprecise scientific language (criterion 13)
 
-| Location | Issue |
-|----------|-------|
-| Line 27 | "Initiation is typically slow relative to propagation" — "slow" is vague. More precisely: "the rate of initiation is typically much lower than the rate of propagation." |
-| Line 87 | "The exothermic step has a much lower activation barrier" — asserts Evans–Polanyi correlation without stating it. Missing premise. |
-| Line 159 | "at each moment, the radical can either propagate... or be terminated" — slightly anthropomorphises the radical and implies a discrete choice. More precisely: propagation and termination are competing pathways with rates determined by concentrations and rate constants. |
-| Line 192 | "the multi-year stratospheric lifetime of a chlorine atom" — a chlorine atom cycles through many chemical forms; should specify "chlorine-containing species." |
+| Location | Issue | Severity |
+|----------|-------|----------|
+| Line 180 | "propagation must now compete with both termination *and* inhibition for the fate of each radical" — oversimplifies; different radicals face different competing pathways | Minor |
+| Line 184 | "Since the rate of initiation ($k_1[\mathrm{Br_2}]$) is approximately constant" — true only early in the reaction; needs qualification | Minor |
+
+The imprecise language issues from the first review (line 87's Evans–Polanyi assertion, "slow" for initiation, "chlorine atom" for chlorine-containing species) are all resolved. ✓
 
 ### Pass 2: Dangling referents (criterion 15)
 
-| Location | Issue |
-|----------|-------|
-| Line 148 | "This phenomenon is explored further in Appendix..." — "This phenomenon" could refer to the apparent order approaching −1 or the self-inhibition more broadly. Mildly ambiguous. |
-| Lines 190–192 | "starting a new chain" — grammatically dangling fragment after the displayed equation. |
-
-No other paragraph-opening referents are ambiguous.
+No paragraph-opening "it", "this", "these", or "that" with ambiguous referents found. The dangling fragment "starting a new chain" from the first version is resolved (now part of the preceding sentence at line 202). ✓
 
 ### Pass 3: Notation consistency (criterion 15)
 
-| Location | Issue |
-|----------|-------|
-| Lines 97 vs 164/168 | [M] absorbed into k₁ and k₄ at line 97, but reappears explicitly in the chain length expressions at lines 164 and 168. Eqn. eq:br-steady-state (referenced at line 170) was derived with [M] absorbed, creating a contradiction with the explicit-[M] chain length formula. |
-| Lines 152/155 | ν̄ (chain length) vs ν (reaction rate) — distinguished by the overbar; standard notation. No action needed but worth noting for student confusion potential. |
+| Item | Status |
+|------|--------|
+| [M] convention (absorbed into k₁, k₄) | Consistent throughout ✓ |
+| ν̄ (chain length) vs ν (reaction rate) | Distinguished by overbar; no confusion ✓ |
+| p(propagation)/p(termination) at line 156 | Used only once; not referenced again |
+| k₂, k₃, k₄ reused for ozone (lines 186–194) | These are different rate constants from the HBr mechanism, but this is conventional (each mechanism has its own k values). The ozone mechanism uses k₂ and k₄ from its own definitions (Section \@ref(sec:ozone)). No student confusion expected since the mechanisms are discussed in separate sections. ✓ |
 
 ### Pass 4: Unnecessary emphasis (criterion 12)
 
 | Location | Text | Verdict |
 |----------|------|---------|
-| Line 3 | *regenerated* | Justified — highlights the defining feature of chain reactions |
-| Line 117 | *total* | Justified — disambiguates total vs individual radical counts |
-| Line 196 | *more* | Justified — key distinction between straight and branching chains |
-
-Emphasis is used sparingly and purposefully. No issues.
+| Line 3 | *regenerated* | Justified — key concept |
+| Line 119 | *total* | Justified — disambiguates |
+| Line 126 | *second order* | Justified — highlights the key mechanism |
+| Line 176 | *second order* | Justified — parallel structure with previous use |
+| Line 180 | *and* | Justified — emphasises the new competitor |
+| Line 184 | *because* | Borderline — the content demonstrates the claim, so the emphasis is not strictly necessary. Minor. |
+| Line 210 | *more* | Justified — key distinction between straight and branching |
 
 ### Pass 5: Naive expectation stated? (criterion 14)
 
 | Location | Claim | Naive expectation stated? |
 |----------|-------|--------------------------|
-| Lines 49–54 | HBr rate law is unexpectedly complex | **Yes.** "we might expect a straightforward rate law such as ν = k[H₂][Br₂]" |
-| Lines 186–188 | Chain length (~10²) falls short of total destruction (~10⁵) | **No.** The text jumps from the calculated ν̄ ~ 10² directly to "falls short" without first stating the expectation that the chain length formula gives the total destruction count. |
+| Lines 53–58 | HBr rate law is complex | **Yes.** "we might expect a straightforward rate law such as ν = k[H₂][Br₂]" ✓ |
+| Lines 200–202 | Chain length ~10² falls short of ~10⁵ | **Yes.** "If termination permanently removed the radical, this chain length of ~10² would represent the total ozone destruction per chlorine atom." ✓ |
 
 ### Em dash count
 
-Five em dashes found in the document (~2800 words → ~1 per 560 words). All use consistent unspaced `—` formatting. Usage is within the acceptable range (threshold: ~1 per 500 words). No em dashes used for numeric ranges.
+9 em dashes in ~2,540 words of prose ≈ 1 per 282 words. Exceeds the ~1 per 500 words guideline.
 
 | Line | Usage |
 |------|-------|
-| 29 | "is highly reactive — its electron configuration" |
-| 33 | "permanently — here by converting" |
-| 60 | "intermediates — bromine radicals" |
-| 148 | "not well defined — but in the limit" |
-| 188 | "striking number — but it falls short" |
+| 3 | "removes it — but how much" |
+| 27 | "stable molecules — this is" |
+| 37 | "permanently — here by converting" |
+| 64 | "intermediates — bromine radicals" |
+| 150 | "defined — but in the limit" |
+| 184 | "shrinks — each successive chain" |
+| 198 | "completely — because both" |
+| 208 | "developed — writing a mechanism" |
+| 210 | "consume — leading to" |
+
+All are consistently formatted (spaced ` — `). No paired constructions or numeric ranges. ✓
 
 ## Prioritised Recommendations
 
-### Must fix
-
-1. **Fix the [M] notation inconsistency (lines 97, 164, 168, 170).** Either keep [M] absorbed throughout (removing it from the chain length expressions in lines 164 and 168, and noting that the effective rate constants already include [M]) or make [M] explicit throughout (which would require modifying the SSA derivation's equations). The current state will confuse students about what k₄ means.
-
-2. **State the missing premise for the exothermicity–barrier claim (line 87).** "The exothermic step has a much lower activation barrier" asserts a correlation without justification. Add a brief explanatory note — e.g., "For closely related reactions involving the same types of bond, exothermic steps tend to have lower activation barriers" — to avoid an unjustified assertion.
-
 ### Should fix
 
-3. **Remove signposting phrases.** Specifically:
-   - Line 41: Delete "To answer this question quantitatively, we first need to develop some tools." The question itself is sufficient; proceed directly to the HBr section.
-   - Line 133: Rework "We can now write the overall rate of HBr formation" to lead directly into the rate expression.
-   - Line 152: Rework "We now have the tools to answer..." — e.g., open directly with the definition: "How many propagation cycles does a chain carrier complete before termination removes it?"
-   - Line 174: Rework "We can now return to the question posed at the start of this chapter" — e.g., "Applying the same approach to the CFC mechanism from Section \@ref(sec:ozone):"
+1. **Reposition Figure `ozone-chain` to avoid interrupting the "net reaction" sentence (lines 29–35).** Currently, "The net reaction is:" is followed by the figure, then the equation. Move the figure to *after* the net reaction equation (or earlier, before the "Each turn of the cycle..." sentence) so that the text flows directly into the equation it introduces.
 
-4. **Reference Figure `hbr-chain-cycle` before it appears (lines 89/93).** Move the textual reference to before the figure chunk, consistent with the other figures in the chapter and the style guide convention.
+2. **Reduce em dash count.** Nine em dashes in ~2,540 words is above the recommended density (~1 per 500 words). Candidates for replacement:
+   - Line 27: "stable molecules — this is the **initiation** step" → "stable molecules; this is the **initiation** step" (or restructure)
+   - Line 64: "intermediates — bromine radicals ($\mathrm{Br}^{\bullet}$) and hydrogen radicals ($\mathrm{H}^{\bullet}$)" → "intermediates, bromine radicals... and hydrogen radicals..." (parenthetical listing suits a colon or comma better)
+   - Line 198: "cancels completely — because both propagation and termination are first order" → "cancels completely, because both..."
+   - Line 208: "developed — writing a mechanism" → "developed (writing a mechanism..." with matching closing parenthesis)
+   Reducing from 9 to 5 would bring the density to ~1 per 508 words, within guidelines.
 
-5. **Remove or relocate the oxygen electron configuration digression (line 29).** The parenthetical about O's electron configuration interrupts the propagation cycle explanation. Move to an aside or simply state that atomic oxygen is a radical species, with a brief note that it is written without a radical dot by convention.
+3. **Remove the forward reference at line 210.** "In the next lecture, we will see what happens when propagation steps produce *more* intermediates than they consume — leading to **branching chains** and explosions." This announces future content rather than providing closure. The preceding material (straight chain definition, ozone example of cumulative damage) makes a strong closing point on its own. Consider ending at "even this steady balance can cause enormous cumulative damage" (or a similar reworked sentence that lands on the completed argument), and letting the concept of branching chains await L10's own opening.
 
-6. **Eliminate redundancy between line 93 and the `hbr-chain-cycle` figure caption.** The body text and caption say nearly the same thing. Keep the description in the caption (which should be self-contained) and reduce the body text to a brief reference — e.g., "Figure \@ref(fig:hbr-chain-cycle) illustrates the complete mechanism."
-
-7. **State the naive expectation before the chain length discrepancy (lines 186–188).** Before revealing the ~10⁵ figure, explicitly state what the reader would expect: that the chain length formula should give the total destruction per chlorine atom. Then introduce the discrepancy.
-
-8. **Complete the HBr chain length derivation (line 170).** Rather than "we would substitute," either perform the substitution or explicitly state that the result is left as an exercise. The conditional mood is anticlimactic and leaves the derivation unfinished.
-
-9. **Fix the dangling fragment "starting a new chain" (line 192).** Integrate it grammatically — e.g., "Reaction with hydroxyl radicals regenerates Cl•, starting a new chain:" followed by the equation, or restructure the sentence so the equation is embedded within a complete grammatical construction.
-
-10. **Strengthen the opening paragraph's backward connections (line 3).** Replace the abstract list ("Consecutive reactions, pre-equilibria, and enzyme catalysis") with a concrete reminder of the tools students have — e.g., "We have seen how to write rate equations for multi-step mechanisms and use the SSA to derive overall rate laws for systems with reactive intermediates." Consider also hinting at the central quantitative question ("how much damage can a single radical do?") to give the opening more forward momentum.
+4. **Remove residual signposting at line 60.** "To understand where this rate law comes from, we need to consider the full chain mechanism." — Announces intent. The preceding paragraph (unusual features of the rate law, cannot arise from a single step) already motivates the mechanism. This sentence can be deleted or the transition made implicit by proceeding directly to "### The Mechanism."
 
 ### Minor
 
-11. **Revise the bold-label opener at line 27.** "**Initiation** is a step that creates reactive intermediates from stable molecules" reads like a glossary entry. Integrate the definition into flowing prose — e.g., "The first step creates reactive intermediates from stable molecules — this is the *initiation* step."
+5. **Sharpen the inhibition-competition language (line 180).** "Propagation must now compete with both termination *and* inhibition for the fate of each radical" oversimplifies: Br• faces propagation vs termination, while H• faces propagation vs inhibition. Consider: "Each radical now faces a competing pathway: H• can either propagate (reacting with Br₂) or be diverted by inhibition (reacting with HBr), while Br• continues to face propagation vs termination." Or more concisely: "The inhibition step competes with propagation for H•, reducing the fraction of cycles that form product."
 
-12. **Vary word choice: "striking" appears twice (lines 7, 188).** Replace one instance (preferably line 7, where it adds less) with a different word or remove the intensifier entirely.
+6. **Qualify "approximately constant" at line 184.** "Since the rate of initiation ($k_1[\mathrm{Br_2}]$) is approximately constant" — add "early in the reaction" or "while [Br₂] has not been substantially consumed" to make the approximation's domain explicit.
 
-13. **Clarify "stratospheric lifetime of a chlorine atom" (line 192).** Replace with "chlorine-containing species" or "a chlorine atom in its various chemical forms," since the atom cycles through Cl•, HCl, ClONO₂, etc.
+7. **Replace "Note that" at line 165.** "Note that at steady state, the rate of initiation equals the rate of termination" — "Note that" is a mild signpost. Consider: "At steady state, the rate of initiation equals the rate of termination ($\nu_\mathrm{init} = \nu_\mathrm{term}$), so the chain length is equivalently $\nu_\mathrm{prop}/\nu_\mathrm{init}$."
 
-14. **Add precision to "Initiation is typically slow relative to propagation" (line 27).** Specify: "the rate of initiation is typically much lower than the rate of propagation" — "slow" could be misread as referring to the rate constant rather than the overall rate.
-
-15. **Clarify the referent of "This phenomenon" (line 148).** Replace with a specific noun phrase: "This self-inhibition is explored further in Appendix..."
+8. **Consider removing the intermediate probability equation at line 156.** The $p(\text{propagation})/p(\text{termination})$ notation is introduced and used only once — the next equation (Eqn. \@ref(eq:chain-length)) replaces it with rate notation. The probability argument could be made in prose ("The chain length depends on the relative likelihood of these two fates; since probability is proportional to rate...") without a standalone equation. This is a judgment call: the equation adds visual clarity but introduces notation that is immediately discarded.
