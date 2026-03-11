@@ -53,7 +53,8 @@ fig:lineweaver-burk
 eq:langmuir
 fig:langmuir-isotherm
 fig:ozone-hole
-fig:chain-anatomy
+fig:ozone-chain
+fig:ozone-cycle
 eq:hbr-experimental
 fig:hbr-chain
 fig:hbr-chain-cycle
