@@ -1,7 +1,6 @@
 fig:fig-concentration-profile
 fig:fig-rate-slope
 fig:fig-stoich-profiles
-eq:rate-stoichiometric
 eq:rate-law-general
 fig:fig-molecularity
 eq:zeroth-order-integrated
@@ -65,15 +64,11 @@ eq:h-steady-state
 eq:hbr-derived
 eq:chain-length
 eq:ozone-chain-length
-eq:feedback-consecutive
 eq:feedback-equation
 eq:feedback-solution
 eq:steady-state-value
-eq:phi-general
 fig:feedback-profiles
 fig:branching-tree
-eq:k-wall
-eq:k-threebody
 fig:explosion-limits
 eq:arrhenius
 fig:arrhenius-k-vs-T
@@ -118,7 +113,6 @@ complex-reactions
 units-of-the-rate-constant
 key-concepts
 integrated-rate-laws
-from-differential-to-integrated-rate-laws
 zeroth-order-reactions
 first-order-reactions
 second-order-reactions
@@ -188,7 +182,7 @@ sec:sign-of-phi
 sec:positive-feedback
 sec:worked-example
 sec:hydrogen-oxygen
-the-mechanism-1
+the-h2o2-chain-mechanism
 wall-termination
 three-body-termination
 the-third-explosion-limit-and-thermal-runaway
