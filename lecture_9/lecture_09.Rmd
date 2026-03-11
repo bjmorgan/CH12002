@@ -175,7 +175,13 @@ One power of $[\mathrm{Br}^{\bullet}]$ cancels, but one remains: because termina
 
 $$\bar{\nu}_\mathrm{HBr} = \frac{k_2[\mathrm{H_2}]}{\sqrt{k_1 k_4}\,[\mathrm{Br_2}]^{1/2}}$$
 
-This is the chain length early in the reaction, when inhibition is negligible. If we include the inhibition step, not every $\mathrm{H}^{\bullet}$ radical that enters the cycle produces product: some are diverted by inhibition ($\mathrm{H}^{\bullet} + \mathrm{HBr}$) rather than completing the second propagation step ($\mathrm{H}^{\bullet} + \mathrm{Br_2}$). The fraction of $\mathrm{H}^{\bullet}$ that propagates productively is $k_3[\mathrm{Br_2}]/(k_3[\mathrm{Br_2}] + k_{-2}[\mathrm{HBr}])$, and the general chain length acquires the same inhibition factor that appears in the rate law:
+This is the chain length early in the reaction, when inhibition is negligible. To see how inhibition affects the chain length, consider what happens after the first propagation step produces $\mathrm{H}^{\bullet}$:
+
+$$\mathrm{Br}^{\bullet} + \mathrm{H_2} \xrightarrow{k_2} \mathrm{H}^{\bullet} + \mathrm{HBr}$$
+
+The $\mathrm{H}^{\bullet}$ radical now has two possible fates. If it undergoes the second propagation step ($\mathrm{H}^{\bullet} + \mathrm{Br_2} \rightarrow \mathrm{Br}^{\bullet} + \mathrm{HBr}$), the cycle is **productive**: two molecules of HBr have been formed, and $\mathrm{Br}^{\bullet}$ is returned to the chain. If instead it undergoes inhibition ($\mathrm{H}^{\bullet} + \mathrm{HBr} \rightarrow \mathrm{Br}^{\bullet} + \mathrm{H_2}$), the cycle **reverts**: the inhibition step exactly reverses the first propagation step — one HBr made, one consumed; one H~2~ consumed, one regenerated. The net reaction is nothing, yet $\mathrm{Br}^{\bullet}$ is still returned to the chain.
+
+This is the subtle point: inhibition does not end the chain. The radical comes back either way. But each reverted half-cycle is another opportunity for termination, with no product to show for it. The chain length counts completed productive cycles per termination event, so reverted cycles reduce it. The fraction of $\mathrm{H}^{\bullet}$ that propagates productively is $k_3[\mathrm{Br_2}]/(k_3[\mathrm{Br_2}] + k_{-2}[\mathrm{HBr}])$, and the general chain length acquires the same inhibition factor that appears in the rate law:
 
 $$\bar{\nu}_\mathrm{HBr} = \frac{k_2[\mathrm{H_2}]}{\sqrt{k_1 k_4}\,[\mathrm{Br_2}]^{1/2}} \cdot \frac{1}{1 + (k_{-2}/k_3)[\mathrm{HBr}]/[\mathrm{Br_2}]}$$
 
