@@ -1,231 +1,176 @@
 # Feedback, Stability, and Explosions
 
-Throughout this course, the steady-state approximation has been one of our most powerful tools: we set $\mathrm{d}[\mathrm{I}]/\mathrm{d}t = 0$ for a reactive intermediate and solve the resulting algebraic equation. We applied it to derive rate laws for the Lindemann mechanism, enzyme kinetics, and H~2~ + Br~2~, and each time the approximate rate law was consistent with the experimental data. But *why* does a reactive intermediate reach a steady state? And are there circumstances where it does not?
+Some of the mechanisms we have studied — the Lindemann mechanism, enzyme kinetics, H~2~ + Br~2~ — lead to sets of coupled differential equations that we cannot solve directly. In each case, the steady-state approximation provided a way forward: by assuming that the rates of change of intermediate species are approximately zero, we obtained approximate analytical rate laws in terms of measurable species. These derived rate laws allowed us to understand the concentration dependence and limiting behaviour of these reactions, and in each case the approximate rate law was consistent with the experimental data. But *why* does a reactive intermediate reach a steady state? And are there circumstances where it does not?
 
 ## Why Reactive Intermediates Reach a Steady State {#sec:negative-feedback}
 
-Recall the consecutive reaction A $\rightarrow$ B $\rightarrow$ C from [Lecture 4](#complex-mechanisms). The intermediate B is produced by the first step and consumed by the second, giving:
+The consecutive reaction A $\rightarrow$ B $\rightarrow$ C from [Lecture 4](#complex-mechanisms) provides a good starting point. The intermediate B is produced by the first step and consumed by the second, giving:
 
 $$\frac{\mathrm{d}[\mathrm{B}]}{\mathrm{d}t} = k_1[\mathrm{A}] - k_2[\mathrm{B}]$$
 
-The first term, $k_1[\mathrm{A}]$, is the rate at which B is formed. Early in the reaction, when $[\mathrm{A}]$ has not changed much, this is approximately constant. The second term, $k_2[\mathrm{B}]$, is the rate at which B is consumed — and it is proportional to $[\mathrm{B}]$ itself. This proportionality ensures that the steady state is self-correcting.
+The first term, $k_1[\mathrm{A}]$, is the rate at which B is formed; the second, $k_2[\mathrm{B}]$, is the rate at which B is consumed, and is proportional to $[\mathrm{B}]$ itself. If $[\mathrm{A}]$ changes slowly compared to $[\mathrm{B}]$, we can treat the formation rate as approximately constant at $k_1[\mathrm{A}]_0$.
 
-Suppose $[\mathrm{B}]$ starts at zero and begins to rise as A reacts. As $[\mathrm{B}]$ increases, the consumption rate $k_2[\mathrm{B}]$ increases too. The more B accumulates, the faster it is removed. Eventually, the consumption rate catches up with the formation rate, and $[\mathrm{B}]$ stops changing: it has reached a steady state. If some perturbation were to push $[\mathrm{B}]$ above this steady-state value, the consumption rate would exceed the formation rate and pull it back down. If $[\mathrm{B}]$ were to dip below, consumption would slow and B would accumulate until the balance was restored.
+At the start of the reaction, $[\mathrm{B}] = 0$. The consumption term $k_2[\mathrm{B}]$ is zero, so $\mathrm{d}[\mathrm{B}]/\mathrm{d}t = k_1[\mathrm{A}]_0$. As $[\mathrm{B}]$ grows, the consumption term $k_2[\mathrm{B}]$ grows with it. Since the formation rate is approximately constant, $\mathrm{d}[\mathrm{B}]/\mathrm{d}t = k_1[\mathrm{A}]_0 - k_2[\mathrm{B}]$ decreases: $[\mathrm{B}]$ continues to rise, but more and more slowly. Eventually, $k_2[\mathrm{B}]$ catches up with $k_1[\mathrm{A}]_0$, the two terms balance, and $\mathrm{d}[\mathrm{B}]/\mathrm{d}t = 0$: $[\mathrm{B}]$ has reached a steady state. 
 
-This is an example of **negative feedback**: the system's response opposes the change that caused it. The consumption of B acts as a brake whose strength grows with the intermediate concentration. Any system with this property will self-correct towards a steady state.
+This steady state is self-correcting. If $[\mathrm{B}]$ were to increase above the steady-state value, $k_2[\mathrm{B}]$ would exceed the formation rate, making $\mathrm{d}[\mathrm{B}]/\mathrm{d}t$ negative and pushing $[\mathrm{B}]$ back down. If $[\mathrm{B}]$ were to drop below, $k_2[\mathrm{B}]$ would be smaller than the formation rate, making $\mathrm{d}[\mathrm{B}]/\mathrm{d}t$ positive and pushing $[\mathrm{B}]$ back up. In both cases, the system corrects itself because the consumption term $k_2[\mathrm{B}]$ is proportional to $[\mathrm{B}]$: the more B there is, the faster it is removed. This self-correcting behaviour is called **negative feedback**.
 
-We can write the rate equation in a form that makes this explicit. If we treat $k_1[\mathrm{A}]$ as approximately constant (call it $\nu_\mathrm{f}$, the formation rate) and define a **feedback parameter** $\phi = -k_2$, the equation becomes:
-
-$$\frac{\mathrm{d}[\mathrm{B}]}{\mathrm{d}t} = \nu_\mathrm{f} + \phi[\mathrm{B}]$$
-
-Because $k_2 > 0$, the feedback parameter $\phi$ is negative. This is why B reaches a steady state: the negative feedback ensures that the intermediate population is always pulled back towards its steady-state value.
+The essential feature is that the consumption term is proportional to $[\mathrm{B}]$ itself. Any increase in $[\mathrm{B}]$ strengthens the opposing term, pulling the system back towards balance. This is what makes the steady state stable.
 
 ## The General Feedback Equation {#sec:feedback-equation}
 
-The same mathematical structure applies to any reactive intermediate, not just B in the consecutive reaction. Whenever an intermediate I is produced at a rate $\nu_\mathrm{f}$ that does not depend on $[\mathrm{I}]$, and consumed (or amplified) at a rate that *does* depend on $[\mathrm{I}]$, we can write:
+The same mathematical structure applies more generally. For any reactive intermediate I, we can separate the terms in $\mathrm{d}[\mathrm{I}]/\mathrm{d}t$ into those that do not depend on $[\mathrm{I}]$ and those that do. The terms that do not depend on $[\mathrm{I}]$ we group into a formation rate $\nu_\mathrm{f}$. This rate may depend on other concentrations, but provided those change slowly compared to the timescale on which $[\mathrm{I}]$ adjusts, we can treat $\nu_\mathrm{f}$ as approximately constant. The terms that *do* depend on $[\mathrm{I}]$ we collect into a single parameter $\phi$, giving:
 
 \begin{equation}
 \frac{\mathrm{d}[\mathrm{I}]}{\mathrm{d}t} = \nu_\mathrm{f} + \phi[\mathrm{I}]
 (\#eq:feedback-equation)
 \end{equation}
 
-This is the **feedback equation**. The initiation rate $\nu_\mathrm{f}$ creates intermediates at a constant rate. The feedback parameter $\phi$ captures the net effect of every process whose rate depends on $[\mathrm{I}]$. When $\phi < 0$, these processes remove intermediates faster as $[\mathrm{I}]$ grows: negative feedback, as we saw for the consecutive reaction.
+This is the **feedback equation**. The feedback parameter $\phi$ captures the net effect of every process whose rate depends on $[\mathrm{I}]$. When $\phi < 0$, these processes remove intermediates faster as $[\mathrm{I}]$ grows: negative feedback, as we saw for the consecutive reaction.
 
-What does the feedback equation predict when $\phi < 0$? We can solve Eqn. \@ref(eq:feedback-equation) by separation of variables. Starting from $[\mathrm{I}]_0 = 0$:
-
-$$\frac{\mathrm{d}[\mathrm{I}]}{\nu_\mathrm{f} + \phi[\mathrm{I}]} = \mathrm{d}t$$
-
-Integrating both sides:
-
-$$\frac{1}{\phi}\ln\left(\frac{\nu_\mathrm{f} + \phi[\mathrm{I}]_t}{\nu_\mathrm{f}}\right) = t$$
-
-Rearranging:
+Eqn. \@ref(eq:feedback-equation) can be solved by separation of variables (the full derivation is given in the [Appendix](#appendix-feedback-derivation)). Starting from $[\mathrm{I}]_0 = 0$, the solution is:
 
 \begin{equation}
 [\mathrm{I}]_t = \frac{\nu_\mathrm{f}}{\phi}\left(\mathrm{e}^{\phi t} - 1\right)
 (\#eq:feedback-solution)
 \end{equation}
 
-When $\phi < 0$, the exponential $\mathrm{e}^{\phi t}$ decays to zero as $t \rightarrow \infty$, and the intermediate concentration approaches a constant value:
+The behaviour of this equation depends entirely on the sign of $\phi$. When $\phi < 0$, the exponential $\mathrm{e}^{\phi t}$ decays to zero with a characteristic timescale $\tau = 1/|\phi|$, and as $t \rightarrow \infty$ the intermediate concentration approaches a constant value:
 
 \begin{equation}
 [\mathrm{I}]_\mathrm{ss} = \frac{\nu_\mathrm{f}}{|\phi|}
 (\#eq:steady-state-value)
 \end{equation}
 
-This is the steady state we have relied on throughout the course. The system is self-regulating: if $[\mathrm{I}]$ drifts above $[\mathrm{I}]_\mathrm{ss}$, the negative feedback pulls it back down. The timescale for reaching the steady state is $\tau = 1/|\phi|$. When $|\phi|$ is large (meaning the processes that consume I are fast), the steady state is reached quickly, $[\mathrm{I}]_\mathrm{ss}$ remains small, and the SSA is an excellent approximation. This is precisely the condition we identified in [Lecture 5](#ssa).
+This is the steady state we have relied on throughout the course.
+
+Eqn. \@ref(eq:feedback-solution) also gives us a more precise understanding of when the SSA is valid. The timescale $\tau$ approximately divides the reaction into two regimes. At short times ($t \lesssim \tau$), $[\mathrm{I}]$ is still rising towards $[\mathrm{I}]_\mathrm{ss}$ and the SSA does not apply; this is the initial transient we observed in [Lecture 5](#ssa). At long times ($t \gg \tau$), $[\mathrm{I}]$ has settled to $\nu_\mathrm{f}/|\phi|$. In this regime, the SSA is quantitatively accurate provided $\nu_\mathrm{f}$ has not changed significantly over the time $\tau$.
+
+When might we expect this condition to hold? In some cases $\nu_\mathrm{f}$ changes slowly because the reactant concentrations evolve on a much longer timescale than $\tau$. This happens when $|\phi|$ is large, so that the steady state is reached quickly; this is the situation we encountered in [Lecture 5](#ssa).
+
+In enzyme catalysis ([Lecture 8](#binding-and-catalysis)), the formation rate of the enzyme–substrate complex depends on $[\mathrm{S}]$ and $[\mathrm{E}]_0$. The total enzyme concentration $[\mathrm{E}]_0$ is conserved because the enzyme is regenerated in each catalytic cycle, and $[\mathrm{S}]$ changes slowly because it is in large excess over $[\mathrm{E}]_0$, so again $\nu_\mathrm{f}$ is approximately constant over the timescale $\tau$.
+
+A third case arises when $\nu_\mathrm{f}$ does not depend on any concentration in the reacting system, so it is genuinely constant rather than just slowly changing. In atmospheric chain reactions ([Lecture 9](#chain-reactions)), for example, radicals are generated by photochemical splitting of reservoir species. The rate of this process is set by the solar flux, not by any reactant or product concentration, so $\nu_\mathrm{f}$ remains constant regardless of how the reaction proceeds.
 
 ## From Straight Chains to Branching Chains {#sec:sign-of-phi}
 
 In every example so far, $\phi$ has been negative and the system reaches a steady state. Is that always the case?
 
-In [Lecture 9](#chain-reactions), we studied **straight chain** reactions such as H~2~ + Br~2~ and CFC-catalysed ozone destruction. In a straight chain, each propagation step consumes one radical and produces exactly one replacement: $\mathrm{Br}^{\bullet}$ becomes $\mathrm{H}^{\bullet}$ and back again, $\mathrm{Cl}^{\bullet}$ becomes $\mathrm{ClO}^{\bullet}$ and back again. Propagation interconverts radicals but has no net effect on the total radical population. The only process whose rate depends on $[\mathrm{I}]$ and changes the total is termination, which removes radicals. For a straight chain:
+In [Lecture 9](#chain-reactions), we studied **straight chain** reactions such as H~2~ + Br~2~ and CFC-catalysed ozone destruction. The general mechanism for a straight chain is:
 
-$$\phi = -k_\mathrm{term}$$
+\begin{align*}
+\text{Initiation:} \quad & \mathrm{A} \xrightarrow{k_\mathrm{i}} \mathrm{I} + \text{products} \\
+\text{Propagation:} \quad & \mathrm{I} + \mathrm{A} \xrightarrow{k_\mathrm{p}} \mathrm{I} + \text{products} \\
+\text{Termination:} \quad & \mathrm{I} \xrightarrow{k_\mathrm{term}} \text{products}
+\end{align*}
 
-Since $k_\mathrm{term} > 0$, the feedback is always negative. A straight chain always reaches a steady state, which is why the SSA worked so well for H~2~ + Br~2~ and CFC-catalysed ozone destruction.
+Writing the rate equation for the total radical concentration $[\mathrm{I}]$:
 
-Now consider a **branching chain** reaction, in which a propagation step produces *more* intermediates than it consumes:
+$$\frac{\mathrm{d}[\mathrm{I}]}{\mathrm{d}t} = \underbrace{k_\mathrm{i}[\mathrm{A}]}_{\text{initiation}} + \underbrace{k_\mathrm{p}[\mathrm{A}][\mathrm{I}] - k_\mathrm{p}[\mathrm{A}][\mathrm{I}]}_{\text{propagation (cancels)}} - \underbrace{k_\mathrm{term}[\mathrm{I}]}_{\text{termination}}$$
+
+The propagation terms cancel exactly: each propagation step consumes one radical and produces one replacement, so the total radical count is unchanged. We are left with $\mathrm{d}[\mathrm{I}]/\mathrm{d}t = k_\mathrm{i}[\mathrm{A}] - k_\mathrm{term}[\mathrm{I}]$, which is the feedback equation with $\phi = -k_\mathrm{term}$. Since $k_\mathrm{term} > 0$, the feedback is always negative and the radical population tends towards a steady state. This is why the SSA is appropriate for straight chain reactions such as H~2~ + Br~2~ and CFC-catalysed ozone destruction.
+
+Now consider what happens if a propagation step produces *more* radicals than it consumes:
 
 $$\mathrm{I} + \mathrm{A} \xrightarrow{k_\mathrm{branch}} 2\mathrm{I} + \text{products}$$
 
-One radical goes in; two come out. The net effect is to *create* one additional radical, at a rate $k_\mathrm{branch}[\mathrm{A}][\mathrm{I}]$. This competes with termination at rate $k_\mathrm{term}[\mathrm{I}]$, so:
+```{r branching-tree, echo=FALSE, fig.cap="A branching chain reaction: each propagation step produces two intermediates from one, leading to exponential growth in the radical population.", out.width='70%', fig.align='center'}
+knitr::include_graphics("lecture_10/figures/branching_tree.png")
+```
+
+One radical goes in; two come out (Figure \@ref(fig:branching-tree)). This is a **branching** step, and a chain reaction that includes one or more branching steps is called a **branching chain reaction**. Propagation no longer conserves the radical population: each branching step creates one additional radical. The rate equation for $[\mathrm{I}]$ now includes an extra term that does not cancel:
+
+$$\frac{\mathrm{d}[\mathrm{I}]}{\mathrm{d}t} = k_\mathrm{i}[\mathrm{A}] + k_\mathrm{branch}[\mathrm{A}][\mathrm{I}] - k_\mathrm{term}[\mathrm{I}]$$
+
+The feedback parameter becomes:
 
 $$\phi = k_\mathrm{branch}[\mathrm{A}] - k_\mathrm{term}$$
 
-The sign of $\phi$ now depends on which process wins. If termination dominates ($k_\mathrm{term} > k_\mathrm{branch}[\mathrm{A}]$), then $\phi < 0$ and the system reaches a steady state just like a straight chain. But if branching dominates ($k_\mathrm{branch}[\mathrm{A}] > k_\mathrm{term}$), then $\phi > 0$. What happens then?
+The sign of $\phi$ now depends on which process wins. If termination dominates ($k_\mathrm{term} > k_\mathrm{branch}[\mathrm{A}]$), then $\phi < 0$ and the system tends towards a steady state just like a straight chain. But if branching dominates ($k_\mathrm{branch}[\mathrm{A}] > k_\mathrm{term}$), then $\phi > 0$. What happens then?
 
 ## Positive Feedback and Explosions {#sec:positive-feedback}
 
-We already have the answer — Eqn. \@ref(eq:feedback-solution) is valid for any sign of $\phi$. When $\phi > 0$, the exponential $\mathrm{e}^{\phi t}$ grows without bound. At long times:
+Eqn. \@ref(eq:feedback-solution) is valid for any sign of $\phi$. When $\phi < 0$, as before, the system settles to a steady state. When $\phi > 0$, the opposite happens: the exponential $\mathrm{e}^{\phi t}$ *increases* with time. Rather than decaying away, the exponential term drives $[\mathrm{I}]$ upwards, and the rate of increase itself grows as $[\mathrm{I}]$ increases. There is no steady state. At long times, $\mathrm{e}^{\phi t} \gg 1$ and:
 
 $$[\mathrm{I}]_t \approx \frac{\nu_\mathrm{f}}{\phi}\,\mathrm{e}^{\phi t}$$
 
-The intermediate concentration increases exponentially, and so does the reaction rate. There is no steady state — the system runs away. This is the mathematical signature of an **explosion**. Figure \@ref(fig:feedback-profiles) compares the two cases.
+The intermediate concentration increases exponentially, and so does the reaction rate. There is no steady state — the system runs away. This exponential runaway is an **explosion**. Figure \@ref(fig:feedback-profiles) compares the two cases.
 
 ```{r feedback-profiles, echo=FALSE, fig.cap="Solutions to the feedback equation for negative and positive feedback. When $\\phi < 0$ (lower curve), $[\\mathrm{I}]$ rises to the steady-state value $\\nu_\\mathrm{f}/|\\phi|$ and remains there — this is the self-regulating behaviour that underpins the SSA. When $\\phi > 0$ (upper curve), $[\\mathrm{I}]$ grows exponentially without bound.", out.width='70%', fig.align='center'}
 knitr::include_graphics("lecture_10/figures/feedback_profiles.png")
 ```
 
-The same equation that justifies the SSA also predicts its catastrophic failure. The same mixture of reactants can be safe or explosive, depending on whether conditions favour branching or termination. Figure \@ref(fig:branching-tree) illustrates how a single radical generates an exponentially growing population when each propagation step produces two replacements.
-
-```{r branching-tree, echo=FALSE, fig.cap="A branching chain reaction: each propagation step produces two intermediates from one, leading to exponential growth in the radical population. If branching outpaces termination ($\\phi > 0$), the number of intermediates doubles with each cycle.", out.width='70%', fig.align='center'}
-knitr::include_graphics("lecture_10/figures/branching_tree.png")
-```
+The same mixture of reactants can be safe or explosive, depending on whether conditions favour branching or termination.
 
 ::: {.skill}
 **You should be able to:** Write the general feedback equation $\mathrm{d}[\mathrm{I}]/\mathrm{d}t = \nu_\mathrm{f} + \phi[\mathrm{I}]$, explain the physical meaning of the feedback parameter $\phi$, and predict whether a chain reaction will reach a steady state ($\phi < 0$) or explode ($\phi > 0$) from the relative rates of branching and termination.
 :::
 
-## Worked Example: Applying the Feedback Framework {#sec:worked-example}
-
-A radical intermediate $\mathrm{R}^{\bullet}$ is produced from a stable precursor A, amplified by reaction with B, and removed by reaction with C:
-
-\begin{align*}
-\mathrm{A} &\xrightarrow{k_1} \mathrm{R}^{\bullet} \\
-\mathrm{R}^{\bullet} + \mathrm{B} &\xrightarrow{k_2} 2\mathrm{R}^{\bullet} \\
-\mathrm{R}^{\bullet} + \mathrm{C} &\xrightarrow{k_3} \mathrm{P}
-\end{align*}
-
-with $k_1 = 0.5\,\mathrm{s}^{-1}$, $k_2 = 2\,\mathrm{M}^{-1}\,\mathrm{s}^{-1}$, $k_3 = 3\,\mathrm{M}^{-1}\,\mathrm{s}^{-1}$, $[\mathrm{A}]_0 = 1\,\mathrm{M}$, $[\mathrm{B}]_0 = 5\,\mathrm{M}$, and $[\mathrm{C}]_0 = 10\,\mathrm{M}$.
-
-The first step is initiation (creates $\mathrm{R}^{\bullet}$ from a stable precursor). The second is branching: one $\mathrm{R}^{\bullet}$ goes in and two come out, giving a net gain of one radical. The third is termination: $\mathrm{R}^{\bullet}$ is consumed and converted to the stable product P.
-
-**Does this system show positive or negative feedback?** We write the rate equation for $\mathrm{R}^{\bullet}$. The branching step consumes one $\mathrm{R}^{\bullet}$ and produces two, so its net contribution is $+k_2[\mathrm{B}][\mathrm{R}^{\bullet}]$. Termination contributes $-k_3[\mathrm{C}][\mathrm{R}^{\bullet}]$. Combining:
-
-$$\frac{\mathrm{d}[\mathrm{R}^{\bullet}]}{\mathrm{d}t} = k_1[\mathrm{A}] + \left(k_2[\mathrm{B}] - k_3[\mathrm{C}]\right)[\mathrm{R}^{\bullet}]$$
-
-This has the form of the feedback equation (Eqn. \@ref(eq:feedback-equation)) with $\nu_\mathrm{f} = k_1[\mathrm{A}]$ and:
-
-$$\phi = k_2[\mathrm{B}] - k_3[\mathrm{C}] = (2)(5) - (3)(10) = -20\,\mathrm{s}^{-1}$$
-
-Since $\phi < 0$, the feedback is negative and the system reaches a steady state.
-
-**What is the steady-state radical concentration?** From Eqn. \@ref(eq:steady-state-value):
-
-$$[\mathrm{R}^{\bullet}]_\mathrm{ss} = \frac{\nu_\mathrm{f}}{|\phi|} = \frac{k_1[\mathrm{A}]}{|\phi|} = \frac{(0.5)(1)}{20} = 0.025\,\mathrm{M}$$
-
-The system approaches this value with a timescale $\tau = 1/|\phi| = 1/20 = 0.05\,\mathrm{s}$. Whether $[\mathrm{R}^{\bullet}]$ starts at zero or above this value, it converges on the same steady state.
-
-**Would increasing [B] make an explosion more or less likely?** Since $\phi = k_2[\mathrm{B}] - k_3[\mathrm{C}]$, increasing $[\mathrm{B}]$ increases $\phi$, pushing it towards positive values. An explosion becomes more likely. This makes physical sense: B is the reactant in the branching step, so more B means faster branching.
-
-**What is the maximum [C] for which an explosion will occur?** The explosion limit corresponds to $\phi = 0$:
-
-$$k_2[\mathrm{B}] = k_3[\mathrm{C}] \qquad \Rightarrow \qquad [\mathrm{C}] = \frac{k_2[\mathrm{B}]}{k_3} = \frac{(2)(5)}{3} = 3.3\,\mathrm{M}$$
-
-For $[\mathrm{C}] < 3.3\,\mathrm{M}$, branching outpaces termination ($\phi > 0$) and the system explodes. For $[\mathrm{C}] > 3.3\,\mathrm{M}$, termination wins ($\phi < 0$) and the system reaches a steady state. The species C acts as an inhibitor: it provides a termination pathway that competes with branching, and its concentration determines whether the system is safe or explosive.
-
 ## The Hydrogen--Oxygen Explosion {#sec:hydrogen-oxygen}
 
-A mixture of hydrogen and oxygen shows no measurable reaction at room temperature, yet a single spark triggers a violent explosion. The same molecules, the same elementary steps — but two completely different outcomes. The feedback framework tells us why: everything depends on whether $\phi$ is positive or negative, and for the H~2~/O~2~ system, the sign of $\phi$ changes with pressure.
+The general framework above predicts two regimes: if $\phi < 0$ we converge to a steady state; if $\phi > 0$ we get exponential growth and an explosion. The condition $\phi = 0$ defines the boundary between these two cases. The H~2~/O~2~ system shows that reality can be more complex, because the dominant termination mechanism itself changes with conditions. At $500\,^\circ\mathrm{C}$, a stoichiometric mixture of hydrogen and oxygen is safe below a few hundred Pa, explodes over a range of intermediate pressures, then becomes safe again at higher pressures — only to become explosive once more at still higher pressures. The system crosses the $\phi = 0$ boundary not once but *twice* as pressure increases, and then a third boundary of a completely different character appears at high pressure. Understanding this pattern requires knowing which termination process dominates at different pressures.
 
 ### The H~2~/O~2~ chain mechanism
 
-The combustion of hydrogen involves three key propagation steps:
+The detailed mechanism for the reaction of hydrogen with oxygen is complex, involving many elementary steps and several competing pathways. For our purposes, the essential features can be captured by a simplified mechanism involving three radical species; H$^{\bullet}$, O, and OH$^{\bullet}$; and three key propagation steps:
 
 \begin{align*}
-\mathrm{H}^{\bullet} + \mathrm{O_2} &\xrightarrow{k_\mathrm{b}} \mathrm{OH}^{\bullet} + \mathrm{O}^{\bullet\bullet} \\
-\mathrm{O}^{\bullet\bullet} + \mathrm{H_2} &\xrightarrow{k_\mathrm{b}'} \mathrm{OH}^{\bullet} + \mathrm{H}^{\bullet} \\
-\mathrm{OH}^{\bullet} + \mathrm{H_2} &\xrightarrow{k_\mathrm{p}} \mathrm{H_2O} + \mathrm{H}^{\bullet}
+\mathrm{H}^{\bullet} + \mathrm{O_2} &\xrightarrow{k_\mathrm{b}} \mathrm{OH}^{\bullet} + \mathrm{O} &\qquad &\text{Step 1} \\
+\mathrm{O} + \mathrm{H_2} &\xrightarrow{k_\mathrm{b}'} \mathrm{OH}^{\bullet} + \mathrm{H}^{\bullet} &\qquad &\text{Step 2} \\
+\mathrm{OH}^{\bullet} + \mathrm{H_2} &\xrightarrow{k_\mathrm{p}} \mathrm{H_2O} + \mathrm{H}^{\bullet} &\qquad &\text{Step 3}
 \end{align*}
 
-The first step is branching: one $\mathrm{H}^{\bullet}$ produces two new radicals ($\mathrm{OH}^{\bullet}$ and $\mathrm{O}^{\bullet\bullet}$). The second is also branching: one $\mathrm{O}^{\bullet\bullet}$ produces both $\mathrm{OH}^{\bullet}$ and $\mathrm{H}^{\bullet}$. The third is ordinary straight propagation (one in, one out), producing the product H~2~O.
+The first step is branching: one $\mathrm{H}^{\bullet}$ produces two new radicals ($\mathrm{OH}^{\bullet}$ and $\mathrm{O}$). The second is also branching: one $\mathrm{O}$ produces both $\mathrm{OH}^{\bullet}$ and $\mathrm{H}^{\bullet}$. The third is ordinary straight propagation (one in, one out), forming the product H~2~O.
 
-To see the net effect, follow one $\mathrm{H}^{\bullet}$ through a complete cycle. Step 1 produces $\mathrm{OH}^{\bullet}$ and $\mathrm{O}^{\bullet\bullet}$. Step 2 converts $\mathrm{O}^{\bullet\bullet}$ to $\mathrm{OH}^{\bullet} + \mathrm{H}^{\bullet}$. Step 3 converts each $\mathrm{OH}^{\bullet}$ to $\mathrm{H}^{\bullet}$. The net result: one $\mathrm{H}^{\bullet}$ produces three new radicals, a net gain of two per cycle. Step 1 is rate-limiting because the $\mathrm{H}^{\bullet} + \mathrm{O_2}$ reaction has a significant activation barrier, while steps 2 and 3 are much faster. The feedback equation for the total radical population is therefore:
+Let us follow one $\mathrm{H}^{\bullet}$ through a complete cycle. Step 1 consumes this $\mathrm{H}^{\bullet}$ and produces $\mathrm{OH}^{\bullet}$ and $\mathrm{O}$. Step 2 converts $\mathrm{O}$ into $\mathrm{OH}^{\bullet} + \mathrm{H}^{\bullet}$. Step 3 converts each of the two $\mathrm{OH}^{\bullet}$ radicals into $\mathrm{H}^{\bullet}$. The net result: one $\mathrm{H}^{\bullet}$ in, three $\mathrm{H}^{\bullet}$ out (plus $\mathrm{OH}^{\bullet}$ and $\mathrm{O}$ consumed within the cycle). The net gain is two $\mathrm{H}^{\bullet}$ radicals per cycle. The slowest step in this cycle is step 1, which proceeds at rate $k_\mathrm{b}[\mathrm{O}_2][\mathrm{H}^{\bullet}]$; this sets the rate at which we cycle through all three steps. The branching contribution to $\mathrm{d}[\mathrm{H}^{\bullet}]/\mathrm{d}t$ is therefore $2k_\mathrm{b}[\mathrm{O}_2][\mathrm{H}^{\bullet}]$, and the feedback parameter is:
 
 $$\phi = 2k_\mathrm{b}[\mathrm{O_2}] - k_\mathrm{term}$$
 
-The factor of 2 reflects the net gain of two radicals per branching cycle. Whether $\phi$ is positive or negative depends on $k_\mathrm{term}$, and the dominant termination mechanism changes with pressure.
+Whether $\phi$ is positive or negative depends on $k_\mathrm{term}$, which depends on which termination mechanism is dominant under our particular conditions.
 
-### Wall termination
+### Wall termination at low pressure: the first explosion limit
 
-At low pressures, the primary termination pathway is diffusion of radicals to the vessel walls, where they adsorb and recombine. The rate of this process depends on how easily radicals can reach the walls.
+At low pressures, the primary termination pathway is diffusion of radicals to the vessel walls, where they adsorb and recombine. How quickly radicals diffuse depends on how far they travel between collisions with other gas molecules. At low pressure, where the gas is sparse, a radical can travel a long way before hitting another molecule; the average distance between collisions — the **mean free path** — is large, so radicals diffuse quickly to the walls and wall termination is fast. As the pressure increases, molecules are packed more closely, the mean free path shrinks, and diffusion to the walls slows. At the same time, the branching rate grows (because $[\mathrm{O_2}]$ increases with pressure). At a critical pressure, branching overtakes wall termination and $\phi$ crosses zero: the mixture explodes. This is the **first explosion limit**.
 
-At low pressure, the **mean free path** $\lambda$ (the average distance a molecule travels between collisions) is long relative to the vessel dimensions. Molecules make relatively few collisions on their way to the wall, so diffusion is fast. At higher pressure, $\lambda$ is shorter (more frequent collisions impede progress towards the wall), and diffusion slows. Quantitatively, the diffusion coefficient $D$ is proportional to the mean free path and hence inversely proportional to the pressure:
+The first explosion limit depends on the vessel: a smaller vessel makes it easier for radicals to reach the walls, so a higher pressure is needed to overwhelm wall termination.
 
-$$D \propto \lambda \propto \frac{1}{P}$$
+### Three-body termination at high pressure: the second explosion limit
 
-For a vessel of characteristic dimension $d$, the effective first-order rate constant for wall termination scales as:
-
-$$k_\mathrm{wall} \propto \frac{D}{d^2} \propto \frac{1}{P}$$
-
-At low pressure, $k_\mathrm{wall}$ is large and wall termination easily overwhelms branching: $\phi < 0$ and the mixture is safe. As the pressure increases, $k_\mathrm{wall}$ falls (radicals take longer to reach the walls), while the branching rate $2k_\mathrm{b}[\mathrm{O_2}]$ increases (because $[\mathrm{O_2}] \propto P$). At a critical pressure (the **first explosion limit**), branching overtakes wall termination and $\phi$ crosses zero. The mixture explodes.
-
-The first explosion limit depends on the vessel: a smaller vessel (smaller $d$) makes it easier for radicals to reach the walls, so $k_\mathrm{wall}$ is larger and a higher pressure is needed to overwhelm it. In a typical experiment with a stoichiometric H~2~/O~2~ mixture in a silica vessel at around $550\,^\circ\mathrm{C}$, the first limit occurs at approximately $1$--$5\,\mathrm{mmHg}$.
-
-### Three-body termination
-
-One might expect that once the mixture enters the explosive regime, increasing the pressure further would only make matters worse — more O~2~ means faster branching. Instead, a new termination pathway emerges at higher pressures:
+One might expect that once the mixture enters the explosive regime, increasing the pressure further would only make matters worse. Instead, a new termination pathway emerges at higher pressures:
 
 $$\mathrm{H}^{\bullet} + \mathrm{O_2} + \mathrm{M} \xrightarrow{k_\mathrm{tb}} \mathrm{HO_2}^{\bullet} + \mathrm{M}$$
 
-This is a **three-body** (or **termolecular**) reaction. The third body M (any molecule present in the gas mixture) carries away the excess energy released when the H–O bond forms. Without M, the nascent $\mathrm{HO_2}^{\bullet}$ complex has too much internal energy and redissociates before it can be stabilised. The product $\mathrm{HO_2}^{\bullet}$ is relatively unreactive compared to $\mathrm{H}^{\bullet}$, $\mathrm{OH}^{\bullet}$, and $\mathrm{O}^{\bullet\bullet}$, so this step effectively removes a radical from the branching cycle.
+As we discussed in [Lecture 7](#unimolecular-and-third-order-reactions), true simultaneous three-body collisions are implausible. This step instead proceeds via an excited $\mathrm{HO_2}^{\bullet *}$ complex that must transfer its excess energy to a third body M — any molecule present in the gas mixture — before it redissociates. The overall kinetics are third-order, and the step is conventionally written as a single termolecular reaction. The product $\mathrm{HO_2}^{\bullet}$ does not participate efficiently in the branching steps above, so this step effectively removes a radical from the branching cycle.
 
-The rate of this step is:
-
-$$\nu_\mathrm{tb} = k_\mathrm{tb}[\mathrm{H}^{\bullet}][\mathrm{O_2}][\mathrm{M}]$$
-
-At constant composition, both $[\mathrm{O_2}]$ and $[\mathrm{M}]$ are proportional to the total pressure $P$. The effective first-order rate constant for removing $\mathrm{H}^{\bullet}$ via this step therefore scales as:
-
-$$k_\mathrm{three\text{-}body} \propto P^2$$
-
-This grows much faster with pressure than the branching rate ($\propto P$). At sufficiently high pressure, three-body termination overtakes branching: $\phi$ crosses zero again and the mixture becomes safe. This is the **second explosion limit**, occurring at approximately $50$--$150\,\mathrm{mmHg}$ under typical conditions.
-
-The condition at the second limit, where wall termination is negligible compared to three-body termination, is:
-
-$$2k_\mathrm{b}[\mathrm{O_2}] = k_\mathrm{tb}[\mathrm{O_2}][\mathrm{M}] \qquad \Rightarrow \qquad 2k_\mathrm{b} = k_\mathrm{tb}[\mathrm{M}]$$
-
-Since $[\mathrm{M}] \propto P$, this defines a critical pressure above which the mixture is safe.
+The rate of this step depends on the concentrations of both $\mathrm{O_2}$ and M, both of which increase with pressure. As a result, three-body termination accelerates with pressure faster than branching does (which depends on $[\mathrm{O_2}]$ alone). At sufficiently high pressure, three-body termination overtakes branching: $\phi$ crosses zero again and the mixture becomes safe. This is the **second explosion limit**.
 
 ### The third explosion limit and thermal runaway
 
-At still higher pressures (several hundred mmHg and above), the mixture explodes again, but for a fundamentally different reason. Above the second limit, the slow reactions involving $\mathrm{HO_2}^{\bullet}$ (such as $\mathrm{HO_2}^{\bullet} + \mathrm{H_2} \rightarrow \mathrm{H_2O_2} + \mathrm{H}^{\bullet}$, followed by thermal decomposition of H~2~O~2~) proceed at rates that are slow compared to the main branching steps but increase with pressure. These reactions are exothermic: they release heat. At high enough pressure, the rate of heat production by these reactions exceeds the rate of heat loss through the vessel walls, and the temperature begins to rise. A higher temperature accelerates the reactions further (as described by the Arrhenius equation), producing even more heat. This positive feedback loop (between reaction rate and temperature, rather than between reaction rate and radical concentration) leads to **thermal runaway** and a **thermal explosion**.
+At still higher pressures, the mixture explodes again, but for a fundamentally different reason. Above the second limit, three-body termination suppresses the fast branching cycle, but the slower reactions involving $\mathrm{HO_2}^{\bullet}$ (such as $\mathrm{HO_2}^{\bullet} + \mathrm{H_2} \rightarrow \mathrm{H_2O_2} + \mathrm{H}^{\bullet}$, followed by thermal decomposition of H~2~O~2~) continue, and their rates increase with pressure. These reactions are exothermic: they release heat. At high enough pressure, the rate of heat production exceeds the rate of heat loss through the vessel walls, and the temperature begins to rise. A higher temperature accelerates the reactions further, producing even more heat. This positive feedback loop (between reaction rate and temperature, rather than between reaction rate and radical concentration) leads to **thermal runaway** and a **thermal explosion**.
 
-The **third explosion limit** is therefore distinct in nature from the first and second. The first two limits are **chain-branching** explosion limits: they arise from the competition between radical multiplication and radical removal, and correspond to $\phi = 0$. The third limit is a **thermal** explosion limit: it arises from the competition between heat production and heat dissipation, and depends on the vessel geometry, thermal conductivity, and heat capacity of the gas — factors that play no role in the first two limits.
+The **third explosion limit** is therefore distinct in nature from the first and second. The first two limits are **chain-branching** explosion limits: they arise from the competition between radical multiplication and radical removal, and correspond to $\phi = 0$. The third limit is a **thermal** explosion limit: it arises from the competition between heat production and heat dissipation.
 
 ### The explosion diagram
 
-Figure \@ref(fig:explosion-limits) shows the resulting pattern in pressure--temperature space: a characteristic Z-shaped boundary separating safe and explosive regions. Below the first limit, wall termination dominates and the mixture is safe. Between the first and second limits, branching dominates and the mixture explodes. Between the second and third limits, three-body termination restores safety. Above the third limit, thermal runaway causes explosion again. Increasing the temperature shifts all three limits to lower pressures, because the branching rate constant $k_\mathrm{b}$ (which has a substantial activation energy of approximately $70\,\mathrm{kJ\,mol}^{-1}$) increases faster with temperature than the termination rate constants.
+Figure \@ref(fig:explosion-limits) shows the resulting pattern in pressure--temperature space: a characteristic Z-shaped boundary separating safe and explosive regions. Below the first limit, wall termination dominates and the mixture is safe. Between the first and second limits, branching dominates and the mixture explodes. Between the second and third limits, three-body termination restores safety. Above the third limit, thermal runaway causes explosion again.
 
-```{r explosion-limits, echo=FALSE, fig.cap="Explosion limits for the H$_2$/O$_2$ system in pressure--temperature space. Below the first limit, wall termination dominates ($k_\\mathrm{wall} \\propto 1/P$) and the mixture is safe. Between the first and second limits, gas-phase branching outpaces termination and the mixture explodes. Above the second limit, three-body termination ($k_\\mathrm{three\\text{-}body} \\propto P^2$) restores safety. The third limit arises from thermal runaway rather than chain branching.", out.width='70%', fig.align='center'}
+How do these limits shift with temperature? The key branching step (H$^{\bullet}$ + O~2~ $\rightarrow$ OH$^{\bullet}$ + O) involves breaking the strong O=O double bond, so it has a substantial activation energy (approximately $70\,\mathrm{kJ\,mol}^{-1}$). Its rate therefore increases steeply with temperature. Wall termination depends on how quickly radicals diffuse to the walls, which increases only weakly with temperature. Three-body recombination has no energy barrier and its rate actually *decreases* slightly with temperature, because the excited complex is more likely to redissociate before it can be stabilised. The branching step therefore accelerates much more steeply with temperature than either termination process, shifting $\phi$ towards more positive values at any given pressure.
+
+For the first limit, this means branching overtakes wall termination at a *lower* pressure, so the limit moves down. For the second limit, the effect is opposite: because branching is now faster, a *higher* pressure is needed for three-body termination to compensate, so the limit moves up. The explosive region between the first and second limits therefore *widens* with increasing temperature. The third limit moves in the opposite direction — to lower pressures — because faster exothermic reactions produce heat more rapidly, and a lower pressure is sufficient to tip the heat balance towards thermal runaway.
+
+```{r explosion-limits, echo=FALSE, fig.cap="Explosion limits for the H$_2$/O$_2$ system in pressure--temperature space. Shaded regions are explosive; unshaded regions support steady reaction. The dashed line illustrates the sequence of regimes encountered at a fixed temperature as pressure increases.", out.width='75%', fig.align='center'}
 knitr::include_graphics("lecture_10/figures/explosion_limits.png")
 ```
-
-These explosion limits are not merely academic: they determine the conditions under which hydrogen can be safely stored, transported, and used as a fuel. The entire field of combustion science is built on understanding how the balance between branching and termination shifts with conditions.
 
 ::: {.skill}
 **You should be able to:** Given a chain reaction mechanism with initiation, branching, and termination steps, write the feedback equation for the reactive intermediate, identify the feedback parameter $\phi$, and predict the conditions (concentration, pressure, temperature) under which the reaction will reach a steady state or become explosive. Explain why wall termination dominates at low pressure and three-body termination dominates at high pressure, and relate this to the first and second explosion limits.
 :::
 
-The question we posed at the start of this chapter has a clean answer. Whether a chain reaction reaches a steady state or explodes depends on a single parameter, $\phi = k_\mathrm{branch}[\mathrm{A}] - k_\mathrm{term}$, that captures the competition between branching and termination. The same mathematics that underpins the steady-state approximation ($\phi < 0$, intermediates controlled) also predicts its breakdown ($\phi > 0$, intermediates in runaway). What changes $\phi$ from negative to positive is a shift in conditions: concentration, pressure, or temperature. Because the rate constants $k_\mathrm{branch}$ and $k_\mathrm{term}$ have different activation energies, temperature plays a particularly important role in determining the boundary between safe and explosive regimes.
-
 ## Key Concepts
 
 - The **steady-state approximation** works because reactive intermediates experience **negative feedback**: the rate of consumption is proportional to the intermediate concentration, so the system self-corrects towards a steady state.
 - The **feedback equation** $\mathrm{d}[\mathrm{I}]/\mathrm{d}t = \nu_\mathrm{f} + \phi[\mathrm{I}]$ describes the evolution of reactive intermediates. The feedback parameter $\phi$ determines whether the intermediate population is controlled ($\phi < 0$) or runs away ($\phi > 0$).
-- The general solution $[\mathrm{I}]_t = (\nu_\mathrm{f}/\phi)(\mathrm{e}^{\phi t} - 1)$ predicts both steady-state behaviour ($\phi < 0$, $[\mathrm{I}] \rightarrow \nu_\mathrm{f}/|\phi|$) and explosive runaway ($\phi > 0$, exponential growth) within a single equation.
+- The general solution $[\mathrm{I}]_t = (\nu_\mathrm{f}/\phi)(\mathrm{e}^{\phi t} - 1)$ predicts both steady-state behaviour ($\phi < 0$, $[\mathrm{I}] \rightarrow \nu_\mathrm{f}/|\phi|$) and explosive runaway ($\phi > 0$, exponential growth) within a single equation. The SSA is valid when $\phi < 0$ and $|\phi|$ is large, so the intermediate reaches its steady state quickly; positive feedback ($\phi > 0$) represents the breakdown of the SSA.
 - For **straight chains**, $\phi = -k_\mathrm{term} < 0$: propagation conserves the radical population, and termination provides negative feedback. The SSA is always valid.
 - For **branching chains**, $\phi = k_\mathrm{branch}[\mathrm{A}] - k_\mathrm{term}$: the sign depends on the competition between branching (which multiplies intermediates) and termination (which removes them). The same mixture can be safe or explosive depending on conditions.
 - **Explosion limits** correspond to the condition $\phi = 0$. In the H~2~/O~2~ system, wall termination ($k_\mathrm{wall} \propto 1/P$) dominates at low pressure and three-body termination ($k_\mathrm{three\text{-}body} \propto P^2$) dominates at high pressure, creating the first and second explosion limits.
 - The **third explosion limit** arises from thermal runaway (heat production exceeds heat loss) rather than chain branching — a fundamentally different mechanism.
-- The SSA is valid precisely when $\phi < 0$ and $|\phi|$ is large: the intermediate reaches its steady state quickly and stays there. Positive feedback ($\phi > 0$) represents the breakdown of the SSA.

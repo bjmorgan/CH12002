@@ -127,9 +127,13 @@ $$3\mathrm{ClO}^- \rightarrow \mathrm{ClO}_3^- + 2\mathrm{Cl}^- \qquad \nu = k[\
 
 The stoichiometric coefficient of ClO$^-$ is 3, but the reaction is second order in ClO$^-$.
 
-Not all reactions follow a simple rate law. A classic example is the formation of hydrogen bromide:
+Not all reactions follow a simple rate law. Consider the formation of hydrogen bromide:
 
-$$\mathrm{H}_2 + \mathrm{Br}_2 \rightarrow 2\mathrm{HBr} \qquad \nu = \frac{k[\mathrm{H}_2][\mathrm{Br}_2]^{1/2}}{1 + k'[\mathrm{HBr}]/[\mathrm{Br}_2]}$$
+$$\mathrm{H}_2 + \mathrm{Br}_2 \rightarrow 2\mathrm{HBr}$$
+
+This has exactly the same stoichiometry as the H~2~ + I~2~ reaction above, so we might expect the same simple rate law. The experimentally determined rate law, however, is:
+
+$$\nu = \frac{k[\mathrm{H}_2][\mathrm{Br}_2]^{1/2}}{1 + k'[\mathrm{HBr}]/[\mathrm{Br}_2]}$$
 
 This is an example of a **complex rate law**: it cannot be written in the simple power-law form of Eqn. \@ref(eq:rate-law-general). The rate is proportional to $[\mathrm{H}_2]$, so the reaction is first order in H~2~, but the dependence on Br~2~ and HBr cannot be expressed as a simple power, and we cannot assign a single order with respect to either. Because the order is not defined for every species, the overall reaction order is also undefined.
 

@@ -1,0 +1,45 @@
+# Solving the Feedback Equation {#appendix-feedback-derivation}
+
+This appendix derives the solution to the feedback equation (Eqn. \@ref(eq:feedback-equation)) presented in [Lecture 10](#feedback-stability-and-explosions). The derivation uses separation of variables and a standard integral. You are not expected to reproduce this derivation, but understanding the approach may help you see where the result comes from.
+
+## Setting Up the Integral
+
+The feedback equation is:
+
+$$\frac{\mathrm{d}[\mathrm{I}]}{\mathrm{d}t} = \nu_\mathrm{f} + \phi[\mathrm{I}]$$
+
+We separate variables by dividing both sides by $\nu_\mathrm{f} + \phi[\mathrm{I}]$ and multiplying by $\mathrm{d}t$:
+
+$$\frac{\mathrm{d}[\mathrm{I}]}{\nu_\mathrm{f} + \phi[\mathrm{I}]} = \mathrm{d}t$$
+
+Integrating both sides — the left from $[\mathrm{I}]_0$ to $[\mathrm{I}]_t$, the right from $0$ to $t$:
+
+$$\int_{[\mathrm{I}]_0}^{[\mathrm{I}]_t} \frac{\mathrm{d}[\mathrm{I}]}{\nu_\mathrm{f} + \phi[\mathrm{I}]} = \int_0^t \mathrm{d}t$$
+
+## Evaluating the Left-Hand Side
+
+The left-hand integral has the form $\int \mathrm{d}x/(a + bx)$. To evaluate this, we substitute $u = a + bx$, so that $\mathrm{d}u = b\,\mathrm{d}x$ and $\mathrm{d}x = \mathrm{d}u/b$:
+
+$$\int \frac{\mathrm{d}x}{a + bx} = \frac{1}{b}\int \frac{\mathrm{d}u}{u} = \frac{1}{b}\ln(u) = \frac{1}{b}\ln(a + bx)$$
+
+With $a = \nu_\mathrm{f}$ and $b = \phi$, the left-hand side becomes:
+
+$$\frac{1}{\phi}\Big[\ln\!\left(\nu_\mathrm{f} + \phi[\mathrm{I}]\right)\Big]_{[\mathrm{I}]_0}^{[\mathrm{I}]_t} = \frac{1}{\phi}\ln\!\left(\frac{\nu_\mathrm{f} + \phi[\mathrm{I}]_t}{\nu_\mathrm{f} + \phi[\mathrm{I}]_0}\right)$$
+
+## Solving for $[\mathrm{I}]_t$
+
+Setting $[\mathrm{I}]_0 = 0$ and equating with the right-hand side:
+
+$$\frac{1}{\phi}\ln\!\left(\frac{\nu_\mathrm{f} + \phi[\mathrm{I}]_t}{\nu_\mathrm{f}}\right) = t$$
+
+Multiplying both sides by $\phi$ and exponentiating:
+
+$$\frac{\nu_\mathrm{f} + \phi[\mathrm{I}]_t}{\nu_\mathrm{f}} = \mathrm{e}^{\phi t}$$
+
+Rearranging:
+
+$$1 + \frac{\phi[\mathrm{I}]_t}{\nu_\mathrm{f}} = \mathrm{e}^{\phi t}$$
+
+$$[\mathrm{I}]_t = \frac{\nu_\mathrm{f}}{\phi}\left(\mathrm{e}^{\phi t} - 1\right)$$
+
+This is Eqn. \@ref(eq:feedback-solution). The result is valid for any value of $\phi$; the sign of $\phi$ determines whether $[\mathrm{I}]$ approaches a steady state ($\phi < 0$) or grows exponentially ($\phi > 0$).

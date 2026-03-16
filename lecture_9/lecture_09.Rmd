@@ -48,7 +48,7 @@ The competition between propagation and termination determines how much damage e
 
 ## The H~2~ + Br~2~ Reaction {#sec:hbr}
 
-The CFC-ozone reaction is a straightforward chain: a single radical carrier ($\mathrm{Cl}^{\bullet}$) cycles through one propagation loop until termination removes it. Not all chain reactions are so simple. We first encountered the gas-phase reaction of hydrogen with bromine in Lecture 1, where its deceptively simple stoichiometry suggested a straightforward bimolecular process. The overall reaction,
+The CFC-ozone reaction is a straightforward chain: a single radical carrier ($\mathrm{Cl}^{\bullet}$) cycles through one propagation loop until termination removes it. Not all chain reactions are so simple. In Lecture 1, we met the gas-phase reaction of hydrogen with bromine as an example of a complex rate law, and listed the five elementary steps responsible — but did not yet have the tools to connect mechanism to rate law. The overall reaction,
 
 $$\mathrm{H_2} + \mathrm{Br_2} \rightarrow 2\mathrm{HBr}$$
 

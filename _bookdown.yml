@@ -22,7 +22,8 @@ rmd_files: [
   "appendices/relaxation_methods.Rmd",
   "appendices/third_order.Rmd",
   "appendices/sticking_collisions.Rmd",
-  "appendices/negative_orders.Rmd"
+  "appendices/negative_orders.Rmd",
+  "appendices/feedback_derivation.Rmd"
 ]
 
 output:
