@@ -67,8 +67,8 @@ eq:ozone-chain-length
 eq:feedback-equation
 eq:feedback-solution
 eq:steady-state-value
-fig:feedback-profiles
 fig:branching-tree
+fig:feedback-profiles
 fig:explosion-limits
 eq:arrhenius
 fig:arrhenius-k-vs-T
@@ -180,11 +180,10 @@ sec:negative-feedback
 sec:feedback-equation
 sec:sign-of-phi
 sec:positive-feedback
-sec:worked-example
 sec:hydrogen-oxygen
 the-h2o2-chain-mechanism
-wall-termination
-three-body-termination
+wall-termination-at-low-pressure-the-first-explosion-limit
+three-body-termination-at-high-pressure-the-second-explosion-limit
 the-third-explosion-limit-and-thermal-runaway
 the-explosion-diagram
 key-concepts-8
@@ -223,3 +222,7 @@ when-increasing-a-concentration-slows-the-reaction
 example-1-product-inhibition-in-h2-br2-rightarrow-2hbr
 example-2-competitive-adsorption-in-surface-reactions
 recognising-inhibition-in-rate-laws
+appendix-feedback-derivation
+setting-up-the-integral
+evaluating-the-left-hand-side
+solving-for-mathrmi_t
