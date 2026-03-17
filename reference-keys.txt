@@ -80,6 +80,7 @@ fig:asymmetric-energy-profile
 fig:mb-distribution
 fig:negative-ea
 eq:ea-general
+fig:competing-pathways
 eq:appendix-second-order-two-reactants
 eq:consecutive-B-integrated
 eq:approach-equilibrium
