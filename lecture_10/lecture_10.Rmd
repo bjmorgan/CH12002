@@ -1,6 +1,6 @@
 # Feedback, Stability, and Explosions
 
-Some of the mechanisms we have studied — the Lindemann mechanism, enzyme kinetics, H~2~ + Br~2~ — lead to sets of coupled differential equations that we cannot solve directly. In each case, the steady-state approximation provided a way forward: by assuming that the rates of change of intermediate species are approximately zero, we obtained approximate analytical rate laws in terms of measurable species. These derived rate laws allowed us to understand the concentration dependence and limiting behaviour of these reactions, and in each case the approximate rate law was consistent with the experimental data. But *why* does a reactive intermediate reach a steady state? And are there circumstances where it does not?
+Some of the mechanisms we have studied (the Lindemann mechanism, enzyme kinetics, H~2~ + Br~2~) lead to sets of coupled differential equations that we cannot solve directly. In each case, the steady-state approximation provided a way forward: by assuming that the rates of change of intermediate species are approximately zero, we obtained approximate analytical rate laws in terms of measurable species. These derived rate laws allowed us to understand the concentration dependence and limiting behaviour of these reactions, and in each case the approximate rate law was consistent with the experimental data. But *why* does a reactive intermediate reach a steady state? And are there circumstances where it does not?
 
 ## Why Reactive Intermediates Reach a Steady State {#sec:negative-feedback}
 
@@ -12,9 +12,7 @@ The first term, $k_1[\mathrm{A}]$, is the rate at which B is formed; the second,
 
 At the start of the reaction, $[\mathrm{B}] = 0$. The consumption term $k_2[\mathrm{B}]$ is zero, so $\mathrm{d}[\mathrm{B}]/\mathrm{d}t = k_1[\mathrm{A}]_0$. As $[\mathrm{B}]$ grows, the consumption term $k_2[\mathrm{B}]$ grows with it. Since the formation rate is approximately constant, $\mathrm{d}[\mathrm{B}]/\mathrm{d}t = k_1[\mathrm{A}]_0 - k_2[\mathrm{B}]$ decreases: $[\mathrm{B}]$ continues to rise, but more and more slowly. Eventually, $k_2[\mathrm{B}]$ catches up with $k_1[\mathrm{A}]_0$, the two terms balance, and $\mathrm{d}[\mathrm{B}]/\mathrm{d}t = 0$: $[\mathrm{B}]$ has reached a steady state. 
 
-This steady state is self-correcting. If $[\mathrm{B}]$ were to increase above the steady-state value, $k_2[\mathrm{B}]$ would exceed the formation rate, making $\mathrm{d}[\mathrm{B}]/\mathrm{d}t$ negative and pushing $[\mathrm{B}]$ back down. If $[\mathrm{B}]$ were to drop below, $k_2[\mathrm{B}]$ would be smaller than the formation rate, making $\mathrm{d}[\mathrm{B}]/\mathrm{d}t$ positive and pushing $[\mathrm{B}]$ back up. In both cases, the system corrects itself because the consumption term $k_2[\mathrm{B}]$ is proportional to $[\mathrm{B}]$: the more B there is, the faster it is removed. This self-correcting behaviour is called **negative feedback**.
-
-The essential feature is that the consumption term is proportional to $[\mathrm{B}]$ itself. Any increase in $[\mathrm{B}]$ strengthens the opposing term, pulling the system back towards balance. This is what makes the steady state stable.
+This steady state is self-correcting. If $[\mathrm{B}]$ were to increase above the steady-state value, $k_2[\mathrm{B}]$ would exceed the formation rate, making $\mathrm{d}[\mathrm{B}]/\mathrm{d}t$ negative and pushing $[\mathrm{B}]$ back down. If $[\mathrm{B}]$ were to drop below, $k_2[\mathrm{B}]$ would be smaller than the formation rate, making $\mathrm{d}[\mathrm{B}]/\mathrm{d}t$ positive and pushing $[\mathrm{B}]$ back up. In both cases, the system corrects itself because the consumption term $k_2[\mathrm{B}]$ is proportional to $[\mathrm{B}]$: any increase in $[\mathrm{B}]$ strengthens the opposing term, pulling the system back towards balance. This self-correcting behaviour is called **negative feedback**.
 
 ## The General Feedback Equation {#sec:feedback-equation}
 
@@ -43,7 +41,7 @@ The behaviour of this equation depends entirely on the sign of $\phi$. When $\ph
 
 This is the steady state we have relied on throughout the course.
 
-Eqn. \@ref(eq:feedback-solution) also gives us a more precise understanding of when the SSA is valid. The timescale $\tau$ approximately divides the reaction into two regimes. At short times ($t \lesssim \tau$), $[\mathrm{I}]$ is still rising towards $[\mathrm{I}]_\mathrm{ss}$ and the SSA does not apply; this is the initial transient we observed in [Lecture 5](#ssa). At long times ($t \gg \tau$), $[\mathrm{I}]$ has settled to $\nu_\mathrm{f}/|\phi|$. In this regime, the SSA is quantitatively accurate provided $\nu_\mathrm{f}$ has not changed significantly over the time $\tau$.
+Eqn. \@ref(eq:feedback-solution) also gives us a more precise understanding of when the SSA is valid. The timescale $\tau$ approximately divides the reaction into two regimes. At short times ($t \lesssim \tau$), $[\mathrm{I}]$ is still rising towards $[\mathrm{I}]_\mathrm{ss}$ and the SSA does not apply; this is the initial transient we observed in [Lecture 5](#ssa). At long times ($t \gg \tau$), $[\mathrm{I}]$ has settled to $\nu_\mathrm{f}/|\phi|$. In this regime, the SSA is quantitatively accurate provided $\nu_\mathrm{f}$ changes by only a small fraction of its value over the timescale $\tau$.
 
 When might we expect this condition to hold? In some cases $\nu_\mathrm{f}$ changes slowly because the reactant concentrations evolve on a much longer timescale than $\tau$. This happens when $|\phi|$ is large, so that the steady state is reached quickly; this is the situation we encountered in [Lecture 5](#ssa).
 
@@ -89,7 +87,7 @@ The sign of $\phi$ now depends on which process wins. If termination dominates (
 
 ## Positive Feedback and Explosions {#sec:positive-feedback}
 
-Eqn. \@ref(eq:feedback-solution) is valid for any sign of $\phi$. When $\phi < 0$, as before, the system settles to a steady state. When $\phi > 0$, the opposite happens: the exponential $\mathrm{e}^{\phi t}$ *increases* with time. Rather than decaying away, the exponential term drives $[\mathrm{I}]$ upwards, and the rate of increase itself grows as $[\mathrm{I}]$ increases. There is no steady state. At long times, $\mathrm{e}^{\phi t} \gg 1$ and:
+Eqn. \@ref(eq:feedback-solution) is valid for any sign of $\phi$. When $\phi < 0$, as before, the system settles to a steady state. When $\phi > 0$, the opposite happens: the exponential $\mathrm{e}^{\phi t}$ *increases* with time. Rather than decaying away, the exponential term drives $[\mathrm{I}]$ upwards, and the rate of increase itself grows as $[\mathrm{I}]$ increases. At long times, $\mathrm{e}^{\phi t} \gg 1$ and:
 
 $$[\mathrm{I}]_t \approx \frac{\nu_\mathrm{f}}{\phi}\,\mathrm{e}^{\phi t}$$
 
@@ -111,7 +109,7 @@ The general framework above predicts two regimes: if $\phi < 0$ we converge to a
 
 ### The H~2~/O~2~ chain mechanism
 
-The detailed mechanism for the reaction of hydrogen with oxygen is complex, involving many elementary steps and several competing pathways. For our purposes, the essential features can be captured by a simplified mechanism involving three radical species; H$^{\bullet}$, O, and OH$^{\bullet}$; and three key propagation steps:
+The detailed mechanism for the reaction of hydrogen with oxygen is complex, involving many elementary steps and several competing pathways. For our purposes, the essential features can be captured by a simplified mechanism involving three radical species; H$^{\bullet}$, O (atomic oxygen, itself a reactive radical), and OH$^{\bullet}$; and three key propagation steps:
 
 \begin{align*}
 \mathrm{H}^{\bullet} + \mathrm{O_2} &\xrightarrow{k_\mathrm{b}} \mathrm{OH}^{\bullet} + \mathrm{O} &\qquad &\text{Step 1} \\
@@ -121,7 +119,7 @@ The detailed mechanism for the reaction of hydrogen with oxygen is complex, invo
 
 The first step is branching: one $\mathrm{H}^{\bullet}$ produces two new radicals ($\mathrm{OH}^{\bullet}$ and $\mathrm{O}$). The second is also branching: one $\mathrm{O}$ produces both $\mathrm{OH}^{\bullet}$ and $\mathrm{H}^{\bullet}$. The third is ordinary straight propagation (one in, one out), forming the product H~2~O.
 
-Let us follow one $\mathrm{H}^{\bullet}$ through a complete cycle. Step 1 consumes this $\mathrm{H}^{\bullet}$ and produces $\mathrm{OH}^{\bullet}$ and $\mathrm{O}$. Step 2 converts $\mathrm{O}$ into $\mathrm{OH}^{\bullet} + \mathrm{H}^{\bullet}$. Step 3 converts each of the two $\mathrm{OH}^{\bullet}$ radicals into $\mathrm{H}^{\bullet}$. The net result: one $\mathrm{H}^{\bullet}$ in, three $\mathrm{H}^{\bullet}$ out (plus $\mathrm{OH}^{\bullet}$ and $\mathrm{O}$ consumed within the cycle). The net gain is two $\mathrm{H}^{\bullet}$ radicals per cycle. The slowest step in this cycle is step 1, which proceeds at rate $k_\mathrm{b}[\mathrm{O}_2][\mathrm{H}^{\bullet}]$; this sets the rate at which we cycle through all three steps. The branching contribution to $\mathrm{d}[\mathrm{H}^{\bullet}]/\mathrm{d}t$ is therefore $2k_\mathrm{b}[\mathrm{O}_2][\mathrm{H}^{\bullet}]$, and the feedback parameter is:
+Let us follow one $\mathrm{H}^{\bullet}$ through a complete cycle. Step 1 consumes this $\mathrm{H}^{\bullet}$ and produces $\mathrm{OH}^{\bullet}$ and $\mathrm{O}$. Step 2 converts $\mathrm{O}$ into $\mathrm{OH}^{\bullet} + \mathrm{H}^{\bullet}$. Step 3 converts each of the two $\mathrm{OH}^{\bullet}$ radicals into $\mathrm{H}^{\bullet}$. The net result: one $\mathrm{H}^{\bullet}$ in, three $\mathrm{H}^{\bullet}$ out (plus $\mathrm{OH}^{\bullet}$ and $\mathrm{O}$ consumed within the cycle). The net gain is two $\mathrm{H}^{\bullet}$ radicals per cycle. The slowest step in this cycle is step 1 (because it requires breaking the strong O=O double bond); this step proceeds at rate $k_\mathrm{b}[\mathrm{O}_2][\mathrm{H}^{\bullet}]$ and sets the rate at which we cycle through all three steps. The branching contribution to $\mathrm{d}[\mathrm{H}^{\bullet}]/\mathrm{d}t$ is therefore $2k_\mathrm{b}[\mathrm{O}_2][\mathrm{H}^{\bullet}]$, and the feedback parameter is:
 
 $$\phi = 2k_\mathrm{b}[\mathrm{O_2}] - k_\mathrm{term}$$
 
@@ -129,7 +127,7 @@ Whether $\phi$ is positive or negative depends on $k_\mathrm{term}$, which depen
 
 ### Wall termination at low pressure: the first explosion limit
 
-At low pressures, the primary termination pathway is diffusion of radicals to the vessel walls, where they adsorb and recombine. How quickly radicals diffuse depends on how far they travel between collisions with other gas molecules. At low pressure, where the gas is sparse, a radical can travel a long way before hitting another molecule; the average distance between collisions — the **mean free path** — is large, so radicals diffuse quickly to the walls and wall termination is fast. As the pressure increases, molecules are packed more closely, the mean free path shrinks, and diffusion to the walls slows. At the same time, the branching rate grows (because $[\mathrm{O_2}]$ increases with pressure). At a critical pressure, branching overtakes wall termination and $\phi$ crosses zero: the mixture explodes. This is the **first explosion limit**.
+At low pressures, the primary termination pathway is diffusion of radicals to the vessel walls, where they adsorb and recombine. How quickly radicals diffuse depends on how far they travel between collisions with other gas molecules. At low pressure, where the gas is sparse, a radical can travel a long way before hitting another molecule; the average distance between collisions (the **mean free path**) is large, so radicals diffuse quickly to the walls and wall termination is fast. As the pressure increases, molecules are packed more closely, the mean free path shrinks, and diffusion to the walls slows. At the same time, the branching rate grows (because $[\mathrm{O_2}]$ increases with pressure). At a critical pressure, branching overtakes wall termination and $\phi$ crosses zero: the mixture explodes. This is the **first explosion limit**.
 
 The first explosion limit depends on the vessel: a smaller vessel makes it easier for radicals to reach the walls, so a higher pressure is needed to overwhelm wall termination.
 
@@ -139,7 +137,7 @@ One might expect that once the mixture enters the explosive regime, increasing t
 
 $$\mathrm{H}^{\bullet} + \mathrm{O_2} + \mathrm{M} \xrightarrow{k_\mathrm{tb}} \mathrm{HO_2}^{\bullet} + \mathrm{M}$$
 
-As we discussed in [Lecture 7](#unimolecular-and-third-order-reactions), true simultaneous three-body collisions are implausible. This step instead proceeds via an excited $\mathrm{HO_2}^{\bullet *}$ complex that must transfer its excess energy to a third body M — any molecule present in the gas mixture — before it redissociates. The overall kinetics are third-order, and the step is conventionally written as a single termolecular reaction. The product $\mathrm{HO_2}^{\bullet}$ does not participate efficiently in the branching steps above, so this step effectively removes a radical from the branching cycle.
+As we discussed in [Lecture 7](#unimolecular-and-third-order-reactions), true simultaneous three-body collisions are implausible. This step instead proceeds via an excited $\mathrm{HO_2}^{\bullet *}$ complex that must transfer its excess energy to a third body M (any molecule present in the gas mixture) before it redissociates. The overall kinetics are third-order, and the step is conventionally written as a single termolecular reaction. The product $\mathrm{HO_2}^{\bullet}$ does not participate efficiently in the branching steps above, so this step effectively removes a radical from the branching cycle.
 
 The rate of this step depends on the concentrations of both $\mathrm{O_2}$ and M, both of which increase with pressure. As a result, three-body termination accelerates with pressure faster than branching does (which depends on $[\mathrm{O_2}]$ alone). At sufficiently high pressure, three-body termination overtakes branching: $\phi$ crosses zero again and the mixture becomes safe. This is the **second explosion limit**.
 
@@ -164,6 +162,8 @@ knitr::include_graphics("lecture_10/figures/explosion_limits.png")
 ::: {.skill}
 **You should be able to:** Given a chain reaction mechanism with initiation, branching, and termination steps, write the feedback equation for the reactive intermediate, identify the feedback parameter $\phi$, and predict the conditions (concentration, pressure, temperature) under which the reaction will reach a steady state or become explosive. Explain why wall termination dominates at low pressure and three-body termination dominates at high pressure, and relate this to the first and second explosion limits.
 :::
+
+We opened this lecture with two questions: why does the SSA work, and are there circumstances where it does not? The feedback equation answers both. Negative feedback, driven by consumption terms that grow with $[\mathrm{I}]$, is what pulls reactive intermediates towards a steady state and makes the SSA valid. Branching chain reactions show that this outcome is not guaranteed: when branching outpaces termination, the same feedback structure produces exponential runaway rather than steady-state control.
 
 ## Key Concepts
 

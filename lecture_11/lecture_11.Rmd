@@ -4,7 +4,7 @@ We have spent this course treating rate constants as fixed numbers: we measure $
 
 ## The Arrhenius Equation {#sec:arrhenius}
 
-Rate constants for most reactions increase with temperature. We refrigerate food to slow the chemical reactions that cause it to spoil; we heat reaction mixtures to make sluggish reactions proceed at a practical rate. But how exactly does $k$ depend on $T$?
+Rate constants for most reactions increase with temperature. We refrigerate food to slow the chemical reactions that cause it to spoil; we heat reaction mixtures to make sluggish reactions proceed at a practical rate. But how exactly does $k$ depend on $T$? Figure \@ref(fig:arrhenius-k-vs-T) shows a typical example: the relationship is not linear, with $k$ rising slowly at low temperatures and much more steeply at high temperatures.
 
 ```{r arrhenius-k-vs-T, echo=FALSE, fig.cap="Rate constant $k$ plotted against temperature for a typical reaction. The relationship is not linear: $k$ increases slowly at low temperatures and much more steeply at high temperatures.", out.width='50%', fig.align='center'}
 knitr::include_graphics("lecture_11/figures/arrhenius_k_vs_T.png")
@@ -17,7 +17,7 @@ k = A\,\mathrm{e}^{-E_\mathrm{a}/RT}
 (\#eq:arrhenius)
 \end{equation}
 
-where $R$ is the gas constant. The two parameters, $A$ and $E_\mathrm{a}$, are called the **pre-exponential factor** and **activation energy** respectively. These are empirical parameters, obtained by fitting to experimental measurements.
+where $R$ is the gas constant. The two parameters, $A$ and $E_\mathrm{a}$, are called the **pre-exponential factor** and **activation energy** respectively. These are empirical parameters, obtained by fitting to experimental measurements. The equation says that $k$ increases exponentially with temperature, with the steepness of that increase governed by $E_\mathrm{a}$.
 
 Taking the natural logarithm of both sides converts the Arrhenius equation into a linear form:
 
@@ -36,7 +36,7 @@ The most reliable way to extract $A$ and $E_\mathrm{a}$ from experimental data i
 knitr::include_graphics("lecture_11/figures/arrhenius_plot.png")
 ```
 
-When data are available at only two temperatures, we can estiamte $E_\mathrm{a}$ directly. Writing Eqn. \@ref(eq:arrhenius-linear) at temperatures $T_1$ and $T_2$ and subtracting to eliminate $\ln A$ gives:
+When data are available at only two temperatures, we can estimate $E_\mathrm{a}$ directly. Writing Eqn. \@ref(eq:arrhenius-linear) at temperatures $T_1$ and $T_2$ and subtracting to eliminate $\ln A$ gives:
 
 \begin{equation}
 \ln\frac{k_2}{k_1} = \frac{E_\mathrm{a}}{R}\left(\frac{1}{T_1} - \frac{1}{T_2}\right)
@@ -70,7 +70,7 @@ For many elementary reactions, the system must pass through a high-energy config
 knitr::include_graphics("lecture_11/figures/asymmetric_energy_profile.png")
 ```
 
-We now have a microscopic picture — elementary reactions have energy barriers — and a macroscopic fitting parameter $E_\mathrm{a}$ from the Arrhenius equation. What connects the two?
+We now have a microscopic picture (elementary reactions have energy barriers) and a macroscopic fitting parameter $E_\mathrm{a}$ from the Arrhenius equation. What connects the two?
 
 At any temperature, molecules have a spread of energies. In thermal equilibrium, the fraction of molecules with energy exceeding some threshold $E$ is approximately proportional to $\mathrm{e}^{-E/RT}$ — this is the **Boltzmann distribution**.^[In the Boltzmann distribution, the probability of a molecule occupying a microstate with energy $E$ is proportional to $\mathrm{e}^{-E/k_\mathrm{B}T}$, where $k_\mathrm{B}$ is the Boltzmann constant ($R = N_\mathrm{A}k_\mathrm{B}$). When several microstates share the same energy, the probability of having that energy is $g\,\mathrm{e}^{-E/k_\mathrm{B}T}$, where $g$ is the degeneracy. The fraction of molecules exceeding a threshold energy is dominated by the exponential factor.] Figure \@ref(fig:mb-distribution) illustrates this for the relative kinetic energy in bimolecular collisions: only collisions to the right of the threshold line have enough energy to surmount the barrier, and this fraction grows substantially at higher temperature.
 
@@ -81,25 +81,25 @@ At any temperature, molecules have a spread of energies. In thermal equilibrium,
 knitr::include_graphics("lecture_11/figures/maxwell_boltzmann_threshold.png")
 ```
 
-If a reaction requires molecules to exceed an energy barrier $E$, and the fraction doing so goes as $\mathrm{e}^{-E/RT}$, then the rate constant should contain this factor — and the barrier height should appear as $E_\mathrm{a}$ in the Arrhenius equation. This is the physical connection: the Arrhenius $E_\mathrm{a}$ for an elementary reaction reflects the energy barrier that molecules must overcome to react. The argument is illustrated here for kinetic energy in bimolecular collisions, but the exponential dependence on energy is a general feature of thermal equilibrium, applying equally to vibrational energy in unimolecular reactions or energy along a reaction coordinate. More rigorous theoretical treatments predict slightly different temperature dependences, but the Boltzmann argument captures the essential physics: the exponential sensitivity of reaction rates to temperature arises because only a small fraction of molecules have enough energy to cross the barrier.
+If a reaction requires molecules to exceed an energy barrier $E$, and the fraction doing so goes as $\mathrm{e}^{-E/RT}$, then the rate constant should contain this factor — and the barrier height should appear as $E_\mathrm{a}$ in the Arrhenius equation. This is the physical connection: for an elementary reaction, the empirical $E_\mathrm{a}$ obtained from an Arrhenius fit corresponds to the height of the energy barrier that molecules must overcome to react. The argument is illustrated here for kinetic energy in bimolecular collisions, but the exponential dependence on energy is a general feature of thermal equilibrium, applying equally to vibrational energy in unimolecular reactions or energy along a reaction coordinate. The exponential sensitivity of reaction rates to temperature arises because only a small fraction of molecules have enough energy to cross the barrier.
 
 The remaining factors that determine the rate constant are collected into the pre-exponential factor $A$. For a bimolecular elementary step, $A$ reflects how often molecules encounter each other in a suitable orientation. For a unimolecular step, $A$ reflects how often energy accumulates in the vibrational mode that leads to reaction. In both cases, $A$ plays the role of an attempt frequency — how often molecules are in a position to cross the barrier — while the exponential factor gives the fraction of those attempts that succeed.
 
 ## Reading an Arrhenius Plot: The Sign of $E_\mathrm{a}$ {#sec:sign-of-ea}
 
-If the data on an Arrhenius plot fall on a straight line, the slope is $-E_\mathrm{a}/R$. The sign of the slope — and therefore the sign of $E_\mathrm{a}$ — carries mechanistic information.
+We now know what $E_\mathrm{a}$ represents for an elementary reaction. What can its value tell us about mechanism? If the data on an Arrhenius plot fall on a straight line, the slope is $-E_\mathrm{a}/R$. The sign of the slope (and therefore the sign of $E_\mathrm{a}$) carries mechanistic information.
 
 Most reactions have rate constants that increase with temperature, giving a negative slope on the Arrhenius plot and a positive $E_\mathrm{a}$. For an elementary step, this reflects a genuine energy barrier. For a multi-step mechanism, $E_\mathrm{a}$ is still positive but does not correspond to a single barrier: it is an empirical composite of the activation energies of the individual elementary steps. These two cases are indistinguishable from the Arrhenius plot alone; mechanistic information is needed to interpret the number.
 
-Some reactions show very weak temperature dependence, with $E_\mathrm{a} \approx 0$ and a nearly flat Arrhenius plot. Radical--radical recombinations are an example: two radicals combining to form a bond does not require either partner to partially break an existing bond first (contrast with the bond-rearrangement argument above), so there is no significant energy barrier. The rate is limited by how often the radicals encounter each other, not by the energy of those encounters.
+Some reactions show very weak temperature dependence, with $E_\mathrm{a} \approx 0$ and a nearly flat Arrhenius plot. Radical--radical recombinations are an example: two radicals combining to form a bond does not require either partner to partially break an existing bond first (contrast with the bond-rearrangement argument above), so the energy barrier is negligible. The rate is limited by how often the radicals encounter each other, not by the energy of those encounters.
 
-Occasionally, a rate constant *decreases* with increasing temperature, giving a positive slope on the Arrhenius plot and a negative apparent $E_\mathrm{a}$ (Figure \@ref(fig:negative-ea)).
+The Boltzmann argument from the previous section tells us why $k$ increases with $T$ for any process with a barrier: a higher temperature puts more molecules above the threshold energy. Occasionally, however, a rate constant *decreases* with increasing temperature, giving a positive slope on the Arrhenius plot and a negative apparent $E_\mathrm{a}$ (Figure \@ref(fig:negative-ea)).
 
 ```{r negative-ea, echo=FALSE, fig.cap="Arrhenius plot for a reaction with a negative apparent activation energy. The positive slope indicates that the rate constant decreases with increasing temperature.", out.width='70%', fig.align='center'}
 knitr::include_graphics("lecture_11/figures/negative_ea.png")
 ```
 
-A single elementary step cannot have a negative $E_\mathrm{a}$. The energy profile for an elementary step always has a barrier between reactants and products; the barrier height cannot be negative. All elementary activation energies are therefore $\geq 0$, and a negative apparent $E_\mathrm{a}$ is direct evidence for a multi-step mechanism.
+A single elementary step cannot have a negative $E_\mathrm{a}$. The energy barrier for an elementary step is either positive (when the system must pass through a high-energy configuration) or zero (when no rearrangement is required), but it cannot be negative. All elementary activation energies are therefore $\geq 0$, and a negative apparent $E_\mathrm{a}$ is direct evidence for a multi-step mechanism.
 
 The oxidation of NO provides a well-studied example. In [Lecture 7](#unimolecular-and-third-order-reactions) we analysed the pre-equilibrium mechanism for this reaction and found $k_\mathrm{obs} = k_2 K$, where $K$ is the equilibrium constant for the dimerisation NO + NO $\rightleftharpoons$ (NO)~2~. As temperature increases, $k_2$ increases (it is an elementary step with a barrier), but $K$ decreases: two separate NO molecules have far more translational freedom than a single (NO)~2~ dimer, so the dissociated state has higher entropy, and increasing temperature favours it. The decrease in $K$ more than offsets the increase in $k_2$, and the net effect is that $k_\mathrm{obs}$ decreases with temperature.
 
@@ -109,9 +109,7 @@ The oxidation of NO provides a well-studied example. In [Lecture 7](#unimolecula
 
 ## When the Arrhenius Plot Is Not Linear {#sec:non-arrhenius}
 
-The Arrhenius equation predicts a straight line on the Arrhenius plot. This prediction rests on the assumption that $A$ and $E_\mathrm{a}$ are constants, independent of temperature. For many reactions this is a good approximation, but real data sometimes show curvature.
-
-Curvature means that $E_\mathrm{a}$ varies with temperature. We can accommodate this with a more general definition of the activation energy:
+The Arrhenius equation predicts a straight line on the Arrhenius plot. This prediction rests on the assumption that $A$ and $E_\mathrm{a}$ are constants, independent of temperature. For many reactions this is a good approximation, but real data sometimes show curvature, telling us that $E_\mathrm{a}$ is itself varying with temperature. We can accommodate this with a more general definition of the activation energy as the local slope of the Arrhenius plot:
 
 \begin{equation}
 E_\mathrm{a}(T) = -R\frac{\mathrm{d}(\ln k)}{\mathrm{d}(1/T)}
@@ -120,14 +118,13 @@ E_\mathrm{a}(T) = -R\frac{\mathrm{d}(\ln k)}{\mathrm{d}(1/T)}
 
 This is the local slope of the Arrhenius plot at each temperature, multiplied by $-R$. When the plot is linear, $E_\mathrm{a}(T)$ is constant and equal to the Arrhenius $E_\mathrm{a}$. The Arrhenius equation is the special case of Eqn. \@ref(eq:ea-general) where the activation energy does not depend on temperature.
 
-A common cause of curvature is competing pathways. When two parallel reactions contribute to the observed rate, $k_\mathrm{obs} = k_1 + k_2$, and each pathway has its own Arrhenius parameters. At low temperatures, the pathway with the lower $E_\mathrm{a}$ dominates because its exponential factor $\mathrm{e}^{-E_\mathrm{a}/RT}$ decreases less steeply with $1/T$. At high temperatures, both exponential factors approach unity and the larger pre-exponential factor wins: if the higher-$E_\mathrm{a}$ pathway also has the larger $A$, it takes over. (If it does not, the lower-$E_\mathrm{a}$ pathway dominates at all temperatures and no crossover occurs.) The Arrhenius plot shows two approximately linear regions with different slopes, connected by a curve (Figure \@ref(fig:competing-pathways)).
+A common cause of curvature is competing pathways. When two parallel reactions contribute to the observed rate, $k_\mathrm{obs} = k_1 + k_2$, and each pathway has its own Arrhenius parameters. At low temperatures, the pathway with the lower $E_\mathrm{a}$ dominates because its exponential factor $\mathrm{e}^{-E_\mathrm{a}/RT}$ decreases less steeply with $1/T$. At high temperatures, both exponential factors approach unity and the larger pre-exponential factor wins: if the higher-$E_\mathrm{a}$ pathway also has the larger $A$, it takes over.^[If the higher-$E_\mathrm{a}$ pathway does not also have the larger $A$, the lower-$E_\mathrm{a}$ pathway dominates at all temperatures and no crossover occurs.] The Arrhenius plot shows two approximately linear regions with different slopes, connected by a curve (Figure \@ref(fig:competing-pathways)).
 
-```{r competing-pathways, echo=FALSE, eval=FALSE, fig.cap="Arrhenius plot for a reaction with two competing pathways. Dashed lines show the individual rate constants $k_1$ (low $E_\\mathrm{a}$, low $A$) and $k_2$ (high $E_\\mathrm{a}$, high $A$). The solid curve shows $k_\\mathrm{obs} = k_1 + k_2$. At low temperatures the low-$E_\\mathrm{a}$ pathway dominates; at high temperatures the high-$E_\\mathrm{a}$ pathway takes over.", out.width='55%', fig.align='center'}
-# TODO: Ben to remake in style of old slide 12, showing k_1, k_2, and k_obs = k_1 + k_2.
+```{r competing-pathways, echo=FALSE, fig.cap="Arrhenius plot for a reaction with two competing pathways. Dashed lines show the individual rate constants $k_1$ (low $E_\\mathrm{a}$, low $A$) and $k_2$ (high $E_\\mathrm{a}$, high $A$). The solid curve shows $k_\\mathrm{obs} = k_1 + k_2$. At low temperatures the low-$E_\\mathrm{a}$ pathway dominates; at high temperatures the high-$E_\\mathrm{a}$ pathway takes over.", out.width='55%', fig.align='center'}
 knitr::include_graphics("lecture_11/figures/competing_pathways_arrhenius.png")
 ```
 
-Temperature data therefore complement the concentration data we have worked with throughout this course. Concentration measurements give us the rate law, which constrains the mechanism; temperature measurements reveal energy barriers and test mechanistic proposals. In [Lecture 1](#introduction-to-chemical-kinetics) we asked how temperature affects reaction rates. The Arrhenius equation captures the pattern; the Boltzmann factor makes the exponential form physically plausible; and the details of the Arrhenius plot (its slope, its sign, and its curvature) encode information about the energy landscape and the mechanism of the reaction.
+Temperature data therefore complement the concentration data we have worked with throughout this course. Concentration measurements give us the rate law, which constrains the mechanism; temperature measurements reveal energy barriers and test mechanistic proposals. In [Lecture 1](#introduction-to-chemical-kinetics) we asked how temperature affects reaction rates. The Arrhenius equation describes this dependence; the Boltzmann factor makes the exponential form physically plausible; and the details of the Arrhenius plot (its slope, its sign, and its curvature) encode information about the energy landscape and the mechanism of the reaction.
 
 ## Key Concepts {-}
 
