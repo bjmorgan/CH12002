@@ -23,7 +23,7 @@
 <meta name="author" content="Benjamin J. Morgan" />
 
 
-<meta name="date" content="2026-03-17" />
+<meta name="date" content="2026-03-18" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -244,6 +244,7 @@
 <li class="chapter" data-level="11.5" data-path="temperature-effects.html"><a href="temperature-effects.html#sec:non-arrhenius"><i class="fa fa-check"></i><b>11.5</b> When the Arrhenius Plot Is Not Linear</a></li>
 <li class="chapter" data-level="" data-path="temperature-effects.html"><a href="temperature-effects.html#key-concepts-9"><i class="fa fa-check"></i>Key Concepts</a></li>
 </ul></li>
+<li class="chapter" data-level="12" data-path="problem-solving-session-1.html"><a href="problem-solving-session-1.html"><i class="fa fa-check"></i><b>12</b> Problem-Solving Session</a></li>
 <li class="appendix"><span><b>Appendices</b></span></li>
 <li class="chapter" data-level="A" data-path="appendix-two-reactants.html"><a href="appendix-two-reactants.html"><i class="fa fa-check"></i><b>A</b> Integrated Rate Law for Two Different Reactants</a>
 <ul>
@@ -302,10 +303,10 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="appendix-feedback-derivation" class="section level1 hasAnchor" number="18">
+<div id="appendix-feedback-derivation" class="section level1 hasAnchor" number="19">
 <h1><span class="header-section-number">G</span> Solving the Feedback Equation<a href="appendix-feedback-derivation.html#appendix-feedback-derivation" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>This appendix derives the solution to the feedback equation (Eqn. <a href="feedback-stability-and-explosions.html#eq:feedback-equation">(10.1)</a>) presented in <a href="feedback-stability-and-explosions.html#feedback-stability-and-explosions">Lecture 10</a>. The derivation uses separation of variables and a standard integral. You are not expected to reproduce this derivation, but understanding the approach may help you see where the result comes from.</p>
-<div id="setting-up-the-integral" class="section level2 hasAnchor" number="18.1">
+<div id="setting-up-the-integral" class="section level2 hasAnchor" number="19.1">
 <h2><span class="header-section-number">G.1</span> Setting Up the Integral<a href="appendix-feedback-derivation.html#setting-up-the-integral" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>The feedback equation is:</p>
 <p><span class="math display">\[\frac{\mathrm{d}[\mathrm{I}]}{\mathrm{d}t} = \nu_\mathrm{f} + \phi[\mathrm{I}]\]</span></p>
@@ -314,14 +315,14 @@
 <p>Integrating both sides — the left from <span class="math inline">\([\mathrm{I}]_0\)</span> to <span class="math inline">\([\mathrm{I}]_t\)</span>, the right from <span class="math inline">\(0\)</span> to <span class="math inline">\(t\)</span>:</p>
 <p><span class="math display">\[\int_{[\mathrm{I}]_0}^{[\mathrm{I}]_t} \frac{\mathrm{d}[\mathrm{I}]}{\nu_\mathrm{f} + \phi[\mathrm{I}]} = \int_0^t \mathrm{d}t\]</span></p>
 </div>
-<div id="evaluating-the-left-hand-side" class="section level2 hasAnchor" number="18.2">
+<div id="evaluating-the-left-hand-side" class="section level2 hasAnchor" number="19.2">
 <h2><span class="header-section-number">G.2</span> Evaluating the Left-Hand Side<a href="appendix-feedback-derivation.html#evaluating-the-left-hand-side" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>The left-hand integral has the form <span class="math inline">\(\int \mathrm{d}x/(a + bx)\)</span>. To evaluate this, we substitute <span class="math inline">\(u = a + bx\)</span>, so that <span class="math inline">\(\mathrm{d}u = b\,\mathrm{d}x\)</span> and <span class="math inline">\(\mathrm{d}x = \mathrm{d}u/b\)</span>:</p>
 <p><span class="math display">\[\int \frac{\mathrm{d}x}{a + bx} = \frac{1}{b}\int \frac{\mathrm{d}u}{u} = \frac{1}{b}\ln(u) = \frac{1}{b}\ln(a + bx)\]</span></p>
 <p>With <span class="math inline">\(a = \nu_\mathrm{f}\)</span> and <span class="math inline">\(b = \phi\)</span>, the left-hand side becomes:</p>
 <p><span class="math display">\[\frac{1}{\phi}\Big[\ln\!\left(\nu_\mathrm{f} + \phi[\mathrm{I}]\right)\Big]_{[\mathrm{I}]_0}^{[\mathrm{I}]_t} = \frac{1}{\phi}\ln\!\left(\frac{\nu_\mathrm{f} + \phi[\mathrm{I}]_t}{\nu_\mathrm{f} + \phi[\mathrm{I}]_0}\right)\]</span></p>
 </div>
-<div id="solving-for-mathrmi_t" class="section level2 hasAnchor" number="18.3">
+<div id="solving-for-mathrmi_t" class="section level2 hasAnchor" number="19.3">
 <h2><span class="header-section-number">G.3</span> Solving for <span class="math inline">\([\mathrm{I}]_t\)</span><a href="appendix-feedback-derivation.html#solving-for-mathrmi_t" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Setting <span class="math inline">\([\mathrm{I}]_0 = 0\)</span> and equating with the right-hand side:</p>
 <p><span class="math display">\[\frac{1}{\phi}\ln\!\left(\frac{\nu_\mathrm{f} + \phi[\mathrm{I}]_t}{\nu_\mathrm{f}}\right) = t\]</span></p>

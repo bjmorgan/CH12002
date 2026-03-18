@@ -196,6 +196,7 @@ sec:arrhenius-determination
 sec:physical-meaning
 sec:sign-of-ea
 sec:non-arrhenius
+problem-solving-session-1
 appendix-two-reactants
 setting-up-the-problem
 solving-by-partial-fractions
