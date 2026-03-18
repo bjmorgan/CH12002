@@ -17,6 +17,7 @@ rmd_files: [
   "lecture_9/lecture_09.Rmd",
   "lecture_10/lecture_10.Rmd",
   "lecture_11/lecture_11.Rmd",
+  "lecture_12/lecture_12.Rmd",
   "appendices/two_reactant_second_order.Rmd",
   "appendices/consecutive_reactions.Rmd",
   "appendices/relaxation_methods.Rmd",
